@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
+import { signup, login, logout} from './actions/session_actions'
+
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     if (window.currentUser) {
@@ -13,10 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         store = configureStore(preloadedState);
-        // delete window.currentUser;
+        delete window.currentUser;
     } else {
         store = configureStore();
     }
+
+    //testing
+    window.store = store;
+    window.login = login; 
+    window.logout = logout; 
+    window.signup = signup; 
+
+
     const root = document.getElementById('root')
     ReactDOM.render(<Root store={store} />, root)
 })
