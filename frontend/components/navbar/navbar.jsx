@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Welcome = ({ currentUser, logout}) => {
+const NavBar = ({ currentUser, logout}) => {
 
     const sessionLinks = () => (
         <nav className="login-signup">
@@ -13,7 +13,7 @@ const Welcome = ({ currentUser, logout}) => {
 
     const welcomeUser = () => (
         <section className="header-section">
-            <h2 className="header-name">Hi, {currentUser.email}!</h2>
+            <h2 className="header-name">Welcome back, {currentUser.first_name}!</h2>
             <button className="header-btn" onClick={logout}>Log Out</button>
         </section> 
     );
@@ -22,4 +22,4 @@ const Welcome = ({ currentUser, logout}) => {
 
 
 
-export default Welcome;
+export default NavBar;

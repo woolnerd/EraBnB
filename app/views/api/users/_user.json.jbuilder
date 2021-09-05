@@ -1,1 +1,1 @@
-json.extract! user, :id, :email, :bio #add anything you want to have return as json
+json.extract! user, :id, :email, :first_name, :last_name, :birthdate, :bio

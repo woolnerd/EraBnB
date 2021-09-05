@@ -1,13 +1,11 @@
 import React from 'react';
-// CHANGE THIS PAGE
 
-
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,8 +18,8 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    const user = {...this.state};
+    this.props.login(user);
   }
 
   renderErrors() {
@@ -61,7 +59,6 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
             </label>
-            <br/>
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
@@ -70,4 +67,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default LoginForm;
