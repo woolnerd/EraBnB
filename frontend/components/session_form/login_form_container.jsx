@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
+import { closeModal } from '../../actions/modal_actions';
 import LoginForm from './login_form';
 
 
@@ -13,7 +14,8 @@ const mSTP = ({ error }) => ({
 });
 
 const mDTP = dispatch => ({
-    login: user => dispatch(login(user))
+    login: user => dispatch(login(user)),
+    closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mSTP, mDTP)(LoginForm);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import SignUpFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
 import { AuthRoute } from '../../util/route_util';
@@ -13,8 +14,8 @@ class Menu extends React.Component {
         this.menu = React.createRef();
         this.state = {
             revealDropdown: false,
+            // currentUser: this.props.currentUser,
         }
-
     }
 
     handleButtonClick = () => {
@@ -53,8 +54,18 @@ class Menu extends React.Component {
                     { this.state.revealDropdown && (         
                             <>
                                 <div className="menu-content">
-                                    <li onClick={this.props.login}>Log In</li>
-                                    <li onClick={this.props.signUp}>Sign Up</li>
+                                    { this.props.currentUser ? (
+                                        <div>
+                                            <li onClick={this.props.logout}>Log Out</li>
+
+                                        </div>
+                                        ) : (
+                                          <>
+                                            <li onClick={this.props.login}>Log In</li>
+                                            <li onClick={this.props.signUp}>Sign Up</li>
+                                          </>
+                                        ) 
+                                    }
                                 </div>
                                 <div onClick={this.hideDropdown} className="click-bg"></div>
                              </> 

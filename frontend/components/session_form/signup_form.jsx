@@ -51,10 +51,11 @@ class SignupForm extends React.Component {
           <div className="signup-form">
             <br/>
             <label>Email:
-              <input type="text"
+              <input type="email"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="signup-input"
+                placeholder="Email"
               />
             </label>
             <br/>
@@ -63,6 +64,8 @@ class SignupForm extends React.Component {
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="signup-input"
+                placeholder="Password"
+
               />
             </label>
             <br/>
@@ -71,6 +74,7 @@ class SignupForm extends React.Component {
                 value={this.state.first_name}
                 onChange={this.update('first_name')}
                 className="signup-input"
+                placeholder="First Name"
               />
             </label>
             <br/>
@@ -79,6 +83,7 @@ class SignupForm extends React.Component {
                 value={this.state.last_name}
                 onChange={this.update('last_name')}
                 className="signup-input"
+                placeholder="Last Name"
               />
             </label>
             <br/>
@@ -87,6 +92,7 @@ class SignupForm extends React.Component {
                 value={this.state.birthdate}
                 onChange={this.update('birthdate')}
                 className="signup-input"
+                placeholder="Date of Birth"
               />
             </label>
             <br/>
@@ -95,6 +101,7 @@ class SignupForm extends React.Component {
                 value={this.state.bio}
                 onChange={this.update('bio')}
                 className="signup-input"
+                placeholder="Bio"
               />
             </label>
             <br/>
