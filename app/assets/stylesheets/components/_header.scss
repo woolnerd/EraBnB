@@ -1,14 +1,18 @@
 @import './utilities/variables';
 
 .header-container {
+    background-color:rgba(256, 256, 256, .90);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     // margin: 0 auto;
-    border: 1px $navbar-color solid;
+    // border: 1px $navbar-color solid;
     padding: 20px 40px 0px 40px;
-    // width: 85%;
-    max-width: 56.25rem;
-    border-bottom: 1px $navbar-profile-color solid;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    // border-bottom: 1px $navbar-profile-color solid;
     padding-bottom: 14px;
+    position: fixed;
+
 }

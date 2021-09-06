@@ -1,10 +1,12 @@
+@import '../utilities/variables';
+
 .modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.40);
   z-index: 10;
 }
 
@@ -15,19 +17,53 @@
   transform: translate(-50%, -50%);
 }
 
-.signup-form-box {
+.signup-form-box, .login-form-box {
     width: 400px;
     height: fit-content;
     background-color: #fff;
     padding: 10px;
     border-radius: 20px;
-
+    display: flex;
+    flex-direction: column;
+    box-shadow: 12px 12px 8px rgba(0,0,0,.09);
 }
 
-.login-form-box {
-    width: 400px;
-    height: fit-content;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 20px;
+.signup-form-box h2, .login-form-box h2{
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+.signup-form-box p, .login-form-box p{
+  font-size: .75rem;
+  text-align: center;
+}
+
+
+.signup-form div, .login-form div{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 90%
+}
+
+.signup-form input {
+  // margin: 26px 12px
+}
+
+.session-submit {
+  width: 100%;
+  background-color: $airbnb-red;
+  border-radius: 8px;
+  color: $navbar-profile-color;
+  color: #DDD;
+  height: 43px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px #DDD solid;
+}
+
+.form-errors li {
+  font-size: 1rem;
+  color:rgb(191, 15, 15);
+  padding: 3px;
 }

@@ -63,7 +63,7 @@ class Menu extends React.Component {
                 </>
               )}
             </div>
-            <div onClick={this.hideDropdown} className="click-bg"></div>
+            {/* <div onClick={this.hideDropdown} className="click-bg"></div> */}
           </>
         )}
 

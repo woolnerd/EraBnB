@@ -1,40 +1,38 @@
-import React from 'react';
+import React from "react";
 // CHANGE THIS PAGE
-
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
-      first_name: '',
-      last_name: '',
-      birthdate: '',
-      bio: ''
+      email: "",
+      password: "",
+      first_name: "",
+      last_name: "",
+      birthdate: "",
+      bio: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = {...this.state};
+    const user = { ...this.state };
     this.props.signup(user);
   }
 
   renderErrors() {
-    return(
-      <ul>
+    return (
+      <ul className="form-errors">
         {this.props.error.map((err, i) => (
-          <li key={`err-${i}`}>
-            {err}
-          </li>
+          <li key={`err-${i}`}>{err}</li>
         ))}
       </ul>
     );
@@ -44,68 +42,77 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          Welcome to Era bnb!
-          <br/>
-          Please {this.props.formType} or {this.props.navLink}
+          <h2>Welcome to Era bnb!</h2>
+          <br />
+          <p>
+            Please {this.props.formType}
+          </p>
           {this.renderErrors()}
           <div className="signup-form">
-            <br/>
-            <label>Email:
-              <input type="email"
+            <div className="signup-email">
+              <label>Email</label>
+              <input
+                type="email"
                 value={this.state.email}
-                onChange={this.update('email')}
+                onChange={this.update("email")}
                 className="signup-input"
-                placeholder="Email"
+                // placeholder="Email"
               />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
+            </div>
+            <div className="signup-password">
+              <label> Password</label>
+              <input
+                type="password"
                 value={this.state.password}
-                onChange={this.update('password')}
+                onChange={this.update("password")}
                 className="signup-input"
-                placeholder="Password"
-
+                // placeholder="Password"
               />
-            </label>
-            <br/>
-            <label>First Name:
-              <input type="text"
+            </div>
+            <div className="signup-first-name">
+              <label>First Name</label>
+              <input
+                type="text"
                 value={this.state.first_name}
-                onChange={this.update('first_name')}
+                onChange={this.update("first_name")}
                 className="signup-input"
-                placeholder="First Name"
+                // placeholder="First Name"
               />
-            </label>
-            <br/>
-            <label>Last Name:
-              <input type="text"
+            </div>
+            <div className="signup-last-name">
+              <label>Last Name</label>
+              <input
+                type="text"
                 value={this.state.last_name}
-                onChange={this.update('last_name')}
+                onChange={this.update("last_name")}
                 className="signup-input"
-                placeholder="Last Name"
+                // placeholder="Last Name"
               />
-            </label>
-            <br/>
-            <label>Date of Birth:
-              <input type="text"
+            </div>
+            <div className="signup-form-dob">
+              <label>Date of Birth</label>
+              <input
+                type="text"
                 value={this.state.birthdate}
-                onChange={this.update('birthdate')}
+                onChange={this.update("birthdate")}
                 className="signup-input"
-                placeholder="Date of Birth"
+                // placeholder="Date of Birth"
               />
-            </label>
-            <br/>
-            <label>Bio:
+            </div>
+            <div className="signup-form-bio">
+              <label>Bio</label>
               <textarea
                 value={this.state.bio}
-                onChange={this.update('bio')}
+                onChange={this.update("bio")}
                 className="signup-input"
-                placeholder="Bio"
+                // placeholder="Bio"
               />
-            </label>
-            <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            </div>
+            <input
+              className="session-submit"
+              type="submit"
+              value={this.props.formType}
+            />
           </div>
         </form>
       </div>
