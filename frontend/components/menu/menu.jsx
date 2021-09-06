@@ -58,8 +58,8 @@ class Menu extends React.Component {
                 </div>
               ) : (
                 <>
-                  <li onClick={this.props.login}>Log In</li>
-                  <li onClick={this.props.signUp}>Sign Up</li>
+                  <li onClick={this.props.login}>Log in</li>
+                  <li onClick={this.props.signUp}>Sign up</li>
                 </>
               )}
             </div>

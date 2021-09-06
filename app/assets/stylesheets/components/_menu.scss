@@ -7,11 +7,11 @@
 // }
 
 .hamburger-btn {
-    
+    // padding: 5px;
 }
 
 .profile-icon {
-
+    
 }
 
 .menu {
@@ -35,21 +35,35 @@
 
 .menu:hover {
   box-shadow: -1px 3px 3px rgba(0, 0, 0, .20);
+}
 
+.menu:active {
+  box-shadow: -1px 3px 3px rgba(0, 0, 0, .20);
 }
 
 .menu-content {
+    background-color: #FFF;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     box-sizing: border-box;
     width: 200px;
     height: fit-content;
     cursor: pointer;
-    border: 1px $airbnb-red solid;
+    border: 1px #DDD solid;
+    border-radius: 8px;
     z-index: 1;
     position: relative;
-    right: 121px;
-    top: 24px;
+    right: 131px;
+    top: 10px;
+    list-style-type: none;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .13);
+}
+
+.menu-content li {
+    padding: 10px;
+    margin-left: 8px;
+    color: $navbar-profile-color;
 }
 
 .click-bg {
