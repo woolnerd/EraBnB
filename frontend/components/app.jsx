@@ -15,14 +15,12 @@ import {
 
 const App = () => (
   <div>
-    <header>
-        <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+    <header className="header-container">
+        {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
         <NavBarContainer />
         <MenuContainer />
-        <h1>Welcome to Erabnb!</h1>
-      {/* <Link to="/" className="header-link"> */}
-      {/* </Link> */}
+        {/* <h1>Welcome to Erabnb!</h1> */}
     </header>
   </div>
 );

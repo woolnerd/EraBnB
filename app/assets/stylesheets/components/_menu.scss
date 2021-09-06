@@ -1,0 +1,25 @@
+@import './utilities/variables';
+@import './base/typography';
+
+.menu-btn {
+    box-sizing: border-box;
+    font-family: $monserrat;
+    font-size: .875rem;
+    text-align: center;
+    width: 77px;
+    height: 42px;
+    background-color: $navbar-color;
+    border-radius: 21px;
+    border: 1px $navbar-profile-color solid;
+    line-height: 20px;
+}
+
+.menu-dropdown {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+}
+
