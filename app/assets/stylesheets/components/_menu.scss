@@ -1,22 +1,41 @@
 @import './utilities/variables';
 @import './base/typography';
 
-.menu-container {
+
+// .menu-container {
+
+// }
+
+.hamburger-btn {
+    
+}
+
+.profile-icon {
 
 }
 
 .menu {
-    //  box-sizing: border-box;
-    font-family: $monserrat;
+    font-family: "Montserrat", sans-serif;
     font-size: .875rem;
     text-align: center;
     width: 77px;
     height: 42px;
-    background-color: $navbar-color;
+    background-color: #fff;
     border-radius: 21px;
-    border: 1px $navbar-profile-color solid;
+    border: 1px #DDD solid;
     line-height: 20px;
     display: inline-block;
+    padding: 5px 5px 5px 12px;
+    z-index: 1;
+    box-sizing: border-box;
+    box-shadow: 0;
+    transition-property: box-shadow;
+    transition-duration: .25s;
+}
+
+.menu:hover {
+  box-shadow: -1px 3px 3px rgba(0, 0, 0, .20);
+
 }
 
 .menu-content {
@@ -26,7 +45,7 @@
     width: 200px;
     height: fit-content;
     cursor: pointer;
-    border: 1px red solid;
+    border: 1px $airbnb-red solid;
     z-index: 1;
     position: relative;
     right: 121px;

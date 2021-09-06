@@ -14,4 +14,30 @@
  *= require_self
  */
 
- @import 'main.scss'
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';
+
+/* // @import 'vendors/bootstrap';
+// @import 'vendors/jquery-ui'; */
+
+@import 'base/reset';
+@import 'base/typography';
+
+/* // @import 'layout/navigation';
+// @import 'layout/grid';
+// @import 'layout/header';
+// @import 'layout/footer';
+// @import 'layout/sidebar';
+// @import 'layout/forms'; */
+
+@import 'components/menu';
+@import 'components/header';
+@import 'components/modal';
+/* 
+// @import 'pages/home';
+// @import 'pages/about';
+// @import 'pages/contact';
+
+// @import 'themes/theme';
+// @import 'themes/admin'; */

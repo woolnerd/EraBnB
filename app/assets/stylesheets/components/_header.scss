@@ -1,7 +1,12 @@
+@import './utilities/variables';
+
 .header-container {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    margin: 15px 60px;
-    border: 1px black solid;
+    // margin: 0 auto;
+    border: 1px $navbar-color solid;
+    padding: 20px 40px 0px 40px;
+    // width: 85%;
+    max-width: 56.25rem;
 }
