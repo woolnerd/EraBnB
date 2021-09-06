@@ -53,8 +53,8 @@ class Menu extends React.Component {
                     { this.state.revealDropdown && (         
                             <>
                                 <div className="menu-content">
-                                    <Link to='/'>Login</Link>
-                                    <Link to='/'>Signup</Link>
+                                    <li onClick={this.props.login}>Log In</li>
+                                    <li onClick={this.props.signUp}>Sign Up</li>
                                 </div>
                                 <div onClick={this.hideDropdown} className="click-bg"></div>
                              </> 

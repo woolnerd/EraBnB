@@ -5,6 +5,8 @@ import NavBarContainer from './navbar/navbar_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import MenuContainer from './menu/menu_container';
+import Modal from './modal/modal';
+
 import {
   Route,
   Redirect,
@@ -15,12 +17,12 @@ import {
 
 const App = () => (
   <div>
+    <Modal />
     <header className="header-container">
-        {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+        <AuthRoute exact path="/login" component={LogInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <NavBarContainer />
         <MenuContainer />
-        {/* <h1>Welcome to Erabnb!</h1> */}
     </header>
   </div>
 );
