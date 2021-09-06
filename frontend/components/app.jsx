@@ -4,6 +4,7 @@ import { AuthRoute } from '../util/route_util';
 import NavBarContainer from './navbar/navbar_container';
 import LogInFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
+import UsersContainer from './users/users';
 import MenuContainer from './menu/menu_container';
 import Modal from './modal/modal';
 
@@ -28,7 +29,7 @@ const App = () => (
     <main id="splash1"></main>
     <main id="splash2"></main>
     <main id="splash3"></main>
-    <Route exact path="/listings" component={ListingsContainer} />
+    {/* <Route exact path="/listings" component={ListingsContainer} /> */}
     <Route exact path="/users" component={UsersContainer} />
   </div>
 );

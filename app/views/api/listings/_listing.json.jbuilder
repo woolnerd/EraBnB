@@ -1,0 +1,10 @@
+json.extract! listing, :id, 
+                        :title,
+                        :description,
+                        :era_theme,
+                        :address,
+                        :num_bedrms,
+                        :num_baths,
+                        :price,
+                        :clean_fee,
+                        :service_fee
