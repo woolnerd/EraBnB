@@ -28,8 +28,8 @@ class LoginForm extends React.Component {
   renderErrors() {
     return (
       <ul className="form-errors">
-        {this.props.error.map((err, i) => (
-          <li key={`err-${i}`}>{err}</li>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h2>Welcome to Era bnb!</h2>
+          <h2>Welcome to erabnb!</h2>
           <br />
           <p>
             Please {this.props.formType}

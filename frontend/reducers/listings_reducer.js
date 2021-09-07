@@ -5,7 +5,7 @@ import {
  } from "../actions/listing_actions";
 
  const listingsReducer = (state = {}, action) => {
-     debugger
+    //  debugger
      Object.freeze(state);
      switch(action.type) {
          case RECEIVE_ALL_LISTINGS:

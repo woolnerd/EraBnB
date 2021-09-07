@@ -1,5 +1,4 @@
 import React from "react";
-// CHANGE THIS PAGE
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -31,8 +30,8 @@ class SignupForm extends React.Component {
   renderErrors() {
     return (
       <ul className="form-errors">
-        {this.props.error.map((err, i) => (
-          <li key={`err-${i}`}>{err}</li>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
@@ -42,7 +41,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          <h2>Welcome to Era bnb!</h2>
+          <h2>Welcome to erabnb!</h2>
           <br />
           <p>
             Please {this.props.formType}

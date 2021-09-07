@@ -6,13 +6,13 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    has_many :bookings
+    # has_many :bookings
 
-    has_many :listings,
-    foreign_key: :host_id,
-    class_name: :listing
+    # has_many :listings,
+    # foreign_key: :host_id,
+    # class_name: :listing
 
-    has_many :reviews
+    # has_many :reviews
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

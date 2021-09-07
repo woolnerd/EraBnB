@@ -10,31 +10,31 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
-@import 'utilities/variables';
-@import 'utilities/functions';
-@import 'utilities/mixins';
+ @import 'main.scss'
+// @import 'utilities/variables';
+// @import 'utilities/functions';
+// @import 'utilities/mixins';
 
-/* // @import 'vendors/bootstrap';
+// @import 'vendors/bootstrap';
 // @import 'vendors/jquery-ui'; */
 
-@import 'base/reset';
-@import 'base/typography';
+// @import 'base/reset';
+// @import 'base/typography';
 
-/* // @import 'layout/navigation';
+ // @import 'layout/navigation';
 // @import 'layout/grid';
 // @import 'layout/header';
 // @import 'layout/footer';
 // @import 'layout/sidebar';
 // @import 'layout/forms'; */
 
-@import 'components/menu';
-@import 'components/header';
-@import 'components/modal';
-/* 
+// @import 'components/menu';
+// @import 'components/header';
+// @import 'components/modal';
+// /* 
 // @import 'pages/home';
 // @import 'pages/about';
 // @import 'pages/contact';

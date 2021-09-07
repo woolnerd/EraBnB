@@ -1,5 +1,5 @@
 import React  from "react";
-import {ListingItem} from './listing_item';
+import {ListingIndexItem} from './listing_index_item';
 
 class Listings extends React.Component {
     constructor(props){
@@ -14,7 +14,7 @@ class Listings extends React.Component {
 
     render() {
         const listings = this.props.listings.map((listing) => (
-            <ListingItem key={listing.id} listing={listing} />
+            <ListingIndexItem key={listing.id} listing={listing} />
         ));
         return (
             <div className="listing-map-flex">

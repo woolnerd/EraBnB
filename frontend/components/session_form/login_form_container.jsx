@@ -6,9 +6,9 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import LoginForm from './login_form';
 
 
-const mSTP = ({ error }) => ({
+const mSTP = ({ errors }) => ({
     //maybe add session to error? 
-    error,
+    errors,
     formType: 'login',
     // navLink: <Link to="/">sign up</Link>,
 });
