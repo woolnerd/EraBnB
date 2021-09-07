@@ -14,8 +14,9 @@ const receiveListing = listing => ({
     listing
 });
 
-const removeListing = listing => ({
+const removeListing = listingId => ({
     type: REMOVE_LISTING,
+    listingId
 })
 
 export const fetchListings = () => dispatch => (
@@ -23,22 +24,22 @@ export const fetchListings = () => dispatch => (
     .then( listings => dispatch(receiveAllListings(listings)))
 );
 
-export const fetchListing = listing => dispatch => (
-    APIListingUtil.fetchListing(listing)
-    .then( listing => dispatch(receiveListing(listinng)))
+export const fetchListing = listingId => dispatch => (
+    APIListingUtil.fetchListing(listingId)
+    .then( listing => dispatch(receiveListing(listing)))
 );
 
-export const createListing = listingId => dispatch => (
-    APIListingUtil.createListing(listingId)
+export const createListing = listing => dispatch => (
+    APIListingUtil.createListing(listing)
     .then( listing => dispatch(receiveListing(listing)))
 );
 
 export const updateListing = listing => dispatch => (
-    APIListingUtil.updateListing(listing.id)
+    APIListingUtil.updateListing(listing)
     .then( listing => dispatch(receiveListing(listing)))
 );
 
 export const deleteListing = listingId => dispatch => (
-    APIListingUtil.updateListing(listingId)
-    .then( () => dispatch(removeListing(listId)))
+    APIListingUtil.deleteListing(listingId)
+    .then( () => dispatch(removeListing(listingId)))
 );
