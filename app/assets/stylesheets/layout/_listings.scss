@@ -1,0 +1,62 @@
+@import '../utilities/variables';
+
+.listings-container {
+    display: flex;
+    flex-direction: row;
+    width: 31.25rem;
+    height: fit-content;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    position: relative;
+    top: 100px;
+    z-index: -1;
+}
+
+.listing-item img {
+    width: 18.75rem;
+}
+
+.listing-item { 
+    margin-top: 1.375rem;
+    /* width: 12.5rem; */
+    height: fit-content;
+    margin-left: 19.25rem;
+}   
+
+.listing-item:first-child {
+    display: none; 
+    margin-top: 1.375rem;
+    /* width: 12.5rem; */
+    height: fit-content;
+    margin-left: 19.25rem;
+
+    
+}   
+
+
+.listing-info {
+    padding-bottom: .5rem;
+    margin: .5rem;
+}
+
+.listing-info h3{
+    font-size: 1.25rem;
+}
+
+
+#test-map {
+    position: fixed;
+    right: 100px;
+    top: 110px;
+    width: 30rem;
+    height: 50rem;
+    position: fixed;
+    background-size: cover;
+    background-image: url("https://miro.medium.com/max/2000/1*UzmjsSZkY4m7S_nBXMC9AQ.png");
+}
+
+.listing-map-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

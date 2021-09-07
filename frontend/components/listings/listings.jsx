@@ -17,8 +17,11 @@ class Listings extends React.Component {
             <ListingItem key={listing.id} listing={listing} />
         ));
         return (
-            <div className="listings-container">
-                {listings}
+            <div className="listing-map-flex">
+                <div className="listings-container">
+                    {listings}
+                </div>
+                <div id="test-map"></div>
             </div>
         )
     }
