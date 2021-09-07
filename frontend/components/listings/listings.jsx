@@ -1,5 +1,5 @@
 import React  from "react";
-
+import {ListingItem} from './listing_item';
 
 class Listings extends React.Component {
     constructor(props){
@@ -13,10 +13,12 @@ class Listings extends React.Component {
 
 
     render() {
-        const { title, desription, price } = this.props.Listings
+        const listings = this.props.listings.map((listing) => (
+            <ListingItem key={listing.id} listing={listing} />
+        ));
         return (
-            <div>
-                <h1>{title}</h1>
+            <div className="listings-container">
+                {listings}
             </div>
         )
     }

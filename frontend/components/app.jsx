@@ -6,7 +6,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import UsersContainer from './users/users';
 import MenuContainer from './menu/menu_container';
-// import ListingsContainer from './listings/listings_container/';
+import ListingsContainer from '../components/listings/listings_container';
 import Modal from './modal/modal';
 
 import {
@@ -27,7 +27,7 @@ const App = () => (
       <img src="https://img.icons8.com/ios/50/000000/airbnb.png" />
       <MenuContainer />
     </header>
-    {/* <ListingsContainer /> */}
+    <ListingsContainer />
     <main id="splash1"></main>
     <main id="splash2"></main>
     <main id="splash3"></main>
