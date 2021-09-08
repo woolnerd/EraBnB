@@ -1,5 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -43,6 +45,7 @@ class LoginForm extends React.Component {
           <p>
             Please {this.props.formType}
           </p>
+          {/* <FontAwesomeIcon icon="coffee" /> */}
           {this.renderErrors()}
           <div className="login-form">
             <div className="login-email">

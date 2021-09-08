@@ -59,13 +59,28 @@
     top: 10px;
     list-style-type: none;
     box-shadow: 4px 4px 7px rgba(0, 0, 0, .13);
+    transition-property: background-color;
+
+
+    :hover {
+            background-color: rgb(245, 243, 243);
+            transition-duration: .10s;
+            // transition-delay: .025s;
+        // transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    li {
+    padding: 10px;
+    /* margin-left: 8px; */
+    color: $navbar-profile-color;
+    width: 198px;
+    /* padding: 10px; */
+    box-sizing: border-box;
+    border-radius: inherit;
+    text-align: left;
+    }
 }
 
-.menu-content li {
-    padding: 10px;
-    margin-left: 8px;
-    color: $navbar-profile-color;
-}
 
 .click-bg {
     position: fixed;

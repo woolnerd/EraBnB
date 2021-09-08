@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
                 value={this.state.birthdate}
                 onChange={this.update("birthdate")}
                 className="signup-input"
-                // placeholder="Date of Birth"
+                placeholder="YYYY-MM-DD"
               />
             </div>
             <div className="signup-form-bio">
@@ -104,7 +104,7 @@ class SignupForm extends React.Component {
                 value={this.state.bio}
                 onChange={this.update("bio")}
                 className="signup-input"
-                // placeholder="Bio"
+                placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <input

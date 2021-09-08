@@ -1,5 +1,5 @@
 import React from 'react';
-// import { AuthRoute } from '../util/route_util';
+import { AuthRoute } from '../util/route_util';
 // import { Provider } from 'react-redux';
 // import NavBarContainer from './navbar/navbar_container';
 // import LogInFormContainer from './session_form/login_form_container';
@@ -18,14 +18,17 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { fab } from "@fortawesome/free-brands-svg-icons";
+// import { faCheckSquare, faCoffee } from "@fortawesome/free-solid-svg-icons";
+
+// library.add(faCheckSquare, faCoffee);
+
 
 const App = () => (
-  <>
+  <div className="main-container">
     <Modal />
     <header className="header-container">
-      {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-      {/* <NavBarContainer /> */}
       <img src="https://img.icons8.com/ios/50/000000/airbnb.png" />
       <MenuContainer />
     </header>
@@ -33,12 +36,13 @@ const App = () => (
       <Route exact path="/" component={Splash} />
       <Route exact path="/listings" component={ListingsIndexContainer} />
       <Route exact path={`/listings/:listingId`} component={ListingContainer} />
-
+      {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+      {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
       <Route exact path="/users" component={UsersContainer} />
+      
       {/* <Map /> */}
     </div>
-    {/* <Splash /> */}
-  </>
+  </div>
 );
 
 export default App;

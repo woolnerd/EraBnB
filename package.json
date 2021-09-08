@@ -5,6 +5,9 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@mapbox/mapbox-gl-geocoder": "^4.7.3",
     "babel-loader": "^8.2.2",
     "faker": "^5.5.3",
@@ -41,5 +44,8 @@
   "bugs": {
     "url": "https://github.com/DavidWoolner/EraBnB/issues"
   },
-  "homepage": "https://github.com/DavidWoolner/EraBnB#readme"
+  "homepage": "https://github.com/DavidWoolner/EraBnB#readme",
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
 }

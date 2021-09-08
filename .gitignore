@@ -33,3 +33,4 @@ node_modules/
 bundle.js*
 .DS_Store
 npm-debug.log
+.env

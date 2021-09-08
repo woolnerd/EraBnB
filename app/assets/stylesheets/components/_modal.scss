@@ -52,7 +52,7 @@
 
 .session-submit {
   width: 100%;
-  background-color: $airbnb-red;
+  background-color: #ff5a91;
   border-radius: 8px;
   color: $navbar-profile-color;
   color: #DDD;
@@ -66,4 +66,30 @@
   font-size: 1rem;
   color:rgb(191, 15, 15);
   padding: 3px;
+}
+
+.login-input, .signup-input {
+  width: 25rem;
+  height: 2rem;
+  border-color: #eeeeee;
+  border-style: solid;
+  background: white;
+
+}
+
+.login-form-box, .signup-form-box {
+    width: 28rem;
+    height: 25rem;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 12px 12px 8px rgba(0,0,0,.09);
+    box-sizing: border-box;
+}
+
+.signup-form-box {
+    width: 28rem;
+    height: 37rem;
 }
