@@ -4,6 +4,7 @@ import Users from './users';
 
 //add listings, and bookings here eventually
 const mSTP = ({entities, session}) => {
+    console.log(entities);
         return {
             currentUser: entities.users[session.id],  
         }

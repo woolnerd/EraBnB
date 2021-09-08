@@ -4,6 +4,10 @@ import mapboxgl from "!mapbox-gl";
 class Map extends React.Component {
   componentDidMount() {}
 
+  componentDidUpdate() {
+
+  }
+  
   render() {
     let map = new mapboxgl.Map({
       container: "mapContainer",

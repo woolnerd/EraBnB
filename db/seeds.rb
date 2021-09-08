@@ -8,7 +8,7 @@
 
 require 'faker'
 
-# User.delete_all
+User.delete_all
 Listing.delete_all
 
 DemoUser = User.create({
@@ -19,10 +19,55 @@ DemoUser = User.create({
             birthdate:"1981-10-31", 
             bio:"I do not exist."})
 
+user1 = User.create({
+            email:Faker::Internet.email,
+            password:"password", 
+            first_name: Faker::Name.first_name  , 
+            last_name: Faker::Name.last_name,
+            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            bio: Faker::TvShows::Seinfeld.quote})
+
+user1 = User.create({
+            email:Faker::Internet.email,
+            password:"password", 
+            first_name: Faker::Name.first_name  , 
+            last_name: Faker::Name.last_name,
+            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            bio: Faker::TvShows::Seinfeld.quote})
+
+
+user2 = User.create({
+            email:Faker::Internet.email,
+            password:"password", 
+            first_name: Faker::Name.first_name  , 
+            last_name: Faker::Name.last_name,
+            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            bio: Faker::TvShows::Seinfeld.quote})
+
+
+user3 = User.create({
+            email:Faker::Internet.email,
+            password:"password", 
+            first_name: Faker::Name.first_name  , 
+            last_name: Faker::Name.last_name,
+            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            bio: Faker::TvShows::Seinfeld.quote})
+
+
+user4 = User.create({
+            email:Faker::Internet.email,
+            password:"password", 
+            first_name: Faker::Name.first_name  , 
+            last_name: Faker::Name.last_name,
+            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            bio: Faker::TvShows::Seinfeld.quote})
+
+
+
 
 listing1 = Listing.create({
 title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
+description: Faker::TvShows::Seinfeld.quote,
 era_theme: Faker::Company.type + "-esque", 
 address: Faker::Address.full_address, 
 longitude: Faker::Address.longitude,
@@ -32,6 +77,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 1
 }) 
 
 listing2 = Listing.create({
@@ -46,6 +92,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 1
 }) 
 
 listing3 = Listing.create({
@@ -60,6 +107,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 1
 }) 
 
 
@@ -75,6 +123,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 1
 }) 
 
 
@@ -90,6 +139,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 1
 }) 
 
 
@@ -105,6 +155,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -120,6 +171,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -135,6 +187,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -150,6 +203,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -165,6 +219,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -180,6 +235,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -195,6 +251,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -210,6 +267,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 4
 }) 
 
 
@@ -225,6 +283,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 3
 }) 
 
 
@@ -240,6 +299,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 3
 }) 
 
 
@@ -255,6 +315,7 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 3
 }) 
 
 
@@ -270,4 +331,5 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
+host_id: 3
 }) 

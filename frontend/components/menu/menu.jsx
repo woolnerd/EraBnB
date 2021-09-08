@@ -41,6 +41,7 @@ class Menu extends React.Component {
   }
 
   render() {
+    // debugger
     return (
       <div onClick={this.handleButtonClick} className="menu" ref={this.menu}>
         {/* <button >Menu</button> */}
@@ -57,6 +58,9 @@ class Menu extends React.Component {
             <div className="menu-content">
               {this.props.currentUser ? (
                 <div>
+                  <Link to={`/users/${this.props.currentUser.id}`}>
+                    <li className="profile-link">Profile</li>
+                  </Link>
                   <li onClick={this.props.logout}>Log Out</li>
                 </div>
               ) : (

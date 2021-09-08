@@ -18,7 +18,7 @@ const mDTP = dispatch => ({
     login: () => dispatch(openModal('login')),
     closeModal: () => dispatch(closeModal()),
     logout: () => dispatch(logout()),
-    loginDemoUser: () => dispatch(loginDemoUser())
+    loginDemoUser: () => dispatch(loginDemoUser()),
 });
 
 

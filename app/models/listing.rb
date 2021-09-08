@@ -4,12 +4,12 @@ class Listing < ApplicationRecord
               :num_bedrms, :num_baths, :price, :clean_fee, :service_fee, presence: true
 
 
-    # belongs_to :host,
-    #     foreign_key: :host_id,
-    #     class_name: :User
+    belongs_to :host,
+        foreign_key: :host_id,
+        class_name: :User
 
-    has_many :bookings
-    has_many :reviews
+    # has_many :bookings
+    # has_many :reviews
     
 end
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 // import { Provider } from 'react-redux';
 // import NavBarContainer from './navbar/navbar_container';
 // import LogInFormContainer from './session_form/login_form_container';
 // import SignUpFormContainer from './session_form/signup_form_container';
-import UsersContainer from './users/users';
+import UsersContainer from './users/users_container';
 import MenuContainer from './menu/menu_container';
 import ListingsIndexContainer from '../components/listings/listings_index_container';
 import ListingContainer from '../components/listings/listing_container';
@@ -18,12 +18,12 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+
 // import { library } from "@fortawesome/fontawesome-svg-core";
-// import { fab } from "@fortawesome/free-brands-svg-icons";
-// import { faCheckSquare, faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import { fas } from "@fortawesome/free-solid-svg-icons";
+// import { faTwitter, faFontAwesome } from "@fortawesome/free-brand-svg-icons";
 
-// library.add(faCheckSquare, faCoffee);
-
+// library.add(fas, faTwitter, faFontAwesome);
 
 const App = () => (
   <div className="main-container">
@@ -38,7 +38,7 @@ const App = () => (
       <Route exact path={`/listings/:listingId`} component={ListingContainer} />
       {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
-      <Route exact path="/users" component={UsersContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
       
       {/* <Map /> */}
     </div>

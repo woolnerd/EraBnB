@@ -8,9 +8,9 @@ class User < ApplicationRecord
 
     # has_many :bookings
 
-    # has_many :listings,
-    # foreign_key: :host_id,
-    # class_name: :listing
+    has_many :listings,
+    foreign_key: :host_id,
+    class_name: :listing
 
     # has_many :reviews
 

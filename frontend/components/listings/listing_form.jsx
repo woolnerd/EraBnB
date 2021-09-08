@@ -9,6 +9,35 @@ class ListingForm extends React.Component {
 
   componentDidMount() {}
 
+  handleChange(field) {
+    let value = e.target.value 
+    if (field === "price" || field === "num_bdrms") {
+      value = parseInt(e.target.value)
+    }
+    this.setState({[field]: value})
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
+    const geocoder = mbxGeocoding({
+      accessToken: mapboxgl.accessToken
+    })
+
+    geocoder.forwardGeocode({
+      query: `${this.state.address}`,
+      limit: 1
+    }).send().then(res=>{
+      this.setState({
+        longitude: res.body.features[0].center[0],
+        latitude: res.body.features[0].center[1]
+      })
+    })
+    this.setState({host_id: this.props.session.id})
+  }
+
   render() {
     return (
       <div className="listing-form-container">
@@ -61,10 +90,28 @@ class ListingForm extends React.Component {
               <label>Number of Bedrooms</label>
               <input
                 type="text"
-                value={this.state.birthdate}
+                value={this.state.num_bedrms}
                 onChange={this.update("birthdate")}
                 className="listing-input"
-                placeholder="YYYY-MM-DD"
+                // placeholder="YYYY-MM-DD"
+              />
+            </div>
+            <div className="listing-num-baths">
+              <label>Number of Bathrooms</label>
+              <input
+                value={this.state.num_baths}
+                onChange={this.update("bio")}
+                className="listing-input"
+                // placeholder="Tell us about yourself! (If you want to.)"
+              />
+            </div>
+            <div className="listing-price">
+              <label>Price</label>
+              <textarea
+                value={this.state.price}
+                onChange={this.update("bio")}
+                className="listing-input"
+                // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <div className="listing-num-baths">
@@ -73,9 +120,10 @@ class ListingForm extends React.Component {
                 value={this.state.num_baths}
                 onChange={this.update("bio")}
                 className="listing-input"
-                placeholder="Tell us about yourself! (If you want to.)"
+                // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
+
             <input
               className="session-submit"
               type="submit"
@@ -87,3 +135,5 @@ class ListingForm extends React.Component {
     );
   }
 }
+
+export default ListingForm;

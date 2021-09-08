@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 
 class LoginForm extends React.Component {
@@ -42,10 +43,8 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
-          <p>
-            Please {this.props.formType}
-          </p>
-          {/* <FontAwesomeIcon icon="coffee" /> */}
+          <p>Please {this.props.formType}</p>
+          {/* <FontAwesomeIcon icon="fa-solid fa-check-square" />{" "} */}
           {this.renderErrors()}
           <div className="login-form">
             <div className="login-email">
