@@ -10,7 +10,7 @@ import ListingsIndexContainer from '../components/listings/listings_index_contai
 import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
 import { Splash } from './splash/splash';
-
+import  Map from '../components/map/map';
 import {
   Route,
   Redirect,
@@ -35,6 +35,7 @@ const App = () => (
       <Route exact path={`/listings/:listingId`} component={ListingContainer} />
 
       <Route exact path="/users" component={UsersContainer} />
+      {/* <Map /> */}
     </div>
     {/* <Splash /> */}
   </>

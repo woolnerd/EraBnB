@@ -48,7 +48,10 @@ class Menu extends React.Component {
           className="hamburger-btn"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAOElEQVRIie3TsQkAMAwDwSf7b+XBnCqQ1hC7yR+oFioEkhoEkM2JU7YGBt1yuE+/807SM95JUskGsVVPTkFzAfwAAAAASUVORK5CYII="
         />
-        <img className="profile-icon" src="https://img.icons8.com/material-rounded/24/000000/user-male-circle.png" />
+        <img
+          className="profile-icon"
+          src="https://img.icons8.com/material-rounded/24/000000/user-male-circle.png"
+        />
         {this.state.revealDropdown && (
           <>
             <div className="menu-content">
@@ -60,6 +63,7 @@ class Menu extends React.Component {
                 <>
                   <li onClick={this.props.login}>Log in</li>
                   <li onClick={this.props.signUp}>Sign up</li>
+                  <li onClick={this.props.loginDemoUser}>Demo user</li>
                 </>
               )}
             </div>

@@ -50,6 +50,8 @@ class Api::ListingsController < ApplicationController
                                         :description,
                                         :era_theme,
                                         :address,
+                                        :longitiude,
+                                        :latitude,
                                         :num_bedrms,
                                         :num_baths,
                                         :price,

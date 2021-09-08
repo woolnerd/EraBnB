@@ -5,6 +5,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
+    "@mapbox/mapbox-gl-geocoder": "^4.7.3",
     "babel-loader": "^8.2.2",
     "faker": "^5.5.3",
     "mapbox-gl": "^2.4.1",

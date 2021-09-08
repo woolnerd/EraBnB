@@ -13,6 +13,7 @@ export const ListingIndexItem = ({listing}) => (
       <div className="listing-info">
         <h3>{listing.title}</h3>
         <p>{listing.description}</p>
+        <p>{listing.address}</p>
         <p>${listing.price}/night</p>
         <p>Bedrooms {listing.num_bedrms} <span> Bathrooms {listing.num_baths}</span></p>
       </div>

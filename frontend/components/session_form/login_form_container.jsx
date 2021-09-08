@@ -13,10 +13,14 @@ const mSTP = ({ errors }) => ({
     // navLink: <Link to="/">sign up</Link>,
 });
 
+
+
+
 const mDTP = dispatch => ({
     login: user => dispatch(login(user)),
     closeModal: () => dispatch(closeModal()),
-    openModal: signup => dispatch(openModal(signup))
+    openModal: signup => dispatch(openModal(signup)),
+    loginDemoUser: () => dispatch(login()),
 });
 
 export default connect(mSTP, mDTP)(LoginForm);
