@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
     has_many :listings,
     foreign_key: :host_id,
-    class_name: :listing
+    class_name: :Listing
 
     # has_many :reviews
 
