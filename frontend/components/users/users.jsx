@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom'
 
 class Users extends React.Component {
     constructor(props){
@@ -14,7 +14,9 @@ class Users extends React.Component {
                 <h1>Hello, {currentUser.first_name}!</h1>
                  <h2>Email: {currentUser.email}</h2>
                  <h3>Bio: {currentUser.bio}</h3>
+                 <Link to="/listing/new/"><h3>Create a New Listing</h3></Link>
             </div>
+
         )
     }
 }

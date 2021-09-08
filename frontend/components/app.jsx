@@ -29,7 +29,7 @@ const App = () => (
   <div className="main-container">
     <Modal />
     <header className="header-container">
-      <img src="https://img.icons8.com/ios/50/000000/airbnb.png" />
+      <Link to="/"><img src="https://img.icons8.com/ios/50/000000/airbnb.png" /></Link>
       <MenuContainer />
     </header>
     <div className="main-content">

@@ -61,7 +61,9 @@ class Menu extends React.Component {
                   <Link to={`/users/${this.props.currentUser.id}`}>
                     <li className="profile-link">Profile</li>
                   </Link>
-                  <li onClick={this.props.logout}>Log Out</li>
+                  <Link to="/">
+                    <li onClick={this.props.logout}>Log Out</li>
+                  </Link>
                 </div>
               ) : (
                 <>
