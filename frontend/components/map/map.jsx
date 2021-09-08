@@ -37,7 +37,6 @@ const Map = ({listings}) => {
             }
         }
 , []));
-        console.log(coordListings);
 
 
 

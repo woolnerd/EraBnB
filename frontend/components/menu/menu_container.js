@@ -5,7 +5,6 @@ import { logout, loginDemoUser } from '../../actions/session_actions';
 
 
 const mSTP = ({entities, session}) => {
-        // debugger; 
         return {
             currentUser: entities.users[session.id],
             demoUser: entities.users[1],
