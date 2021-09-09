@@ -14,7 +14,7 @@ class Map extends React.Component {
         ${listing.title}
       </h4>
       <p>
-      ${listing.price} galleons/night
+      ${listing.price} price/night
       </p>
       </div>`;
   }
@@ -34,9 +34,9 @@ class Map extends React.Component {
     this.map = new mapboxgl.Map({
       container: "mapContainer",
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [95.7129, 37.0902],
+      center: [-73.982, 40.769],
       // center: [0, 0],
-      zoom: 7,
+      zoom: 12,
     });
   }
 
@@ -49,16 +49,10 @@ class Map extends React.Component {
         .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)))
     );
 
-    // new mapboxgl.Marker().setLngLat([95.7129, 37.0902]).addTo(this.map);
-    // new mapboxgl.Marker()
-    //   .setLngLat([95.7129, 37.0902])
-    //   .addTo(this.map);
   }
 
   render() {
-    // if (!this.props.listings) {
-    //   return null
-    // }
+
     return <div id="mapContainer"></div>;
   }
 }

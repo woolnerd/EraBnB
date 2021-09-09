@@ -39,7 +39,7 @@ const App = () => (
       <Route exact path={`/listings/:listingId`} component={ListingContainer} />
       {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
-      {/* <ProtectedRoute exact path="/listings/new" component={ListingFormContainer}/> */}
+      <ProtectedRoute exact path="/listings/new" component={ListingFormContainer}/>
       <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
       
   

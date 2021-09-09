@@ -9,4 +9,5 @@ json.extract! listing, :id,
                         :num_baths,
                         :price,
                         :clean_fee,
-                        :service_fee
+                        :service_fee,
+                        :host_id

@@ -6,10 +6,14 @@ class Listing extends React.Component {
   }
 
   render() {
-      if (!this.props.listing) {
-          return null;
-      }
-    const {listing} = this.props;
+    // debugger
+    if (!this.props.listing) {
+        return null;
+    }
+    const {currentUser, listing} = this.props;
+    const showEdit = currentUser === listing.host_id ? <button>Edit</button> : null 
+  
+    // const {listing} = this.props;
     return (
         
             {listing} && 
@@ -26,7 +30,9 @@ class Listing extends React.Component {
             Bedrooms {listing.num_bedrms}{" "}
             <span> Bathrooms {listing.num_baths}</span>
           </p>
+          {showEdit}
         </div>
+        
       </div>
         
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import mapboxgl from "!mapbox-gl";
 
 class ListingForm extends React.Component {
   constructor(props) {
@@ -11,12 +12,15 @@ class ListingForm extends React.Component {
     
   }
 
-  handleChange(field) {
-    let value = e.target.value 
-    if (field === "price" || field === "num_bdrms") {
-      value = parseInt(e.target.value)
+  update(field) {
+    return e => { 
+      let value = e.target.value 
+      if (field === "price" || field === "num_bdrms") {
+        value = parseInt(e.target.value)
+      }
+      this.setState({[field]: value})
+
     }
-    this.setState({[field]: value})
   }
 
   handleSubmit(e) {
@@ -43,7 +47,7 @@ class ListingForm extends React.Component {
   render() {
     return (
       <div className="listing-form-container">
-        <form onSubmit={this.handleSubmit} className="listing-form-box">
+        <form onSubmit={(e)=>this.handleSubmit} className="listing-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
