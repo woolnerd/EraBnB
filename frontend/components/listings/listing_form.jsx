@@ -47,7 +47,7 @@ class ListingForm extends React.Component {
   render() {
     return (
       <div className="listing-form-container">
-        <form onSubmit={(e)=>this.handleSubmit} className="listing-form-box">
+        <form onSubmit={(e) => this.handleSubmit} className="listing-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
@@ -59,77 +59,88 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.title}
                 onChange={this.update("title")}
-                className="listing-input"
                 // placeholder="title"
               />
             </div>
-            <div className="listing-password">
+            <div className="listing-form">
               <label>Description</label>
               <textarea
                 value={this.state.description}
                 onChange={this.update("description")}
-                className="listing-input"
                 // placeholder="description"
               />
             </div>
-            <div className="listing-era-theme">
+            <div className="listing-form">
               <label>Era Theme</label>
               <input
                 type="text"
                 value={this.state.era_theme}
                 onChange={this.update("era_theme")}
-                className="listing-input"
                 // placeholder="First Name"
               />
             </div>
-            <div className="listing-address">
+            <div className="listing-form">
               <label>Address</label>
               <input
                 type="text"
                 value={this.state.address}
                 onChange={this.update("address")}
-                className="listing-input"
                 // placeholder="Address"
               />
             </div>
-            <div className="listing-num-bdrms">
+            <div className="listing-form">
               <label>Number of Bedrooms</label>
               <input
                 type="text"
                 value={this.state.num_bedrms}
                 onChange={this.update("birthdate")}
-                className="listing-input"
                 // placeholder="YYYY-MM-DD"
               />
             </div>
-            <div className="listing-num-baths">
+            <div className="listing-form">
               <label>Number of Bathrooms</label>
               <input
                 value={this.state.num_baths}
                 onChange={this.update("bio")}
-                className="listing-input"
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-            <div className="listing-price">
+            <div className="listing-form">
               <label>Price</label>
-              <textarea
+              <input
+                type="text"
                 value={this.state.price}
                 onChange={this.update("bio")}
-                className="listing-input"
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-            <div className="listing-num-baths">
+            <div className="listing-form">
               <label>Number of Bathrooms</label>
-              <textarea
+              <input
+                type="text"
                 value={this.state.num_baths}
                 onChange={this.update("bio")}
-                className="listing-input"
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-
+            <div className="listing-form">
+              <label>Number of Bathrooms</label>
+              <input
+                type="text"
+                value={this.state.num_baths}
+                onChange={this.update("bio")}
+                // placeholder="Tell us about yourself! (If you want to.)"
+              />
+            </div>
+            <div className="listing-form">
+              <label>Upload Photo</label>
+              <input
+                type="file"
+                // value={this.state.photo}
+                // onChange={this.update("bio")}
+                // placeholder="Tell us about yourself! (If you want to.)"
+              />
+            </div>
             <input
               className="session-submit"
               type="submit"
