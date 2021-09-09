@@ -1,16 +1,11 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-// import { Provider } from 'react-redux';
-// import NavBarContainer from './navbar/navbar_container';
-// import LogInFormContainer from './session_form/login_form_container';
-// import SignUpFormContainer from './session_form/signup_form_container';
 import UsersContainer from './users/users_container';
 import MenuContainer from './menu/menu_container';
 import ListingsIndexContainer from '../components/listings/listings_index_container';
 import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
 import { Splash } from './splash/splash';
-import  Map from '../components/map/map';
 import ListingFormContainer from './listings/listing_form_container';
 import {
   Route,

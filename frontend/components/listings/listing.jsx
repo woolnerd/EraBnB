@@ -12,8 +12,7 @@ class Listing extends React.Component {
     }
     const {currentUser, listing} = this.props;
     const showEdit = currentUser === listing.host_id ? <button>Edit</button> : null 
-  
-    // const {listing} = this.props;
+
     return (
         
             {listing} && 
