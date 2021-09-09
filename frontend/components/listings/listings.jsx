@@ -14,9 +14,11 @@ class Listings extends React.Component {
 
 
     render() {
+        
         const listings = this.props.listings.map((listing) => (
             <ListingIndexItem key={listing.id} listing={listing} />
         ));
+
         return (
             <div className="listing-map-flex">
                 <div className="listings-container">

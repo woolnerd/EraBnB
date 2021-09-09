@@ -18,5 +18,5 @@ export const ListingIndexItem = ({listing}) => (
         <p>Bedrooms {listing.num_bedrms} <span> Bathrooms {listing.num_baths}</span></p>
       </div>
     </div>
-);
+)
 
