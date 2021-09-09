@@ -9,7 +9,7 @@ class Users extends React.Component {
   render() {
     const { currentUser } = this.props;
     const listings = currentUser.user_listing.map((listing) => (
-      <Link to={`/listing/${listing.id}`}>
+      <Link to={`/listings/${listing.id}`}>
         <h3>{listing.title}</h3>
       </Link>
     ));
@@ -23,7 +23,7 @@ class Users extends React.Component {
         <h2>Your listings: </h2>
         {listings}
         <br />
-        <Link to="/listing/new/">
+        <Link to="/listings/new/">
           <h3>Create a New Listing</h3>
         </Link>
       </div>

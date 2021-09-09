@@ -11,6 +11,7 @@ import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
 import { Splash } from './splash/splash';
 import  Map from '../components/map/map';
+import ListingFormContainer from './listings/listing_form_container';
 import {
   Route,
   Redirect,
@@ -26,7 +27,7 @@ import {
 // library.add(fas, faTwitter, faFontAwesome);
 
 const App = () => (
-  <div className="main-container">
+  <div >
     <Modal />
     <header className="header-container">
       <Link to="/"><img src="https://img.icons8.com/ios/50/000000/airbnb.png" /></Link>
@@ -38,9 +39,10 @@ const App = () => (
       <Route exact path={`/listings/:listingId`} component={ListingContainer} />
       {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
+      {/* <ProtectedRoute exact path="/listings/new" component={ListingFormContainer}/> */}
       <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
       
-      {/* <Map /> */}
+  
     </div>
   </div>
 );

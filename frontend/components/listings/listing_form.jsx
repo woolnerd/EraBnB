@@ -7,7 +7,9 @@ class ListingForm extends React.Component {
     this.state = this.props.listing;
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    
+  }
 
   handleChange(field) {
     let value = e.target.value 
@@ -45,7 +47,7 @@ class ListingForm extends React.Component {
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
-          {this.renderErrors()}
+          {/* {this.renderErrors()} */}
           <div className="listing-form">
             <div className="listing-email">
               <label>Title</label>

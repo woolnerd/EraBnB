@@ -1,61 +1,66 @@
-import React from 'react';
-import mapboxgl from '!mapbox-gl';
-import { useEffect } from 'react';
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
+import React from "react";
+import mapboxgl from "!mapbox-gl";
 
-const Map = ({listings}) => {
+class Map extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.map;
+  }
+
+  marker(listing) {
+    return `<div> 
+      <h4>
+        ${listing.title}
+      </h4>
+      <p>
+      ${listing.price} galleons/night
+      </p>
+      </div>`;
+  }
+  componentDidMount() {
+    // debugger
+    this.props.fetchListings();
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
-    
 
-    const geocoder = mbxGeocoding({
-    accessToken: mapboxgl.accessToken,
+    // this.map = new mapboxgl.Map({
+    //   container: "mapContainer",
+    //   style: "mapbox://styles/mapbox/streets-v11",
+    //   center: [0.1278, 51.5074],
+    //   zoom: 10,
+    // });
+
+    this.map = new mapboxgl.Map({
+      container: "mapContainer",
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [95.7129, 37.0902],
+      // center: [0, 0],
+      zoom: 7,
     });
+  }
 
-    let coordListings = listings.map( listing => 
-        geocoder.forwardGeocode({
-            query: `${listing.address}`,
-            limit: 1
-        }).send()
-        .then( res => {
-            const match = res.body;
-            const coordinates = match.features[0].geometry.coordinates;
-            const placeName = match.features[0].place_name;
-            const center = match.features[0].center 
+  componentDidUpdate() {
+    // debugger
+    this.props.listings.forEach((listing) =>
+      new mapboxgl.Marker()
+        .setLngLat([listing.longitude, listing.latitude])
+        .addTo(this.map)
+        .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)))
+    );
 
-            return {
-                type: 'feature',
-                center,
-                geometry: {
-                    type: "Point",
-                    coordinates,
-                },
-                properties: {
-                    description: placeName
-                }
-            }
-        }
-, []));
+    // new mapboxgl.Marker().setLngLat([95.7129, 37.0902]).addTo(this.map);
+    // new mapboxgl.Marker()
+    //   .setLngLat([95.7129, 37.0902])
+    //   .addTo(this.map);
+  }
 
-
-
-    useEffect(() => {
-        let map = new mapboxgl.Map({
-          container: "mapContainer",
-          style: "mapbox://styles/mapbox/streets-v11",
-          center: [0.1278, 51.5074],
-          zoom: 10,
-
-        });
-
-        new mapboxgl.Marker()
-        .setLngLat([0.1278, 51.5074])
-        .addTo(map)
-      }, []);
-
-    return <div id="mapContainer" height="750px" width="500px"></div>;
-
+  render() {
+    // if (!this.props.listings) {
+    //   return null
+    // }
+    return <div id="mapContainer"></div>;
+  }
 }
 
-export default Map;
+export default Map

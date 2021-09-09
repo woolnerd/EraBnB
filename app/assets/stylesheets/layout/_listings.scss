@@ -1,4 +1,3 @@
-// @import '../utilities/variables';
 
 .listings-container {
     display: flex;
@@ -8,8 +7,8 @@
     flex-wrap: wrap;
     margin-bottom: 5rem;
     position: relative;
-    top: 100px;
-    // z-index: -1;
+    // top: 100px;
+    z-index: -1;
     // overflow-y: scroll;
 }
 
@@ -42,22 +41,34 @@
 }
 
 
-// #test-map {
-//     position: fixed;
-//     right: 100px;
-//     top: 110px;
-//     width: 30rem;
-//     height: 50rem;
-//     background-size: cover;
-//     background-image: url("https://miro.medium.com/max/2000/1*UzmjsSZkY4m7S_nBXMC9AQ.png");
-//     z-index: -1;
-// }
 
 .listing-map-flex {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 75%;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    // width: 75%;
+    width: 600px;
+    margin: 0;
+    padding: 0;
+    
+    #mapContainer {
+        position: fixed;
+        right: 0;
+        width: 50vw;
+        height: 75vh;
+        margin-top: 100px;
+    }
+
+
 }
 
+
+
+.listing-item-show {
+    margin-left: 100px;
+    
+    img {
+        width: 500px;
+    }
+}

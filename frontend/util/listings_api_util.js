@@ -34,3 +34,4 @@ export const deleteListing = listingId => (
         url: `/api/listings/${listingId}`,
     })
 )
+

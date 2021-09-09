@@ -1,5 +1,3 @@
-@import './utilities/variables';
-@import './base/typography';
 
 
 // .menu-container {
@@ -65,8 +63,6 @@
     :hover {
             background-color: rgb(245, 243, 243);
             transition-duration: .10s;
-            // transition-delay: .025s;
-        // transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     li {

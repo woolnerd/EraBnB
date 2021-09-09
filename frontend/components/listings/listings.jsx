@@ -1,6 +1,6 @@
 import React  from "react";
 import {ListingIndexItem} from './listing_index_item';
-import  Map from '../map/map';
+import  MapContainer from '../map/map_container';
 
 class Listings extends React.Component {
     constructor(props){
@@ -22,7 +22,7 @@ class Listings extends React.Component {
                 <div className="listings-container">
                     {listings}
                 </div>
-                <Map listings={listings}/>
+                <MapContainer />
             </div>
         )
     }
