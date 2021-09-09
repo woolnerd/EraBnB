@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import { fetchListings } from "../../actions/listing_actions";
+import { createListing } from "../../actions/listing_actions";
 import ListingForm from "./listing_form";
 
-const mSTP = ({ entities }) => {
-    // debugger
+
+
+const mSTP = (state, ownProps) => {
     return (
         {formType: 'Create Listing',
         listing: {
@@ -14,7 +15,9 @@ const mSTP = ({ entities }) => {
             num_bedrms: "",
             num_baths: "",
             price: "",
-            num_bths: "",
+            clean_fee: "",
+            service_fee: "",
+            host_id: state.session.id
         }
         
         }

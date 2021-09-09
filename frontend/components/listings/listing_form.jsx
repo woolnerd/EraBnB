@@ -1,11 +1,14 @@
 import React from "react";
 import mapboxgl from "!mapbox-gl";
+import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
 class ListingForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = this.props.listing;
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -15,8 +18,14 @@ class ListingForm extends React.Component {
   update(field) {
     return e => { 
       let value = e.target.value 
-      if (field === "price" || field === "num_bdrms") {
-        value = parseInt(e.target.value)
+      if (
+        field === "price" ||
+        field === "num_bedrms" ||
+        field === "num_baths" ||
+        field === "clean_fee" || 
+        field === "service_fee"
+      ) {
+        value = parseInt(e.target.value);
       }
       this.setState({[field]: value})
 
@@ -27,7 +36,7 @@ class ListingForm extends React.Component {
     e.preventDefault()
 
     mapboxgl.accessToken =
-      "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
+      "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
     const geocoder = mbxGeocoding({
       accessToken: mapboxgl.accessToken
     })
@@ -36,18 +45,22 @@ class ListingForm extends React.Component {
       query: `${this.state.address}`,
       limit: 1
     }).send().then(res=>{
+      console.log(res.body.features[0].center[0]);
+      console.log(res.body.features[0].center[1]);
+
       this.setState({
         longitude: res.body.features[0].center[0],
         latitude: res.body.features[0].center[1]
       })
     })
-    this.setState({host_id: this.props.session.id})
+
+    this.props.action(this.state).then()
   }
 
   render() {
     return (
       <div className="listing-form-container">
-        <form onSubmit={(e) => this.handleSubmit} className="listing-form-box">
+        <form onSubmit={this.handleSubmit} className="listing-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
@@ -93,7 +106,7 @@ class ListingForm extends React.Component {
               <input
                 type="text"
                 value={this.state.num_bedrms}
-                onChange={this.update("birthdate")}
+                onChange={this.update("num_bedrms")}
                 // placeholder="YYYY-MM-DD"
               />
             </div>
@@ -101,7 +114,7 @@ class ListingForm extends React.Component {
               <label>Number of Bathrooms</label>
               <input
                 value={this.state.num_baths}
-                onChange={this.update("bio")}
+                onChange={this.update("num_baths")}
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
@@ -110,25 +123,25 @@ class ListingForm extends React.Component {
               <input
                 type="text"
                 value={this.state.price}
-                onChange={this.update("bio")}
+                onChange={this.update("price")}
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <div className="listing-form">
-              <label>Number of Bathrooms</label>
+              <label>Service Fee</label>
               <input
                 type="text"
-                value={this.state.num_baths}
-                onChange={this.update("bio")}
+                value={this.state.service_fee}
+                onChange={this.update("service_fee")}
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <div className="listing-form">
-              <label>Number of Bathrooms</label>
+              <label>Clean Fee</label>
               <input
                 type="text"
-                value={this.state.num_baths}
-                onChange={this.update("bio")}
+                value={this.state.clean_fee}
+                onChange={this.update("clean_fee")}
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>

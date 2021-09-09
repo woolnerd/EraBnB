@@ -50,13 +50,14 @@ class Api::ListingsController < ApplicationController
                                         :description,
                                         :era_theme,
                                         :address,
-                                        :longitiude,
+                                        :longitude,
                                         :latitude,
                                         :num_bedrms,
                                         :num_baths,
                                         :price,
                                         :clean_fee,
-                                        :service_fee
+                                        :service_fee,
+                                        :host_id
                                         )
     end
 

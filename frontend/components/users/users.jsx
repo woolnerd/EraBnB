@@ -23,7 +23,7 @@ class Users extends React.Component {
         <h2>Your listings: </h2>
         {listings}
         <br />
-        <Link to="/listings/new/">
+        <Link to="/new/listing">
           <h3>Create a New Listing</h3>
         </Link>
       </div>
