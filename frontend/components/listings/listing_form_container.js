@@ -4,6 +4,7 @@ import ListingForm from "./listing_form";
 
 
 
+
 const mSTP = (state, ownProps) => {
     return (
         {formType: 'Create Listing',
@@ -25,7 +26,8 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => ({
-    action: (listing) => dispatch(createListing(listing))
+    action: (listing) => dispatch(createListing(listing)),
+    fetchListing: () => dispatch(fetchListing())
 });
 
 

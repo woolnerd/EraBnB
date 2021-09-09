@@ -27,15 +27,6 @@ user1 = User.create({
             birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
             bio: Faker::TvShows::Seinfeld.quote})
 
-user1 = User.create({
-            email:Faker::Internet.email,
-            password:"password", 
-            first_name: Faker::Name.first_name  , 
-            last_name: Faker::Name.last_name,
-            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
-            bio: Faker::TvShows::Seinfeld.quote})
-
-
 user2 = User.create({
             email:Faker::Internet.email,
             password:"password", 
@@ -55,6 +46,15 @@ user3 = User.create({
 
 
 user4 = User.create({
+            email:Faker::Internet.email,
+            password:"password", 
+            first_name: Faker::Name.first_name  , 
+            last_name: Faker::Name.last_name,
+            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            bio: Faker::TvShows::Seinfeld.quote})
+
+
+user5 = User.create({
             email:Faker::Internet.email,
             password:"password", 
             first_name: Faker::Name.first_name  , 

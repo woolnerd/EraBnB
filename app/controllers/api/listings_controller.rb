@@ -4,6 +4,7 @@ class Api::ListingsController < ApplicationController
     def index 
         @listings = Listing.all 
         render "api/listings/index"
+        # render :index
     end
 
     def create 

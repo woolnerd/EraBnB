@@ -6,13 +6,12 @@ class ListingForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.listing;
+    this.state = this.props.listing 
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    
   }
 
   update(field) {
@@ -28,7 +27,6 @@ class ListingForm extends React.Component {
         value = parseInt(e.target.value);
       }
       this.setState({[field]: value})
-
     }
   }
 
@@ -54,10 +52,25 @@ class ListingForm extends React.Component {
       })
     })
 
-    this.props.action(this.state).then()
-  }
+    this.props.action(this.state)
+    // this.props.history.push("/listings")
 
+  }
+  
+  
   render() {
+      const reader = new FileReader();
+      const file = e.currentTarget.files[0];
+      reader.onloadend = () =>
+        this.setState({ imageUrl: reader.result, imageFile: file });
+
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        this.setState({ imageUrl: "", imageFile: null });
+      }
+
+
     return (
       <div className="listing-form-container">
         <form onSubmit={this.handleSubmit} className="listing-form-box">
@@ -145,7 +158,9 @@ class ListingForm extends React.Component {
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-            <div className="listing-form">
+            <input type="file" onchange="previewFile()"/><br/>
+            <img src="" height="200" alt="Image preview..."/>
+            {/* <div className="listing-form">
               <label>Upload Photo</label>
               <input
                 type="file"
@@ -153,7 +168,7 @@ class ListingForm extends React.Component {
                 // onChange={this.update("bio")}
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
-            </div>
+            </div> */}
             <input
               className="session-submit"
               type="submit"
