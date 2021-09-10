@@ -13,4 +13,4 @@ json.extract! listing, :id,
                         :host_id,
                         :photos
 
-# json.photoUrl url_for(listing.photo)
+json.photoUrl listing.photos.map { |photo| url_for(photo) }

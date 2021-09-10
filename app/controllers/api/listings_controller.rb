@@ -9,7 +9,7 @@ class Api::ListingsController < ApplicationController
 
     def create 
         @listing = Listing.new(listing_params)
-
+        # debugger
         if @listing.save 
             render :show
         else  
@@ -18,7 +18,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def show 
-        @listing = Listing.find(params[:id])
+        @listing = Listing.with_attached_photos.find(params[:id])
         render :show
     end
 
@@ -59,7 +59,7 @@ class Api::ListingsController < ApplicationController
                                         :clean_fee,
                                         :service_fee,
                                         :host_id,
-                                        :photos
+                                        photos: [] 
                                         )
     end
 

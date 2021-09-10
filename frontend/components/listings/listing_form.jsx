@@ -63,25 +63,46 @@ class ListingForm extends React.Component {
         longitude: res.body.features[0].center[0],
         latitude: res.body.features[0].center[1]
       })
+
+      const formData = new FormData();
+      formData.append('listing[title]', this.state.title)
+      formData.append("listing[description]", this.state.description);
+      formData.append("listing[era_theme]", this.state.era_theme);
+      formData.append("listing[address]", this.state.address);
+      formData.append("listing[longitude]", this.state.longitude);
+      formData.append("listing[latitude]", this.state.latitude);
+      formData.append("listing[num_bedrms]", this.state.num_bedrms);
+      formData.append("listing[num_baths]", this.state.num_baths);
+      formData.append("listing[price]", this.state.price);
+      formData.append("listing[clean_fee]", this.state.clean_fee);
+      formData.append("listing[service_fee]", this.state.service_fee);
+      formData.append("listing[host_id]", this.state.host_id);
+  
+
+        for (let i = 0; i < this.state.photos.length; i++) {
+          formData.append("listing[photos][]", this.state.photos[i]);
+        }
+   
+      this.props
+        .action(formData)
+        .then((res) =>
+          this.props.history.push(`/listings/${res.listing.id}`)
+        );
     })
 
-    this.props
-      .action(this.state)
-      .then(({listing}) => this.props.history.push(`/listings/${listing.id}`));
-    
   }
-  
-  // onPhotoInput(e) {
-  //   const reader = new FileReader();
-  //   const file = e.currentTarget.files[0];
-  //   reader.onloadend = () =>
-  //     this.setState({ imageUrl: reader.result, imageFile: file });
-  //   if (file) {
-  //     reader.readAsDataURL(file);
-  //   } else {
-  //     this.setState({ imageUrl: "", imageFile: null });
-  //   }
-  // }
+
+  onPhotoInput(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () =>
+      this.setState({ imageUrl: reader.result, imageFile: file });
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  }
 
   
   render() {
@@ -173,15 +194,13 @@ class ListingForm extends React.Component {
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-            {/* <input type="file" onchange="previewFile()"/><br/>
-            <img src="" height="200" alt="Image preview..."/> */}
+            {/* <img src="" height="200" alt="Image preview..." /> */}
             <div className="listing-form">
               <label>Upload Photo</label>
               <input
                 type="file"
-                // value={this.state.photo}
-                // onChange={this.update("bio")}
-                // placeholder="Tell us about yourself! (If you want to.)"
+                onChange={(e) => this.setState({ photos: e.target.files })}
+                multiple
               />
             </div>
             <input

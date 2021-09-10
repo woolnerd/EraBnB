@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'open-uri'
 
 User.delete_all
 Listing.delete_all
@@ -64,7 +65,7 @@ user5 = User.create({
 
 
 
-
+file1 = open('app/assets/images/modernsunset.jpeg')
 listing1 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote,
@@ -79,7 +80,10 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: 1
 }) 
+listing1.photos.attach(io: file1, filename: 'modernsunset.jpeg')
 
+
+file2 = open('app/assets/images/modernsunset.jpeg')
 listing2 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote  ,
@@ -94,7 +98,10 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: 1
 }) 
+listing2.photos.attach(io: file2, filename: 'modernsunset.jpeg')
 
+
+file3 = open('app/assets/images/modernsunset.jpeg')
 listing3 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote  ,
@@ -109,8 +116,10 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: 1
 }) 
+listing3.photos.attach(io: file3, filename: 'modernsunset.jpeg')
 
 
+file4 = open('app/assets/images/modernsunset.jpeg')
 listing4 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote  ,
@@ -125,8 +134,10 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: 1
 }) 
+listing4.photos.attach(io: file4, filename: 'modernsunset.jpeg')
 
 
+file5 = open('app/assets/images/modernsunset.jpeg')
 listing5 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote  ,
@@ -141,195 +152,196 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: 1
 }) 
+listing5.photos.attach(io: file5, filename: 'modernsunset.jpeg')
 
 
-listing6 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing6 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing7 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing7 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing7 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing7 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing8 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing8 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing9 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing9 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing10 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing10 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing11 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing11 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing12 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 4
-}) 
+# listing12 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 4
+# }) 
 
 
-listing13 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 3
-}) 
+# listing13 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 3
+# }) 
 
 
-listing14 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 3
-}) 
+# listing14 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 3
+# }) 
 
 
-listing15 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 3
-}) 
+# listing15 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 3
+# }) 
 
 
-listing16 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: Faker::Company.type + "-esque", 
-address: Faker::Address.full_address, 
-longitude: Faker::Address.longitude,
-latitude: Faker::Address.latitude,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 3
-}) 
+# listing16 = Listing.create({
+# title: Faker::Company.catch_phrase,    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: Faker::Company.type + "-esque", 
+# address: Faker::Address.full_address, 
+# longitude: Faker::Address.longitude,
+# latitude: Faker::Address.latitude,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: 3
+# }) 

@@ -21,12 +21,13 @@ const mSTP = (state, ownProps) => {
         host_id: state.session.id,
         photoFile: null,
         photoUrl: null,
+        photos: []
       },
     };
 };
 
 const mDTP = (dispatch) => ({
-    action: (listing) => dispatch(createListing(listing)),
+    action: (formData) => dispatch(createListing(formData)),
     fetchListing: () => dispatch(fetchListing())
 });
 
