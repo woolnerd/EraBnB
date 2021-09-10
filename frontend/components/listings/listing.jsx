@@ -12,7 +12,7 @@ class Listing extends React.Component {
         return null;
     }
     const {currentUser, listing} = this.props;
-    const showEdit = currentUser === listing.host_id ? <button>Edit</button> : null 
+    const showEdit = currentUser === listing.host_id ? <button onClick={()=>this.props.deleteListing(listing.id).then(res => this.props.history.push(`/users/${currentUser}`))}>Delete</button> : null 
 
     return (
       { listing } && (

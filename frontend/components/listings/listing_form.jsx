@@ -96,17 +96,18 @@ class ListingForm extends React.Component {
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () =>
-      this.setState({ imageUrl: reader.result, imageFile: file });
+      this.setState({ photoUrl: reader.result, photoFile: file });
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: "", imageFile: null });
+      this.setState({ photoUrl: "", photoFile: null });
     }
   }
 
   
   render() {
-
+    const preview = this.state.photoUrl ? <img className="form-photo-preview" src={this.state.photoUrl} /> : null;
+    // debugger
     return (
       <div className="listing-form-container">
         <form onSubmit={this.handleSubmit} className="listing-form-box">
@@ -200,8 +201,10 @@ class ListingForm extends React.Component {
               <input
                 type="file"
                 onChange={(e) => this.setState({ photos: e.target.files })}
+                // onChange={this.onPhotoInput.bind(this)}
                 multiple
-              />
+                />
+                {preview}
             </div>
             <input
               className="session-submit"
