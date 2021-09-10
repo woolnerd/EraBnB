@@ -58,7 +58,8 @@ class Api::ListingsController < ApplicationController
                                         :price,
                                         :clean_fee,
                                         :service_fee,
-                                        :host_id
+                                        :host_id,
+                                        :photos
                                         )
     end
 

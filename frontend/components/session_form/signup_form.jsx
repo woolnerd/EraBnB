@@ -1,4 +1,5 @@
 import React from "react";
+import { closeModal } from "../../actions/modal_actions";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class SignupForm extends React.Component {
       bio: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoUser = this.handleDemoUser.bind(this)
   }
 
   update(field) {
@@ -25,6 +27,12 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = { ...this.state };
     this.props.signup(user).then(this.props.closeModal);
+  }
+
+  handleDemoUser(e) {
+    e.preventDefault();
+    this.props.loginDemoUser().then(this.props.closeModal);
+  
   }
 
   renderErrors() {
@@ -43,10 +51,9 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
-          <p>
-            Please {this.props.formType}
-          </p>
+          <p>Please {this.props.formType}</p>
           {this.renderErrors()}
+
           <div className="signup-form">
             <div className="signup-email">
               <label>Email</label>
@@ -114,6 +121,12 @@ class SignupForm extends React.Component {
             />
           </div>
         </form>
+            <input 
+              className="session-submit"
+              type="button"
+              value="Demo user"
+              onClick={this.handleDemoUser}
+            />
       </div>
     );
   }

@@ -17,6 +17,7 @@ class ListingForm extends React.Component {
   update(field) {
     return e => { 
       let value = e.target.value 
+      // make into a switch 
       if (
         field === "price" ||
         field === "num_bedrms" ||
@@ -29,6 +30,18 @@ class ListingForm extends React.Component {
       this.setState({[field]: value})
     }
   }
+
+  // handleFile(e) {
+  //   e.preventDefault()
+  //   const file = e.currentTarget.files[0];
+  //   const fileReader = new FileReader();
+  //   fileReader.onloadend = () => {
+  //     this.setState({ photoFile: file, photoUrl: fileReader.result });
+  //   };
+  //   if (file) {
+  //     fileReader.readAsDataURL(file);
+  //       }
+  // }
 
   handleSubmit(e) {
     e.preventDefault()
@@ -52,24 +65,26 @@ class ListingForm extends React.Component {
       })
     })
 
-    this.props.action(this.state)
-    // this.props.history.push("/listings")
-
+    this.props
+      .action(this.state)
+      .then(({listing}) => this.props.history.push(`/listings/${listing.id}`));
+    
   }
   
+  // onPhotoInput(e) {
+  //   const reader = new FileReader();
+  //   const file = e.currentTarget.files[0];
+  //   reader.onloadend = () =>
+  //     this.setState({ imageUrl: reader.result, imageFile: file });
+  //   if (file) {
+  //     reader.readAsDataURL(file);
+  //   } else {
+  //     this.setState({ imageUrl: "", imageFile: null });
+  //   }
+  // }
+
   
   render() {
-      const reader = new FileReader();
-      const file = e.currentTarget.files[0];
-      reader.onloadend = () =>
-        this.setState({ imageUrl: reader.result, imageFile: file });
-
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        this.setState({ imageUrl: "", imageFile: null });
-      }
-
 
     return (
       <div className="listing-form-container">
@@ -158,9 +173,9 @@ class ListingForm extends React.Component {
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-            <input type="file" onchange="previewFile()"/><br/>
-            <img src="" height="200" alt="Image preview..."/>
-            {/* <div className="listing-form">
+            {/* <input type="file" onchange="previewFile()"/><br/>
+            <img src="" height="200" alt="Image preview..."/> */}
+            <div className="listing-form">
               <label>Upload Photo</label>
               <input
                 type="file"
@@ -168,7 +183,7 @@ class ListingForm extends React.Component {
                 // onChange={this.update("bio")}
                 // placeholder="Tell us about yourself! (If you want to.)"
               />
-            </div> */}
+            </div>
             <input
               className="session-submit"
               type="submit"

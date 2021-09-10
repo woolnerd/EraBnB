@@ -11,6 +11,6 @@ json.extract! listing, :id,
                         :clean_fee,
                         :service_fee,
                         :host_id,
-                        :photo
+                        :photos
 
 # json.photoUrl url_for(listing.photo)
