@@ -1,0 +1,32 @@
+.user-profile-container {
+  height: 400px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(2, 2fr); */
+    /* gap: 10px; */
+    // grid-auto-rows: minmax(100px, auto);
+    background-color: whitesmoke;
+    // padding-top: 200px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+
+h1 {
+grid-column: 1 / 3;
+grid-row: 1;
+     }       
+
+
+.cushion {
+    width: 100%;
+    height:100px;
+    background-color: red;
+}
+.user-listings {
+    width: 100%;
+    height:150px;
+    border: 1px solid green;
+
+}

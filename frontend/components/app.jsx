@@ -26,19 +26,16 @@ const App = () => (
     <Modal />
     <header className="header-container">
       <Link to="/">
-        <img
-          className="airbnb-icon"
-          src={redAirbnbLogo}
-        />
+        <img className="airbnb-icon" src={redAirbnbLogo} />
       </Link>
-        <button className="search-btn">Start your search</button>
-        {/* <span
+      <button className="search-btn">Start your search</button>
+      {/* <span
           className="magnifying-glass"
           style={{ backgroundImage: "url(" + magnifyingGlass + ")" }}
         ></span> */}
       <MenuContainer />
     </header>
-
+    <div className="cushion"> </div>
     <Route exact path="/" component={Splash} />
 
     <Route exact path="/listings" component={ListingsIndexContainer} />
