@@ -65,7 +65,6 @@ user5 = User.create({
 
 
 
-file1 = open('app/assets/images/modernsunset.jpeg')
 listing1 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote,
@@ -78,12 +77,12 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
-host_id: 1
+host_id: user4.id
 }) 
-listing1.photos.attach(io: file1, filename: 'modernsunset.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/poolhousemodern.jpg')
+listing1.photos.attach(io: file1, filename: 'poolhousemodern.jpg')
 
 
-file2 = open('app/assets/images/modernsunset.jpeg')
 listing2 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote,
@@ -97,12 +96,12 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
-host_id: 1
+host_id: user5.id
 }) 
-listing2.photos.attach(io: file2, filename: 'modernsunset.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/modern-city-architecture.jpg')
+listing2.photos.attach(io: file2, filename: 'modern-city-architeture.jpg')
 
 
-file3 = open('app/assets/images/modernsunset.jpeg')
 listing3 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote  ,
@@ -115,12 +114,12 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
-host_id: 1
+host_id: user5.id
 }) 
-listing3.photos.attach(io: file3, filename: 'modernsunset.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/winterdusk.jpg')
+listing3.photos.attach(io: file3, filename: 'winterdusk.jpeg')
 
 
-file4 = open('app/assets/images/modernsunset.jpeg')
 listing4 = Listing.create({
 title: Faker::Company.catch_phrase,    
 description: Faker::TvShows::Seinfeld.quote  ,
@@ -133,27 +132,29 @@ num_baths: Faker::Number.within(range: 1..5),
 price: Faker::Number.within(range: 100..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
-host_id: 1
+host_id: user2.id
 }) 
-listing4.photos.attach(io: file4, filename: 'modernsunset.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/this-view-is-so-relaxing.jpg')
+listing4.photos.attach(io: file4, filename: 'this-view-is-so-relaxing.jpg')
 
 
-file5 = open('app/assets/images/modernsunset.jpeg')
 listing5 = Listing.create({
-title: Faker::Company.catch_phrase,    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "Gordon Gecko", 
-address: "55 Broad St, New York, NY 10004", 
-longitude: -74.0114,
-latitude: 40.7053,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: 1
+    title: Faker::Company.catch_phrase,    
+    description: Faker::TvShows::Seinfeld.quote  ,
+    era_theme: "Gordon Gecko", 
+    address: "55 Broad St, New York, NY 10004", 
+    longitude: -74.0114,
+    latitude: 40.7053,
+    num_bedrms: Faker::Number.within(range: 1..5), 
+    num_baths: Faker::Number.within(range: 1..5), 
+    price: Faker::Number.within(range: 100..600), 
+    clean_fee: Faker::Number.within(range: 1..40), 
+    service_fee: Faker::Number.within(range: 1..30),
+    host_id: user1.id
 }) 
-listing5.photos.attach(io: file5, filename: 'modernsunset.jpeg')
+
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/piece-of-home-interior.jpg')
+listing5.photos.attach(io: file5, filename: 'piece-of-home-interior.jpg')
 
 
 # listing6 = Listing.create({
