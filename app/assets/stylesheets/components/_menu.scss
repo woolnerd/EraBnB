@@ -6,16 +6,17 @@
     border: 1px solid #dcd9d9;
     cursor: pointer;
 }
-// .menu-container {
-
-// }
+.menu-container {
+  display: flex;
+  justify-content: space-around;
+}
 
 .hamburger-btn {
-    // padding: 5px;
+        width: 25px;
 }
 
 .profile-icon {
-    
+    width:31px;  
 }
 
 .menu {
@@ -36,6 +37,7 @@
     transition-property: box-shadow;
     transition-duration: .25s;
     margin-right: 60px;
+    cursor: pointer;
 }
 
 .menu:hover {
@@ -81,6 +83,27 @@
     border-radius: inherit;
     text-align: left;
     }
+
+
+    a > li {
+    padding: 10px;
+    /* margin-left: 8px; */
+    color: $navbar-profile-color;
+    width: 198px;
+    /* padding: 10px; */
+    box-sizing: border-box;
+    border-radius: inherit;
+    text-align: left;
+    }
+
+
+    
+}
+
+
+.profile-link:hover {
+           background-color: rgb(245, 243, 243);
+            transition-duration: .10s;
 }
 
 

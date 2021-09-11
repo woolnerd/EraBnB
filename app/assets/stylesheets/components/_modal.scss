@@ -26,6 +26,8 @@
     display: flex;
     flex-direction: column;
     box-shadow: 12px 12px 8px rgba(0,0,0,.09);
+    padding-left: 20px;
+
 }
 
 .signup-form-box h2, .login-form-box h2{
@@ -60,12 +62,34 @@
   font-size: 20px;
   font-weight: 600;
   border: 1px #DDD solid;
+  margin-top: 20px;
+}
+
+input[value="Demo User"] {
+  width: 100%;
+  background-color: #ff5a91;
+  border-radius: 8px;
+  color: $navbar-profile-color;
+  color: #DDD;
+  height: 43px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px #DDD solid;
+}
+
+.error-container{
+  width: 400px;
+  height: fit-content;
+  border-radius: 20px;
+    background-color: white;
+    box-shadow: 12px 12px 8px rgba(0,0,0,.09);
+
 }
 
 .form-errors li {
   font-size: 1rem;
   color:rgb(191, 15, 15);
-  padding: 3px;
+  padding: 2%;
 }
 
 .login-input, .signup-input {

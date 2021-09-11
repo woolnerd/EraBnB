@@ -39,14 +39,13 @@ class Menu extends React.Component {
   render() {
     return (
       <div onClick={this.handleButtonClick} className="menu" ref={this.menu}>
-        <img
-          className="hamburger-btn"
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAOElEQVRIie3TsQkAMAwDwSf7b+XBnCqQ1hC7yR+oFioEkhoEkM2JU7YGBt1yuE+/807SM95JUskGsVVPTkFzAfwAAAAASUVORK5CYII="
-        />
-        <img
-          className="profile-icon"
-          src="https://img.icons8.com/material-rounded/24/000000/user-male-circle.png"
-        />
+        <div className="menu-container">
+          <img
+            className="hamburger-btn"
+            src={menu}
+          />
+          <img className="profile-icon" src={userCircle} />
+        </div>
         {this.state.revealDropdown && (
           <>
             <div className="menu-content">
@@ -69,7 +68,6 @@ class Menu extends React.Component {
             </div>
           </>
         )}
-
       </div>
     );
   }

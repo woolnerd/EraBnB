@@ -8,9 +8,11 @@ export const Splash = () => (
         id="splash1"
         style={{ backgroundImage: "url(" + modernSunsetPic + ")" }}
       >
-        <div>
+        <div className="flexible-banner">
           <h2>Not sure where to go? Perfect.</h2>
-          <button className="flexible-btn">I'm flexible</button>
+          <span>
+            <button className="flexible-btn">I'm flexible</button>
+          </span>
         </div>
       </main>
     </Link>

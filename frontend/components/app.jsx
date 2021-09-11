@@ -26,24 +26,50 @@ const App = () => (
     <Modal />
     <header className="header-container">
       <Link to="/">
-        <img className="airbnb-icon" src="https://img.icons8.com/ios/50/000000/airbnb.png" />
+        <img
+          className="airbnb-icon"
+          src={redAirbnbLogo}
+        />
       </Link>
-      <button className="search-btn">Start your search</button>
+        <button className="search-btn">Start your search</button>
+        {/* <span
+          className="magnifying-glass"
+          style={{ backgroundImage: "url(" + magnifyingGlass + ")" }}
+        ></span> */}
       <MenuContainer />
     </header>
 
-      <Route exact path="/" component={Splash} />
+    <Route exact path="/" component={Splash} />
 
-      <Route exact path="/listings" component={ListingsIndexContainer} />
-      <Route exact path={`/listings/:listingId`} component={ListingContainer} />
-      {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-      {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
-      <ProtectedRoute
-        exact
-        path="/new/listing"
-        component={ListingFormContainer}
-      />
-      <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
+    <Route exact path="/listings" component={ListingsIndexContainer} />
+    <Route exact path={`/listings/:listingId`} component={ListingContainer} />
+    {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+    {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
+    <ProtectedRoute
+      exact
+      path="/new/listing"
+      component={ListingFormContainer}
+    />
+    <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
+    <div id="footer">
+      <div className="footer-container">
+        <ul>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+        </ul>
+        <ul>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+        </ul>
+        <ul>
+          <li>stuff</li>
+          <li>stuff</li>
+          <li>stuff</li>
+        </ul>
+      </div>
+    </div>
   </div>
 );
 

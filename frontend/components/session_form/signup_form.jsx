@@ -32,29 +32,31 @@ class SignupForm extends React.Component {
   handleDemoUser(e) {
     e.preventDefault();
     this.props.loginDemoUser().then(this.props.closeModal);
-  
   }
 
   renderErrors() {
     return (
-      <ul className="form-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
+      this.props.errors.length ? 
+      <div className="error-container">
+        <ul className="form-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>Oops!: {error}</li>
+          ))}
+        </ul>
+      </div> : null 
     );
   }
 
   render() {
     return (
       <div className="signup-form-container">
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
-          {this.renderErrors()}
 
-          <div className="signup-form">
+          {/* <div className="signup-form"> */}
             <div className="signup-email">
               <label>Email</label>
               <input
@@ -114,19 +116,20 @@ class SignupForm extends React.Component {
                 placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
-            <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
-            />
-          </div>
+          <input
+            className="session-submit"
+            type="submit"
+            value={this.props.formType}
+          />
+        {/* </div> */}
+        <input
+          className="session-submit"
+          id="signup-demouser"
+          type="button"
+          value="Demo user"
+          onClick={this.handleDemoUser}
+        />
         </form>
-            <input 
-              className="session-submit"
-              type="button"
-              value="Demo user"
-              onClick={this.handleDemoUser}
-            />
       </div>
     );
   }

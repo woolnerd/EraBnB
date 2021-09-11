@@ -15,7 +15,7 @@ class Users extends React.Component {
     ));
 
     return (
-      <div key={currentUser.id}>
+      <div key={currentUser.id} className="user-profile-container">
         <h1>Hello, {currentUser.first_name}!</h1>
         <h2>Email: {currentUser.email}</h2>
         <h3>Bio: {currentUser.bio}</h3>

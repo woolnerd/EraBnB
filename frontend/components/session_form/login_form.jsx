@@ -35,25 +35,27 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <ul className="form-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
-    );
+    return this.props.errors.length ? (
+      <div className="error-container">
+        <ul className="form-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>Oops!: {error}</li>
+          ))}
+        </ul>
+      </div>
+    ) : null;
   }
 
   render() {
     return (
       <div className="login-form-container">
+          {this.renderErrors()}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
           {/* <FontAwesomeIcon icon="fa-solid fa-check-square" />{" "} */}
-          {this.renderErrors()}
-          <div className="login-form">
+          {/* <div className="login-form"> */}
             <div className="login-email">
               <label>Email</label>
               <input
@@ -77,14 +79,15 @@ class LoginForm extends React.Component {
               type="submit"
               value={this.props.formType}
             />
-          </div>
-        </form>
+          {/* </div> */}
         <input
           className="session-submit"
+          id="login-demouser"
           type="button"
           value="Demo user"
           onClick={this.handleDemoUser}
         />
+        </form>
       </div>
     );
   }
