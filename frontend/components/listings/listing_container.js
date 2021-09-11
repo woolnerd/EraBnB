@@ -7,6 +7,7 @@ const mSTP = ({entities, session}, ownProps) => {
     return (
 {        listing: entities.listings[ownProps.match.params.listingId],
          currentUser: session.id,
+         userListings: entities.users.user_listing
 
 }
     )

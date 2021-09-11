@@ -10,12 +10,12 @@ class Users extends React.Component {
     const { currentUser } = this.props;
     const listings = currentUser.user_listing.map((listing) => (
       <Link to={`/listings/${listing.id}`}>
-        <h3>{listing.title}</h3>
+        <h3 key={listing.id}>{listing.title}</h3>
       </Link>
     ));
 
     return (
-      <div>
+      <div key={currentUser.id}>
         <h1>Hello, {currentUser.first_name}!</h1>
         <h2>Email: {currentUser.email}</h2>
         <h3>Bio: {currentUser.bio}</h3>

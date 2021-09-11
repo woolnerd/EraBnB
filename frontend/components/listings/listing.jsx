@@ -7,20 +7,46 @@ class Listing extends React.Component {
   }
 
   render() {
-    // debugger
     if (!this.props.listing) {
         return null;
     }
-    const {currentUser, listing} = this.props;
-    const showEdit = currentUser === listing.host_id ? <button onClick={()=>this.props.deleteListing(listing.id).then(res => this.props.history.push(`/users/${currentUser}`))}>Delete</button> : null 
+    const {currentUser, listing, userListings} = this.props;
+        const showDelete =
+          currentUser === listing.host_id ? (
+            <button
+              onClick={() =>
+                this.props
+                  .deleteListing(listing.id)
+                  .then((res) =>
+                    this.props.history.push(`/users/${currentUser}`)
+                  )
+              }
+            >
+              Delete
+            </button>
+          ) : null; 
+
+    const backToUserListings =
+      currentUser === listing.host_id ? (
+        <button
+          onClick={() => this.props.history.push(`/users/${currentUser}`)}
+        >
+          Your Listings 
+          {/* {userListings.length > 1 ? "s" : null} */}
+          
+        </button>
+      ) : null; 
+      
+        // debugger
+        const photos = listing.photoUrl.length ? listing.photoUrl.map((photo, idx) => (
+          <img key={idx} src={photo} alt="listing-photo" /> 
+          )) : <h1>Sorry No Photos</h1>
 
     return (
       { listing } && (
-        <div className="listing-item-show">
-          <img
-            src="https://media.architecturaldigest.com/photos/5fdba5629542eda0bedf1080/master/w_1280%2Cc_limit/60d85131-b43f-4edb-8051-28c0e6bd377a.jpg"
-            alt="listing-photo"
-          />
+        <div key={listing.id} className="listing-item-show">
+  
+          {photos}
           <div className="listing-info-show">
             <h3>{listing.title}</h3>
             <p>{listing.description}</p>
@@ -29,7 +55,8 @@ class Listing extends React.Component {
               Bedrooms {listing.num_bedrms}{" "}
               <span> Bathrooms {listing.num_baths}</span>
             </p>
-            {showEdit}
+            {showDelete}
+            {backToUserListings}
             <Link to="/listings/">
               <button>Back to Listings</button>
             </Link>
