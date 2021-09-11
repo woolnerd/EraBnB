@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 export const Splash = () => (
   <>
     <Link to="/listings">
-      <main id="splash1">
+      <main
+        id="splash1"
+        style={{ backgroundImage: "url(" + modernSunsetPic + ")" }}
+      >
         <div>
           <h2>Not sure where to go? Perfect.</h2>
           <button className="flexible-btn">I'm flexible</button>
@@ -74,23 +77,38 @@ export const Splash = () => (
       <h2>Live anywhere</h2>
       <div className="large-thumbs-container">
         <div>
-          <div className="large-thumbs"></div>
+          <div
+            className="large-thumbs"
+            style={{ backgroundImage: "url(" + hugoSousaPic + ")" }}
+          ></div>
           <h3>Unique stays</h3>
         </div>
         <div>
-          <div className="large-thumbs"></div>
+          <div
+            className="large-thumbs"
+            style={{ backgroundImage: "url(" + homeInteriorPic + ")" }}
+          ></div>
           <h3>Unique stays</h3>
         </div>
         <div>
-          <div className="large-thumbs"></div>
+          <div
+            className="large-thumbs"
+            style={{ backgroundImage: "url(" + relaxBeachPlacePic + ")" }}
+          ></div>
           <h3>Unique stays</h3>
         </div>
         <div>
-          <div className="large-thumbs"></div>
+          <div
+            className="large-thumbs"
+            style={{ backgroundImage: "url(" + orlovaMariaPic + ")" }}
+          ></div>
           <h3>Unique stays</h3>
         </div>
       </div>
-      <div className="lower-third">
+      <div
+        className="lower-third"
+        style={{ backgroundImage: "url(" + kitchenInteriorPic + ")" }}
+      >
         <span>
           <h3>Try Hosting</h3>
         </span>
