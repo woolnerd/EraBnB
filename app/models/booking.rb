@@ -4,9 +4,10 @@ class Booking < ApplicationRecord
 
     belongs_to :listing,
         foreign_key: :listing_id,
-        class_name: :Listing
+        class_name: :Listing,
+        dependent: :destroy
 
-    belongs_to :booker_id,
+    belongs_to :booker,
         foreign_key: :booker_id,
         class_name: :User
 

@@ -156,6 +156,22 @@ listing5 = Listing.create({
 file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/piece-of-home-interior.jpg')
 listing5.photos.attach(io: file5, filename: 'piece-of-home-interior.jpg')
 
+booking1 = 
+  Booking.create(listing_id: listing1.id,
+  booker_id: user4,
+  check_in: "2022-11-01",
+  check_out: "2022-11-11",
+  guests: 4,
+  total_price: 3055.55)
+
+  booking2 = 
+  Booking.create(listing_id: listing3.id,
+  booker_id: user1,
+  check_in: "2022-01-01",
+  check_out: "2022-01-10",
+  guests: 3,
+  total_price: 2055.55)
+
 
 # listing6 = Listing.create({
 # title: Faker::Company.catch_phrase,    
