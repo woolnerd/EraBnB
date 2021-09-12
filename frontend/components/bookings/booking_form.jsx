@@ -22,7 +22,7 @@ class BookingForm extends React.Component {
     }
 
     render() {
-        debugger
+        // debugger
         return (
           <div className="booking-form-container">
             <form onSubmit={this.handleSubmit} className="login-form">
@@ -34,13 +34,13 @@ class BookingForm extends React.Component {
               />
               <input
                 type="date"
-                value={this.state.check_out}
-                onChange={this.update("check_out")}
+                value={this.state.check_in}
+                onChange={this.update("check_in")}
               />
               <input
                 type="date"
-                value={this.state.check_in}
-                onChange={this.update("check_in")}
+                value={this.state.check_out}
+                onChange={this.update("check_out")}
               />
               <input
                 type="text"
