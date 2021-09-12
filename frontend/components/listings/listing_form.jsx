@@ -7,11 +7,7 @@ class ListingForm extends React.Component {
     super(props);
 
     this.state = this.props.listing 
-
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
   }
 
   update(field) {
@@ -31,6 +27,7 @@ class ListingForm extends React.Component {
     }
   }
 
+  //for file preview of selected photos
   // handleFile(e) {
   //   e.preventDefault()
   //   const file = e.currentTarget.files[0];

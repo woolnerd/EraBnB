@@ -1,5 +1,5 @@
    class Api::BookingsController < ApplicationController
-    # before_action :ensure_logged_in    
+    before_action :ensure_logged_in    
 
     def index 
         @bookings = Booking.all 
@@ -42,7 +42,7 @@
     private 
 
     def booking_params
-        params.require(:booking).permit(:listing, :booker, :check_in, :check_out, :guests, :total_price)                              
+        params.require(:booking).permit(:listing_id, :booker_id, :check_in, :check_out, :guests, :total_price)                              
     end
 
 end
