@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1492px) {
+@media only screen and (max-width: 1200px) {
 
     #mapContainer {
         display: none;
@@ -12,4 +12,8 @@
         width: 400px
     }
 
+}
+
+#map-photo{
+        width: 65%;
 }

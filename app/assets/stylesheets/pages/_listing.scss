@@ -1,5 +1,5 @@
 .listing-photos img{
-    width: 24rem;
+    width: 45rem;
     border-radius: 20px;
     box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
     margin: 20px;
@@ -76,7 +76,7 @@
   // margin: 26px 12px
 }
 
-.session-submit {
+button.session-submit {
   width: 100%;
   background-color: #ff5a91;
   border-radius: 8px;
@@ -87,6 +87,7 @@
   font-weight: 600;
   border: 1px #DDD solid;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 
@@ -140,4 +141,32 @@
     background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     // background-color: lightcoral;
     padding: 20px 0;
+}
+
+
+
+
+// .listing-img {
+//     width: 45rem;
+//     border-radius: 20px;
+//     box-shadow: 11px 9px 22px -8px rgba(0, 0, 0, 0.85);
+//     margin: 20px;
+// }
+
+.listing-info-show {
+    border-radius: 20px;
+    border: 1px solid black;
+    width: 50%;
+    padding: 2%;
+    box-shadow: 11px 9px 22px -8px rgba(0, 0, 0, 0.85);
+    background-color: whitesmoke;
+    margin: 2% 0;
+
+}
+p {
+    padding-bottom: 4px
+}
+
+button.session-submit.sml-btn {
+    width: 50%;
 }

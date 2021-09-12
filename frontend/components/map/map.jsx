@@ -9,7 +9,8 @@ class Map extends React.Component {
   }
 
   marker(listing) {
-    return `<div> 
+    return `<div>
+      <img id="map-photo"src=${listing.photoUrl[0]}/> 
       <h4>
         ${listing.title}
       </h4>

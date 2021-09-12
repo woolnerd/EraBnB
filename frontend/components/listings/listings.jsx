@@ -25,6 +25,7 @@ class Listings extends React.Component {
                     {listings}
                 </div>
                 <MapContainer />
+                {/* <div className="map-cushion"></div> */}
             </div>
         )
     }
