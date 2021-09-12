@@ -1,5 +1,15 @@
+@media only screen and (max-width: 1492px) {
 
-// #mapContainer {
-//     width: 500px;
-//     height: 600px;
-// }
+    #mapContainer {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    #mapContainer {
+        width: 400px
+    }
+
+}

@@ -44,24 +44,40 @@ class Listing extends React.Component {
 
     return (
       { listing } && (
-        <div key={listing.id} className="listing-item-show">
-  
-          {photos}
-          <div className="listing-info-show">
-            <h3>{listing.title}</h3>
-            <p>{listing.description}</p>
-            <p>${listing.price}/night</p>
-            <p>
-              Bedrooms {listing.num_bedrms}{" "}
-              <span> Bathrooms {listing.num_baths}</span>
-            </p>
-            {showDelete}
-            {backToUserListings}
-            <Link to="/listings/">
-              <button>Back to Listings</button>
-            </Link>
+        <>
+          <div className="today-banner"></div>
+          <div key={listing.id} className="listing-item-show">
+            <div className="listing-photos">{photos}</div>
+            <div className="listing-info-show">
+              <h3>{listing.title}</h3>
+              <p>{listing.description}</p>
+              <p>${listing.price}/night</p>
+              <p>
+                Bedrooms {listing.num_bedrms}{" "}
+                <span> Bathrooms {listing.num_baths}</span>
+              </p>
+              {showDelete}
+              {backToUserListings}
+              <Link to="/listings/">
+                <button>Back to Listings</button>
+              </Link>
+            </div>
+            <div className="listing-info-show">
+              <h3>Want to Book it?</h3>
+              <p>Lorem ipsum kinda stuff</p>
+              <p>Lorem ipsum kinda stuff</p>
+              <p>Lorem ipsum kinda stuff</p>
+              {/* Bedrooms {listing.num_bedrms}{" "} */}
+              {/* <span> Bathrooms {listing.num_baths}</span> */}
+              {/* </p> */}
+              {/* {showDelete} */}
+              {/* {backToUserListings} */}
+              <Link to="/listings/">
+                <button>Book it</button>
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )
     );
   }
