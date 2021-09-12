@@ -1,12 +1,12 @@
    class Api::BookingsController < ApplicationController
-    before_action :ensure_logged_in    
+    # before_action :ensure_logged_in    
 
     def index 
         @bookings = Booking.all 
         render :index
     end
 
-    def create 
+    def create
         @booking = Booking.new(booking_params)
         if @booking.save 
             render :show

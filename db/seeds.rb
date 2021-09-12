@@ -11,6 +11,7 @@ require 'open-uri'
 
 User.delete_all
 Listing.delete_all
+Booking.delete_all
 
 DemoUser = User.create({
             email:"DemoUser@demoUser.com",
@@ -158,7 +159,7 @@ listing5.photos.attach(io: file5, filename: 'piece-of-home-interior.jpg')
 
 booking1 = 
   Booking.create(listing_id: listing1.id,
-  booker_id: user4,
+  booker_id: user4.id,
   check_in: "2022-11-01",
   check_out: "2022-11-11",
   guests: 4,
@@ -166,7 +167,7 @@ booking1 =
 
   booking2 = 
   Booking.create(listing_id: listing3.id,
-  booker_id: user1,
+  booker_id: user1.id,
   check_in: "2022-01-01",
   check_out: "2022-01-10",
   guests: 3,

@@ -15,8 +15,8 @@ class Booking < ApplicationRecord
         through: :listing,
         source: :host
 
-    has_many :reviews,
-        foreign_key: :listing_id,
-        class_name: :Review 
+    # has_many :reviews,
+    #     foreign_key: :listing_id,
+    #     class_name: :Review 
 
 end

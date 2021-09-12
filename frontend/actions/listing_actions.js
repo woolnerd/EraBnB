@@ -1,45 +1,45 @@
-import * as APIListingUtil from '../util/listings_api_util'
+import * as APIBookingUtil from '../util/bookings_api_util'
 
-export const RECEIVE_ALL_LISTINGS = `RECEIVE_ALL_LISTINGS`;
-export const RECEIVE_LISTING = `RECEIVE_LISTING`;
-export const REMOVE_LISTING = `REMOVE_LISTING`;
+export const RECEIVE_ALL_BOOKINGS = `RECEIVE_ALL_BOOKINGS`;
+export const RECEIVE_BOOKING = `RECEIVE_BOOKING`;
+export const REMOVE_BOOKING = `REMOVE_BOOKING`;
 
-const receiveAllListings = listings => ({
-    type: RECEIVE_ALL_LISTINGS,
-    listings    
+const receiveAllBookings = bookings => ({
+    type: RECEIVE_ALL_BOOKINGS,
+    bookings    
 });
 
-const receiveListing = listing => ({
-    type: RECEIVE_LISTING,
-    listing
+const receiveBooking = booking => ({
+    type: RECEIVE_BOOKING,
+    booking
 });
 
-const removeListing = listingId => ({
-    type: REMOVE_LISTING,
-    listingId
+const removeBooking = bookingId => ({
+    type: REMOVE_BOOKING,
+    bookingId
 })
 
-export const fetchListings = () => dispatch => (
-    APIListingUtil.fetchListings()
-    .then( listings => dispatch(receiveAllListings(listings)))
+export const fetchBookings = () => dispatch => (
+    APIBookingUtil.fetchBookings()
+    .then( bookings => dispatch(receiveAllBookings(bookings)))
 );
 
-export const fetchListing = listingId => dispatch => (
-    APIListingUtil.fetchListing(listingId)
-    .then( listing => dispatch(receiveListing(listing)))
+export const fetchBooking = bookingId => dispatch => (
+    APIBookingUtil.fetchBooking(bookingId)
+    .then( booking => dispatch(receiveBooking(booking)))
 );
 
-export const createListing = listing => dispatch => (
-    APIListingUtil.createListing(listing)
-    .then( listing => dispatch(receiveListing(listing)))
+export const createBooking = booking => dispatch => (
+    APIBookingUtil.createBooking(booking)
+    .then( booking => dispatch(receiveBooking(booking)))
 );
 
-export const updateListing = listing => dispatch => (
-    APIListingUtil.updateListing(listing)
-    .then( listing => dispatch(receiveListing(listing)))
+export const updateBooking = booking => dispatch => (
+    APIBookingUtil.updateBooking(booking)
+    .then( booking => dispatch(receiveBooking(booking)))
 );
 
-export const deleteListing = listingId => dispatch => (
-    APIListingUtil.deleteListing(listingId)
-    .then( () => dispatch(removeListing(listingId)))
+export const deleteBooking = bookingId => dispatch => (
+    APIBookingUtil.deleteBooking(bookingId)
+    .then( () => dispatch(removeBooking(bookingId)))
 );
