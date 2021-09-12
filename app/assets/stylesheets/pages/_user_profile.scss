@@ -10,23 +10,107 @@
     // padding-top: 200px;
     margin: 0 auto;
     border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    
 }
 
+.user-info {
+    text-align: right;
+    padding:20px;
+    padding-top: 0;
+        h1 {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        font-size: 30px;
+    
+         }    
+         
+         h2 {
+             font-size: 20px;
+             padding-left: 0;
+            padding: 8px;
 
-h1 {
-grid-column: 1 / 3;
-grid-row: 1;
-     }       
+         }
+}
 
 
 .cushion {
     width: 100%;
     height:100px;
-    background-color: red;
+    // background-color: red;
 }
-.user-listings {
-    width: 100%;
-    height:150px;
-    border: 1px solid green;
+.user-listings, .user-trips {
+    height: 150px;
+    width: 600px;
+    height: fit-content;
+    padding-left: 19rem;
+    margin: 0 auto;
+    /* flex-wrap: nowrap; */
+    margin: 30px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
+    h3 {
+        text-decoration: none;
+            text-align: center;
 
+    }
+}
+
+.today-banner {
+    height: 150px;
+    width: 100%;
+    background: #8A2387;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    h1 {
+        font-size: 30px;
+        padding-left: 10px;
+        padding-top: 8px
+    }
+}
+
+.your-res-container {
+    height: 400px;
+    background: #9e9ec0;
+    border-radius: 20px;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    background-size: cover;
+    background-position-y: 37rem;
+}
+
+.your-res-container div {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    margin-left: 8rem;
+    padding-top: 4rem;
+    text-align: left;
+    border-radius: 20px;
+}
+
+.user-host-guest-container {
+    display: flex;
+    justify-content: space-evenly;
+ 
+}
+
+
+.user-btn {
+  width: 100%;
+  background-color: #8A2387;
+  border-radius: 8px;
+  color: $navbar-profile-color;
+  color: #DDD;
+  height: 43px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px #DDD solid;
+  margin-top: 20px;
+  text-decoration: none !important;
 }
