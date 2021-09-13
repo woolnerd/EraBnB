@@ -8,50 +8,45 @@ class Users extends React.Component {
 
   componentDidMount(){
     this.props.fetchListings()
-    this.props.fecthBookings()
+    this.props.fetchBookings()
   }
 
   render() {
-
-    const { currentUser, bookings, listings } = this.props;
+    let { currentUser, bookings, listings } = this.props;
     
     if (!listings || !bookings) {
       return null
     }
     
-    console.log(listings)
-    listings.map((listing) => (
+   listings = listings.map((listing) => (
       <Link to={`/listings/${listing.id}`}>
+      <div>
         <h3 key={listing.id}>{listing.title}</h3>
-        {/* <img src={} alt="" /> */}
-      </Link>
-    ));
+      </div>
+      </Link> 
+   ))
 
-      // debugger
     //will display show page for booking
-    bookings.map((booking) => {
-        // debugger
+   bookings =  bookings.map((booking) => {
       return (
-
       <Link to={`/listings/${booking.id}`}>
-        <h3 key={booking.id}>{booking.title}</h3>
-        {/* <img src={} alt="" /> */}
+        <div>
+          <h3 key={booking.id}>{booking.title}</h3>
+        </div>
       </Link>
       )
     }
+
     );
 
     return (
       <>
         <div className="today-banner">
           <h1>Today</h1>
-          {/* <div key={currentUser.id} className="user-profile-container"> */}
           <div className="user-info">
             <h1>Hello, {currentUser.first_name}!</h1>
             <h2>Email: {currentUser.email}</h2>
-            {/* <h3>Bio: {currentUser.bio}</h3> */}
           </div>
-          {/* </div> */}
         </div>
         <div
           className="your-res-container"
