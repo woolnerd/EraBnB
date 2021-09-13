@@ -12,7 +12,7 @@ class BookingForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault()
-        this.props.action(this.state)
+        this.props.action(this.state).then(his.props.history.push(`/listing/${listingId}`))
     }
 
     update(field){
