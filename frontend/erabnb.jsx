@@ -6,6 +6,7 @@ import configureStore from './store/store';
 
 import { signup, login, logout} from './actions/session_actions'
 import * as listingActions from './actions/listing_actions'
+import * as bookingActions from './actions/booking_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -24,10 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //testing
     window.store = store;
+    window.dispatch = store.dispatch
+    window.getState = store.getState
     window.login = login; 
     window.logout = logout; 
     window.signup = signup; 
     window.listingActions = listingActions;
+    window.bookingActions = bookingActions;
+    window.newBooking = {
+      listing_id: 3,
+      booker_id: 2,
+      check_in: "2022-01-01",
+      check_out: "2022-01-10",
+      guests: 3,
+      total_price: 10055.55,
+    };
 
     const root = document.getElementById('root')
     ReactDOM.render(<Root store={store} />, root)

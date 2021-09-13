@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+import BookingFormContainer from "../bookings/booking_container";
+
 
 class Listing extends React.Component {
   componentDidMount() {
@@ -73,9 +75,10 @@ class Listing extends React.Component {
               {/* </p> */}
               {/* {showDelete} */}
               {/* {backToUserListings} */}
-              <Link to="/listings/">
-                <button className="session-submit">Book it</button>
-              </Link>
+                <Route component={BookingFormContainer} />
+              {/* <Link to="/listings/"> */}
+                {/* <button className="session-submit">Book it</button> */}
+              {/* </Link> */}
             </div>
             <div className="listing-info-show">
               <h3>Here's what people are saying</h3>
