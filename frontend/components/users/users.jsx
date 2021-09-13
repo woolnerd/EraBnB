@@ -6,14 +6,40 @@ class Users extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.fetchListings()
+    this.props.fecthBookings()
+  }
+
   render() {
-    const { currentUser } = this.props;
-    const listings = currentUser.user_listing.map((listing) => (
+
+    const { currentUser, bookings, listings } = this.props;
+    
+    if (!listings || !bookings) {
+      return null
+    }
+    
+    console.log(listings)
+    listings.map((listing) => (
       <Link to={`/listings/${listing.id}`}>
         <h3 key={listing.id}>{listing.title}</h3>
         {/* <img src={} alt="" /> */}
       </Link>
     ));
+
+      // debugger
+    //will display show page for booking
+    bookings.map((booking) => {
+        // debugger
+      return (
+
+      <Link to={`/listings/${booking.id}`}>
+        <h3 key={booking.id}>{booking.title}</h3>
+        {/* <img src={} alt="" /> */}
+      </Link>
+      )
+    }
+    );
 
     return (
       <>
@@ -50,9 +76,9 @@ class Users extends React.Component {
           </div>
           <div className="user-trips">
             <h2>Your Trips: </h2>
-            {listings}
+            {bookings}
             <br />
-            <Link to="/new/listing">
+            <Link to="/listings">
               <h3 className="user-btn">Find your next adventure</h3>
             </Link>
           </div>

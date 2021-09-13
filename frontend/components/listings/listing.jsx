@@ -75,7 +75,7 @@ class Listing extends React.Component {
               {/* </p> */}
               {/* {showDelete} */}
               {/* {backToUserListings} */}
-                <Route component={BookingFormContainer} />
+                <Route props={listing} component={BookingFormContainer} />
               {/* <Link to="/listings/"> */}
                 {/* <button className="session-submit">Book it</button> */}
               {/* </Link> */}

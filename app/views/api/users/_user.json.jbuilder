@@ -1,3 +1,5 @@
 json.extract! user, :id, :email, :first_name, :last_name, :birthdate, :bio
 json.user_listing user.listings
-# json.user_booking user.bookings
+json.user_booking user.bookings
+
+json.booking_listing user.bookings.map { |booking| booking.listing }

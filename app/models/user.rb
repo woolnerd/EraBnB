@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    # has_many :bookings
+    has_many :bookings,
+    foreign_key: :booker_id,
+    class_name: :Booking,
+    dependent: :destroy
 
     has_many :listings,
     foreign_key: :host_id,
