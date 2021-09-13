@@ -1,11 +1,28 @@
 
-.search-btn {
+
+//before scroll
+.search-btn-start  {
+    position: absolute;
+    left: 18rem;
+    top: 6.15rem;
+    height: 77%;
+    border-radius: 34px;
+    border: 1px solid #dcd9d9;
+    cursor: pointer;
+    padding: 0 25%;
+    background-color: white;
+    font-size: 1.5rem;
+    color: #9d549f;
+}
+
+.search-btn{
     background: white;
     width: 25%;
     border-radius: 30px;
     border: 1px solid #dcd9d9;
     cursor: pointer;
 }
+
 .menu-container {
   display: flex;
   justify-content: space-around;
