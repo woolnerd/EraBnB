@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
-import BookingFormContainer from "../bookings/booking_container";
+import BookingFormContainer from "../bookings/booking_form_container";
 
 
 class Listing extends React.Component {
@@ -66,10 +66,6 @@ class Listing extends React.Component {
               </Link>
             </div>
             <div className="listing-info-show">
-              <h3>Want to Book it?</h3>
-              <p>Lorem ipsum kinda stuff</p>
-              <p>Lorem ipsum kinda stuff</p>
-              <p>Lorem ipsum kinda stuff</p>
               {/* Bedrooms {listing.num_bedrms}{" "} */}
               {/* <span> Bathrooms {listing.num_baths}</span> */}
               {/* </p> */}

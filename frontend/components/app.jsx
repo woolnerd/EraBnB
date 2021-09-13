@@ -40,14 +40,14 @@ const App = () => (
 
     <Route exact path="/listings" component={ListingsIndexContainer} />
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
-    {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-    {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
     <ProtectedRoute
       exact
       path="/new/listing"
       component={ListingFormContainer}
     />
     <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
+    <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer} />
+
     <div id="footer">
       <div className="footer-container">
         <ul>

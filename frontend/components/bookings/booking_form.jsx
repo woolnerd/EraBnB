@@ -24,11 +24,13 @@ class BookingForm extends React.Component {
   }
 
 setTotalPrice(){
-        // let difference =
-        //   (this.state.check_out.getTime() - this.state.check_in.getTime()) /
-        //   (1000 * 3600 * 24);
-        // this.setState({['total_price']: difference * this.props.booking.listingPrice })
-    }
+        let { check_in, check_out, price, clean_fee, service_fee } = this.state
+        let difference =
+          (check_out.getTime() - check_in.getTime()) /
+          (1000 * 3600 * 24);
+        this.setState({['total_price']: difference * price * clean_fee * service_fee })
+    
+    this.state.total_price  }
 
   handleDate(e) {
     let { startDate, endDate } = e.selection;
@@ -67,6 +69,11 @@ setTotalPrice(){
 
     return (
       <div className="booking-form-container">
+        <h3>Want to Book it?</h3>
+        <p>Price per night: {this.props.listing.price}</p>
+        <p>Cleaning fee: {this.props.listing.clean_fee}</p>
+        <p>Service fee: {this.props.listing.service_fee}</p>
+        <p>Total: {this.state.total_price}</p>
         <form onSubmit={this.handleSubmit} className="login-form">
           <input
             type="text"
@@ -74,17 +81,7 @@ setTotalPrice(){
             value={this.state.guests}
             onChange={this.update("guests")}
           />
-          {/* <Calendar date={new Date()} onChange={this.handleSelect} /> */};
-          {/* <input
-                type="date"
-                value={this.state.check_in}
-                onChange={this.update("check_in")}
-              />
-              <input
-                type="date"
-                value={this.state.check_out}
-                onChange={this.update("check_out")}
-              /> */}
+
           <input
             type="text"
             placeholder="Total Price"
