@@ -8,6 +8,7 @@ import Modal from './modal/modal';
 import { Splash } from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
 import BookingContainer from './bookings/booking_container';
+import { Footer } from './footer/footer';
 import {
   Route,
   Redirect,
@@ -38,40 +39,14 @@ const App = () => (
     </header>
     <div className="cushion"> </div>
     <Route exact path="/" component={Splash} />
-    <Route exact path="/listings/:city" component={ListingsIndexContainer} />
+    {/* <Route exact path="/listings/:city" component={ListingsIndexContainer} /> */}
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />
-    <ProtectedRoute
-      exact
-      path="/new/listing"
-      component={ListingFormContainer}
-    />
+    <ProtectedRoute exact path="/new/listing" component={ListingFormContainer} />
     <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
-    <ProtectedRoute
-      exact
-      path="/bookings/:bookingId"
-      component={BookingContainer}
+    <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer}
     />
-
-    <div id="footer">
-      <div className="footer-container">
-        <ul>
-          <li>stuff</li>
-          <li>stuff</li>
-          <li>stuff</li>
-        </ul>
-        <ul>
-          <li>stuff</li>
-          <li>stuff</li>
-          <li>stuff</li>
-        </ul>
-        <ul>
-          <li>stuff</li>
-          <li>stuff</li>
-          <li>stuff</li>
-        </ul>
-      </div>
-    </div>
+    <Footer />
   </div>
 );
 
