@@ -2,8 +2,9 @@
     display: flex;
     justify-content: flex-start;
     padding: 2%;
-    border: 1px solid black;
-    text-align: center;
+    /* border: 1px solid black; */
+    /* text-align: center; */
+    margin-top: 50px;
 }
 
 .booking-info-container {
@@ -15,7 +16,8 @@
     height: 600px;
     
     img {
-        width: 200px;
+            width: 600px;
+    border-radius: 14px;
     }
 }
 
@@ -25,5 +27,15 @@
 
 .listing-info-book-show {
     padding:20px;
+    text-align: left;
 
+    h4 {
+        padding: 4px;
+    }
+}
+
+.booking-heading {
+
+
+    text-align: left;
 }

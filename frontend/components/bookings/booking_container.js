@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchBooking } from "../../actions/booking_actions";
+import { fetchBooking, deleteBooking } from "../../actions/booking_actions";
 import { fetchListing } from "../../actions/listing_actions";
 import Booking from './booking';
 
@@ -14,7 +14,8 @@ const mSTP = ({ entities}, ownProps) => {
 
 const mDTP = (dispatch) => ({
     fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId)),
-    fetchListing: (listingId) => dispatch(fetchListing(listingId))
+    fetchListing: (listingId) => dispatch(fetchListing(listingId)),
+    cancelBooking: (bookingId) => dispatch(deleteBooking(bookingId))
 })
 
 
