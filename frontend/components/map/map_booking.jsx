@@ -4,22 +4,20 @@ import mapboxgl from "!mapbox-gl";
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
     this.listing;
     this.map;
   }
 
   marker(listing) {
-      return `<h1>test</h1>`
     // return `<div>
-    //  <img id="map-photo"src=${listing.photoUrl[0]}/> 
-    //   <h4>
-    //     ${listing.title}
-    //   </h4>
-    //   <p>
-    //   ${listing.price} price/night
-    //   </p>
-    //   </div>`;
+     `<img id="map-photo"src=${this.props.listings[0].photoUrl[0]}/> 
+      <h4>
+        ${listing.title}
+      </h4>
+      <p>
+      ${listing.price} price/night
+      </p>
+      </div>`;
   }
   componentDidMount() {
 
@@ -31,13 +29,14 @@ class Map extends React.Component {
 
   componentDidUpdate() {
     // debugger
+    console.log(this.props)
     let { listing } = this.props;
 
     this.map = new mapboxgl.Map({
-      container: "mapContainer",
+      container: "mapContainer-booking",
       style: "mapbox://styles/mapbox/streets-v11",
       center: [listing.longitude, listing.latitude],
-      zoom: 12,
+      zoom: 15,
     });
 
       new mapboxgl.Marker()
@@ -54,7 +53,7 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div id="mapContainer"></div>;
+    return <div id="mapContainer-booking"></div>;
   }
 }
 

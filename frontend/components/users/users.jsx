@@ -7,31 +7,34 @@ class Users extends React.Component {
   }
 
   componentDidMount(){
+    // debugger
     this.props.fetchListings()
     this.props.fetchBookings()
   }
 
   render() {
+    debugger
     let { currentUser, bookings, listings } = this.props;
-    
-    if (!listings || !bookings) {
+    if (!listings && !bookings) {
       return null
     }
-    
+    console.log(this.props)
+    console.log(listings)
    listings = listings.map((listing) => (
-      <Link to={`/listings/${listing.id}`}>
-      <div>
-        <h3 key={listing.id}>{listing.title}</h3>
-      </div>
-      </Link> 
-   ))
+     <Link to={`/listings/${listing.listing.id}`}>
+       <div key={listing.id}>
+         <h3>{listing.listing.title}</h3>
+       </div>
+     </Link>
+   ));
 
     //will display show page for booking
    bookings =  bookings.map((booking) => {
+     debugger
       return (
-      <Link to={`/bookings/${booking.id}`}>
-        <div>
-          <h3 key={booking.id}>{booking.title}</h3>
+      <Link to={`/bookings/${booking.booking.id}`}>
+        <div key={booking.listing.id}>
+          <h3 >{booking.listing.title}</h3>
         </div>
       </Link>
       )

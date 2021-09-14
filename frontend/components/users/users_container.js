@@ -5,10 +5,11 @@ import { fetchBookings } from '../../actions/booking_actions';
 
 
 const mSTP = ({entities, session}) => {
+    // debugger
         return {
           currentUser: entities.users[session.id],
-          bookings: entities.users[session.id].booking_listing,
-          listings: entities.users[session.id].user_listing,
+          bookings: entities.users[session.id].user_bookings,
+          listings: entities.users[session.id].user_listings,
         };
 };
 
