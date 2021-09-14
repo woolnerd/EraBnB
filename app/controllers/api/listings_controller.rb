@@ -18,11 +18,11 @@ class Api::ListingsController < ApplicationController
     end
 
     def show 
+        # @listing = Listing.find(params[:id])
         @listing = Listing.with_attached_photos.find(params[:id])
         render :show
     end
 
-    # not sure if update is correct, check fetching, check routing
     def update 
         @listing = Listing.find(params[:id])
         if @listing 
@@ -33,12 +33,11 @@ class Api::ListingsController < ApplicationController
         end
     end
 
-    # not sure if destroy is correct, where to route?
     def destroy
         @listing = Listing.find(params[:id])
         if @listing 
             @listing.destroy
-            # render "api/listings/index"
+           render :index
         else  
             render json: @listing.errors.full_messages, status: 404
         end 

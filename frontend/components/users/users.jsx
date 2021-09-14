@@ -6,26 +6,50 @@ class Users extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    // debugger
+    this.props.fetchListings()
+    this.props.fetchBookings()
+  }
+
   render() {
-    const { currentUser } = this.props;
-    const listings = currentUser.user_listing.map((listing) => (
-      <Link to={`/listings/${listing.id}`}>
-        <h3 key={listing.id}>{listing.title}</h3>
-        {/* <img src={} alt="" /> */}
+    debugger
+    let { currentUser, bookings, listings } = this.props;
+    if (!listings && !bookings) {
+      return null
+    }
+    console.log(this.props)
+    console.log(listings)
+   listings = listings.map((listing) => (
+     <Link to={`/listings/${listing.listing.id}`}>
+       <div key={listing.id}>
+         <h3>{listing.listing.title}</h3>
+       </div>
+     </Link>
+   ));
+
+    //will display show page for booking
+   bookings =  bookings.map((booking) => {
+     debugger
+      return (
+      <Link to={`/bookings/${booking.booking.id}`}>
+        <div key={booking.listing.id}>
+          <h3 >{booking.listing.title}</h3>
+        </div>
       </Link>
-    ));
+      )
+    }
+
+    );
 
     return (
       <>
         <div className="today-banner">
           <h1>Today</h1>
-          {/* <div key={currentUser.id} className="user-profile-container"> */}
           <div className="user-info">
             <h1>Hello, {currentUser.first_name}!</h1>
             <h2>Email: {currentUser.email}</h2>
-            {/* <h3>Bio: {currentUser.bio}</h3> */}
           </div>
-          {/* </div> */}
         </div>
         <div
           className="your-res-container"
@@ -50,9 +74,9 @@ class Users extends React.Component {
           </div>
           <div className="user-trips">
             <h2>Your Trips: </h2>
-            {listings}
+            {bookings}
             <br />
-            <Link to="/new/listing">
+            <Link to="/listings">
               <h3 className="user-btn">Find your next adventure</h3>
             </Link>
           </div>

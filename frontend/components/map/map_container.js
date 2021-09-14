@@ -21,6 +21,7 @@ const mSTP = ({ entities }, ownProps) => {
 
 const mDTP = (dispatch) => ({
   fetchListings: () => dispatch(fetchListings()),
+  fetchListing: (listingId) => dispatch(fetchListing(listingId))
 });
 
 export default withRouter(connect(mSTP, mDTP)(Map));

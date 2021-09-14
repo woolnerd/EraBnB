@@ -7,6 +7,7 @@ import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
 import { Splash } from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
+import BookingContainer from './bookings/booking_container';
 import {
   Route,
   Redirect,
@@ -40,14 +41,14 @@ const App = () => (
 
     <Route exact path="/listings" component={ListingsIndexContainer} />
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
-    {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-    {/* <AuthRoute exact path="/users/:userId" component={Modal} />  */}
     <ProtectedRoute
       exact
       path="/new/listing"
       component={ListingFormContainer}
     />
     <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
+    <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer} />
+
     <div id="footer">
       <div className="footer-container">
         <ul>

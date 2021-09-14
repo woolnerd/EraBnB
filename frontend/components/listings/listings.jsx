@@ -5,7 +5,6 @@ import  MapContainer from '../map/map_container';
 class Listings extends React.Component {
     constructor(props){
         super(props);
-
     }
 
     componentDidMount(){
@@ -25,7 +24,6 @@ class Listings extends React.Component {
                     {listings}
                 </div>
                 <MapContainer />
-                {/* <div className="map-cushion"></div> */}
             </div>
         )
     }

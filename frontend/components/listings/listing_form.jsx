@@ -53,8 +53,8 @@ class ListingForm extends React.Component {
       query: `${this.state.address}`,
       limit: 1
     }).send().then(res=>{
-      console.log(res.body.features[0].center[0]);
-      console.log(res.body.features[0].center[1]);
+      // console.log(res.body.features[0].center[0]);
+      // console.log(res.body.features[0].center[1]);
 
       this.setState({
         longitude: res.body.features[0].center[0],

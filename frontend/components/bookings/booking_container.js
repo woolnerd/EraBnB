@@ -1,25 +1,23 @@
 import { connect } from "react-redux";
-import { createBooking, fetchBooking } from "../../actions/booking_actions";
-import BookingForm from "./booking_form";
+import { fetchBooking } from "../../actions/booking_actions";
+import { fetchListing } from "../../actions/listing_actions";
+import Booking from './booking';
 
-const mSTP = (state, ownProps) => {
-    // debugger 
-  return {
-    formType: "Create Booking",
-    booking: {
-      listing_id: ownProps.match.params.listingId,
-      booker_id: state.session.id,
-      check_in: "",
-      check_out: "",
-      guests: "",
-      total_price: "",
-    },
-  };
-};
+
+
+const mSTP = ({ entities}, ownProps) => {
+    return (
+        {booking: entities.bookings[ownProps.match.params.bookingId]}
+    )
+}
+
 
 const mDTP = (dispatch) => ({
-  action: (booking) => dispatch(createBooking(booking)),
-  fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId)),
-});
+    fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId)),
+    fetchListing: (listingId) => dispatch(fetchListing(listingId))
+})
 
-export default connect(mSTP, mDTP)(BookingForm);
+
+
+export default connect(mSTP, mDTP)(Booking)
+

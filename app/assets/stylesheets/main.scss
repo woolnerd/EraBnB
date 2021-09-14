@@ -4,7 +4,7 @@
 @import './utilities/functions';
 @import './utilities/mixins';
 
-// // @import 'vendors/bootstrap';
+@import 'vendors/default';
 // // @import 'vendors/jquery-ui';
 
 @import './base/reset';
@@ -29,6 +29,7 @@
 
 @import 'pages/user_profile';
 @import 'pages/listing';
+@import 'pages/booking_show';
 // // @import 'pages/about';
 // // @import 'pages/contact';
 
