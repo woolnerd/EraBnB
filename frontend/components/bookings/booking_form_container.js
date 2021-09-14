@@ -13,11 +13,7 @@ const mSTP = (state, ownProps) => {
       check_in: "",
       check_out: "",
       guests: "",
-<<<<<<< Updated upstream
-      total_price: "",
-=======
       total_price: 0,
->>>>>>> Stashed changes
     },
   
   };

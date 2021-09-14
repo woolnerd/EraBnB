@@ -20,8 +20,6 @@ class BookingForm extends React.Component {
     this.handleDate = this.handleDate.bind(this);
   }
 
-<<<<<<< Updated upstream
-=======
   setDateRange() {
     let listingDates = []
 
@@ -46,25 +44,11 @@ class BookingForm extends React.Component {
     });
     console.log(this.dateRange)
   }
->>>>>>> Stashed changes
 
   handleSubmit(e) {
     e.preventDefault();
     this.props
       .action(this.state)
-<<<<<<< Updated upstream
-      .then(this.props.history.push(`/users/${this.state.booker_id}`));
-  }
-
-setTotalPrice(){
-        let { check_in, check_out, price, clean_fee, service_fee } = this.state
-        let difference =
-          (check_out.getTime() - check_in.getTime()) /
-          (1000 * 3600 * 24);
-        this.setState({['total_price']: difference * price * clean_fee * service_fee })
-    
-    this.state.total_price  }
-=======
       .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
   }
 
@@ -78,7 +62,6 @@ setTotalPrice(){
       ["total_price"]: total,
     });
   }
->>>>>>> Stashed changes
 
   handleDate(e) {
     let { startDate, endDate } = e.selection;
@@ -90,9 +73,6 @@ setTotalPrice(){
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
   }
-<<<<<<< Updated upstream
-  render() {
-=======
 
   render() {
     if (!this.props.booking) {
@@ -102,7 +82,6 @@ setTotalPrice(){
     this.setDateRange()
  
 
->>>>>>> Stashed changes
     let selectionRange;
 
     if (this.state.check_in === "") {
@@ -111,12 +90,7 @@ setTotalPrice(){
         endDate: new Date(),
         key: "selection",
       };
-<<<<<<< Updated upstream
-    }
-    else if (this.state.check_in !== "" && this.state.check_out === "") {
-=======
     } else if (this.state.check_in !== "" && this.state.check_out === "") {
->>>>>>> Stashed changes
       selectionRange = {
         startDate: this.state.check_in,
         endDate: new Date(),

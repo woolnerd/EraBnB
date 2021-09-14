@@ -39,38 +39,6 @@ const App = () => (
     </header>
     <div className="cushion"> </div>
     <Route exact path="/" component={Splash} />
-<<<<<<< Updated upstream
-
-    <Route exact path="/listings" component={ListingsIndexContainer} />
-    <Route exact path={`/listings/:listingId`} component={ListingContainer} />
-    <ProtectedRoute
-      exact
-      path="/new/listing"
-      component={ListingFormContainer}
-    />
-    <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
-    <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer} />
-
-    <div id="footer">
-      <div className="footer-container">
-        <ul>
-          <li>stuff</li>
-          <li>stuff</li>
-          <li>stuff</li>
-        </ul>
-        <ul>
-          <li>stuff</li>
-          <li>stuff</li>
-          <li>stuff</li>
-        </ul>
-        <ul>
-          <li>stuff</li>
-          <li>stuff</li>
-          <li>stuff</li>
-        </ul>
-      </div>
-    </div>
-=======
     {/* <Route exact path="/listings/:city" component={ListingsIndexContainer} /> */}
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />
@@ -79,7 +47,6 @@ const App = () => (
     <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer}
     />
     <Footer />
->>>>>>> Stashed changes
   </div>
 );
 
