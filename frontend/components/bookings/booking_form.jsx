@@ -3,8 +3,6 @@ import { Calendar, DateRange } from "react-date-range";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
-
-
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +13,8 @@ class BookingForm extends React.Component {
     this.handleDate = this.handleDate.bind(this);
   }
 
+  componentDidMount(){
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -24,13 +24,17 @@ class BookingForm extends React.Component {
   }
 
 setTotalPrice(){
-        let { check_in, check_out, price, clean_fee, service_fee } = this.state
+        let { check_in, check_out} = this.state
+        let { clean_fee, service_fee, price } = this.props.listing
         let difference =
           (check_out.getTime() - check_in.getTime()) /
           (1000 * 3600 * 24);
-        this.setState({['total_price']: difference * price * clean_fee * service_fee })
-    
-    this.state.total_price  }
+        let total = difference * price + (clean_fee + service_fee)
+          this.setState({
+            ["total_price"]: total
+          });
+          // this.state.total_price  
+  }
 
   handleDate(e) {
     let { startDate, endDate } = e.selection;
@@ -43,6 +47,12 @@ setTotalPrice(){
     return (e) => this.setState({ [field]: e.target.value });
   }
   render() {
+
+    if (!this.props.booking){
+      return null
+    }
+
+
     let selectionRange;
 
     if (this.state.check_in === "") {
@@ -52,18 +62,21 @@ setTotalPrice(){
         key: "selection",
       };
     }
-    else if (this.state.check_in !== "" && this.state.check_out === "") {
+    else if (
+      this.state.check_in !== "" &&
+      this.state.check_out === ""
+    ) {
       selectionRange = {
         startDate: this.state.check_in,
         endDate: new Date(),
         key: "selection",
       };
-    } else if (this.state.check_out !== ""){
+    } else if (this.state.check_out !== "") {
       selectionRange = {
         startDate: this.state.check_in,
         endDate: this.state.check_out,
         key: "selection",
-      }
+      };
     }
 
 

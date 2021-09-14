@@ -3,6 +3,7 @@ import { createBooking, fetchBooking } from "../../actions/booking_actions";
 import BookingForm from "./booking_form";
 
 const mSTP = (state, ownProps) => {
+  debugger
   return {
     formType: "Create Booking",
     listing: state.entities.listings[ownProps.match.params.listingId],
@@ -11,8 +12,8 @@ const mSTP = (state, ownProps) => {
       booker_id: state.session.id,
       check_in: "",
       check_out: "",
-      guests: "",
-      total_price: "",
+      guests: 0,
+      total_price: 0,
     },
     
   };

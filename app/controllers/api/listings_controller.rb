@@ -2,10 +2,16 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :update, :destroy]     
 
     def index 
-        debugger
-        @listings = Listing.with_attached_photos.all 
-        render "api/listings/index"
-        # render :index
+        # debugger
+        
+
+        # if !params[query]
+        #     @listings = Listing.with_attached_photos.all
+        # else
+            #  city = params.query.city 
+        @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%#{'New York'}%")
+        # render "api/listings/index"
+        render :index
     end
 
     def create 
