@@ -7,6 +7,7 @@ import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
 import { Splash } from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
+import BookingContainer from './bookings/booking_container';
 import {
   Route,
   Redirect,

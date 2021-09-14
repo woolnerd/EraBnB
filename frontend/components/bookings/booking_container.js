@@ -1,16 +1,20 @@
 import { connect } from "react-redux";
 import { fetchBooking } from "../../actions/booking_actions";
+import { fetchListing } from "../../actions/listing_actions";
 import Booking from './booking';
 
 
 
-const mSTP = ({ entities }) => ({
+const mSTP = ({ entities}, ownProps) => {
+    return (
+        {booking: entities.bookings[ownProps.match.params.bookingId]}
+    )
+}
 
-})
 
-
-const mDTp = (dispatch) => ({
-    fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId))
+const mDTP = (dispatch) => ({
+    fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId)),
+    fetchListing: (listingId) => dispatch(fetchListing(listingId))
 })
 
 

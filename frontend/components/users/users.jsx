@@ -29,7 +29,7 @@ class Users extends React.Component {
     //will display show page for booking
    bookings =  bookings.map((booking) => {
       return (
-      <Link to={`/listings/${booking.id}`}>
+      <Link to={`/bookings/${booking.id}`}>
         <div>
           <h3 key={booking.id}>{booking.title}</h3>
         </div>
