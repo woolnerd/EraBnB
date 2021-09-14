@@ -38,7 +38,7 @@ const App = () => (
     </header>
     <div className="cushion"> </div>
     <Route exact path="/" component={Splash} />
-
+    <Route exact path="/listings/:city" component={ListingsIndexContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <ProtectedRoute
@@ -47,7 +47,11 @@ const App = () => (
       component={ListingFormContainer}
     />
     <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
-    <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer} />
+    <ProtectedRoute
+      exact
+      path="/bookings/:bookingId"
+      component={BookingContainer}
+    />
 
     <div id="footer">
       <div className="footer-container">

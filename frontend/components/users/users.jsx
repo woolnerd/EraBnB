@@ -1,26 +1,36 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Users extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      bookings: this.props.currentUser.user_bookings,
+      listings: this.props.currentUser.user_listings
+    }
   }
 
   componentDidMount(){
-    // debugger
-    this.props.fetchListings()
-    this.props.fetchBookings()
+    this.props.fetchUser(this.props.match.params.userId)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUser.user_bookings.length !== prevProps.currentUser.user_bookings.length) {
+      this.setState({["bookings"]: this.props.currentUser.user_bookings})
+    }
+      if (this.props.currentUser.user_listings.length !== prevProps.currentUser.user_listings.length) {
+      this.setState({["listings"]: this.props.currentUser.user_listings})
+    }
   }
 
   render() {
-    debugger
-    let { currentUser, bookings, listings } = this.props;
-    if (!listings && !bookings) {
-      return null
-    }
-    console.log(this.props)
-    console.log(listings)
-   listings = listings.map((listing) => (
+    let { currentUser } = this.props;
+    let listings;
+    let bookings;
+
+
+   listings = this.state.listings.map((listing) => (
      <Link to={`/listings/${listing.listing.id}`}>
        <div key={listing.id}>
          <h3>{listing.listing.title}</h3>
@@ -28,9 +38,8 @@ class Users extends React.Component {
      </Link>
    ));
 
-    //will display show page for booking
-   bookings =  bookings.map((booking) => {
-     debugger
+   bookings =  this.state.bookings.map((booking) => {
+    //  debugger
       return (
       <Link to={`/bookings/${booking.booking.id}`}>
         <div key={booking.listing.id}>

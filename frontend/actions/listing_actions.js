@@ -19,8 +19,8 @@ const removeListing = listingId => ({
     listingId
 })
 
-export const fetchListings = () => dispatch => (
-    APIListingUtil.fetchListings()
+export const fetchListings = (query) => dispatch => (
+    APIListingUtil.fetchListings(query)
     .then( listings => dispatch(receiveAllListings(listings)))
 );
 

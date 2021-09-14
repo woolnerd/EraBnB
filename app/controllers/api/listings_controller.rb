@@ -2,14 +2,15 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :update, :destroy]     
 
     def index 
-        @listings = Listing.all 
+        debugger
+        @listings = Listing.with_attached_photos.all 
         render "api/listings/index"
         # render :index
     end
 
     def create 
+        
         @listing = Listing.new(listing_params)
-        # debugger
         if @listing.save 
             render :show
         else  
@@ -18,6 +19,7 @@ class Api::ListingsController < ApplicationController
     end
 
     def show 
+        
         # @listing = Listing.find(params[:id])
         @listing = Listing.with_attached_photos.find(params[:id])
         render :show

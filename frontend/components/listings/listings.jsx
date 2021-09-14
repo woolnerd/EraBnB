@@ -8,7 +8,7 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchListings();
+        this.props.fetchListings({city: this.props.match.params.city});
     }
 
 

@@ -20,7 +20,7 @@ class BookingForm extends React.Component {
     e.preventDefault();
     this.props
       .action(this.state)
-      .then(this.props.history.push(`/users/${this.state.booker_id}`));
+      .then(res => this.props.history.push(`/bookings/${res.booking.id}`));
   }
 
 setTotalPrice(){

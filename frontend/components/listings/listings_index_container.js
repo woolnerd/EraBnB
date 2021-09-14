@@ -9,7 +9,7 @@ const mSTP = ({entities}) => ({
 
 
 const mDTP = dispatch => ({
-    fetchListings: () => dispatch(fetchListings())
+    fetchListings: (query) => dispatch(fetchListings(query))
 });
 
 export default connect(mSTP, mDTP)(Listings);
