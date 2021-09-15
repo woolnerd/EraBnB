@@ -7,9 +7,9 @@
     end
 
     def create
-        @review = Booking.new(review_params)
+        @review = Review.new(review_params)
         if @review.save
-            render :show
+            # render "api/listings/show"
         else  
             render json: @review.errors.full_messages, status: 422
         end
@@ -41,7 +41,7 @@
 
     private 
 
-    def booking_params
+    def review_params
         params.require(:review).permit(:listing_id, :author_id, :body, :rating)                              
     end
 

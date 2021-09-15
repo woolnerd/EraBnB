@@ -53,8 +53,7 @@ class ListingForm extends React.Component {
       query: `${this.state.address}`,
       limit: 1
     }).send().then(res=>{
-      // console.log(res.body.features[0].center[0]);
-      // console.log(res.body.features[0].center[1]);
+     
 
       this.setState({
         longitude: res.body.features[0].center[0],
@@ -119,7 +118,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.title}
                 onChange={this.update("title")}
-                // placeholder="title"
               />
             </div>
             <div className="listing-form">
@@ -127,7 +125,6 @@ class ListingForm extends React.Component {
               <textarea
                 value={this.state.description}
                 onChange={this.update("description")}
-                // placeholder="description"
               />
             </div>
             <div className="listing-form">
@@ -136,7 +133,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.era_theme}
                 onChange={this.update("era_theme")}
-                // placeholder="First Name"
               />
             </div>
             <div className="listing-form">
@@ -145,7 +141,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.address}
                 onChange={this.update("address")}
-                // placeholder="Address"
               />
             </div>
             <div className="listing-form">
@@ -154,7 +149,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.num_bedrms}
                 onChange={this.update("num_bedrms")}
-                // placeholder="YYYY-MM-DD"
               />
             </div>
             <div className="listing-form">
@@ -162,7 +156,6 @@ class ListingForm extends React.Component {
               <input
                 value={this.state.num_baths}
                 onChange={this.update("num_baths")}
-                // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <div className="listing-form">
@@ -171,7 +164,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.price}
                 onChange={this.update("price")}
-                // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <div className="listing-form">
@@ -180,7 +172,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.service_fee}
                 onChange={this.update("service_fee")}
-                // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             <div className="listing-form">
@@ -189,7 +180,6 @@ class ListingForm extends React.Component {
                 type="text"
                 value={this.state.clean_fee}
                 onChange={this.update("clean_fee")}
-                // placeholder="Tell us about yourself! (If you want to.)"
               />
             </div>
             {/* <img src="" height="200" alt="Image preview..." /> */}
@@ -198,7 +188,6 @@ class ListingForm extends React.Component {
               <input
                 type="file"
                 onChange={(e) => this.setState({ photos: e.target.files })}
-                // onChange={this.onPhotoInput.bind(this)}
                 multiple
                 />
                 {preview}

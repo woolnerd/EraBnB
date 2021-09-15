@@ -3,8 +3,29 @@ import { Route, Link } from "react-router-dom";
 import BookingFormContainer from "../bookings/booking_form_container";
 
 class Listing extends React.Component {
+  constructor(props){
+    super(props)
+
+    this.state = this.props.newReview;
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+
   componentDidMount() {
-    this.props.fetchListing(this.props.match.params.listingId);
+    this.props.fetchListing(this.props.match.params.listingId)
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+    this.props.createReview(this.state).then(this.props.fetchListing(this.state.listing_id))
+  }
+
+  update(field) {
+    console.log(field)
+        return e => { 
+      this.setState({[field]: e.target.value }) 
+        }
   }
 
   render() {
@@ -14,7 +35,7 @@ class Listing extends React.Component {
 
     const { currentUser, listing } = this.props;
 
-    console.log(listing);
+    console.log(this.state);
 
     const showDelete =
       currentUser === listing.host_id ? (
@@ -77,12 +98,12 @@ class Listing extends React.Component {
             <h2>{review.rating}/5 stars</h2>
             <h1>{review.body}</h1>
             <p>{review.author.first_name}</p>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button className="session-submit">Edit</button>
+            <button className="session-submit">Delete</button>
         </div>
       )
 
-
+      // debugger
     return (
       { listing } && (
         <>
@@ -106,11 +127,9 @@ class Listing extends React.Component {
             </div>
 
             <div className="listing-info-show">
-              {
-              !currentUser ? 
-              <h1>Please login or signup to book</h1> :
-       
-              (currentUser && currentUser !== listing.host_id) ? (
+              {!currentUser ? (
+                <h1>Please login or signup to book</h1>
+              ) : currentUser && currentUser !== listing.host_id ? (
                 <Route props={listing} component={BookingFormContainer} />
               ) : (
                 bookings
@@ -121,11 +140,25 @@ class Listing extends React.Component {
               <h3>Here's what people are saying: </h3>
               <div>
                 {reviews}
+                <h4>{this.state.body}</h4>
+                <h4>{this.state.rating}</h4>
+                <form onSubmit={this.handleSubmit}>
+                  <textarea onChange={this.update("body")} />
+                  <select  value={this.state.rating} onChange={this.update("rating")} >
+                    <option disabled value="">Choose a rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <button className="session-submit">Submit review</button>
+                </form>
               </div>
-           
-              <Link to="/listings/">
+
+              {/* <Link to="/listings/">
                 <button className="session-submit">Leave a review</button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </>
