@@ -3,29 +3,54 @@ import { Route, Link } from "react-router-dom";
 import BookingFormContainer from "../bookings/booking_form_container";
 
 class Listing extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
-    this.state = this.props.newReview;
-
+    this.state = {...this.props.newReview, 
+                  toggleEdit: false}
+      console.log(this.state)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   componentDidMount() {
-    this.props.fetchListing(this.props.match.params.listingId)
+    this.props.fetchListing(this.props.match.params.listingId);
   }
 
-  handleSubmit(e){
-    e.preventDefault()
-    this.props.createReview(this.state).then(this.props.fetchListing(this.state.listing_id))
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props
+      .createReview(this.state)
+      .then(this.props.fetchListing(this.state.listing_id));
   }
 
   update(field) {
-    console.log(field)
-        return e => { 
-      this.setState({[field]: e.target.value }) 
-        }
+    console.log(field);
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
+  handleEditClick(e) {
+    e.preventDefault()
+    this.state.toggleEdit
+      ? this.setState({ toggleEdit: false })
+      : this.setState({ toggleEdit: true });
+  }
+
+  handleEditSubmit(e) {
+    e.preventDefault();
+  
+    this.props
+      .updateReview(this.state)
+      .then(this.props.fetchListing(this.state.listing_id));
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    const listingId = this.state.listing_id
+    this.props
+      .deleteReview(this.state.id)
+      .then(this.props.fetchListing(listingId));
   }
 
   render() {
@@ -93,17 +118,26 @@ class Listing extends React.Component {
       </div>
     );
 
-      const reviews = listing.reviews.map((review, idx)=> 
-        <div key={review.id}className="review-container">
-            <h2>{review.rating}/5 stars</h2>
-            <h1>{review.body}</h1>
-            <p>{review.author.first_name}</p>
-            <button className="session-submit">Edit</button>
-            <button className="session-submit">Delete</button>
-        </div>
-      )
+    const reviews = listing.reviews.map((review, idx) => (
+      <div key={review.id} className="review-container">
+        <h2>{review.rating}/5 stars</h2>
+        <h1>{review.body}</h1>
+        <p>{review.author.first_name}</p>
+        
+        {
+          this.state.toggleEdit ? 
+            <>
+              <textarea onChange={this.update("body")} value={this.state.body}/> 
+              <button onClick={(e)=>this.handleEditSubmit(e)} className="session-submit">Save edit</button>
+         
+            </>
+            : null 
+          }
+        <button key={review.id} onClick={(e)=>this.handleEditClick(e)} className="session-submit">Edit</button>
+        <button className="session-submit">Delete</button>
+      </div>
+    ));
 
-      // debugger
     return (
       { listing } && (
         <>
@@ -136,6 +170,7 @@ class Listing extends React.Component {
               )}
             </div>
 
+              
             <div className="listing-info-show">
               <h3>Here's what people are saying: </h3>
               <div>
@@ -144,8 +179,13 @@ class Listing extends React.Component {
                 <h4>{this.state.rating}</h4>
                 <form onSubmit={this.handleSubmit}>
                   <textarea onChange={this.update("body")} />
-                  <select  value={this.state.rating} onChange={this.update("rating")} >
-                    <option disabled value="">Choose a rating</option>
+                  <select
+                    value={this.state.rating}
+                    onChange={this.update("rating")}
+                  >
+                    <option disabled value="">
+                      Choose a rating
+                    </option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -155,7 +195,6 @@ class Listing extends React.Component {
                   <button className="session-submit">Submit review</button>
                 </form>
               </div>
-
             </div>
           </div>
         </>
