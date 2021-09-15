@@ -156,9 +156,6 @@ class Listing extends React.Component {
                 </form>
               </div>
 
-              {/* <Link to="/listings/">
-                <button className="session-submit">Leave a review</button>
-              </Link> */}
             </div>
           </div>
         </>
