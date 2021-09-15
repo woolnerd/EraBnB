@@ -54,10 +54,10 @@ class Listing extends React.Component {
     );
 
     const bookings = listing.bookings.length ? (
-      listing.bookings.map((booking) => {
+      listing.bookings.map((booking, idx) => {
         return (
           <>
-            <h3>Your upcoming bookings:</h3>
+            <h3>Upcoming booking #{idx + 1}:</h3>
             <Link to={`/bookings/${booking.id}`}>
               <h4>
                 Check-in {booking.check_in} - Check-out {booking.check_out}
@@ -95,8 +95,11 @@ class Listing extends React.Component {
             </div>
 
             <div className="listing-info-show">
-              {(currentUser && currentUser !== listing.host_id) ||
-              !currentUser ? (
+              {
+              !currentUser ? 
+              <h1>Please login or signup to book</h1> :
+       
+              (currentUser && currentUser !== listing.host_id) ? (
                 <Route props={listing} component={BookingFormContainer} />
               ) : (
                 bookings

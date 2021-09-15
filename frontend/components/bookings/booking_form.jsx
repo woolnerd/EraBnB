@@ -31,7 +31,7 @@ class BookingForm extends React.Component {
     listingDates.forEach((range) => {
       let start = new Date(range[0]);
       let end = new Date(range[1]);
-      let diff = (end.getTime() - start.getTime()) / (1000 * 3600 * 24);
+      let diff = Math.round((end.getTime() - start.getTime()) / (1000 * 3600 * 24));
       for (let i = 0; i <= diff; i++) {
         let temp = `${start.getFullYear()}/${start.getMonth() + 1}/${
           start.getDate() + 1
@@ -40,7 +40,7 @@ class BookingForm extends React.Component {
         start = new Date(temp);
       }
     });
-    console.log(this.dateRange)
+    // console.log(this.dateRange)
   }
 
   handleSubmit(e) {
@@ -57,7 +57,7 @@ class BookingForm extends React.Component {
       (check_out.getTime() - check_in.getTime()) / (1000 * 3600 * 24);
     let total = difference * price + (clean_fee + service_fee);
     this.setState({
-      ["total_price"]: total,
+      ["total_price"]: ((total * .039) + total).toFixed(2)  
     });
   }
 
@@ -133,11 +133,12 @@ class BookingForm extends React.Component {
             editableDateInputs={true}
             showSelectionPreview={true}
             months={1}
-            direction="horizontal"
+            direction="vertical"
             showDateDisplay={false}
-            showMonthAndYearPickers={false}
+            showMonthAndYearPickers={true}
             minDate={new Date()}
             disabledDates={this.dateRange}
+            rangeColor={["#ff5a91"]}
           />
         </div>
       </div>

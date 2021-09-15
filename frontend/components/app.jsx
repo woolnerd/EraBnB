@@ -46,6 +46,7 @@ const App = () => (
     <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
     <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer}
     />
+  
     <Footer />
   </div>
 );
