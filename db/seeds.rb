@@ -12,6 +12,7 @@ require 'open-uri'
 User.delete_all
 Listing.delete_all
 Booking.delete_all
+Review.delete_all
 
 DemoUser = User.create({
             email:"DemoUser@demoUser.com",
@@ -158,21 +159,43 @@ file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/piece-of-home-interi
 listing5.photos.attach(io: file5, filename: 'piece-of-home-interior.jpg')
 
 booking1 = 
-  Booking.create(listing_id: listing1.id,
-  booker_id: user4.id,
-  check_in: "2022-11-01",
-  check_out: "2022-11-11",
-  guests: 4,
-  total_price: 3055.55)
+  Booking.create(
+    listing_id: listing1.id,
+    booker_id: user4.id,
+    check_in: "2022-11-01",
+    check_out: "2022-11-11",
+    guests: 4,
+    total_price: 3055.55
+    )
 
   booking2 = 
-  Booking.create(listing_id: listing3.id,
-  booker_id: user1.id,
-  check_in: "2022-01-01",
-  check_out: "2022-01-10",
-  guests: 3,
-  total_price: 2055.55)
+  Booking.create(
+    listing_id: listing3.id,
+    booker_id: user1.id,
+    check_in: "2022-01-01",
+    check_out: "2022-01-10",
+    guests: 3,
+    total_price: 2055.55
+    )
 
+
+review1 =
+  Review.create(
+    listing_id: listing2.id,
+    author_id: user4.id,
+    body: 'Love this place to soo much!',
+    rating: 5
+  )
+
+
+
+review2 = 
+  Review.create(
+    listing_id: listing4.id,
+    author_id: user2.id,
+    body: 'Greate place for kids!',
+    rating: 5
+  )
 
 # listing6 = Listing.create({
 # title: Faker::Company.catch_phrase,    
