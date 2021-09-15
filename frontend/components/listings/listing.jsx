@@ -14,7 +14,6 @@ class Listing extends React.Component {
 
     const { currentUser, listing } = this.props;
 
-    console.log(this.props);
 
     const showDelete =
       currentUser === listing.host_id ? (
@@ -71,7 +70,7 @@ class Listing extends React.Component {
         <h3>No upcoming bookings</h3>
       </div>
     );
-    // debugger
+
     return (
       { listing } && (
         <>

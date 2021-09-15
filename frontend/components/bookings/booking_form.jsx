@@ -25,22 +25,25 @@ class BookingForm extends React.Component {
       listingDates.push([booking.check_in, booking.check_out])
     })
     
-    // console.log(listingDates)
+    console.log(listingDates)
 
     let that = this;
     listingDates.forEach((range) => {
-      let start = new Date(range[0]);
-      let end = new Date(range[1]);
-      let diff = Math.round((end.getTime() - start.getTime()) / (1000 * 3600 * 24));
+      // debugger
+      let start = new Date(range[0].split("-").join("/"));
+      let end = new Date(range[1].split("-").join("/"));
+      let diff = (end.getTime() - start.getTime()) / (1000 * 3600 * 24);
+
       for (let i = 0; i <= diff; i++) {
         let temp = `${start.getFullYear()}/${start.getMonth() + 1}/${
           start.getDate() + 1
         }`;
+        debugger
         that.dateRange.push(start);
         start = new Date(temp);
       }
     });
-    // console.log(this.dateRange)
+    
   }
 
   handleSubmit(e) {
@@ -77,7 +80,9 @@ class BookingForm extends React.Component {
       return null;
     }
 
-    this.setDateRange()
+    console.log(this.dateRange);
+
+    // this.setDateRange()
  
 
     let selectionRange;
