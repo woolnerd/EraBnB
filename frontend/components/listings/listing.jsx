@@ -14,7 +14,7 @@ class Listing extends React.Component {
 
     const { currentUser, listing } = this.props;
 
-    console.log(this.props);
+    console.log(listing);
 
     const showDelete =
       currentUser === listing.host_id ? (
@@ -71,7 +71,18 @@ class Listing extends React.Component {
         <h3>No upcoming bookings</h3>
       </div>
     );
-    // debugger
+
+      const reviews = listing.reviews.map((review, idx)=> 
+        <div key={review.id}className="review-container">
+            <h2>{review.rating}/5 stars</h2>
+            <h1>{review.body}</h1>
+            <p>{review.author.first_name}</p>
+            <button>Edit</button>
+            <button>Delete</button>
+        </div>
+      )
+
+
     return (
       { listing } && (
         <>
@@ -107,26 +118,11 @@ class Listing extends React.Component {
             </div>
 
             <div className="listing-info-show">
-              <h3>Here's what people are saying</h3>
+              <h3>Here's what people are saying: </h3>
               <div>
-                <h3>Title of review</h3>
-                <h4>4.5/5</h4>
-                <p>fdsfhiewrhoiwehriohewfufjv</p>
-                <p>sdfaesdfjoiwefoiwef</p>
+                {reviews}
               </div>
-              <div>
-                <h3>Title of review</h3>
-                <h4>4.5/5</h4>
-                <p>fdsfhiewrhoiwehriohewfufjv</p>
-                <p>sdfaesdfjoiwefoiwef</p>
-              </div>
-              <div>
-                <h3>Title of review</h3>
-                <h4>4.5/5</h4>
-                <p>fdsfhiewrhoiwehriohewfufjv</p>
-                <p>sdfaesdfjoiwefoiwef</p>
-              </div>
-
+           
               <Link to="/listings/">
                 <button className="session-submit">Leave a review</button>
               </Link>

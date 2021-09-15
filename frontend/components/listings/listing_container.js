@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 import { fetchListing, deleteListing } from "../../actions/listing_actions";
-// import { } from '../../util/listings_api_util';
 import Listing from './listing';
 
 const mSTP = ({entities, session}, ownProps) => {
     return (
 {        listing: entities.listings[ownProps.match.params.listingId],
          currentUser: session.id,
-         userListings: entities.users.user_listing
-
+         userListings: entities.users.user_listing,
 }
     )
 };
