@@ -4,7 +4,7 @@ import { fetchListing } from "../../actions/listing_actions";
 import BookingForm from "./booking_form";
 
 const mSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     formType: "Create Booking",
     listing: state.entities.listings[ownProps.match.params.listingId],

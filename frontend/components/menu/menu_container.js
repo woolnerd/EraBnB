@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Menu from './menu';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { logout, loginDemoUser } from '../../actions/session_actions';
@@ -24,4 +25,4 @@ const mDTP = dispatch => ({
 
 
 
-export default connect(mSTP, mDTP)(Menu);
+export default withRouter(connect(mSTP, mDTP)(Menu));

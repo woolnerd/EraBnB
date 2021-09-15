@@ -4,7 +4,7 @@
     padding: 2%;
     /* border: 1px solid black; */
     /* text-align: center; */
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .booking-info-container {
@@ -35,7 +35,18 @@
 }
 
 .booking-heading {
-
-
     text-align: left;
+}
+
+.host-details {
+    margin-top: 10px;
+    border-top: 1px solid rgb(203, 203, 203);
+    
+}
+
+.booking-dates {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid rgb(203, 203, 203);
+    border-bottom: 1px solid rgb(203, 203, 203);
 }

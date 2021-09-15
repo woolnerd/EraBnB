@@ -9,10 +9,11 @@ class Map extends React.Component {
   }
 
   marker(listing) {
-    // return `<div>
-     `<img id="map-photo"src=${this.props.listings[0].photoUrl[0]}/> 
+    return `<div>
+     <img id="map-photo"src=${this.props.listings[0].photoUrl[0]}/> 
       <h4>
-        ${listing.title}
+        ${listing.address}
+        <br/>
       </h4>
       <p>
       ${listing.price} price/night

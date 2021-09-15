@@ -102,16 +102,18 @@
 
 
 .user-btn {
-  width: 100%;
-  background-color: #8A2387;
-  border-radius: 8px;
-  color: $navbar-profile-color;
-  color: #DDD;
-  height: 43px;
-  font-size: 20px;
-  font-weight: 600;
-  border: 1px #DDD solid;
-  margin-top: 20px;
-  text-decoration: none !important;
+width: 100%;
+    background-color: #8A2387;
+    border-radius: 8px;
+    color: #484848;
+    color: #DDD;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 1px #DDD solid;
+    margin-top: 20px;
+    text-decoration: none !important;
+    padding-top: 9px;
+    cursor: pointer;
 }
 

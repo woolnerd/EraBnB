@@ -40,10 +40,7 @@ class Menu extends React.Component {
     return (
       <div onClick={this.handleButtonClick} className="menu" ref={this.menu}>
         <div className="menu-container">
-          <img
-            className="hamburger-btn"
-            src={menu}
-          />
+          <img className="hamburger-btn" src={menu} />
           <img className="profile-icon" src={userCircle} />
         </div>
         {this.state.revealDropdown && (

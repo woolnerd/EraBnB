@@ -8,15 +8,17 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchListings({city: this.props.match.params.city});
+        this.props.fetchListings();
     }
 
 
     render() {
         
         const listings = this.props.listings.map((listing) => (
-            <ListingIndexItem key={listing.id} listing={listing} />
-        ));
+            !this.props.currentUser || this.props.currentUser.id !== listing.host_id ?
+            <ListingIndexItem key={listing.id} listing={listing} /> : null
+          ) 
+        );
 
         return (
             <div className="listing-map-flex">

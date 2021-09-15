@@ -6,12 +6,12 @@ class Api::ListingsController < ApplicationController
         
 
         # if !params[query]
-        #     @listings = Listing.with_attached_photos.all
+            @listings = Listing.with_attached_photos.all
         # else
             #  city = params.query.city 
-        @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%#{'New York'}%")
-        # render "api/listings/index"
-        render :index
+        # @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%#{'New York'}%")
+        render "api/listings/index"
+        # render :index
     end
 
     def create 
