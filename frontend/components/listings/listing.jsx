@@ -1,11 +1,42 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import BookingFormContainer from "../bookings/booking_form_container";
+import ReviewItemContainer from "../reviews/review_item_container"
+import ReviewItem from '../reviews/review_item';
+import CreateReviewFormContainer from '../reviews/create_review_form_container'
 
 class Listing extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = this.props.newReview;
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   componentDidMount() {
+    this.refresh()
+  }
+
+  refresh(){
     this.props.fetchListing(this.props.match.params.listingId);
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props
+      .createReview(this.state)
+      .then(this.props.fetchListing(this.state.listing_id));
+  }
+
+
+  update(field) {
+    console.log(field);
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
 
   render() {
     if (!this.props.listing) {
@@ -13,7 +44,6 @@ class Listing extends React.Component {
     }
 
     const { currentUser, listing } = this.props;
-
 
     const showDelete =
       currentUser === listing.host_id ? (
@@ -71,6 +101,24 @@ class Listing extends React.Component {
       </div>
     );
 
+    const reviews = listing.reviews.length
+      ? listing.reviews.map((review) => (
+          <div className="review-container">
+            <ReviewItem
+              review={review}
+              update={this.update}
+              key={review.id}
+              updateReview={this.props.updateReview}
+              fetchListing={this.props.fetchListing}
+              deleteReview={this.props.deleteReview}
+              // fetchReview={this.props.fetchReview}
+              handleDelete={this.handleDelete}
+              refresh={this.refresh.bind(this)}
+            />
+          </div>
+        ))
+      : null;
+
     return (
       { listing } && (
         <>
@@ -94,11 +142,9 @@ class Listing extends React.Component {
             </div>
 
             <div className="listing-info-show">
-              {
-              !currentUser ? 
-              <h1>Please login or signup to book</h1> :
-       
-              (currentUser && currentUser !== listing.host_id) ? (
+              {!currentUser ? (
+                <h1>Please login or signup to book</h1>
+              ) : currentUser && currentUser !== listing.host_id ? (
                 <Route props={listing} component={BookingFormContainer} />
               ) : (
                 bookings
@@ -106,29 +152,13 @@ class Listing extends React.Component {
             </div>
 
             <div className="listing-info-show">
-              <h3>Here's what people are saying</h3>
-              <div>
-                <h3>Title of review</h3>
-                <h4>4.5/5</h4>
-                <p>fdsfhiewrhoiwehriohewfufjv</p>
-                <p>sdfaesdfjoiwefoiwef</p>
-              </div>
-              <div>
-                <h3>Title of review</h3>
-                <h4>4.5/5</h4>
-                <p>fdsfhiewrhoiwehriohewfufjv</p>
-                <p>sdfaesdfjoiwefoiwef</p>
-              </div>
-              <div>
-                <h3>Title of review</h3>
-                <h4>4.5/5</h4>
-                <p>fdsfhiewrhoiwehriohewfufjv</p>
-                <p>sdfaesdfjoiwefoiwef</p>
-              </div>
+              <h3>Here's what people are saying: </h3>
 
-              <Link to="/listings/">
-                <button className="session-submit">Leave a review</button>
-              </Link>
+              <div>
+                <CreateReviewFormContainer refresh={this.refresh.bind(this)} />
+
+                {reviews}
+              </div>
             </div>
           </div>
         </>

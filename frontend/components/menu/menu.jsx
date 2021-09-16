@@ -9,15 +9,13 @@ class Menu extends React.Component {
     this.menu = React.createRef();
     this.state = {
       revealDropdown: false,
-    };
+    }
   }
 
   handleButtonClick = () => {
-    this.setState(({ revealDropdown }) => {
-      return {
-        revealDropdown: !revealDropdown,
-      };
-    });
+    this.setState(({ revealDropdown }) => (
+      {revealDropdown: !revealDropdown}
+    ));
   };
 
   handleClickOutside = (e) => {
