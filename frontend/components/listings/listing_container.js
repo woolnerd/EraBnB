@@ -4,7 +4,6 @@ import { createReview, updateReview, deleteReview } from "../../actions/review_a
 import Listing from './listing';
 
 const mSTP = ({entities, session}, ownProps) => {
-    // debugger
     return {
       listing: entities.listings[ownProps.match.params.listingId],
       currentUser: session.id,

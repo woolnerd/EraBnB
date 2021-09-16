@@ -3,13 +3,14 @@ import { Route, Link } from "react-router-dom";
 import BookingFormContainer from "../bookings/booking_form_container";
 import ReviewItemContainer from "../reviews/review_item_container"
 import ReviewItem from '../reviews/review_item';
+import CreateReviewFormContainer from '../reviews/create_review_form_container'
 
 class Listing extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = this.props.newReview
-   
+  
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -31,15 +32,12 @@ class Listing extends React.Component {
     };
   }
 
-
   render() {
     if (!this.props.listing) {
       return null;
     }
 
     const { currentUser, listing } = this.props;
-
-    // console.log(this.state);
 
     const showDelete =
       currentUser === listing.host_id ? (
@@ -97,18 +95,20 @@ class Listing extends React.Component {
       </div>
     );
 
-    const reviews = listing.reviews.map((review) => (
-      <div className="review-container">
-        <ReviewItem
-          review={review}
-          update={this.update}
-          key={review.id}
-          updateReview={this.props.updateReview}
-          fetchListing={this.props.fetchListing}
-          deleteReview={this.props.deleteReview}
-        />
-      </div>
-    ));
+    const reviews = listing.reviews.length
+      ? listing.reviews.map((review) => (
+          <div className="review-container">
+            <ReviewItem
+              review={review}
+              update={this.update}
+              key={review.id}
+              updateReview={this.props.updateReview}
+              fetchListing={this.props.fetchListing}
+              deleteReview={this.props.deleteReview}
+            />
+          </div>
+        ))
+      : null; 
 
     return (
       { listing } && (
@@ -148,30 +148,11 @@ class Listing extends React.Component {
 
               <div>
 
+                <CreateReviewFormContainer />
+
                 {reviews}
 
-                <div>
-                  <h4>{this.state.body}</h4>
-                  <h4>{this.state.rating}</h4>
-                </div>
 
-                <form onSubmit={this.handleSubmit}>
-                  <textarea onChange={this.update("body")} />
-                  <select
-                    value={this.state.rating}
-                    onChange={this.update("rating")}
-                  >
-                    <option disabled value="">
-                      Choose a rating
-                    </option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                  <button className="session-submit">Submit review</button>
-                </form>
               </div>
             </div>
           </div>

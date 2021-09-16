@@ -7,6 +7,10 @@ class ReviewItem extends React.Component {
     this.state = { toggleEdit: false, ...this.props.review };
   }
 
+  componentDidMount() {
+      this.props.fetchListing(this.props.match.params.listingId);
+  }
+
   handleEditClick(e) {
     e.preventDefault();
     this.state.toggleEdit
@@ -41,7 +45,9 @@ class ReviewItem extends React.Component {
 
         {this.state.toggleEdit ? (
           <>
-            <textarea onChange={()=>update("body")} value={this.state.body} />
+            <textarea onChange={(e) => update("body")} 
+                    //   value={this.state.body}
+            />
             <button
               onClick={(e) => this.handleEditSubmit(e)}
               className="session-submit"
