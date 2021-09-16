@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListing, deleteListing } from "../../actions/listing_actions";
-import { createReview, updateReview, deleteReview } from "../../actions/review_actions";
+import { createReview, updateReview, deleteReview, fetchReview } from "../../actions/review_actions";
 import Listing from './listing';
 
 const mSTP = ({entities, session}, ownProps) => {
@@ -24,7 +24,8 @@ const mDTP = dispatch => ({
 
     createReview: (review) => dispatch(createReview(review)),
     updateReview: (review) => dispatch(updateReview(review)),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
+    deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
+    fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
 });
 
 export default connect(mSTP, mDTP)(Listing);

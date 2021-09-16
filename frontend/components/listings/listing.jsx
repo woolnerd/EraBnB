@@ -9,9 +9,10 @@ class Listing extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.newReview
-  
+    this.state = this.props.newReview;
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -25,11 +26,27 @@ class Listing extends React.Component {
       .then(this.props.fetchListing(this.state.listing_id));
   }
 
+    // handleDelete(e) {
+    //   e.preventDefault();
+    //   const listingId = this.state.listing_id;
+    //   this.props
+    //     .deleteReview(this.state.id)
+    //     .then(this.props.fetchListing(listingId));
+    // }
+
   update(field) {
     console.log(field);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
+  }
+
+  compondentDidUpdate(prevProps) {
+    if (
+      this.props.listing.reviews.length !== prevProps.listing.reviews.length
+    ) {
+      this.props.fetchListing(this.state.listing_id);
+    }
   }
 
   render() {
@@ -105,10 +122,12 @@ class Listing extends React.Component {
               updateReview={this.props.updateReview}
               fetchListing={this.props.fetchListing}
               deleteReview={this.props.deleteReview}
+              fetchReview={this.props.fetchReview}
+              handleDelete={this.handleDelete}
             />
           </div>
         ))
-      : null; 
+      : null;
 
     return (
       { listing } && (
@@ -142,17 +161,13 @@ class Listing extends React.Component {
               )}
             </div>
 
-              
             <div className="listing-info-show">
               <h3>Here's what people are saying: </h3>
 
               <div>
-
                 <CreateReviewFormContainer />
 
                 {reviews}
-
-
               </div>
             </div>
           </div>

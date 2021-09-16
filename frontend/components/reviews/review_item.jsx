@@ -8,22 +8,24 @@ class ReviewItem extends React.Component {
   }
 
   componentDidMount() {
-      this.props.fetchListing(this.props.match.params.listingId);
+    console.log(this.state);
+    this.props.fetchReview(this.state.id);
+  }
+
+  update(field) {
+    console.log(field);
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   handleEditClick(e) {
     e.preventDefault();
+    console.log(e);
     this.state.toggleEdit
       ? this.setState({ toggleEdit: false })
       : this.setState({ toggleEdit: true });
-  }
-
-  handleEditSubmit(e) {
-    e.preventDefault();
-
-    this.props
-      .updateReview(this.state)
-      .then(this.props.fetchListing(this.state.listing_id));
+    // this.props.fetchReview()
   }
 
   handleDelete(e) {
@@ -32,6 +34,14 @@ class ReviewItem extends React.Component {
     this.props
       .deleteReview(this.state.id)
       .then(this.props.fetchListing(listingId));
+  }
+
+  handleEditSubmit(e) {
+    e.preventDefault();
+
+    this.props
+      .updateReview(this.state)
+      .then(this.props.fetchListing(this.state.listing_id));
   }
 
   render() {
@@ -45,9 +55,23 @@ class ReviewItem extends React.Component {
 
         {this.state.toggleEdit ? (
           <>
-            <textarea onChange={(e) => update("body")} 
-                    //   value={this.state.body}
+            <textarea
+              onChange={this.update("body")}
+              value={this.state.body}
             />
+            <select
+              value={this.state.rating}
+              onChange={this.update("rating")}
+            >
+              <option disabled value="">
+                Choose a rating
+              </option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
             <button
               onClick={(e) => this.handleEditSubmit(e)}
               className="session-submit"
@@ -64,7 +88,12 @@ class ReviewItem extends React.Component {
           Edit
         </button>
 
-        <button className="session-submit">Delete</button>
+        <button
+          onClick={(e) => this.handleDelete(e)}
+          className="session-submit"
+        >
+          Delete
+        </button>
       </div>
     );
   }

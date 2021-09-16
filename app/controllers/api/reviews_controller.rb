@@ -3,7 +3,8 @@
 
     def index 
         @reviews = Review.all 
-        render :index
+        # render  "api/listings/index"
+
     end
 
     def create
@@ -24,7 +25,7 @@
         @review = Review.find(params[:id])
         if @review 
             @review.update(review_params)
-            render :show
+            # render :show
         else 
             render json: @review.errors.full_messages, status: 404
         end
