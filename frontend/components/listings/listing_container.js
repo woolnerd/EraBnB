@@ -9,7 +9,6 @@ const mSTP = ({entities, session}, ownProps) => {
       listing: entities.listings[ownProps.match.params.listingId],
       currentUser: session.id,
       userListings: entities.users.user_listing,
-      //   reviews: entities.listings[ownProps.match.params.listingId].reviews,
       newReview: {
         body: "",
         rating: "",
