@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ReviewItem from './review_item';
-import { fetchReview } from '../../actions/review_actions';
+// import { fetchReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => {
     // debugger
@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
 
 
 const mDTP = dispatch => ({
-    fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
+    // fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
 })
 
 

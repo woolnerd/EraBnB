@@ -4,26 +4,44 @@ class ReviewItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { toggleEdit: false, ...this.props.review, 
-        reviewTest: {} };
+    this.state = this.props.review
+
+
+    this.toggleEdit = true;
+  
   }
 
+
+
   componentDidMount() {
-    this.props.fetchReview(this.state.id);
+    // this.props.fetch
   }
 
   update(field) {
+    //   debugger
     return (e) => {
-      this.setState({ [field]: e.target.value });
+      this.setState({ [field]: e.target.value }) 
     };
   }
 
+// updateBody(){
+//     return (e) => {
+//         this.setState({ ['review[body]']: e.target.value }); 
+//     }
+// }
+
   handleEditClick(e) {
-    e.preventDefault();
-    this.state.toggleEdit
-      ? this.setState({ toggleEdit: false })
-      : this.setState({ toggleEdit: true });
+    //   debugger
+    // e.preventDefault();
+    // this.toggleEdit
+    //   ? this.toggleEdit = false 
+    //   : this.toggleEdit = true
     
+    if (this.state.toggleEdit === true) {
+        this.setState({toggleEdit: false})
+    } else {
+        this.setState({toggleEdit: true });
+    }
   }
 
   handleDelete(e) {
@@ -45,13 +63,14 @@ class ReviewItem extends React.Component {
   render() {
     const { review, update } = this.props;
 
+
     return (
       <div className="review-container">
         <h2>{review.rating}/5 stars</h2>
         <h1>{review.body}</h1>
         <p>{review.author.first_name}</p>
 
-        {this.state.toggleEdit ? (
+        {this.toggleEdit ? (
           <>
             <textarea
               onChange={this.update("body")}

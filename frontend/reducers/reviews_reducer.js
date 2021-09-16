@@ -5,12 +5,13 @@ import {
 } from "../actions/review_actions";
 
 const reviewsReducer = (state = {}, action) => {
+  // debugger
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_REVIEWS:
       return action.reviews;
     case RECEIVE_REVIEW:
-      return { ...state, [action.review.id]: action.review };
+      return { ...action.review}
     case REMOVE_REVIEW:
       let newState = { ...state };
       delete newState[action.reviewId];

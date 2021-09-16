@@ -24,10 +24,10 @@ const removeReview = (reviewId) => ({
 //     dispatch(receiveAllreviews(reviews))
 //   );
 
-export const fetchReview = (reviewId) => (dispatch) =>
-  APIReviewUtil.fetchReview(reviewId).then((review) =>
-    dispatch(receiveReview(review))
-  );
+// export const fetchReview = (reviewId) => (dispatch) =>
+//   APIReviewUtil.fetchReview(reviewId).then((review) =>
+//     dispatch(receiveReview(review))
+//   );
 
 export const createReview = (review) => (dispatch) =>
   APIReviewUtil.createReview(review).then((review) =>

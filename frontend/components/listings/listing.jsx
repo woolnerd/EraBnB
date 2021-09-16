@@ -111,7 +111,7 @@ class Listing extends React.Component {
               updateReview={this.props.updateReview}
               fetchListing={this.props.fetchListing}
               deleteReview={this.props.deleteReview}
-              fetchReview={this.props.fetchReview}
+              // fetchReview={this.props.fetchReview}
               handleDelete={this.handleDelete}
               refresh={this.refresh.bind(this)}
             />
