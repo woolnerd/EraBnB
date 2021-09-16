@@ -32,7 +32,8 @@ export const fetchReview = (reviewId) => (dispatch) =>
 export const createReview = (review) => (dispatch) =>
   APIReviewUtil.createReview(review).then((review) =>
     dispatch(receiveReview(review))
-  );
+    // console.log(review)
+  )
 
 export const updateReview = (review) => (dispatch) =>
   APIReviewUtil.updateReview(review).then((review) =>

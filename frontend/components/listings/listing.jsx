@@ -12,10 +12,13 @@ class Listing extends React.Component {
     this.state = this.props.newReview;
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
+    this.refresh()
+  }
+
+  refresh(){
     this.props.fetchListing(this.props.match.params.listingId);
   }
 
@@ -26,13 +29,6 @@ class Listing extends React.Component {
       .then(this.props.fetchListing(this.state.listing_id));
   }
 
-    // handleDelete(e) {
-    //   e.preventDefault();
-    //   const listingId = this.state.listing_id;
-    //   this.props
-    //     .deleteReview(this.state.id)
-    //     .then(this.props.fetchListing(listingId));
-    // }
 
   update(field) {
     console.log(field);
@@ -41,13 +37,6 @@ class Listing extends React.Component {
     };
   }
 
-  compondentDidUpdate(prevProps) {
-    if (
-      this.props.listing.reviews.length !== prevProps.listing.reviews.length
-    ) {
-      this.props.fetchListing(this.state.listing_id);
-    }
-  }
 
   render() {
     if (!this.props.listing) {
@@ -124,6 +113,7 @@ class Listing extends React.Component {
               deleteReview={this.props.deleteReview}
               fetchReview={this.props.fetchReview}
               handleDelete={this.handleDelete}
+              refresh={this.refresh.bind(this)}
             />
           </div>
         ))
@@ -165,7 +155,7 @@ class Listing extends React.Component {
               <h3>Here's what people are saying: </h3>
 
               <div>
-                <CreateReviewFormContainer />
+                <CreateReviewFormContainer refresh={this.refresh.bind(this)} />
 
                 {reviews}
               </div>

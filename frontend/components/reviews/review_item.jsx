@@ -4,16 +4,15 @@ class ReviewItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { toggleEdit: false, ...this.props.review };
+    this.state = { toggleEdit: false, ...this.props.review, 
+        reviewTest: {} };
   }
 
   componentDidMount() {
-    console.log(this.state);
     this.props.fetchReview(this.state.id);
   }
 
   update(field) {
-    console.log(field);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
@@ -21,27 +20,26 @@ class ReviewItem extends React.Component {
 
   handleEditClick(e) {
     e.preventDefault();
-    console.log(e);
     this.state.toggleEdit
       ? this.setState({ toggleEdit: false })
       : this.setState({ toggleEdit: true });
-    // this.props.fetchReview()
+    
   }
 
   handleDelete(e) {
     e.preventDefault();
-    const listingId = this.state.listing_id;
     this.props
       .deleteReview(this.state.id)
-      .then(this.props.fetchListing(listingId));
+    this.props.refresh()
   }
 
   handleEditSubmit(e) {
     e.preventDefault();
 
-    this.props
-      .updateReview(this.state)
-      .then(this.props.fetchListing(this.state.listing_id));
+    this.props.updateReview(this.state)
+    this.setState({toggleEdit: false})    
+    this.props.refresh();
+
   }
 
   render() {
