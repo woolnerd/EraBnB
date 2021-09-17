@@ -4,64 +4,43 @@ class ReviewItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.review
+    this.state = { toggleEdit: false, review: this.props.review}
 
-
-    this.toggleEdit = true;
-  
   }
 
-
-
-  componentDidMount() {
-    // this.props.fetch
-  }
 
   update(field) {
-    //   debugger
+    const review = {...this.state.review}
     return (e) => {
-      this.setState({ [field]: e.target.value }) 
+    review[field] = e.target.value;
+      this.setState({ review }) 
     };
   }
 
-// updateBody(){
-//     return (e) => {
-//         this.setState({ ['review[body]']: e.target.value }); 
-//     }
-// }
-
   handleEditClick(e) {
-    //   debugger
-    // e.preventDefault();
-    // this.toggleEdit
-    //   ? this.toggleEdit = false 
-    //   : this.toggleEdit = true
-    
-    if (this.state.toggleEdit === true) {
-        this.setState({toggleEdit: false})
-    } else {
-        this.setState({toggleEdit: true });
-    }
+    this.state.toggleEdit
+      ? this.setState({toggleEdit:false}) 
+      : this.setState({toggleEdit:true})
   }
 
   handleDelete(e) {
     e.preventDefault();
     this.props
-      .deleteReview(this.state.id)
+      .deleteReview(this.state.review.id)
     this.props.refresh()
   }
 
   handleEditSubmit(e) {
     e.preventDefault();
 
-    this.props.updateReview(this.state)
+    this.props.updateReview(this.state.review)
     this.setState({toggleEdit: false})    
     this.props.refresh();
 
   }
 
   render() {
-    const { review, update } = this.props;
+    const { review } = this.props;
 
 
     return (
@@ -70,14 +49,14 @@ class ReviewItem extends React.Component {
         <h1>{review.body}</h1>
         <p>{review.author.first_name}</p>
 
-        {this.toggleEdit ? (
+        {this.state.toggleEdit ? (
           <>
             <textarea
               onChange={this.update("body")}
-              value={this.state.body}
+              value={this.state.review.body}
             />
             <select
-              value={this.state.rating}
+              value={this.state.review.rating}
               onChange={this.update("rating")}
             >
               <option disabled value="">

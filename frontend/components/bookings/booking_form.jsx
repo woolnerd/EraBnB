@@ -25,7 +25,7 @@ class BookingForm extends React.Component {
       listingDates.push([booking.check_in, booking.check_out])
     })
     
-    console.log(listingDates)
+    // console.log(listingDates)
 
     let that = this;
     listingDates.forEach((range) => {
@@ -38,7 +38,7 @@ class BookingForm extends React.Component {
         let temp = `${start.getFullYear()}/${start.getMonth() + 1}/${
           start.getDate() + 1
         }`;
-        debugger
+        // debugger
         that.dateRange.push(start);
         start = new Date(temp);
       }
@@ -79,11 +79,6 @@ class BookingForm extends React.Component {
     if (!this.props.booking) {
       return null;
     }
-
-    console.log(this.dateRange);
-
-    // this.setDateRange()
- 
 
     let selectionRange;
 

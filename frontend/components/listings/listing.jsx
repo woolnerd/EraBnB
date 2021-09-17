@@ -31,7 +31,7 @@ class Listing extends React.Component {
 
 
   update(field) {
-    console.log(field);
+    // console.log(field);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
@@ -111,7 +111,6 @@ class Listing extends React.Component {
               updateReview={this.props.updateReview}
               fetchListing={this.props.fetchListing}
               deleteReview={this.props.deleteReview}
-              // fetchReview={this.props.fetchReview}
               handleDelete={this.handleDelete}
               refresh={this.refresh.bind(this)}
             />
@@ -157,7 +156,7 @@ class Listing extends React.Component {
               <div>
                 <CreateReviewFormContainer refresh={this.refresh.bind(this)} />
 
-                {reviews}
+                {reviews.reverse()}
               </div>
             </div>
           </div>
