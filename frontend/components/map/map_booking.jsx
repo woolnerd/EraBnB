@@ -29,8 +29,6 @@ class Map extends React.Component {
   }
 
   componentDidUpdate() {
-    // debugger
-    // console.log(this.props)
     let { listing } = this.props;
 
     this.map = new mapboxgl.Map({

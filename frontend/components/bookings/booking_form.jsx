@@ -29,7 +29,6 @@ class BookingForm extends React.Component {
 
     let that = this;
     listingDates.forEach((range) => {
-      // debugger
       let start = new Date(range[0].split("-").join("/"));
       let end = new Date(range[1].split("-").join("/"));
       let diff = (end.getTime() - start.getTime()) / (1000 * 3600 * 24);
@@ -38,7 +37,6 @@ class BookingForm extends React.Component {
         let temp = `${start.getFullYear()}/${start.getMonth() + 1}/${
           start.getDate() + 1
         }`;
-        // debugger
         that.dateRange.push(start);
         start = new Date(temp);
       }

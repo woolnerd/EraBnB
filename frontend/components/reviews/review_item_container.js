@@ -3,7 +3,6 @@ import ReviewItem from './review_item';
 // import { fetchReview } from '../../actions/review_actions';
 
 const mSTP = (state, ownProps) => {
-    // debugger
 
     return (
 

@@ -20,17 +20,10 @@ class Map extends React.Component {
       </div>`;
   }
   componentDidMount() {
-    // debugger
     this.props.fetchListings();
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
 
-    // this.map = new mapboxgl.Map({
-    //   container: "mapContainer",
-    //   style: "mapbox://styles/mapbox/streets-v11",
-    //   center: [0.1278, 51.5074],
-    //   zoom: 10,
-    // });
 
     this.map = new mapboxgl.Map({
       container: "mapContainer",
@@ -41,7 +34,6 @@ class Map extends React.Component {
   }
 
   componentDidUpdate() {
-    // debugger
     this.props.listings.forEach((listing) =>
       new mapboxgl.Marker()
         .setLngLat([listing.longitude, listing.latitude])

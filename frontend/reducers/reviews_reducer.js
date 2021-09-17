@@ -5,7 +5,6 @@ import {
 } from "../actions/review_actions";
 
 const reviewsReducer = (state = {}, action) => {
-  // debugger
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_REVIEWS:

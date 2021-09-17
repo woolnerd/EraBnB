@@ -5,7 +5,6 @@ import { fetchBookings } from '../../actions/booking_actions';
 import { fetchUser } from '../../actions/user_actions';
 
 const mSTP = ({entities, session}) => {
-    // debugger
         return {
           currentUser: entities.users[session.id],
         };

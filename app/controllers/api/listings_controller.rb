@@ -2,7 +2,7 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :update, :destroy]     
 
     def index 
-        # debugger
+    
         
 
         # if params[query]

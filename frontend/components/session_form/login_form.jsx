@@ -29,7 +29,6 @@ class LoginForm extends React.Component {
   }
 
   handleDemoUser(e) {
-    // debugger
     e.preventDefault()
     this.props.loginDemoUser().then(this.props.closeModal());
   }

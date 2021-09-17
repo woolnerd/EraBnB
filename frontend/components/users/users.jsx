@@ -39,7 +39,6 @@ class Users extends React.Component {
    ));
 
    bookings =  this.state.bookings.map((booking) => {
-    //  debugger
       return (
       <Link to={`/bookings/${booking.booking.id}`}>
         <div key={booking.listing.id}>

@@ -21,7 +21,6 @@
 
     def update 
         @review = Review.find(params[:id])
-        # debugger
         if @review 
             @review.update(review_params)
             # render "api/reviews/show"
