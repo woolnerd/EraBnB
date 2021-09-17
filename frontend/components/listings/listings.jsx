@@ -21,11 +21,13 @@ class Listings extends React.Component {
         );
 
         return (
-            <div className="listing-map-flex">
-                <div className="listings-container">
-                    {listings}
+            <div id="listing-container-wrap">
+                <div className="listing-map-flex">
+                    <div className="listings-container">
+                        {listings}
+                    </div>
+                    <MapContainer />
                 </div>
-                <MapContainer />
             </div>
         )
     }

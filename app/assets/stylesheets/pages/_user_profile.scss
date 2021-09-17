@@ -65,23 +65,32 @@
     background: #8A2387;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #F27121, #E94057, #8A2387);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-    h1 {
-        font-size: 30px;
-        padding-left: 10px;
-        padding-top: 8px
-    }
+    padding-left: 3rem;
+    padding-top: 1rem;
 }
+
+.user-info{
+        font-size: 2rem;
+        padding-left: 10px;
+        padding-top: 0;
+        padding-right: 8rem;
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
 
 .your-res-container {
     height: 400px;
     background: #9e9ec0;
     border-radius: 20px;
-    margin-top: 1rem;
-    margin-bottom: 4rem;
+    // margin-top: 1rem;
+    // margin-bottom: 4rem;
     background-size: cover;
     background-position-y: 37rem;
+    max-width: 1250px;
+    margin: 40px auto;
 }
 
 .your-res-container div {
@@ -92,6 +101,7 @@
     padding-top: 4rem;
     text-align: left;
     border-radius: 20px;
+    width: 1272px;
 }
 
 .user-host-guest-container {
@@ -116,4 +126,3 @@ width: 100%;
     padding-top: 9px;
     cursor: pointer;
 }
-

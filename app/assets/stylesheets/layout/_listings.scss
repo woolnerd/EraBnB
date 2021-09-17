@@ -1,4 +1,8 @@
 
+.listings-container-wrap {
+
+}
+
 .listings-container {
     display: flex;
     flex-direction: row;
@@ -59,7 +63,7 @@
     flex-wrap: wrap;
     width: 600px;
     margin: 0;
-    padding-top: 6rem;
+    // padding-top: 6rem;
     
     #mapContainer {
         position: fixed;

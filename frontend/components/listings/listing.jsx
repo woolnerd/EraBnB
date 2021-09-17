@@ -102,27 +102,28 @@ class Listing extends React.Component {
     );
 
     const reviews = listing.reviews.length
-      ? listing.reviews.map((review) => (
-          <div className="review-container">
-            <ReviewItem
-              review={review}
-              update={this.update}
-              key={review.id}
-              updateReview={this.props.updateReview}
-              fetchListing={this.props.fetchListing}
-              deleteReview={this.props.deleteReview}
-              handleDelete={this.handleDelete}
-              refresh={this.refresh.bind(this)}
-            />
-          </div>
-        ))
+      ? listing.reviews
+          .map((review) => (
+            <div key={review.id} className="review-container">
+              <ReviewItem
+                review={review}
+                update={this.update}
+                updateReview={this.props.updateReview}
+                fetchListing={this.props.fetchListing}
+                deleteReview={this.props.deleteReview}
+                handleDelete={this.handleDelete}
+                refresh={this.refresh.bind(this)}
+              />
+            </div>
+          ))
+          .reverse()
       : null;
 
     return (
       { listing } && (
         <>
-          <div className="today-banner"></div>
-          <div key={listing.id} className="listing-item-show">
+          <div key={listing.id} className="today-banner"></div>
+          <div className="listing-item-show">
             <div className="listing-container"></div>
             <div className="listing-photos">{photos}</div>
             <div className="listing-info-show">
@@ -156,7 +157,7 @@ class Listing extends React.Component {
               <div>
                 <CreateReviewFormContainer refresh={this.refresh.bind(this)} />
 
-                {reviews.reverse()}
+                {reviews}
               </div>
             </div>
           </div>

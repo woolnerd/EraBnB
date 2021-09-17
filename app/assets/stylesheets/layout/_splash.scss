@@ -19,14 +19,7 @@
   margin: 0 auto;
 }
 
-#splash3 {
-  // width: 80%;
-  // height: 500px;
-  // background-image: url("https://wallpapershome.com/images/pages/pic_h/18504.jpg");
-  // background-size: cover;
-  // background-position: center;
-  // margin: 0 auto;
-}
+
 
 div.flexible-banner {
   position: relative;
@@ -40,7 +33,7 @@ div.flexible-banner {
     border-radius: 30px;
     border: 1px solid #dcd9d9;
     cursor: pointer;
-        margin-left: 18%;
+    margin-left: 30%;
     height: 3rem;
     font-size: 20px;
     color: #9d529d;
@@ -53,10 +46,24 @@ div.flexible-banner {
     font-size: 30px;
     padding-top: 13rem;
     padding-left: 32%;
-    display: flex;
+    // display: flex;
     flex-direction: column;
     color: whitesmoke;
 
  
 }
 
+
+.banner-container {
+    position: relative;
+    top: 0rem;
+    right: 2rem;
+
+    h2 {
+          font-weight: 600;
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    color: black;
+  }
+}

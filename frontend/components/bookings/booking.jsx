@@ -20,7 +20,6 @@ class Booking extends React.Component {
         if (!this.props.booking) {
             return null
         }
-        console.log(this.props)
         return (
             <div className="wrap-all">
               <div className="booking-info-container">

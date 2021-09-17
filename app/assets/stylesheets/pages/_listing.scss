@@ -8,10 +8,9 @@
 .listing-item-show {
     display: flex;
     flex-wrap: wrap;
-
-    // grid-template-rows: minmax(1, r);
     border: 1px solid black;
     align-items: center;
+    justify-content: center;
 } 
 
 .listing-item-booking {
