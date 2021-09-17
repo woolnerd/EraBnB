@@ -85,10 +85,7 @@
     transition-property: background-color;
 
 
-    :hover {
-            background-color: rgb(245, 243, 243);
-            transition-duration: .10s;
-    }
+
 
     li {
     padding: 10px;
@@ -118,10 +115,10 @@
 }
 
 
-.profile-link:hover {
-           background-color: rgb(245, 243, 243);
-            transition-duration: .10s;
-}
+// .profile-link:hover {
+//            background-color: rgb(245, 243, 243);
+//             transition-duration: .10s;
+// }
 
 
 .click-bg {
@@ -132,3 +129,8 @@
     top: 0; 
     
 }
+
+    div > a > li:hover, .menu-content > li:hover {
+            background-color: rgb(245, 243, 243);
+            transition-duration: .10s;
+    }

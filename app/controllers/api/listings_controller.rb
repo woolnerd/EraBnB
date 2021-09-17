@@ -5,7 +5,7 @@ class Api::ListingsController < ApplicationController
         # debugger
         
 
-        # if !params[query]
+        # if params[query]
             @listings = Listing.with_attached_photos.all
         # else
             #  city = params.query.city 
