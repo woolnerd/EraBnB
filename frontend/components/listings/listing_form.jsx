@@ -13,7 +13,6 @@ class ListingForm extends React.Component {
   update(field) {
     return e => { 
       let value = e.target.value 
-      // make into a switch 
       if (
         field === "price" ||
         field === "num_bedrms" ||

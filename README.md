@@ -15,7 +15,7 @@ Check it out here --> (https://erabnb.herokuapp.com/#/)
 
 ## Technologies
 
-Starting with the backend, I used Ruby on Rails along with PostGresQL database and jBuilder DSL to sculpt and limit the json we send up to the frontend. On the frontend we have React to deliver the user interface and Redux to manage the state. MapBox's powerful map API was used for marking our locations, as well the as geocoding feature to create those cooridinates. The React-Calendar API, was used for our bookings interface. 
+Starting with the backend, I used Ruby on Rails along with PostGresQL database and jBuilder DSL to sculpt and limit the json we send up to the frontend. On the frontend we have React to deliver the user interface and Redux to manage the state. MapBox's powerful map API was used for marking our locations, as well the as geocoding feature to create those cooridinates. The React-Calendar API, was used for the bookings interface. 
 
 ## Outstanding Features
 
@@ -23,17 +23,23 @@ Starting with the backend, I used Ruby on Rails along with PostGresQL database a
 
 Just like the real Airbnb, a user is free to roam the site and view the listings. However, in order to create a listing or booking a listing the user must log in or the they will not have access to these features throug the UI. 
 
-### User Friendly Profile Page
+#### User Friendly Profile Page
 
 From the user profile page, a logged in user can find all their listings and trips can be found side by side. From there, they can book a new trip or create a listing. 
 
-### Dynamic Listing Page Calendar
+#### Map Markers
 
-If the listing belongs to you, you'll see all the days it is booked. Otherwise, you'll see the calendar where you can book and your trip.
+With the creation of each new listing, a geo-forwarding API captures the address input, and parses the string into longitude and latitude, and adds these coordinates to the backend database. The new listing will then be displayed with pinpoint accuracy on the listings map. 
 
 ## Challenges Met 
 
+Part of the beauty of Airbnb's site is the dicotomy of the a user's ability to act as both traveler and host. I wanted to be able to give a similar experience to my user, which is why rather than simply providing a fully seeded database and letting users books trips, a user is able to create their own listings as a host. However, being both a host and traveler, a I wanted to create some restrictions. When a host is searching the listings for a place to book, they shouldn't see their own listings, nor should they have access to a calendar to book their own listings when they are viewing their listing in their profile. In order to make these cases so, I wrote 
 
+```js
+
+
+
+```
 
 
 
