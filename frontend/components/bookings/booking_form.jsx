@@ -1,7 +1,7 @@
 import React from "react";
 import { DateRange } from "react-date-range";
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css'; 
 import { findSelectionRange } from '../../util/selectors';
 
 class BookingForm extends React.Component {
@@ -22,7 +22,7 @@ class BookingForm extends React.Component {
       .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
   }
 
-  setTotalPrice() {
+  calcTotal() {
     const { clean_fee, service_fee, price } = this.props.listing;
     const { check_in, check_out } = this.state;
     const diff =
@@ -36,7 +36,7 @@ class BookingForm extends React.Component {
   handleDate(e) {
     let { startDate, endDate } = e.selection;
     this.setState({ ["check_in"]: startDate, ["check_out"]: endDate }, () =>
-      this.setTotalPrice()
+      this.calcTotal()
     );
   }
 
