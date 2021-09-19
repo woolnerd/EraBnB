@@ -15,10 +15,10 @@ class Listing extends React.Component {
   }
 
   componentDidMount() {
-    this.refresh()
+    this.forceReload()
   }
 
-  refresh(){
+  forceReload(){
     this.props.fetchListing(this.props.match.params.listingId);
   }
 
@@ -112,7 +112,7 @@ class Listing extends React.Component {
                 fetchListing={this.props.fetchListing}
                 deleteReview={this.props.deleteReview}
                 handleDelete={this.handleDelete}
-                refresh={this.refresh.bind(this)}
+                forceReload={this.forceReload.bind(this)}
               />
             </div>
           ))
@@ -155,7 +155,7 @@ class Listing extends React.Component {
               <h3>Here's what people are saying: </h3>
 
               <div>
-                <CreateReviewFormContainer refresh={this.refresh.bind(this)} />
+                <CreateReviewFormContainer forceReload={this.forceReload.bind(this)} />
 
                 {reviews}
               </div>

@@ -22,7 +22,7 @@ class CreateReviewForm extends React.Component {
     this.props
       .createReview(this.state)
     //   this.setState({[newReview.body]: "", [newReview.rating]: ""})
-      this.props.refresh()
+      this.props.forceReload()
   }
 
 

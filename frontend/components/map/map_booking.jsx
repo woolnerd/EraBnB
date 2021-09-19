@@ -21,11 +21,8 @@ class Map extends React.Component {
       </div>`;
   }
   componentDidMount() {
-
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
-
-
   }
 
   componentDidUpdate() {

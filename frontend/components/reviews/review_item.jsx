@@ -27,7 +27,7 @@ class ReviewItem extends React.Component {
     e.preventDefault();
     this.props
       .deleteReview(this.state.review.id)
-    this.props.refresh()
+    this.props.forceReload()
   }
 
   handleEditSubmit(e) {
@@ -35,7 +35,7 @@ class ReviewItem extends React.Component {
 
     this.props.updateReview(this.state.review)
     this.setState({toggleEdit: false})    
-    this.props.refresh();
+    this.props.forceReload();
 
   }
 

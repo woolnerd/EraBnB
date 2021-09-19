@@ -2,6 +2,7 @@ import React from "react";
 import { DateRange } from "react-date-range";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import { findSelectionRange } from '../../util/selectors';
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -9,42 +10,12 @@ class BookingForm extends React.Component {
 
     this.state = this.props.booking;
 
-    this.bookingsForCurListing;
-
-    this.dateRange = [];
-    this.setDateRange();
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDate = this.handleDate.bind(this);
   }
 
-  setDateRange() {
-    let listingDates = []
-
-    this.props.listing.bookings.forEach(booking => {
-      listingDates.push([booking.check_in, booking.check_out])
-    })
-    
-    // console.log(listingDates)
-
-    let that = this;
-    listingDates.forEach((range) => {
-      let start = new Date(range[0].split("-").join("/"));
-      let end = new Date(range[1].split("-").join("/"));
-      let diff = (end.getTime() - start.getTime()) / (1000 * 3600 * 24);
-
-      for (let i = 0; i <= diff; i++) {
-        let temp = `${start.getFullYear()}/${start.getMonth() + 1}/${
-          start.getDate() + 1
-        }`;
-        that.dateRange.push(start);
-        start = new Date(temp);
-      }
-    });
-    
-  }
-
-  handleSubmit(e) {
+  
+  handleSubmit(e) { 
     e.preventDefault();
     this.props
       .action(this.state)
@@ -52,11 +23,11 @@ class BookingForm extends React.Component {
   }
 
   setTotalPrice() {
-    let { check_in, check_out } = this.state;
-    let { clean_fee, service_fee, price } = this.props.listing;
-    let difference =
-      (check_out.getTime() - check_in.getTime()) / (1000 * 3600 * 24);
-    let total = difference * price + (clean_fee + service_fee);
+    const { clean_fee, service_fee, price } = this.props.listing;
+    const { check_in, check_out } = this.state;
+    const diff =
+      (check_out.getTime() - check_in.getTime()) / (24000 * 3600);
+    const total = diff * price + (clean_fee + service_fee);
     this.setState({
       ["total_price"]: ((total * .039) + total).toFixed(2)  
     });
@@ -78,27 +49,7 @@ class BookingForm extends React.Component {
       return null;
     }
 
-    let selectionRange;
-
-    if (this.state.check_in === "") {
-      selectionRange = {
-        startDate: new Date(),
-        endDate: new Date(),
-        key: "selection",
-      };
-    } else if (this.state.check_in !== "" && this.state.check_out === "") {
-      selectionRange = {
-        startDate: this.state.check_in,
-        endDate: new Date(),
-        key: "selection",
-      };
-    } else if (this.state.check_out !== "") {
-      selectionRange = {
-        startDate: this.state.check_in,
-        endDate: this.state.check_out,
-        key: "selection",
-      };
-    }
+    let selectionRange = findSelectionRange(this.state.check_in, this.state.check_out)
 
     return (
       <div className="booking-form-container">
@@ -135,7 +86,6 @@ class BookingForm extends React.Component {
             showDateDisplay={false}
             showMonthAndYearPickers={true}
             minDate={new Date()}
-            disabledDates={this.dateRange}
             rangeColor={["#ff5a91"]}
           />
         </div>
