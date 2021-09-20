@@ -8,7 +8,7 @@ user many of the features they know and love from the original: book/cancel a st
 Check it out here --> (https://erabnb.herokuapp.com/#/)
 
 ## Splash Page
-![splash page](https://erabnb-seed-data.s3.amazonaws.com/images_for_readme/Screen+Shot+2021-09-17+at+10.08.37+AM.png)
+![splash page](<iframe src="https://giphy.com/embed/q0kpXqcMvv41bmVglZ" width="480" height="262" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/q0kpXqcMvv41bmVglZ">via GIPHY</a></p>)
 
 ## Profile Page
 ![profile page](https://erabnb-seed-data.s3.amazonaws.com/images_for_readme/Screen+Shot+2021-09-17+at+10.11.26+AM.png)
