@@ -37,6 +37,9 @@ class Listing extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+   
+  }
 
   render() {
     if (!this.props.listing) {
@@ -106,6 +109,7 @@ class Listing extends React.Component {
           .map((review) => (
             <div key={review.id} className="review-container">
               <ReviewItem
+                listingId={this.props.match.params.listingId}
                 review={review}
                 update={this.update}
                 updateReview={this.props.updateReview}

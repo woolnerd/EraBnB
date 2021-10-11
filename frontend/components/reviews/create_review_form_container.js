@@ -8,7 +8,6 @@ import { fetchListing, deleteListing } from "../../actions/listing_actions";
 const mSTP = (state, ownProps) => {
   return (
     {
-
       newReview: {
         body: "",
         rating: "",
