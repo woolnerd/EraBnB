@@ -5,7 +5,7 @@ import ListingForm from "./listing_form";
 
 
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
     return {
       formType: "Create Listing",
       listing: {
@@ -23,6 +23,7 @@ const mSTP = (state, ownProps) => {
         photoUrl: null,
         photos: []
       },
+      errors: state.errors
     };
 };
 

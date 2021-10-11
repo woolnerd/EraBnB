@@ -6,7 +6,9 @@ const mSTP = (state, ownProps) => {
 
     return (
 
-        {review: {} }
+        {review: {},
+        errors: state.errors
+     }
     )
 }
 

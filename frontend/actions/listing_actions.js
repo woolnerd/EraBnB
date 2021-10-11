@@ -1,4 +1,5 @@
 import * as APIListingUtil from '../util/listings_api_util'
+import { receiveErrors } from './session_actions';
 
 export const RECEIVE_ALL_LISTINGS = `RECEIVE_ALL_LISTINGS`;
 export const RECEIVE_LISTING = `RECEIVE_LISTING`;
@@ -24,20 +25,24 @@ export const fetchListings = (query) => dispatch => (
     .then( listings => dispatch(receiveAllListings(listings)))
 );
 
-export const fetchListing = listingId => dispatch => (
-    APIListingUtil.fetchListing(listingId)
-    .then( listing => dispatch(receiveListing(listing)))
-);
+export const fetchListing = (listingId) => (dispatch) =>
+  APIListingUtil.fetchListing(listingId).then(
+    (listing) => dispatch(receiveListing(listing)),
+    (error) => dispatch(receiveErrors(error.responseJSON))
+  );
 
 export const createListing = listing => dispatch => (
     APIListingUtil.createListing(listing)
-    .then( listing => dispatch(receiveListing(listing)))
+    .then( listing => dispatch(receiveListing(listing)),
+    (error) => dispatch(receiveErrors(error.responseJSON))
+    )
 );
 
-export const updateListing = listing => dispatch => (
-    APIListingUtil.updateListing(listing)
-    .then( listing => dispatch(receiveListing(listing)))
-);
+export const updateListing = (listing) => (dispatch) =>
+  APIListingUtil.updateListing(listing).then(
+    (listing) => dispatch(receiveListing(listing)),
+    (error) => dispatch(receiveErrors(error.responseJSON))
+  );
 
 export const deleteListing = listingId => dispatch => (
     APIListingUtil.deleteListing(listingId)

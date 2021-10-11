@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
         listing_id: parseInt(ownProps.match.params.listingId),
         author_id: state.session.id,
       },
-  
+      errors: state.errors,
     }
   )
 };

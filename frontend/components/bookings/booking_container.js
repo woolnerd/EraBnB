@@ -5,9 +5,11 @@ import Booking from './booking';
 
 
 
-const mSTP = ({ entities}, ownProps) => {
+const mSTP = ({ entities, errors}, ownProps) => {
     return (
-        {booking: entities.bookings[ownProps.match.params.bookingId]}
+        {booking: entities.bookings[ownProps.match.params.bookingId],
+        errors
+        }
     )
 }
 

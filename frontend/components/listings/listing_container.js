@@ -3,7 +3,7 @@ import { fetchListing, deleteListing } from "../../actions/listing_actions";
 import { createReview, updateReview, deleteReview,  } from "../../actions/review_actions";
 import Listing from './listing';
 
-const mSTP = ({entities, session}, ownProps) => {
+const mSTP = ({entities, session, errors}, ownProps) => {
     return {
       listing: entities.listings[ownProps.match.params.listingId],
       currentUser: session.id,
@@ -14,6 +14,7 @@ const mSTP = ({entities, session}, ownProps) => {
         author_id: session.id,
         listing_id: parseInt(ownProps.match.params.listingId),
       },
+      errors: errors
     };
 };
 
