@@ -8,7 +8,7 @@ user many of the features they know and love from the original: book/cancel a st
 Check it out here --> (https://erabnb.herokuapp.com/#/)
 
 ## Splash Page
-![splash page](https://erabnb-seed-data.s3.amazonaws.com/images_for_readme/Screen+Shot+2021-09-17+at+10.08.37+AM.png)
+![splash page](<iframe src="https://giphy.com/embed/q0kpXqcMvv41bmVglZ" width="480" height="262" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/q0kpXqcMvv41bmVglZ">via GIPHY</a></p>)
 
 ## Profile Page
 ![profile page](https://erabnb-seed-data.s3.amazonaws.com/images_for_readme/Screen+Shot+2021-09-17+at+10.11.26+AM.png)
@@ -33,10 +33,16 @@ With the creation of each new listing, a geo-forwarding API captures the address
 
 ## Challenges Met 
 
-Part of the beauty of Airbnb's site is the dicotomy of the a user's ability to act as both traveler and host. I wanted to be able to give a similar experience to my user, which is why rather than simply providing a fully seeded database and letting users books trips, a user is able to create their own listings as a host. However, being both a host and traveler, a I wanted to create some restrictions. When a host is searching the listings for a place to book, they shouldn't see their own listings, nor should they have access to a calendar to book their own listings when they are viewing their listing in their profile. In order to make these cases so, I wrote 
+Part of the beauty of Airbnb's site is the dicotomy between a user's ability to act as traveler and host. I wanted to be able to provide a similar experience to my user. Which is why rather than providing a fully seeded database and solely letting users book trips, I decided grant users the ability to post their listings as well. Next. so restrictions would be needed. When a host is searching the listings for a place to book, they shouldn't see their own listings, nor should they have access to a calendar to book their own listings. Here is the code: 
 
 ```js
-
+ render() {
+        
+        const listings = this.props.listings.map((listing) => (
+            !this.props.currentUser || this.props.currentUser.id !== listing.host_id ?
+            <ListingIndexItem key={listing.id} listing={listing} /> : null
+          ) 
+        );
 
 
 ```
