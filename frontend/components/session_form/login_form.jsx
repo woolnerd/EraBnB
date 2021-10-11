@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
       <div className="error-container">
         <ul className="form-errors">
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>Oops!: {error}</li>
+            <li key={`error-${i}`}>{error}</li>
           ))}
         </ul>
       </div>
@@ -48,44 +48,44 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-          {this.renderErrors()}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
           {/* <FontAwesomeIcon icon="fa-solid fa-check-square" />{" "} */}
           {/* <div className="login-form"> */}
-            <div className="login-email">
-              <label>Email</label>
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="login-input"
-              />
-            </div>
-            <div className="login-password">
-              <label>Password</label>
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
-            </div>
+          <div className="login-email">
+            <label>Email</label>
             <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              className="login-input"
             />
+          </div>
+          <div className="login-password">
+            <label>Password</label>
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              className="login-input"
+            />
+          </div>
+          {this.renderErrors()}
+          <input
+            className="session-submit"
+            type="submit"
+            value={this.props.formType}
+          />
           {/* </div> */}
-        <input
-          className="session-submit"
-          id="login-demouser"
-          type="button"
-          value="Demo user"
-          onClick={this.handleDemoUser}
-        />
+          <input
+            className="session-submit"
+            id="login-demouser"
+            type="button"
+            value="Demo user"
+            onClick={this.handleDemoUser}
+          />
         </form>
       </div>
     );

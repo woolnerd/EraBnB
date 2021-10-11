@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { openModal } from "../../actions/modal_actions";
 
-export const Splash = () => (
+const Splash = (props) => (
   <>
     <Link to="/listings">
       <main
@@ -163,10 +165,16 @@ export const Splash = () => (
           </p>
         </span>
         <span>
-          <button>Learn more</button>
+          <button onClick={()=>props.login()}>Learn more</button>
         </span>
       </div>
     </div>
   </>
 );
 
+
+const mDTP = (dispatch) => ({
+  login: () => dispatch(openModal("login")) 
+});
+
+export default withRouter(connect(null, mDTP)(Splash));

@@ -78,18 +78,28 @@ input[value="Demo User"] {
 }
 
 .error-container{
-  width: 400px;
-  height: fit-content;
-  border-radius: 20px;
-    background-color: white;
-    box-shadow: 12px 12px 8px rgba(0,0,0,.09);
+  // width: 400px;
+  // height: fit-content;
+  // border-radius: 20px;
+  // background-color: white;
+  // box-shadow: 12px 12px 8px rgba(0,0,0,.09);
 
 }
 
-.form-errors li {
-  font-size: 1rem;
+.login-form-container .form-errors li {
+  font-size: .75rem;
   color:rgb(191, 15, 15);
   padding: 2%;
+}
+
+.signup-form-container .form-errors li {
+  font-size: .75rem;
+  color:rgb(191, 15, 15);
+  padding: 2px;
+}
+
+.signup-form-box .error-container .form-errors {
+  padding: 0;
 }
 
 .login-input, .signup-input {

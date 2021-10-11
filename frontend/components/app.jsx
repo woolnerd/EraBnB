@@ -5,7 +5,7 @@ import MenuContainer from './menu/menu_container';
 import ListingsIndexContainer from '../components/listings/listings_index_container';
 import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
-import { Splash } from './splash/splash';
+import SplashContainer from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
 import BookingContainer from './bookings/booking_container';
 import { Footer } from './footer/footer';
@@ -38,7 +38,7 @@ const App = () => (
       <MenuContainer />
     </header>
     <div className="cushion"> </div>
-    <Route exact path="/" component={Splash} />
+    <Route exact path="/" component={SplashContainer} />
     {/* <Route exact path="/listings/:city" component={ListingsIndexContainer} /> */}
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />
