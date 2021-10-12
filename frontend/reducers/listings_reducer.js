@@ -7,7 +7,7 @@ import {
  const listingsReducer = (state = {}, action) => {
      Object.freeze(state);
      switch(action.type) {
-         case RECEIVE_ALL_LISTINGS:
+        case RECEIVE_ALL_LISTINGS:
              return action.listings;
         case RECEIVE_LISTING:
             return {...state, [action.listing.id]: action.listing};

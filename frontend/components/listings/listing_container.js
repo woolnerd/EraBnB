@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListing, deleteListing } from "../../actions/listing_actions";
-import { createReview, updateReview, deleteReview,  } from "../../actions/review_actions";
+import { createReview, updateReview, deleteReview, clearReviewErrors } from "../../actions/review_actions";
 import Listing from './listing';
 
 const mSTP = ({entities, session, errors}, ownProps) => {
@@ -19,14 +19,14 @@ const mSTP = ({entities, session, errors}, ownProps) => {
 };
 
 
-const mDTP = dispatch => ({
-    fetchListing: (listingId) => dispatch(fetchListing(listingId)),
-    deleteListing: (listingId) => dispatch(deleteListing(listingId)),
+const mDTP = (dispatch) => ({
+  fetchListing: (listingId) => dispatch(fetchListing(listingId)),
+  deleteListing: (listingId) => dispatch(deleteListing(listingId)),
 
-    createReview: (review) => dispatch(createReview(review)),
-    updateReview: (review) => dispatch(updateReview(review)),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
-    // fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
+  createReview: (review) => dispatch(createReview(review)),
+  updateReview: (review) => dispatch(updateReview(review)),
+  deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
+  clearReviewErrors: () => dispatch(clearReviewErrors()),
 });
 
 export default connect(mSTP, mDTP)(Listing);

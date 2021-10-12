@@ -7,6 +7,7 @@
 
     def create
         @review = Review.new(review_params)
+        # @listing = Listing.find(@review.listing_id)
         if @review.save
             # render "api/listings/#{@review.listing_id}"
         else  
@@ -21,11 +22,12 @@
 
     def update 
         @review = Review.find(params[:id])
-        if @review 
-            @review.update(review_params)
+        # debugger
+        if @review && @review.update(review_params)
             # render "api/reviews/show"
         else 
-            render json: @review.errors.full_messages, status: 404
+            render json: @review.errors.full_messages, status: 422
+            # debugger
         end
     end
 

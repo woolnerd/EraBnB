@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router';
 import CreateReviewForm from './create_review_form';
-import { createReview, updateReview, deleteReview } from "../../actions/review_actions";
-import { fetchListing, deleteListing } from "../../actions/listing_actions";
+import { createReview, clearReviewErrors } from "../../actions/review_actions";
+import { fetchListing } from "../../actions/listing_actions";
 
 
 const mSTP = (state, ownProps) => {
@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => {
         listing_id: parseInt(ownProps.match.params.listingId),
         author_id: state.session.id,
       },
-      errors: state.errors,
+      errors: state.errors.review,
     }
   )
 };
@@ -22,7 +22,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => ({
     createReview: (review) => dispatch(createReview(review)),
     fetchListing: (listingId) => dispatch(fetchListing(listingId)),
-
+    clearReviewErrors: () => dispatch(clearReviewErrors())
 })
 
 

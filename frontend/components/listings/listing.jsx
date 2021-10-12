@@ -15,10 +15,10 @@ class Listing extends React.Component {
   }
 
   componentDidMount() {
-    this.forceReload()
+    this.forceReload();
   }
 
-  forceReload(){
+  forceReload() {
     this.props.fetchListing(this.props.match.params.listingId);
   }
 
@@ -29,17 +29,23 @@ class Listing extends React.Component {
       .then(this.props.fetchListing(this.state.listing_id));
   }
 
-
   update(field) {
-    // console.log(field);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
-   
-  }
+  // renderErrors() {
+  //   return this.props.errors.review.length ? (
+  //     <div className="error-container">
+  //       <ul className="form-errors">
+  //         {this.props.errors.review.map((error, i) => (
+  //           <li key={`error-${i}`}>{error}</li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //   ) : null;
+  // }
 
   render() {
     if (!this.props.listing) {
@@ -55,7 +61,7 @@ class Listing extends React.Component {
           onClick={() =>
             this.props
               .deleteListing(listing.id)
-              .then((res) => this.props.history.push(`/users/${currentUser}`))
+              .then(() => this.props.history.push(`/users/${currentUser}`))
           }
         >
           Delete
@@ -104,24 +110,31 @@ class Listing extends React.Component {
       </div>
     );
 
-    let reviews = listing.reviews.sort((a,b) => b.id - a.id);
+    let reviews = listing.reviews.sort((a, b) => b.id - a.id);
+
+    const hasReviewed = 
+          reviews.length && 
+          reviews.filter(review => review.author.id === currentUser) ?
+          true : false;
 
     reviews = reviews.length
-      ? reviews
-          .map((review) => (
-            <div key={review.id} className="review-container">
-              <ReviewItem
-                listingId={this.props.match.params.listingId}
-                review={review}
-                update={this.update}
-                updateReview={this.props.updateReview}
-                fetchListing={this.props.fetchListing}
-                deleteReview={this.props.deleteReview}
-                handleDelete={this.handleDelete}
-                forceReload={this.forceReload.bind(this)}
-              />
-            </div>
-          ))
+      ? reviews.map((review) => (
+          <div key={review.id} className="review-container">
+            <ReviewItem
+              listingId={this.props.match.params.listingId}
+              currentUser={this.props.currentUser}
+              review={review}
+              update={this.update}
+              updateReview={this.props.updateReview}
+              fetchListing={this.props.fetchListing}
+              deleteReview={this.props.deleteReview}
+              handleDelete={this.handleDelete}
+              forceReload={this.forceReload.bind(this)}
+              errors={this.props.errors}
+              clearReviewErrors={this.props.clearReviewErrors}
+            />
+          </div>
+        ))
       : null;
 
     return (
@@ -160,10 +173,11 @@ class Listing extends React.Component {
               <h3>Here's what people are saying: </h3>
 
               <div>
-                <CreateReviewFormContainer
-                  forceReload={this.forceReload.bind(this)}
-                />
-
+               { !hasReviewed ? 
+                  <CreateReviewFormContainer
+                    forceReload={this.forceReload.bind(this)}
+                  /> : null
+                }
                 {reviews}
               </div>
             </div>

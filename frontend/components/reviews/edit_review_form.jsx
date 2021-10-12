@@ -9,7 +9,6 @@ class EditReviewForm extends React.Component {
   }
 
   update(field) {
-    // console.log(field);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };

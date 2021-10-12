@@ -1,9 +1,11 @@
 import * as APIReviewUtil from "../util/reviews_api_util";
-import { receiveErrors } from "./session_actions";
+
 
 export const RECEIVE_ALL_REVIEWS = `RECEIVE_ALL_REVIEWS`;
 export const RECEIVE_REVIEW = `RECEIVE_REVIEW`;
 export const REMOVE_REVIEW = `REMOVE_REVIEW`;
+export const RECEIVE_REVIEW_ERRORS = `RECEIVE_REVIEW_ERRORS`;
+export const CLEAR_REVIEW_ERRORS = `CLEAR_REVIEW_ERRORS`;
 
 const receiveAllreviews = (reviews) => ({
   type: RECEIVE_ALL_REVIEWS,
@@ -20,30 +22,30 @@ const removeReview = (reviewId) => ({
   reviewId,
 });
 
-// export const fetchReviews = () => (dispatch) =>
-//   APIReviewUtil.fetchReviews().then((reviews) =>
-//     dispatch(receiveAllreviews(reviews))
-//   );
+const receiveReviewErrors = (errors) => ({
+  type: RECEIVE_REVIEW_ERRORS,
+  errors,
+});
 
-// export const fetchReview = (reviewId) => (dispatch) =>
-//   APIReviewUtil.fetchReview(reviewId).then((review) =>
-//     dispatch(receiveReview(review))
-//   );
+export const clearReviewErrors = () => ({
+  type: CLEAR_REVIEW_ERRORS,
+});
 
-export const createReview = (review) => (dispatch) =>
-  APIReviewUtil.createReview(review).then(
-    (review) =>
-      dispatch(receiveReview(review), 
-      (error) =>
-        dispatch(receiveErrors(error.responseJSON))
+
+export const createReview = (review) => (dispatch) => {
+  return (
+    APIReviewUtil.createReview(review)
+    .then(
+      (review) => dispatch(receiveReview(review)), 
+      (error) => dispatch(receiveReviewErrors(error.responseJSON))
       )
-  );
+  )
+}
 
 export const updateReview = (review) => (dispatch) =>
-  APIReviewUtil.updateReview(review).then((review) =>
-    dispatch(receiveReview(review), (error) =>
-      dispatch(receiveErrors(error.responseJSON))
-    )
+  APIReviewUtil.updateReview(review).then(
+    (review) => dispatch(receiveReview(review)), 
+    (error) => dispatch(receiveReviewErrors(error.responseJSON))
   );
 
 export const deleteReview = (reviewId) => (dispatch) =>
