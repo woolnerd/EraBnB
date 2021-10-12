@@ -54,7 +54,6 @@ class ReviewItem extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.state)
     return this.state.errors.length ? (
       <div className="error-container">
         <ul className="form-errors">
@@ -68,7 +67,6 @@ class ReviewItem extends React.Component {
 
   render() {
     const { review } = this.props;
-
     return (
       <div className="review-container">
         <h2>{review.rating}/5 stars</h2>

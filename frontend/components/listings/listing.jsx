@@ -113,10 +113,10 @@ class Listing extends React.Component {
     let reviews = listing.reviews.sort((a, b) => b.id - a.id);
 
     const hasReviewed = 
-          reviews.length && 
-          reviews.filter(review => review.author.id === currentUser) ?
+          reviews.length && reviews.filter(review => review.author.id === currentUser).length 
+          ?
           true : false;
-
+      // debugger
     reviews = reviews.length
       ? reviews.map((review) => (
           <div key={review.id} className="review-container">
@@ -173,7 +173,7 @@ class Listing extends React.Component {
               <h3>Here's what people are saying: </h3>
 
               <div>
-               { !hasReviewed ? 
+               { !hasReviewed && currentUser !== null ? 
                   <CreateReviewFormContainer
                     forceReload={this.forceReload.bind(this)}
                   /> : null
