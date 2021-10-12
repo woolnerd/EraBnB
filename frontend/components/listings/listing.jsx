@@ -116,7 +116,7 @@ class Listing extends React.Component {
           reviews.length && reviews.filter(review => review.author.id === currentUser).length 
           ?
           true : false;
-      // debugger
+      debugger
     reviews = reviews.length
       ? reviews.map((review) => (
           <div key={review.id} className="review-container">
@@ -170,14 +170,20 @@ class Listing extends React.Component {
             </div>
 
             <div className="listing-info-show">
-              <h3>Here's what people are saying: </h3>
+              {listing.reviews.length ? (
+                <h3>Here's what people are saying: </h3>
+              ) : (
+                <h3>No Reviews Just Yet...  </h3>
+              )}
 
               <div>
-               { !hasReviewed && currentUser !== null ? 
+                {!hasReviewed &&
+                currentUser !== null &&
+                listing.host_id !== currentUser ? (
                   <CreateReviewFormContainer
                     forceReload={this.forceReload.bind(this)}
-                  /> : null
-                }
+                  />
+                ) : null}
                 {reviews}
               </div>
             </div>
