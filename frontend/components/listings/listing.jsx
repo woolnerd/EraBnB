@@ -35,18 +35,6 @@ class Listing extends React.Component {
     };
   }
 
-  // renderErrors() {
-  //   return this.props.errors.review.length ? (
-  //     <div className="error-container">
-  //       <ul className="form-errors">
-  //         {this.props.errors.review.map((error, i) => (
-  //           <li key={`error-${i}`}>{error}</li>
-  //         ))}
-  //       </ul>
-  //     </div>
-  //   ) : null;
-  // }
-
   render() {
     if (!this.props.listing) {
       return null;

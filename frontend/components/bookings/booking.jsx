@@ -64,7 +64,7 @@ class Booking extends React.Component {
                     onClick={() =>
                       this.props
                         .cancelBooking(this.props.booking.id)
-                        .then(this.props.history.push(`/`))
+                        .then(this.props.history.push(`/listings`))
                     }
                     className="session-submit"
                   >
