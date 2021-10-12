@@ -27,17 +27,18 @@ class ReviewItem extends React.Component {
     e.preventDefault();
     this.props
       .deleteReview(this.state.review.id)
-    this.props.forceReload()
+      .then(
+        setTimeout(() => this.props.fetchListing(this.props.listingId), 50)
+      );
   }
 
   handleEditSubmit(e) {
     e.preventDefault();
-
     this.props.updateReview(this.state.review)
+    .then(setTimeout(()=>this.props.fetchListing(this.props.listingId), 50))
     this.setState({toggleEdit: false})    
-    this.props.forceReload();
-
   }
+
 
   render() {
     const { review } = this.props;
@@ -51,6 +52,7 @@ class ReviewItem extends React.Component {
 
         {this.state.toggleEdit ? (
           <>
+            <h4>{this.state.review.body}</h4>
             <textarea
               onChange={this.update("body")}
               value={this.state.review.body}

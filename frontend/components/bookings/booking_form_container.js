@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
       guests: "",
       total_price: 0,
     },
-  
+    errors: state.errors
   };
 };
 

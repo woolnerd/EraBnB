@@ -8,14 +8,13 @@ import { fetchListing, deleteListing } from "../../actions/listing_actions";
 const mSTP = (state, ownProps) => {
   return (
     {
-
       newReview: {
         body: "",
         rating: "",
         listing_id: parseInt(ownProps.match.params.listingId),
         author_id: state.session.id,
       },
-  
+      errors: state.errors,
     }
   )
 };

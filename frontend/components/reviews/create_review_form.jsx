@@ -21,8 +21,12 @@ class CreateReviewForm extends React.Component {
     e.preventDefault();
     this.props
       .createReview(this.state)
-    //   this.setState({[newReview.body]: "", [newReview.rating]: ""})
-      this.props.forceReload()
+      .then(
+        setTimeout(
+          () => this.props.fetchListing(this.props.match.params.listingId),
+          50
+        )
+      );
   }
 
 

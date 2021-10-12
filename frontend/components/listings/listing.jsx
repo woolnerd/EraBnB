@@ -37,6 +37,9 @@ class Listing extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+   
+  }
 
   render() {
     if (!this.props.listing) {
@@ -101,11 +104,14 @@ class Listing extends React.Component {
       </div>
     );
 
-    const reviews = listing.reviews.length
-      ? listing.reviews
+    let reviews = listing.reviews.sort((a,b) => b.id - a.id);
+
+    reviews = reviews.length
+      ? reviews
           .map((review) => (
             <div key={review.id} className="review-container">
               <ReviewItem
+                listingId={this.props.match.params.listingId}
                 review={review}
                 update={this.update}
                 updateReview={this.props.updateReview}
@@ -116,7 +122,6 @@ class Listing extends React.Component {
               />
             </div>
           ))
-          .reverse()
       : null;
 
     return (
@@ -155,7 +160,9 @@ class Listing extends React.Component {
               <h3>Here's what people are saying: </h3>
 
               <div>
-                <CreateReviewFormContainer forceReload={this.forceReload.bind(this)} />
+                <CreateReviewFormContainer
+                  forceReload={this.forceReload.bind(this)}
+                />
 
                 {reviews}
               </div>

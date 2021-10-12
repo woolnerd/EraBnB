@@ -1,4 +1,5 @@
 import * as APIBookingUtil from "../util/bookings_api_util";
+import { receiveErrors } from "./session_actions";
 
 export const RECEIVE_ALL_BOOKINGS = `RECEIVE_ALL_BOOKINGS`;
 export const RECEIVE_BOOKING = `RECEIVE_BOOKING`;
@@ -31,12 +32,15 @@ export const fetchBooking = (bookingId) => (dispatch) =>
 
 export const createBooking = (booking) => (dispatch) =>
   APIBookingUtil.createBooking(booking).then((booking) =>
-    dispatch(receiveBooking(booking))
+    dispatch(receiveBooking(booking),
+    dispatch(receiveErrors(booking)))
   );
 
 export const updateBooking = (booking) => (dispatch) =>
   APIBookingUtil.updateBooking(booking).then((booking) =>
-    dispatch(receiveBooking(booking))
+    dispatch(receiveBooking(booking),
+    dispatch(receiveErrors(booking))
+    )
   );
 
 export const deleteBooking = (bookingId) => (dispatch) =>

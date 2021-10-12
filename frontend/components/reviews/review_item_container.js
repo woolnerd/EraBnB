@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
 import ReviewItem from './review_item';
-// import { fetchReview } from '../../actions/review_actions';
+import { withRouter } from 'react-router-dom';
+import { fetchListing } from '../../actions/listing_actions';
 
 const mSTP = (state, ownProps) => {
-
     return (
-
-        {review: {} }
+        {review: {},
+        errors: state.errors
+     }
     )
 }
 
 
 const mDTP = dispatch => ({
-    // fetchReview: (reviewId) => dispatch(fetchReview(reviewId))
+    fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
+    fetchListing: (listingId) => dispatch(fetchListing(listingId))
 })
 
 
-export default connect(mSTP, mDTP)(ReviewItem)
+export default withRouter(connect(mSTP, mDTP)(ReviewItem))
