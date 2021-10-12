@@ -27,27 +27,18 @@ class ReviewItem extends React.Component {
     e.preventDefault();
     this.props
       .deleteReview(this.state.review.id)
-      .then(this.props.fetchListing(this.props.listingId))
+      .then(
+        setTimeout(() => this.props.fetchListing(this.props.listingId), 50)
+      );
   }
 
   handleEditSubmit(e) {
     e.preventDefault();
-    // debugger
     this.props.updateReview(this.state.review)
-    .then(setTimeout(()=>this.props.fetchListing(this.props.listingId), 100))
+    .then(setTimeout(()=>this.props.fetchListing(this.props.listingId), 50))
     this.setState({toggleEdit: false})    
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log(prevProps);
-    // console.log(this.props)
-    // console.log("++++++++")
-    // console.log(prevState);
-    // console.log(this.state)
-    if (prevState.review.body !== this.state.review.body) {
-      // this.props.forceReload()
-    }
-  }
 
   render() {
     const { review } = this.props;
