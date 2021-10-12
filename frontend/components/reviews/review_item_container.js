@@ -3,10 +3,10 @@ import ReviewItem from './review_item';
 import { withRouter } from 'react-router-dom';
 import { fetchListing } from '../../actions/listing_actions';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
     return (
         {review: {},
-        errors: state.errors
+        errors: state.errors.review
      }
     )
 }

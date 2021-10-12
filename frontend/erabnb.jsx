@@ -7,6 +7,7 @@ import configureStore from './store/store';
 import { signup, login, logout} from './actions/session_actions'
 import * as listingActions from './actions/listing_actions'
 import * as bookingActions from './actions/booking_actions'
+import * as reviewActions from './actions/review_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       guests: 3,
       total_price: 10055.55,
     };
+    window.createReview = reviewActions.createReview;
 
     const root = document.getElementById('root')
     ReactDOM.render(<Root store={store} />, root)

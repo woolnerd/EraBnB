@@ -9,7 +9,9 @@ class Map extends React.Component {
   }
 
   marker(listing) {
-    return `<div>
+    // debugger
+    return `<a href="/#/listings/${listing.id}">
+      <div>
       <img id="map-photo"src=${listing.photoUrl[0]}/> 
       <h4>
         ${listing.title}
@@ -17,7 +19,8 @@ class Map extends React.Component {
       <p>
       ${listing.price} price/night
       </p>
-      </div>`;
+      </div>
+      </a> `;
   }
   componentDidMount() {
     this.props.fetchListings();
