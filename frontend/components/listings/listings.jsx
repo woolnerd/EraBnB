@@ -1,6 +1,7 @@
 import React  from "react";
 import {ListingIndexItem} from './listing_index_item';
 import  MapContainer from '../map/map_container';
+const qs = require("query-string");
 
 class Listings extends React.Component {
     constructor(props){
@@ -8,9 +9,9 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        this.props.location.pathname !== "/listings/1000" ? 
-        this.props.fetchListings() : null
-
+        const query = qs.parse(this.props.location.search)
+        console.log(query)
+        this.props.fetchListings(query)
     }
 
 

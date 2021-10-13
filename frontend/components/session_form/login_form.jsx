@@ -34,7 +34,6 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
-    debugger
     return this.props.errors.session.length ? (
       <div className="error-container">
         <ul className="form-errors">

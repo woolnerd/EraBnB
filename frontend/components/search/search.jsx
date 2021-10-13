@@ -24,17 +24,35 @@ class Search extends React.Component {
 
   handleSubmit(e){
       e.preventDefault();
-    //   this.props.location.search =  this.state.address
-      this.props.searchListings(this.state)
-      this.props.history.push(`/listings/1000`)
+      this.props.history.push(`/listings?address=${this.state.address}&check_in=${this.state.check_in}&check_out=${this.state.check_out}`);
+
       this.setState({address: ""})
   }
 
   render() {
     return (
       <>
-        <form onSubmit={(e)=>this.handleSubmit(e)}>
-          <input type="text" onChange={this.update('address')} value={this.state.address} placeholder="Where are you going?"/>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <input
+            type="text"
+            onChange={this.update("address")}
+            value={this.state.address}
+            placeholder="Where are you going?"
+          />
+          <input
+            type="date"
+            name="check_in"
+            id=""
+            value={this.state.check_in}
+            onChange={this.update("check_in")}
+          />
+          <input
+            type="date"
+            name="check_out"
+            id=""
+            value={this.state.check_out}
+            onChange={this.update("check_out")}
+          />
           <button className="search-btn">Start your search</button>
         </form>
       </>
