@@ -8,7 +8,9 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchListings();
+        this.props.location.pathname !== "/listings/1000" ? 
+        this.props.fetchListings() : null
+
     }
 
 

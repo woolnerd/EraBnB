@@ -4,12 +4,16 @@ class Api::ListingsController < ApplicationController
     def index 
     
         
-
-        # if params[query]
+        # debugger
+        if params.has_key?("query")
+            address = params.values[0]["address"]
+            # debugger
+            @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
+            # debugger
+        else 
             @listings = Listing.with_attached_photos.all
-        # else
-            #  city = params.query.city 
-        # @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%#{'New York'}%")
+        end
+
         render "api/listings/index"
         # render :index
     end
@@ -25,10 +29,12 @@ class Api::ListingsController < ApplicationController
     end
 
     def show 
-        
-        # @listing = Listing.find(params[:id])
-        @listing = Listing.with_attached_photos.find(params[:id])
-        render :show
+        if params["id"] != "1000"
+            @listing = Listing.with_attached_photos.find(params[:id])
+            render :show
+        else  
+            render json: @listing.errors.full_messages, status: 404
+        end 
     end
 
     def update 
@@ -69,5 +75,16 @@ class Api::ListingsController < ApplicationController
                                         photos: [] 
                                         )
     end
+
+    def time_range(check_in, check_out)
+        check_in..check_out
+    end
+
+    def address_search(address)
+
+    end
+
+
+
 
 end

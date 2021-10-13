@@ -8,6 +8,7 @@ import Map from './map';
 // });
 
 const mSTP = ({ entities }, ownProps) => {
+    console.log("ownprops:", ownProps)
     return (
 
         {
