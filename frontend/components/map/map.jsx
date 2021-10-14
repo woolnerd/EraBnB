@@ -9,7 +9,6 @@ class Map extends React.Component {
   }
 
   marker(listing) {
-    // debugger
     return `<a href="/#/listings/${listing.id}">
       <div>
       <img id="map-photo"src=${listing.photoUrl[0]}/> 
@@ -23,7 +22,14 @@ class Map extends React.Component {
       </a> `;
   }
   componentDidMount() {
-    this.props.fetchListings();
+    // if (this.props.location.search) {
+    //   this.props.fetchListings({ address: Brokltn});
+    // } else {
+    //   this.props.fetchListings();
+    // }
+    
+    
+
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
 
@@ -36,7 +42,9 @@ class Map extends React.Component {
     });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
+    // console.log("prevProps:", prevProps)
+    // console.log("props:", this.props)
     this.props.listings.forEach((listing) =>
       new mapboxgl.Marker()
         .setLngLat([listing.longitude, listing.latitude])

@@ -4,12 +4,35 @@ class Api::ListingsController < ApplicationController
     def index 
     
         
+        # debugger
+        if params.has_key?("query")
+            address = params.values[0]["address"]
+            desired_check_in = Date.parse(params.values[0]["check_in"])
+            desired_check_out = Date.parse(params.values[0]["check_out"])
+            @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
+                            #    .joins(:bookings)
+                               
+                               #check if the param checkin date is in the range of booking check_in/check_out
+                            #    .where.not(check_in: (desired_check_in..desired_check_out))
+                            #    .where.not(check_out: (desired_check_in..desired_check_out))
+                               #check if the param checkout date is in the range of booking check_in/check_out
+            
 
-        # if params[query]
+            @listings = 
+            @listings.all.select do |listing|
+                booked_ranges = []
+                if listing.bookings.length > 0
+                    listing.bookings.each do |booking|
+                        date_range = booking.check_in..booking.check_out
+                        booked_ranges << date_range
+                    end
+                end 
+                 booked_ranges.all? {|range| !range.include?(desired_check_in)} &&
+                 booked_ranges.all? {|range| !range.include?(desired_check_out)}
+            end 
+        else 
             @listings = Listing.with_attached_photos.all
-        # else
-            #  city = params.query.city 
-        # @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%#{'New York'}%")
+        end
         render "api/listings/index"
         # render :index
     end
@@ -25,10 +48,8 @@ class Api::ListingsController < ApplicationController
     end
 
     def show 
-        
-        # @listing = Listing.find(params[:id])
-        @listing = Listing.with_attached_photos.find(params[:id])
-        render :show
+            @listing = Listing.with_attached_photos.find(params[:id])
+            render :show
     end
 
     def update 
@@ -69,5 +90,21 @@ class Api::ListingsController < ApplicationController
                                         photos: [] 
                                         )
     end
+
+    def available?(check_in, check_out, occupied_start, occupied_end)
+        check_in, check_out = Date.parse(check_in), Date.parse(check_out)
+        occupied = occupied_start..occupied_end
+        return false if occupied.include?(check_in)
+        return false if occupied.include?(check_out)
+        true
+    end
+
+   
+    def address_search(address)
+
+    end
+
+
+
 
 end

@@ -104,7 +104,6 @@ class Listing extends React.Component {
           reviews.length && reviews.filter(review => review.author.id === currentUser).length 
           ?
           true : false;
-      debugger
     reviews = reviews.length
       ? reviews.map((review) => (
           <div key={review.id} className="review-container">

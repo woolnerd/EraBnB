@@ -13,15 +13,6 @@ class ListingForm extends React.Component {
   update(field) {
     return (e) => {
       let value = e.target.value;
-      // if (
-      //   field === "price" ||
-      //   field === "num_bedrms" ||
-      //   field === "num_baths" ||
-      //   field === "clean_fee" ||
-      //   field === "service_fee"
-      // ) {
-      //   value = parseInt(e.target.value);
-      // }
       this.setState({ [field]: value });
     };
   }
