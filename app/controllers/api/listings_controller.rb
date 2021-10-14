@@ -9,47 +9,30 @@ class Api::ListingsController < ApplicationController
             address = params.values[0]["address"]
             desired_check_in = Date.parse(params.values[0]["check_in"])
             desired_check_out = Date.parse(params.values[0]["check_out"])
-            @listing = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
+            @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
                             #    .joins(:bookings)
                                
                                #check if the param checkin date is in the range of booking check_in/check_out
                             #    .where.not(check_in: (desired_check_in..desired_check_out))
                             #    .where.not(check_out: (desired_check_in..desired_check_out))
                                #check if the param checkout date is in the range of booking check_in/check_out
-                               
-            @listing.all.map do |listing|
+            
+
+            @listings = 
+            @listings.all.select do |listing|
                 booked_ranges = []
-                listing.bookings.each do |booking|
-                    date_range = booking.check_in..booking.check_out
-                    booked_ranges << date_range
+                if listing.bookings.length > 0
+                    listing.bookings.each do |booking|
+                        date_range = booking.check_in..booking.check_out
+                        booked_ranges << date_range
+                    end
                 end 
-
-                booked_ranges.each do |range|
-                    range.include?(desired_check_in)
-
-
-                    #date_range is the block of time that a listing is booked for 
-                    #if the desired check in or check out time falls inside the block,
-                    #then we do want to show the listing 
-                    # debugger
-                    unless date_range.include?(desired_check_in) || date_range.include?(desired_check_out)
-                    count += 1
-                    end
-                    results << listing if count == listing.bookings.length
-
-                    if date_range.include?(desired_check_in)
-                        next
-                    else  
-                        
-                    end
-                end
-                debugger
-                return results
-            end
+                 booked_ranges.all? {|range| !range.include?(desired_check_in)} &&
+                 booked_ranges.all? {|range| !range.include?(desired_check_out)}
+            end 
         else 
             @listings = Listing.with_attached_photos.all
         end
-
         render "api/listings/index"
         # render :index
     end
