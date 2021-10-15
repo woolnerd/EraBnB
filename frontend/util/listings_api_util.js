@@ -9,7 +9,7 @@ export const fetchListings = (query) => (
 export const fetchSearchListings = (query) =>
   $.ajax({
     method: "GET",
-    url: "/api/listings/search",
+    url: "/api/search",
     data: { query },
   });
 

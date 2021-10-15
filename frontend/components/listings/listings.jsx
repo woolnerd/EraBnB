@@ -9,13 +9,9 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        if (this.props.location.search !== "") {
-            const query = qs.parse(this.props.location.search)
-            console.log(query)
-            this.props.fetchSearchListings(query)
-        } else {
-            this.props.fetchListings(query);
-        }
+            if (this.props.location.pathname !== "/search") {
+                this.props.fetchListings();
+            }
     }
 
 
