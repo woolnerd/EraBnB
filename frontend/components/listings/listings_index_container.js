@@ -9,8 +9,9 @@ const mSTP = ({ entities, session }) => ({
 
 
 
-const mDTP = dispatch => ({
-    fetchListings: (query) => dispatch(fetchListings(query))
+const mDTP = (dispatch) => ({
+  fetchSearchListings: (query) => dispatch(fetchSearchListings(query)),
+  fetchListings: (query) => dispatch(fetchListings(query)),
 });
 
 export default connect(mSTP, mDTP)(Listings);

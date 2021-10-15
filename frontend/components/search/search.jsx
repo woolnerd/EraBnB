@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchListings } from '../../actions/listing_actions';
+import { fetchSearchListings } from '../../actions/listing_actions';
 import { withRouter } from 'react-router-dom';
 
 class Search extends React.Component {
@@ -24,7 +24,7 @@ class Search extends React.Component {
 
   handleSubmit(e){
       e.preventDefault();
-      this.props.history.push(`/listings?address=${this.state.address}&check_in=${this.state.check_in}&check_out=${this.state.check_out}`);
+      this.props.history.push(`/listings/search?address=${this.state.address}&check_in=${this.state.check_in}&check_out=${this.state.check_out}`);
 
       this.setState({address: ""})
   }
@@ -65,7 +65,7 @@ const mSTP = (state) => ({
 })
 
 const mDTP = (dispatch) => ({
-  searchListings: (query) => dispatch(fetchListings(query))
+  searchListings: (query) => dispatch(fetchSearchListings(query))
 });
 
 

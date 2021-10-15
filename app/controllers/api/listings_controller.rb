@@ -16,7 +16,7 @@ class Api::ListingsController < ApplicationController
                             #    .where.not(check_in: (desired_check_in..desired_check_out))
                             #    .where.not(check_out: (desired_check_in..desired_check_out))
                                #check if the param checkout date is in the range of booking check_in/check_out
-            
+            debugger
 
             @listings = 
             @listings.all.select do |listing|
@@ -70,6 +70,10 @@ class Api::ListingsController < ApplicationController
         else  
             render json: @listing.errors.full_messages, status: 404
         end 
+    end
+
+    def search
+        
     end
 
     private 
