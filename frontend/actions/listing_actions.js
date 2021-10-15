@@ -25,6 +25,12 @@ export const fetchListings = (query) => dispatch => (
     .then( listings => dispatch(receiveAllListings(listings)))
 );
 
+export const fetchSearchListings = (query) => (dispatch) =>
+  APIListingUtil.fetchSearchListings(query).then((listings) =>
+    dispatch(receiveAllListings(listings))
+  );
+
+
 export const fetchListing = (listingId) => (dispatch) =>
   APIListingUtil.fetchListing(listingId).then(
     (listing) => dispatch(receiveListing(listing)),

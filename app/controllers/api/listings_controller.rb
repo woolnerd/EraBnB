@@ -2,43 +2,11 @@ class Api::ListingsController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :update, :destroy]     
 
     def index 
-    
-        
-        # debugger
-        if params.has_key?("query")
-            address = params.values[0]["address"]
-            desired_check_in = Date.parse(params.values[0]["check_in"])
-            desired_check_out = Date.parse(params.values[0]["check_out"])
-            @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
-                            #    .joins(:bookings)
-                               
-                               #check if the param checkin date is in the range of booking check_in/check_out
-                            #    .where.not(check_in: (desired_check_in..desired_check_out))
-                            #    .where.not(check_out: (desired_check_in..desired_check_out))
-                               #check if the param checkout date is in the range of booking check_in/check_out
-            
-
-            @listings = 
-            @listings.all.select do |listing|
-                booked_ranges = []
-                if listing.bookings.length > 0
-                    listing.bookings.each do |booking|
-                        date_range = booking.check_in..booking.check_out
-                        booked_ranges << date_range
-                    end
-                end 
-                 booked_ranges.all? {|range| !range.include?(desired_check_in)} &&
-                 booked_ranges.all? {|range| !range.include?(desired_check_out)}
-            end 
-        else 
-            @listings = Listing.with_attached_photos.all
-        end
+        @listings = Listing.with_attached_photos.all
         render "api/listings/index"
-        # render :index
     end
 
     def create 
-        
         @listing = Listing.new(listing_params)
         if @listing.save 
             render :show
@@ -70,6 +38,28 @@ class Api::ListingsController < ApplicationController
         else  
             render json: @listing.errors.full_messages, status: 404
         end 
+    end
+
+    def search
+        address = params.values[0]["address"]
+        desired_check_in = Date.parse(params.values[0]["check_in"])
+        desired_check_out = Date.parse(params.values[0]["check_out"])
+        @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
+
+        @listings = 
+            @listings.all.select do |listing|
+                booked_ranges = []
+                if listing.bookings.length > 0
+                    listing.bookings.each do |booking|
+                        date_range = booking.check_in..booking.check_out
+                        booked_ranges << date_range
+                    end
+                end 
+                 booked_ranges.all? {|range| !range.include?(desired_check_in)} &&
+                 booked_ranges.all? {|range| !range.include?(desired_check_out)}
+            end 
+
+        render "api/listings/index"
     end
 
     private 

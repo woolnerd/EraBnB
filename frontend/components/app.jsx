@@ -9,7 +9,7 @@ import SplashContainer from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
 import BookingContainer from './bookings/booking_container';
 import { Footer } from './footer/footer';
-import Search from './search/search';
+import SearchContainer from './search/search';
 import {
   Route,
   Redirect,
@@ -31,19 +31,26 @@ const App = () => (
       <Link to="/">
         <img className="airbnb-icon" src={redAirbnbLogo} />
       </Link>
-      <Search />
+      <SearchContainer />
       <MenuContainer />
     </header>
     <div className="cushion"> </div>
     <Route exact path="/" component={SplashContainer} />
+    <Route exact path={`/search`} component={ListingsIndexContainer} />
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />
-    <Route exact path="/listings/1000" component={ListingsIndexContainer} />
-    <ProtectedRoute exact path="/new/listing" component={ListingFormContainer} />
-    <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
-    <ProtectedRoute exact path="/bookings/:bookingId" component={BookingContainer}
+    <ProtectedRoute
+      exact
+      path="/new/listing"
+      component={ListingFormContainer}
     />
-  
+    <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
+    <ProtectedRoute
+      exact
+      path="/bookings/:bookingId"
+      component={BookingContainer}
+    />
+
     <Footer />
   </div>
 );
