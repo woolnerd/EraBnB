@@ -13,8 +13,7 @@ class Search extends React.Component {
       address: "",
       check_in: new Date().toISOString().slice(0, 10),
       check_out: new Date().toISOString().slice(0, 10),
-      era_theme: "",
-    };
+      era_theme: ""    };
   }
 
   update(field) {

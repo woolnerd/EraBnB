@@ -17,11 +17,29 @@ export const ListingIndexItem = ({ listing }) => (
         Bedrooms {listing.num_bedrms}{" "}
         <span> Bathrooms {listing.num_baths}</span>
       </p>
-      <span className="item-price">
-        <p className="special">${listing.price}/night</p>
-      </span>
+      <div className="rating-price-cont">
+        <span className="item-price">
+          <p className="special">${listing.price}/night</p>
+        </span>
+        <span className="avg-rating">
+          {listing.reviews.length ? (
+            <p className="special">
+              star {getAvgRating(listing.reviews)} ({listing.reviews.length})
+            </p>
+          ) : (
+            <p className="special">
+              No reviews yet!
+            </p>
+          )}
+        </span>
+      </div>
     </div>
   </div>
 );
 
-// 
+const getAvgRating = (reviews) => (
+  reviews.map((review) => review.rating)
+         .reduce((acc, curVal) => acc + curVal) 
+         / reviews.length 
+)
+
