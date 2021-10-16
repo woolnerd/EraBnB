@@ -45,9 +45,12 @@ class Api::ListingsController < ApplicationController
         desired_check_in = Date.parse(params.values[0]["check_in"])
         desired_check_out = Date.parse(params.values[0]["check_out"])
         @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
-
+                            .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase+"%"))
+                            .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.upcase+"%"))
+                            .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
+ 
         @listings = 
-            @listings.all.select do |listing|
+            @listings.select do |listing|
                 booked_ranges = []
                 if listing.bookings.length > 0
                     listing.bookings.each do |booking|
