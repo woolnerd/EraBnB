@@ -10,11 +10,11 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-        address: "",
-        check_in: "",
-        check_out: "",
-        era_theme: ""
-    }
+      address: "",
+      check_in: new Date().toISOString().slice(0, 10),
+      check_out: new Date().toISOString().slice(0, 10),
+      era_theme: "",
+    };
   }
 
   update(field) {
@@ -36,28 +36,33 @@ class Search extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={(e) => this.handleSubmit(e)} action="/search" method="GET">
+        <form
+          onSubmit={(e) => this.handleSubmit(e)}
+          action="/search"
+          method="GET"
+        >
           <input
             type="text"
             onChange={this.update("address")}
             value={this.state.address}
-            // value="Brooklyn"
             placeholder="Where are you going?"
           />
           <input
             type="date"
             name="check_in"
             id=""
-            value={this.state.check_in}
-            // value="2021-10-20"
+            // value={this.state.check_in}
+            defaultValue={new Date().toISOString().slice(0, 10)}
+            min={new Date().toISOString().slice(0, 10)}
             onChange={this.update("check_in")}
           />
           <input
             type="date"
             name="check_out"
             id=""
-            value={this.state.check_out}
-            // value="2021-10-30"
+            // value={this.state.check_out}
+            defaultValue={new Date().toISOString().slice(0, 10)}
+            min={new Date().toISOString().slice(0, 10)}
             onChange={this.update("check_out")}
           />
           <button className="search-btn">Start your search</button>

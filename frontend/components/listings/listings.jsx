@@ -16,12 +16,12 @@ class Listings extends React.Component {
 
 
     render() {
-        
-        const listings = this.props.listings.map((listing) => (
+       
+        const listings = this.props.listings.length ? this.props.listings.map((listing) => (
             !this.props.currentUser || this.props.currentUser.id !== listing.host_id ?
             <ListingIndexItem key={listing.id} listing={listing} /> : null
           ) 
-        );
+        ) : <h1>That search did not return any results</h1>
 
         return (
             <div id="listing-container-wrap">

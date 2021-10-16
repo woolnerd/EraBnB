@@ -23,7 +23,7 @@ const mSTP = (state) => {
         photoUrl: null,
         photos: []
       },
-      errors: state.errors
+      errors: state.errors.session
     };
 };
 
