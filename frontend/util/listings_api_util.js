@@ -6,12 +6,13 @@ export const fetchListings = (query) => (
     })
 );
 
-export const fetchSearchListings = (query) =>
+export const fetchSearchListings = (query) => (
   $.ajax({
     method: "GET",
     url: "/api/search",
     data: { query },
-  });
+  })
+)
 
 
 export const fetchListing = listingId => (
@@ -22,22 +23,26 @@ export const fetchListing = listingId => (
 )
 
 
-export const createListing = (formData) =>
+export const createListing = (formData) => (
   $.ajax({
     method: "POST",
     url: `/api/listings/`,
     data: formData,
     contentType: false, 
     processData: false
-  });
-
-export const updateListing = listing => (
-    $.ajax({
-        method: 'PATCH',
-        url: `/api/listings/${listing.id}`,
-        data: { listing }
-    })
+  })
 )
+
+export const updateListing = (formData, listingId) => (
+  $.ajax({
+    method: "PATCH",
+    url: `/api/listings/${listingId}`,
+    data: formData,
+    contentType: false,
+    processData: false,
+  })
+)
+
 
 export const deleteListing = listingId => (
     $.ajax({

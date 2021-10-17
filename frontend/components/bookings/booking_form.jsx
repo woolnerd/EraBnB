@@ -27,7 +27,6 @@ class BookingForm extends React.Component {
   
   handleSubmit(e) { 
     e.preventDefault();
-    debugger
     if (this.dateCheck()) {
       this.props
         .action(this.state.booking)

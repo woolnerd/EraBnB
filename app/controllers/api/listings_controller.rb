@@ -22,8 +22,7 @@ class Api::ListingsController < ApplicationController
 
     def update 
         @listing = Listing.find(params[:id])
-        if @listing 
-            @listing.update(listing_params)
+        if @listing && @listing.update(listing_params)
             render :show
         else 
             render json: @listing.errors.full_messages, status: 404

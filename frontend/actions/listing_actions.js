@@ -44,11 +44,13 @@ export const createListing = listing => dispatch => (
     )
 );
 
-export const updateListing = (listing) => (dispatch) =>
-  APIListingUtil.updateListing(listing).then(
+export const updateListing = (formData, listingId) => (dispatch) => (
+  APIListingUtil.updateListing(formData, listingId)
+  .then(
     (listing) => dispatch(receiveListing(listing)),
     (error) => dispatch(receiveErrors(error.responseJSON))
-  );
+  )
+);
 
 export const deleteListing = listingId => dispatch => (
     APIListingUtil.deleteListing(listingId)

@@ -7,6 +7,7 @@ import ListingContainer from '../components/listings/listing_container';
 import Modal from './modal/modal';
 import SplashContainer from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
+import EditListingFormContainer from './listings/edit_form_container'
 import BookingContainer from './bookings/booking_container';
 import { Footer } from './footer/footer';
 import SearchContainer from './search/search';
@@ -43,6 +44,11 @@ const App = () => (
       exact
       path="/new/listing"
       component={ListingFormContainer}
+    />
+    <ProtectedRoute
+      exact
+      path="/listings/:listingId/edit"
+      component={EditListingFormContainer}
     />
     <ProtectedRoute exact path="/users/:userId" component={UsersContainer} />
     <ProtectedRoute
