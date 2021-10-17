@@ -1,17 +1,19 @@
 import { connect } from "react-redux";
-import { updateListing } from "../../actions/listing_actions";
-import ListingForm from "./listing_form";
+import { withRouter } from "react-router";
+import { updateListing, fetchListing } from "../../actions/listing_actions";
+import EditListingForm from "./edit_listing_form";
 
 const mSTP = (state, ownProps) => {
   return {
     formType: "Edit Listing",
-    listing: state.listings[ownProps.match.params.listingId],
+    listing: state.entities.listings[ownProps.match.params.listingId],
+    errors: state.errors.session
   };
 };
 
 const mDTP = (dispatch) => ({
-  action: (listing) => dispatch(updateListing(listing)),
-  fetchListing: () => dispatch(fetchListing()),
+  updateListing: (formData, listingId) => dispatch(updateListing(formData, listingId)),
+  fetchListing: (listingId) => dispatch(fetchListing(listingId)),
 });
 
-export default connect(mSTP, mDTP)(ListingForm);
+export default withRouter(connect(mSTP, mDTP)(EditListingForm));

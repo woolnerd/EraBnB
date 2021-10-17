@@ -42,8 +42,15 @@ class Listing extends React.Component {
 
     const { currentUser, listing } = this.props;
 
-    const showDelete =
+    const showEditAndDelete =
       currentUser === listing.host_id ? (
+        <>
+          <button
+          className="session-submit sml-btn"
+          onClick={() => this.props.history.push(`/listings/${listing.id}/edit`)}
+        >
+          Update
+        </button>
         <button
           className="session-submit sml-btn"
           onClick={() =>
@@ -54,6 +61,7 @@ class Listing extends React.Component {
         >
           Delete
         </button>
+      </>
       ) : null;
 
     const backToUserListings =
@@ -139,7 +147,7 @@ class Listing extends React.Component {
                 Bedrooms {listing.num_bedrms}{" "}
                 <span> Bathrooms {listing.num_baths}</span>
               </p>
-              {showDelete}
+              {showEditAndDelete}
               {backToUserListings}
               <Link to="/listings/">
                 <button className="session-submit">Back to Listings</button>
