@@ -109,7 +109,7 @@ class Listing extends React.Component {
     let reviews = listing.reviews.sort((a, b) => b.id - a.id);
 
     const hasReviewed = 
-          reviews.length && reviews.filter(review => review.author.id === currentUser).length 
+          reviews.length && reviews.filter(review => review.author_id === currentUser).length 
           ?
           true : false;
     reviews = reviews.length
@@ -119,6 +119,7 @@ class Listing extends React.Component {
               listingId={this.props.match.params.listingId}
               currentUser={this.props.currentUser}
               review={review}
+              review_authors={this.props.listing.review_authors}
               update={this.update}
               updateReview={this.props.updateReview}
               fetchListing={this.props.fetchListing}

@@ -6,6 +6,7 @@ import { fetchListing } from '../../actions/listing_actions';
 const mSTP = (state) => {
     return (
         {review: {},
+        review_authors: this.state.review_authors,
         errors: state.errors.review
      }
     )
