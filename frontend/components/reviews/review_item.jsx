@@ -7,7 +7,8 @@ class ReviewItem extends React.Component {
     this.state = {
       toggleEdit: false,
       review: this.props.review,
-      errors: this.props.errors.review
+      errors: this.props.errors.review,
+      review_authors: this.props.review_authors
     };
   }
 
@@ -37,17 +38,30 @@ class ReviewItem extends React.Component {
 
   handleEditSubmit(e) {
     e.preventDefault();
-    this.props
-      .updateReview(this.state.review)
-      .then(setTimeout(() => this.props.fetchListing(this.props.listingId), 50))
-      .then(
-        this.state.errors.length
-          ? this.setState({ toggleEdit: false })
-          : this.setState({ toggleEdit: true }, () => this.props.clearReviewErrors())
-      )
+    if (this.state.review.body !== "") {
+        this.props.updateReview(this.state.review)
+        .then(setTimeout(() => this.props.fetchListing(this.props.listingId), 50))
+        .then(this.setState({ toggleEdit: false}))
+    } else {
+      this.props.updateReview(this.state.review)
+    }
+
+      // this.props.updateReview(this.state.review)
+      //   .then(
+      //     setTimeout(() => this.props.fetchListing(this.props.listingId), 50)
+      //   )
+      //   .then(
+      //     this.state.errors.length > 0
+      //       ? this.setState({ toggleEdit: true }, () =>
+      //           this.props.clearReviewErrors()
+      //         )
+      //       : this.setState({ toggleEdit: false })
+      //   );
+    
   }
 
-  componentDidUpdate(prevProps) {
+
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.errors.review.length !== this.props.errors.review.length) {
       this.setState({errors: this.props.errors.review})
     }
@@ -66,70 +80,69 @@ class ReviewItem extends React.Component {
   }
 
   render() {
-    const { review } = this.props;
+   
+    const {review, review_authors} = this.props
+
     return (
       <div className="review-container">
         <h2>{review.rating}/5 stars</h2>
-        <h1>{review.body}</h1>
-        <p>{review.author.first_name}</p>
+        <h4>{review.body}</h4>
+        <p className="author-review">~ {Object.values(review_authors).filter(el=> el.id === review.author_id)[0].first_name}</p>
 
-        {this.props.currentUser === review.author.id ? 
-        
-        this.state.toggleEdit ? (
-          <>
-            <h4>{this.state.review.body}</h4>
-            <textarea
-              onChange={this.update("body")}
-              value={this.state.review.body}
-              required
-            />
-            <select
-              value={this.state.review.rating}
-              onChange={this.update("rating")}
-            >
-              <option disabled value="">
-                Choose a rating
-              </option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            {this.renderErrors()}
-            <button
-              onClick={(e) => this.handleEditSubmit(e)}
-              className="session-submit"
-            >
-              Save edit
-            </button>
-                    <button
-          onClick={(e) => this.handleDelete(e)}
-          className="session-submit"
-        >
-          Delete
-        </button>
-          </>
-        ) : (
-          <>
-            <button
-              onClick={(e) => this.handleEditClick(e)}
-              className="session-submit"
-            >
-              Edit
-            </button>
-                    <button
-            onClick={(e) => this.handleDelete(e)}
-            className="session-submit"
-          >
-            Delete
-          </button>
-        </>
-        )
-        : null
-      
-      }
-
+        {this.props.currentUser === review.author_id ? (
+          this.state.toggleEdit ? (
+            <>
+              <textarea
+                placeholder="What did you think?"
+                className="review-body"
+                onChange={this.update("body")}
+                value={this.state.review.body}
+                required
+              />
+              <select
+                value={this.state.review.rating}
+                onChange={this.update("rating")}
+              >
+                <option disabled value="">
+                  Choose a rating
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              {this.renderErrors()}
+              <button
+                onClick={(e) => this.handleEditSubmit(e)}
+                className="session-submit"
+              >
+                Save edit
+              </button>
+              <button
+                onClick={(e) => this.handleDelete(e)}
+                className="session-submit"
+              >
+                Delete
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={(e) => this.handleEditClick(e)}
+                className="session-submit"
+              >
+                Edit
+              </button>
+              <button
+                onClick={(e) => this.handleDelete(e)}
+                className="session-submit"
+              >
+                Delete
+              </button>
+            </>
+          )
+        ) : null}
       </div>
     );
   }

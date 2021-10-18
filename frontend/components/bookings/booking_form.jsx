@@ -1,5 +1,6 @@
 import React from "react";
 import { DateRange } from "react-date-range";
+import { parseISO } from "date-fns";
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
 import { findSelectionRange } from '../../util/selectors';
@@ -71,9 +72,11 @@ class BookingForm extends React.Component {
     if (!this.props.booking) {
       return null;
     }
-    console.log(this.state.booking.check_in)
-    console.log(this.state.booking.check_out);
-
+    // debugger
+    let bookedDates = this.props.listing.booked_dates.map(date=> parseISO(date))
+    // debugger
+    // bookedDates = bookedDates.map((date) => new Date(date))
+    // debugger
     let selectionRange = findSelectionRange(this.state.booking.check_in, this.state.booking.check_out)
     return (
       <div className="booking-form-container">
@@ -83,7 +86,7 @@ class BookingForm extends React.Component {
         <p>Service fee: {this.props.listing.service_fee}</p>
         <p>Total: {this.state.booking.total_price}</p>
         <form onSubmit={this.handleSubmit} className="login-form">
-        <p>Number of Guests: {this.state.booking.guests}</p>
+          <p>Number of Guests: {this.state.booking.guests}</p>
           <input
             type="number"
             placeholder="1"
@@ -96,7 +99,9 @@ class BookingForm extends React.Component {
           <button className="session-submit">Book it</button>
         </form>
         <div className="booking-errors">
-          <p className={`booking-error ${this.state.showError ? "" : "hide"}`}>Please choose a valid check-out day</p>
+          <p className={`booking-error ${this.state.showError ? "" : "hide"}`}>
+            Please choose a valid check-out day
+          </p>
         </div>
         <div>
           <DateRange
@@ -110,6 +115,7 @@ class BookingForm extends React.Component {
             showMonthAndYearPickers={true}
             minDate={new Date()}
             rangeColor={["#ff5a91"]}
+            disabledDates={bookedDates}
           />
         </div>
       </div>

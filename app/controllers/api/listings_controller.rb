@@ -17,6 +17,12 @@ class Api::ListingsController < ApplicationController
 
     def show 
             @listing = Listing.with_attached_photos.find(params[:id])
+            
+            @booked_dates =  []
+            @listing.bookings.each do |booking|
+                date_range = booking.check_in..booking.check_out
+                @booked_dates += Array(date_range)
+            end
             render :show
     end
 
