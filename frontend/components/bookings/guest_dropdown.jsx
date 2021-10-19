@@ -43,22 +43,11 @@ class GuestDropDown extends React.Component {
         {this.state.revealDropdown && (
           <>
             <div className="menu-content">
-              {this.props.currentUser ? (
-                <div>
-                  <Link to="#">
-                    <li className="profile-link">Profile</li>
-                  </Link>
-                  <Link to="/">
-                    <li>Log Out</li>
-                  </Link>
-                </div>
-              ) : (
                 <>
                   <li >Log in</li>
                   <li >Sign up</li>
                   <li >Demo user</li>
                 </>
-              )}
             </div>
           </>
         )}
@@ -67,4 +56,4 @@ class GuestDropDown extends React.Component {
   }
 }
 
-export default Menu;
+export default GuestDropDown;

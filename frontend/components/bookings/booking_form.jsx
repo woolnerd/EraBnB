@@ -1,9 +1,9 @@
 import React from "react";
-import { DateRange } from "react-date-range";
+// import { DateRange } from "react-date-range";
 import { parseISO } from "date-fns";
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css'; 
-import { findSelectionRange } from '../../util/selectors';
+import CalendarDropDown from './calendar_dropdown'
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class BookingForm extends React.Component {
     this.state = {
       booking: this.props.booking,
       showError: false,
+      showCalendar: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -72,31 +73,27 @@ class BookingForm extends React.Component {
     if (!this.props.booking) {
       return null;
     }
-    // debugger
     let bookedDates = this.props.listing.booked_dates.map(date=> parseISO(date))
-    // debugger
-    // bookedDates = bookedDates.map((date) => new Date(date))
-    // debugger
-    let selectionRange = findSelectionRange(this.state.booking.check_in, this.state.booking.check_out)
     return (
-      <div className="booking-form-container">
-        <div className="bk-rate-review-cont">
-          <div className="bk-rate-review">
-            <span>
-              <p>
-                <span id="room-price">$229</span>/ night
-              </p>
-            </span>
-            <span>
-              <p>#</p>
-              <p>
-                5.0 <span>(22 reviews)</span>
-              </p>
-            </span>
+      <>
+        <div className="booking-form-container">
+          <div className="bk-rate-review-cont">
+            <div className="bk-rate-review">
+              <span>
+                <p>
+                  <span id="room-price">$229</span>/ night
+                </p>
+              </span>
+              <span>
+                <p>#</p>
+                <p>
+                  5.0 <span>(22 reviews)</span>
+                </p>
+              </span>
+            </div>
           </div>
-        </div>
-        <div className="guests-dates-cont">
-          <div className="bookings-guests-cont">
+          <div className="guests-dates-cont">
+            <div className="bookings-guests-cont">
               <div className="top-container-booking">
                 <div className="check-in-cont-border">
                   <div className="checkin-checkout-cont">
@@ -121,11 +118,19 @@ class BookingForm extends React.Component {
                 <h4>^</h4>
               </div>
             </div>
+          </div>
+          <div className="btn-cont">
+            <button>Check availability</button>
+          </div>
         </div>
-        <div className="btn-cont">
-          <button>Check availability</button>
-        </div>
-        {/* <h3>Want to Book it?</h3>
+        <CalendarDropDown 
+          bookedDates={bookedDates} 
+          booking={this.state.booking}
+          calcTotal={this.calcTotal}
+          showCalendar={this.state.showCalendar}
+        />
+      </>
+      /* <h3>Want to Book it?</h3>
         <p>Price per night: {this.props.listing.price}</p>
         <p>Cleaning fee: {this.props.listing.clean_fee}</p>
         <p>Service fee: {this.props.listing.service_fee}</p>
@@ -162,8 +167,7 @@ class BookingForm extends React.Component {
             rangeColor={["#ff5a91"]}
             disabledDates={bookedDates}
           />
-        </div> */}
-      </div>
+        </div> */
     );
   }
 }
