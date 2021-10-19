@@ -23,6 +23,7 @@ class Api::ListingsController < ApplicationController
                 date_range = booking.check_in..booking.check_out
                 @booked_dates += Array(date_range)
             end
+            @host = @listing.host
             render :show
     end
 

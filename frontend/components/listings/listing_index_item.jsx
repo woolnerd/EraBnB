@@ -37,7 +37,7 @@ export const ListingIndexItem = ({ listing }) => (
   </div>
 );
 
-const getAvgRating = (reviews) => (
+export const getAvgRating = (reviews) => (
   reviews.map((review) => review.rating)
          .reduce((acc, curVal) => acc + curVal) 
          / reviews.length 

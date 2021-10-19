@@ -4,6 +4,7 @@ import BookingFormContainer from "../bookings/booking_form_container";
 import ReviewItemContainer from "../reviews/review_item_container"
 import ReviewItem from '../reviews/review_item';
 import CreateReviewFormContainer from '../reviews/create_review_form_container'
+import { getAvgRating } from './listing_index_item';
 
 class Listing extends React.Component {
   constructor(props) {
@@ -81,6 +82,7 @@ class Listing extends React.Component {
           src={photo}
           alt="listing-photo"
           className="listing-img"
+          id={idx === 0 ? "main-photo" : ""} 
         />
       ))
     ) : (
@@ -136,54 +138,64 @@ class Listing extends React.Component {
     return (
       { listing } && (
         <>
-          <div key={listing.id} className="today-banner"></div>
-          <div className="listing-item-show">
-            <div className="listing-container"></div>
-            <div className="listing-photos">{photos}</div>
-            <div className="listing-info-show">
-              <h3>{listing.title}</h3>
-              <p>{listing.description}</p>
-              <p>${listing.price}/night</p>
-              <p>
-                Bedrooms {listing.num_bedrms}{" "}
-                <span> Bathrooms {listing.num_baths}</span>
-              </p>
-              {showEditAndDelete}
-              {backToUserListings}
-              <Link to="/listings/">
-                <button className="session-submit">Back to Listings</button>
-              </Link>
-            </div>
-
-            <div className="listing-info-show">
-              {!currentUser ? (
-                <h1>Please login or signup to book</h1>
-              ) : currentUser && currentUser !== listing.host_id ? (
-                <Route props={listing} component={BookingFormContainer} />
-              ) : (
-                bookings
-              )}
-            </div>
-
-            <div className="listing-info-show">
-              {listing.reviews.length ? (
-                <h3>Here's what people are saying: </h3>
-              ) : (
-                <h3>No Reviews Just Yet...  </h3>
-              )}
-
-              <div>
-                {!hasReviewed &&
-                currentUser !== null &&
-                listing.host_id !== currentUser ? (
-                  <CreateReviewFormContainer
-                    forceReload={this.forceReload.bind(this)}
-                  />
-                ) : null}
-                {reviews}
-              </div>
+          <div key={listing.id} className="listing-heading">
+            <h2>{listing.title}</h2>
+            <p>
+              {getAvgRating(listing.reviews)} ({listing.reviews.length} reviews) - {listing.address.split(" ").slice(-3,-1).join(" ")}
+            </p>
+          </div>
+          {/* <div className="listing-item-show"> */}
+          <div className="listing-container"></div>
+          <div className="listing-photos">
+            {photos[0]}
+            <div className="adtl-photos">
+              <div className="adtl-photos-col-1">{photos.slice(1, 3)}</div>
+              <div className="adtl-photos-col-2">{photos.slice(3, 5)}</div>
             </div>
           </div>
+          <div className="listing-info-show">
+            <h3>Era theme by {listing.host.first_name}</h3>
+            <p>{listing.num_bedrms} beds</p>
+            <p>{listing.num_baths} baths</p>
+            
+            {/* {showEditAndDelete}
+            {backToUserListings} */}
+            {/* <Link to="/listings/">
+              <button className="session-submit">Back to Listings</button>
+            </Link> */}
+          </div>
+
+            <p>{listing.description}</p>
+            <p>${listing.price}/night</p>
+          <div className="listing-info-show">
+            {!currentUser ? (
+              <h1>Please login or signup to book</h1>
+            ) : currentUser && currentUser !== listing.host_id ? (
+              <Route props={listing} component={BookingFormContainer} />
+            ) : (
+              bookings
+            )}
+          </div>
+
+          <div className="listing-info-show">
+            {listing.reviews.length ? (
+              <h3>Here's what people are saying: </h3>
+            ) : (
+              <h3>No Reviews Just Yet... </h3>
+            )}
+
+            <div>
+              {!hasReviewed &&
+              currentUser !== null &&
+              listing.host_id !== currentUser ? (
+                <CreateReviewFormContainer
+                  forceReload={this.forceReload.bind(this)}
+                />
+              ) : null}
+              {reviews}
+            </div>
+          </div>
+          {/* </div> */}
         </>
       )
     );
