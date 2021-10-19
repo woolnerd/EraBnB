@@ -10,7 +10,7 @@ class CalendarDropDown extends React.Component {
 
     this.menu = React.createRef();
     this.state = {
-      revealDropdown: false,
+      hideCalendar: this.props.hideCalendar,
       booking: this.props.booking
     };
   }
@@ -35,8 +35,9 @@ class CalendarDropDown extends React.Component {
     booking["check_in"] = startDate;
     booking["check_out"] = endDate;
     this.setState({ booking }
-      // , () => this.props.calcTotal()
+      , () => this.props.calcTotal()
       );
+    this.props.update(startDate, endDate);
   }
 
   componentDidMount() {
@@ -66,7 +67,7 @@ class CalendarDropDown extends React.Component {
 
 
     return (
-      <div className="calendar-dropdown">
+      <div className={`calendar-dropdown ${this.props.hideCalendar ? "hide-cal" : null }`}>
         <div>
           <div className="calender-header">
             <div className="select-date-cont">
@@ -119,7 +120,7 @@ class CalendarDropDown extends React.Component {
         <div className="clear-exit-cont">
           <div className="clear-exit">
             <p>Clear dates</p>
-            <button onClick={()=>this.state({revealDropdown: false})}>Close</button>
+            <button onClick={()=>this.props.toggleCalendar()}>Close</button>
           </div>
         </div>
       </div>

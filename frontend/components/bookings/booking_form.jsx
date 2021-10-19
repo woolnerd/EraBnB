@@ -12,22 +12,22 @@ class BookingForm extends React.Component {
     this.state = {
       booking: this.props.booking,
       showError: false,
-      showCalendar: false
-    }
+      hideCalendar: true,
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDate = this.handleDate.bind(this);
   }
 
-  dateCheck(){
+  dateCheck() {
     // debugger
     return (
       Date.parse(this.state.booking.check_out.toISOString().slice(0, 10)) >
       Date.parse(this.state.booking.check_in.toISOString().slice(0, 10))
-    )
+    );
   }
-  
-  handleSubmit(e) { 
+
+  handleSubmit(e) {
     e.preventDefault();
     if (this.dateCheck()) {
       this.props
@@ -35,45 +35,63 @@ class BookingForm extends React.Component {
         .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
       this.setState({ showError: false });
     } else {
-      this.setState({showError: true })
+      this.setState({ showError: true });
     }
   }
 
   calcTotal() {
     const { clean_fee, service_fee, price } = this.props.listing;
     const { check_in, check_out } = this.state.booking;
-    const diff =
-      (check_out.getTime() - check_in.getTime()) / (24000 * 3600);
+    const diff = (check_out.getTime() - check_in.getTime()) / (24000 * 3600);
     const total = diff * price + (clean_fee + service_fee);
-    const booking = {...this.state.booking}
-    booking["total_price"] = (total * 0.039 + total).toFixed(2);  
+    const booking = { ...this.state.booking };
+    booking["total_price"] = (total * 0.039 + total).toFixed(2);
     this.setState({ booking });
   }
-
 
   handleDate(e) {
     let { startDate, endDate } = e.selection;
     const booking = { ...this.state.booking };
     booking["check_in"] = startDate;
     booking["check_out"] = endDate;
-    this.setState({ booking }, () =>
-      this.calcTotal()
-    );
+    this.setState({ booking }, () => this.calcTotal());
   }
 
-  update(field) {
-    const booking = {...this.state.booking}
-    return (e) => {
-      booking[field] = e.target.value 
-      this.setState({ booking });
-    }
+  update(start, end) {
+    const booking = { ...this.state.booking };
+    booking['check_in'] = start;
+    booking['check_out'] = end;
+    this.setState({ booking });
   }
+
+  toggleCalendar() {
+    this.state.hideCalendar
+      ? this.setState({ hideCalendar: false })
+      : this.setState({ hideCalendar: true });
+  }
+
+  componentDidUpdate() {}
 
   render() {
     if (!this.props.booking) {
       return null;
     }
-    let bookedDates = this.props.listing.booked_dates.map(date=> parseISO(date))
+    let bookedDates = this.props.listing.booked_dates.map((date) =>
+      parseISO(date)
+    );
+
+    const stringCheckIn = this.state.booking.check_in
+      .toLocaleString()
+      .split("/")
+      .slice(0, 2)
+      .join("/");
+
+    const stringCheckOut = this.state.booking.check_out
+      .toLocaleString()
+      .split("/")
+      .slice(0, 2)
+      .join("/");
+
     return (
       <>
         <div className="booking-form-container">
@@ -94,19 +112,32 @@ class BookingForm extends React.Component {
           </div>
           <div className="guests-dates-cont">
             <div className="bookings-guests-cont">
-              <div className="top-container-booking">
+              <div
+                className="top-container-booking"
+                onClick={() => this.toggleCalendar()}
+              >
                 <div className="check-in-cont-border">
                   <div className="checkin-checkout-cont">
                     <div className="check-in-cont">
                       <p id="bk-form-input">CHECK-IN</p>
-                      <h4>Add date</h4>
+                      <h4>
+                        {this.state.booking.check_in === ""
+                          ? "Add date"
+                          : stringCheckIn}
+                      </h4>
                     </div>
                   </div>
                 </div>
                 <div className="check-out-cont-border">
                   <div className="check-out-cont">
                     <p id="bk-form-input">CHECK-OUT</p>
-                    <h4>Add date</h4>
+                    <h4>
+                      {this.state.booking.check_out === "" ||
+                      this.state.booking.check_out ===
+                        this.state.booking.check_in
+                        ? "Add date"
+                        : stringCheckOut}
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -123,51 +154,15 @@ class BookingForm extends React.Component {
             <button>Check availability</button>
           </div>
         </div>
-        <CalendarDropDown 
-          bookedDates={bookedDates} 
+        <CalendarDropDown
+          bookedDates={bookedDates}
           booking={this.state.booking}
-          calcTotal={this.calcTotal}
-          showCalendar={this.state.showCalendar}
+          calcTotal={() => this.calcTotal()}
+          toggleCalendar={() => this.toggleCalendar()}
+          hideCalendar={this.state.hideCalendar}
+          update={(start, end) => this.update(start, end)}
         />
       </>
-      /* <h3>Want to Book it?</h3>
-        <p>Price per night: {this.props.listing.price}</p>
-        <p>Cleaning fee: {this.props.listing.clean_fee}</p>
-        <p>Service fee: {this.props.listing.service_fee}</p>
-        <p>Total: {this.state.booking.total_price}</p>
-        <form onSubmit={this.handleSubmit} className="login-form">
-          <p>Number of Guests: {this.state.booking.guests}</p>
-          <input
-            type="number"
-            placeholder="1"
-            value={this.state.booking.guests}
-            onChange={this.update("guests")}
-            min="1"
-            max="10"
-            required
-          />
-          <button className="session-submit">Book it</button>
-        </form>
-        <div className="booking-errors">
-          <p className={`booking-error ${this.state.showError ? "" : "hide"}`}>
-            Please choose a valid check-out day
-          </p>
-        </div>
-        <div>
-          <DateRange
-            ranges={[selectionRange]}
-            onChange={this.handleDate}
-            editableDateInputs={true}
-            showSelectionPreview={true}
-            months={1}
-            direction="vertical"
-            showDateDisplay={false}
-            showMonthAndYearPickers={true}
-            minDate={new Date()}
-            rangeColor={["#ff5a91"]}
-            disabledDates={bookedDates}
-          />
-        </div> */
     );
   }
 }
