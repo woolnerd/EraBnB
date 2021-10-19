@@ -1,7 +1,7 @@
 import React from "react";  
 import { Link } from 'react-router-dom';
 
-export const ListingIndexItem = ({ listing }) => (
+export const ListingIndexItem = ({ listing}) => (
   <div className="listing-item">
     <Link to={`/listings/${listing.id}`}>
       <img src={listing.photoUrl[0]} alt="" />

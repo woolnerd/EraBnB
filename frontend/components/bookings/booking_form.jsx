@@ -80,7 +80,52 @@ class BookingForm extends React.Component {
     let selectionRange = findSelectionRange(this.state.booking.check_in, this.state.booking.check_out)
     return (
       <div className="booking-form-container">
-        <h3>Want to Book it?</h3>
+        <div className="bk-rate-review-cont">
+          <div className="bk-rate-review">
+            <span>
+              <p>
+                <span id="room-price">$229</span>/ night
+              </p>
+            </span>
+            <span>
+              <p>#</p>
+              <p>
+                5.0 <span>(22 reviews)</span>
+              </p>
+            </span>
+          </div>
+        </div>
+        <div className="guests-dates-cont">
+          <div className="bookings-guests-cont">
+              <div className="top-container-booking">
+                <div className="check-in-cont-border">
+                  <div className="checkin-checkout-cont">
+                    <div className="check-in-cont">
+                      <p id="bk-form-input">CHECK-IN</p>
+                      <h4>Add date</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="check-out-cont-border">
+                  <div className="check-out-cont">
+                    <p id="bk-form-input">CHECK-OUT</p>
+                    <h4>Add date</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="guests-dropdown">
+                <div className="guests-cont">
+                  <p id="bk-form-input">GUESTS</p>
+                  <h4>1 guest</h4>
+                </div>
+                <h4>^</h4>
+              </div>
+            </div>
+        </div>
+        <div className="btn-cont">
+          <button>Check availability</button>
+        </div>
+        {/* <h3>Want to Book it?</h3>
         <p>Price per night: {this.props.listing.price}</p>
         <p>Cleaning fee: {this.props.listing.clean_fee}</p>
         <p>Service fee: {this.props.listing.service_fee}</p>
@@ -117,7 +162,7 @@ class BookingForm extends React.Component {
             rangeColor={["#ff5a91"]}
             disabledDates={bookedDates}
           />
-        </div>
+        </div> */}
       </div>
     );
   }

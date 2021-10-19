@@ -16,12 +16,9 @@ class Listings extends React.Component {
 
 
     render() {
-        // const searchResults = this.props.location.pathname !== "/search" ? 
-        //         <h3>That search did not return any results</h3>
-
         const listings = this.props.listings.length ? this.props.listings.map((listing) => (
             !this.props.currentUser || this.props.currentUser.id !== listing.host_id ?
-            <ListingIndexItem key={listing.id} listing={listing} /> : null
+            <ListingIndexItem key={listing.id} listing={listing} fetchListing={this.props.fetchListing} /> : null
           ) 
         ) : <h3>That search did not return any results</h3>
         return (

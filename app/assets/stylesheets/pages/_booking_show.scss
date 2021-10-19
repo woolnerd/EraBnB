@@ -63,3 +63,135 @@
 .booking-error{
     color: rgb(171, 0, 0);
 }
+
+// new booking container
+
+.bk-rate-review-cont {
+    /* display: flex; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.bk-rate-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding: 0 21px;
+    align-items: baseline;
+}
+
+.bk-rate-review span {
+    display: flex;
+}
+
+.booking-form-container button {
+    color: white;
+    height: 42px;
+    width: 15.4375rem;
+    font-size: 0.95rem;
+    background-color: #f5366b;
+    border-radius: 7px;
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.bookings-guests-cont {
+    border: 1px solid #c3c3c3;
+    padding: 0px;
+    width: 245px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.checkin-checkout-cont {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 14px;
+    padding-left: 14px;
+    padding-top: 15px;
+}
+
+.check-in-cont {
+    padding-right: 36px;
+}
+
+.guests-dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 13px;
+}
+
+
+.bk-rate-review span p {
+    display: flex;
+    align-items: baseline;
+    font-size: 13px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.guests-dates-cont {
+    /* border: 1px solid grey; */
+    padding: 20px;
+    /* margin: 18px; */
+    display: flex;
+    flex-direction: column;
+}
+.booking-container {
+    border: 1px solid #b9bbb9;
+    width: 300px;
+    border-radius: 13px;
+    margin-left: 72%;
+    height: fit-content;
+}
+
+.guests-dates-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.check-out-cont {
+    padding-left: 10px;
+}
+
+#bk-form-input {
+    font-weight: 600;
+    font-size: 0.6rem;
+    padding-bottom: 7px;
+}
+
+.bk-rate-review span p span {
+    font-size: 12px;
+    text-decoration: underline;
+    color: gray;
+}
+
+span#room-price {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+}
+
+.top-container-booking {
+    border-bottom: 1px solid #c3c3c3;;
+    display: flex;
+}
+
+.check-out-cont-border {
+    border-left: 1px solid #c3c3c3;;
+    display: flex;
+    align-items: center;
+}
+.booking-form-container {
+    width: fit-content;
+    margin: auto;
+}
+
+.btn-cont {
+    display: flex;
+    justify-content: center;
+}

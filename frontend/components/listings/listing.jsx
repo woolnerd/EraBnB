@@ -167,7 +167,7 @@ class Listing extends React.Component {
 
             <p>{listing.description}</p>
             <p>${listing.price}/night</p>
-          <div className="listing-info-show">
+          <div className="booking-container">
             {!currentUser ? (
               <h1>Please login or signup to book</h1>
             ) : currentUser && currentUser !== listing.host_id ? (
@@ -177,7 +177,7 @@ class Listing extends React.Component {
             )}
           </div>
 
-          <div className="listing-info-show">
+          <div className="">
             {listing.reviews.length ? (
               <h3>Here's what people are saying: </h3>
             ) : (
