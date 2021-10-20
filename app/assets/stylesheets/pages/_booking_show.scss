@@ -198,14 +198,13 @@ span#room-price {
 
 .calendar-dropdown {
     width: 44rem;
-    border: 1px solid #c3c3c3;
     position: relative;
     top: -212px;
     left: -431px;
-    border-radius: 5px;
+    border-radius: 17px;
     background-color: white;
     padding: 22px;
-    box-shadow: 6px 10px 13px -8px;
+    box-shadow: -6px 15px 42px -16px;
 }
 
 .select-date-cont h3 {
@@ -277,4 +276,11 @@ span#room-price {
 
 .total {
     border-top: 1px solid #c3c3c3;
+}
+
+.minus-guest {
+    border-radius: 50%;
+    border: 1px solid grey;
+    width: 2rem;
+    height: 2rem;
 }

@@ -21,18 +21,16 @@ class BookingForm extends React.Component {
   }
 
   dateCheck() {
-    // debugger
     return (
       Date.parse(this.state.booking.check_out.toISOString().slice(0, 10)) >
       Date.parse(this.state.booking.check_in.toISOString().slice(0, 10))
     );
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
     if (this.dateCheck()) {
       this.props
-        .action(this.state.booking)
+        .createBooking(this.state.booking)
         .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
       this.setState({ showError: false });
     } else {
@@ -65,6 +63,12 @@ class BookingForm extends React.Component {
     this.setState({ booking });
   }
 
+  updateGuests(e){
+    const booking = {...this.state.booking}
+    booking['guests'] = e.target.value
+    this.setState({booking})
+  }
+
   toggleCalendar() {
     this.state.hideCalendar
       ? this.setState({ hideCalendar: false })
@@ -81,6 +85,8 @@ class BookingForm extends React.Component {
   checkAvail(){
     if (this.state.booking.check_out !== "" && 
         this.state.booking.check_in !== "" && 
+        this.state.booking.check_in !==
+        this.state.booking.check_out &&
         this.state.hideCalendar === true 
         ) {
 
@@ -99,7 +105,7 @@ class BookingForm extends React.Component {
         cleanFee +
         parseFloat((rate * 0.0085).toFixed(2)) +
         servFee;
-        
+
           return (
           <div className="reserve">
           <div>
@@ -134,15 +140,11 @@ class BookingForm extends React.Component {
 
     const stringCheckIn = this.state.booking.check_in
       .toLocaleString()
-      .split("/")
-      .slice(0, 2)
-      .join("/");
+      .split(",")[0];
 
     const stringCheckOut = this.state.booking.check_out
       .toLocaleString()
-      .split("/")
-      .slice(0, 2)
-      .join("/");
+      .split(",")[0];
 
       const rate = this.props.listing.price;
       const avgReview = getAvgRating(this.props.listing.reviews)
@@ -198,14 +200,35 @@ class BookingForm extends React.Component {
               <div className="guests-dropdown">
                 <div className="guests-cont">
                   <p id="bk-form-input">GUESTS</p>
-                  <h4>1 guest</h4>
+                  <h4>{this.state.booking.guests} guest</h4>
                 </div>
-                <h4>^</h4>
+                <div className="guest-ctrls-cont">
+                  <div className="guest-ctrls">
+                    <input 
+                      type="number" 
+                      min="1"
+                      onChange={(e)=>this.updateGuests(e)}
+                      value={this.state.booking.guests}
+                    />
+                    {/* <div className="minus-guest">
+                      <p>-</p>
+                    </div>
+                    <div className="guest-count">4</div>
+                    <div className="add-guest">
+                      <p>+</p> */}
+                    {/* </div> */}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className="btn-cont">
-            <button>Check availability</button>
+            {this.state.booking.check_in !== "" && this.state.booking.check_out !== "" &&
+            this.state.booking.check_in !== this.state.booking.check_out 
+            ?
+              <button onClick={()=>this.handleSubmit()}>Reserve</button> :
+              <button>Check availability</button>
+            }
           </div>
         </div>
         <CalendarDropDown

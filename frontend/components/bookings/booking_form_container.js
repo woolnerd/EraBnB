@@ -20,7 +20,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = (dispatch) => ({
-  action: (booking) => dispatch(createBooking(booking)),
+  createBooking: (booking) => dispatch(createBooking(booking)),
   fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId)),
   fetchListing: (listingId) => dispatch(fetchListing(listingId)),
 });

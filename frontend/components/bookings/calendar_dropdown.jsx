@@ -47,7 +47,7 @@ class CalendarDropDown extends React.Component {
     this.setState({booking})
     this.props.clearDates()
   }
-  
+
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
@@ -63,15 +63,10 @@ class CalendarDropDown extends React.Component {
         );
           const stringCheckIn = this.state.booking.check_in
             .toLocaleString()
-            .split("/")
-            .slice(0, 2)
-            .join("/");
-
+            .split(",")[0];
           const stringCheckOut = this.state.booking.check_out
             .toLocaleString()
-            .split("/")
-            .slice(0, 2)
-            .join("/");
+            .split(",")[0];
 
 
     return (
