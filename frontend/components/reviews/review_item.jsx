@@ -80,17 +80,34 @@ class ReviewItem extends React.Component {
   }
 
   render() {
-   
     const {review, review_authors} = this.props
-
+    let reviewDate = new Date(review.created_at.slice(0,10))
+    reviewDate = reviewDate.toDateString().split(" ")
+    reviewDate = reviewDate[1] + " " + reviewDate[3]
     return (
-      <div className="review-container">
-        <h2>{review.rating}/5 stars</h2>
-        <h4>{review.body}</h4>
-        <p className="author-review">~ {Object.values(review_authors).filter(el=> el.id === review.author_id)[0].first_name}</p>
+        <>
+        {/* <h2>{review.rating}/5 stars</h2> */}
+        {/* <h4>{review.body}</h4> */}
+        <p className="author-review">
+          {
+            Object.values(review_authors).filter(
+              (el) => el.id === review.author_id
+            )[0].first_name
+          }
+        </p>
+        <p className="review-date">{reviewDate}</p>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Pellentesque massa placerat duis ultricies. Scelerisque varius morbi
+          enim nunc faucibus a. Arcu cursus euismod quis viverra nibh cras
+          pulvinar mattis nunc. Nisl vel pretium lectus quam id leo.{" "}
+        </h4>
 
         {this.props.currentUser === review.author_id ? (
-          this.state.toggleEdit ? (
+          // this.state.toggleEdit 
+          true
+          ? (
             <>
               <textarea
                 placeholder="What did you think?"
@@ -143,7 +160,7 @@ class ReviewItem extends React.Component {
             </>
           )
         ) : null}
-      </div>
+        </>
     );
   }
 }

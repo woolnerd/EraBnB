@@ -22,7 +22,7 @@ export const ListingIndexItem = ({ listing}) => (
           <p className="special">${listing.price}/night</p>
         </span>
         <span className="avg-rating">
-          {listing.reviews.length ? (
+          {listing.reviews.length && listing.reviews.rating ? (
             <p className="special">
               star {getAvgRating(listing.reviews)} ({listing.reviews.length})
             </p>
@@ -37,9 +37,18 @@ export const ListingIndexItem = ({ listing}) => (
   </div>
 );
 
-export const getAvgRating = (reviews) => (
-  reviews.map((review) => review.rating)
-         .reduce((acc, curVal) => acc + curVal) 
-         / reviews.length 
-)
+export const getAvgRating = (reviews) => {
+
+  debugger
+  if (reviews.length){
+
+    return (
+  
+      reviews.map((review) => review.rating)
+             .reduce((acc, curVal) => acc + curVal) 
+             / reviews.length 
+      )
+  }
+  }
+
 

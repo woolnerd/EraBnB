@@ -165,7 +165,7 @@ class BookingForm extends React.Component {
       .split(",")[0];
 
       const rate = this.props.listing.price;
-      const avgReview = getAvgRating(this.props.listing.reviews)
+      const avgReview = this.props.listing.reviews.length ? getAvgRating(this.props.listing.reviews) : 0
     return (
       <>
         <div className="booking-form-container">

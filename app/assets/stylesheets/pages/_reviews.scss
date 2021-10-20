@@ -6,3 +6,57 @@
 .author-review {
     font-style:italic ;
 }
+
+.reviews-index-container {
+    width: 90%;
+    border-top: 1px solid gray;
+    margin-left: 3rem;
+    margin-top: 5%;
+}
+.review-form-container {
+    width: 200px;
+    border: 1px solid lightgray;
+    padding: 2rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 13px;
+}
+
+.past-reviews-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.review-container {
+    margin: 3rem;
+    width: 60rem;
+}
+
+.author-review {
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.review-date {
+    color: #9e9a9a;
+    font-size: .85rem;
+    padding-bottom: 4px;
+}
+
+.review-header-ratings {
+    display: flex;
+    align-items: baseline;
+    font-size: 1.5rem;
+
+    // span {
+    //     margin-left: 1rem;
+    // }
+}
+
+.reviews-index-container span, .listing-heading span {
+    margin: 0 5px;
+}
+
