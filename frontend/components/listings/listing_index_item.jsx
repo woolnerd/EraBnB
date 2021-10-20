@@ -39,7 +39,6 @@ export const ListingIndexItem = ({ listing}) => (
 
 export const getAvgRating = (reviews) => {
 
-  debugger
   if (reviews.length){
 
     return (

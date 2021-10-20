@@ -12,7 +12,7 @@ class Listing extends React.Component {
     super(props);
 
     this.state = this.props.newReview;
-
+    this.state.openReviewForm = false;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -37,6 +37,14 @@ class Listing extends React.Component {
     };
   }
 
+  toggleReviewForm() {
+    this.state.openReviewForm
+      ? this.setState({ openReviewForm: false })
+      : this.setState({ openReviewForm: true });
+  }
+
+
+
   render() {
     if (!this.props.listing) {
       return null;
@@ -48,28 +56,30 @@ class Listing extends React.Component {
       currentUser === listing.host_id ? (
         <>
           <button
-          className="session-submit sml-btn"
-          onClick={() => this.props.history.push(`/listings/${listing.id}/edit`)}
-        >
-          Update
-        </button>
-        <button
-          className="session-submit sml-btn"
-          onClick={() =>
-            this.props
-              .deleteListing(listing.id)
-              .then(() => this.props.history.push(`/users/${currentUser}`))
-          }
-        >
-          Delete
-        </button>
-      </>
+            className="classy-btn"
+            onClick={() =>
+              this.props.history.push(`/listings/${listing.id}/edit`)
+            }
+          >
+            Update
+          </button>
+          <button
+            className="classy-btn"
+            onClick={() =>
+              this.props
+                .deleteListing(listing.id)
+                .then(() => this.props.history.push(`/users/${currentUser}`))
+            }
+          >
+            Delete
+          </button>
+        </>
       ) : null;
 
     const backToUserListings =
       currentUser === listing.host_id ? (
         <button
-          className="session-submit sml-btn"
+          className="classy-btn"
           onClick={() => this.props.history.push(`/users/${currentUser}`)}
         >
           Your listings
@@ -83,7 +93,7 @@ class Listing extends React.Component {
           src={photo}
           alt="listing-photo"
           className="listing-img"
-          id={idx === 0 ? "main-photo" : ""} 
+          id={idx === 0 ? "main-photo" : ""}
         />
       ))
     ) : (
@@ -111,10 +121,11 @@ class Listing extends React.Component {
 
     let reviews = listing.reviews.sort((a, b) => b.id - a.id);
 
-    const hasReviewed = 
-          reviews.length && reviews.filter(review => review.author_id === currentUser).length 
-          ?
-          true : false;
+    const hasReviewed =
+      reviews.length &&
+      reviews.filter((review) => review.author_id === currentUser).length
+        ? true
+        : false;
     reviews = reviews.length
       ? reviews.map((review) => (
           <div key={review.id} className="review-container">
@@ -136,9 +147,9 @@ class Listing extends React.Component {
         ))
       : null;
 
-      if (!listing.host) {
-        return null
-      }
+    if (!listing.host) {
+      return null;
+    }
     return (
       { listing } && (
         <>
@@ -147,9 +158,11 @@ class Listing extends React.Component {
             <div className="review-header">
               <AiFillStar className="review-star" />
               <p>
-                {!!listing.reviews.length ? getAvgRating(listing.reviews).toFixed(1) : ""} 
-                (
-                {listing.reviews.length} reviews)
+                {!!listing.reviews.length
+                  ? getAvgRating(listing.reviews).toFixed(1)
+                  : ""}
+                ({listing.reviews.length}{" "}
+                {listing.reviews.length === 1 ? "review" : "reviews"})
                 <span>&middot;</span>
                 {listing.address.split(" ").slice(-3, -1).join(" ")}
               </p>
@@ -178,10 +191,10 @@ class Listing extends React.Component {
               </div>
 
               {showEditAndDelete}
-            {backToUserListings}
+              {backToUserListings}
               <Link to="/listings/">
-              <button className="session-submit">Back to Listings</button>
-            </Link>
+                <button className="classy-btn">Back to Listings</button>
+              </Link>
             </div>
             <div className="body-booking">
               <div className="listing-body">
@@ -221,25 +234,47 @@ class Listing extends React.Component {
           <div className="reviews-index-container">
             {listing.reviews.length ? (
               <div className="review-header-ratings">
-                <AiFillStar className="review-star" />
-                <h3>
-                  {!!listing.reviews.length ? getAvgRating(listing.reviews).toFixed(1) : null}
-                  <span>&middot;</span>
-                  <span>{listing.reviews.length} reviews</span>
-                </h3>
-                <h4>We see you've booked this listing in the last two weeks!</h4>
-                <h4>Click here to leave a review</h4>
+                <div className="review-and-star-cont">
+                  <AiFillStar className="review-star" />
+                  <h3>
+                    {!!listing.reviews.length
+                      ? getAvgRating(listing.reviews).toFixed(1)
+                      : null}
+                    <span>&middot;</span>
+                    <span>
+                      {listing.reviews.length}{" "}
+                      {listing.reviews.length === 1 ? "review" : "reviews"}
+                    </span>
+                  </h3>
+                </div>
+                <div className="leave-review-link">
+                  <h4>
+                    We see you've booked this listing in the last two weeks!
+                  </h4>
+                  <h4>
+                    Click{" "}
+                    <span
+                      className="review-link"
+                      onClick={() => this.toggleReviewForm()}
+                    >
+                      here
+                    </span>{" "}
+                    to leave a review
+                  </h4>
+                </div>
               </div>
             ) : (
               <h3>No reviews just yet... </h3>
             )}
-            {!hasReviewed &&
+            {/* {!hasReviewed &&
             currentUser !== null &&
-            listing.host_id !== currentUser ? (
-              <CreateReviewFormContainer
-                forceReload={this.forceReload.bind(this)}
-              />
-            ) : null}
+            listing.host_id !== currentUser ? ( */}
+            <CreateReviewFormContainer
+              forceReload={this.forceReload.bind(this)}
+              openReviewForm={this.state.openReviewForm}
+              toggleReviewForm={()=>this.toggleReviewForm()}
+            />
+            {/* ) : null} */}
             <div className="past-reviews-container">{reviews}</div>
           </div>
         </>

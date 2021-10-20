@@ -1,10 +1,14 @@
 import React from "react";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import {AiOutlineCloseCircle} from "react-icons/ai"
 
 class CreateReviewForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = this.props.newReview;
+    // this.state.openReviewForm = this.props.openReviewForm;
   }
 
   componentDidMount() {
@@ -15,6 +19,10 @@ class CreateReviewForm extends React.Component {
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
+  }
+
+  handleClose(){
+    this.setState({openReviewForm: false})
   }
 
   handleSubmit(e) {
@@ -31,7 +39,12 @@ class CreateReviewForm extends React.Component {
       <div className="error-container">
         <ul className="form-errors">
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
+            <>
+            <div className="error-item">
+              <BsFillExclamationCircleFill className="exclamation"/>
+              <li key={`error-${i}`}>{error}</li>
+            </div>
+            </>
           ))}
         </ul>
       </div>
@@ -40,26 +53,30 @@ class CreateReviewForm extends React.Component {
 
   render() {
     return (
-      <div className="review-form-container">
+      <div className={`review-form-container ${this.props.openReviewForm ? "" : " hide"}` }>
+        <AiOutlineCloseCircle className="close-review-form" onClick={()=>this.props.toggleReviewForm()}/>
         <div>
-          <h4>{this.state.body}</h4>
-          <h4>{this.state.rating}</h4>
+          <h4 id="your-stay">How was your stay?</h4>
+          {/* <h4>{this.state.rating}</h4> */}
         </div>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <textarea onChange={this.update("body")} />
-          <select value={this.state.rating} onChange={this.update("rating")}>
-            <option disabled value="">
-              Choose a rating
-            </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <button className="session-submit">Submit review</button>
+          <textarea onChange={this.update("body")} placeholder="It was the best of times..."/>
+          <div className="empty-errors-cont">{this.renderErrors()}</div>
+          <div className="btn-selector-errors-review">
+            <select value={this.state.rating} onChange={this.update("rating")}>
+              <option disabled value="">
+                Choose a rating
+              </option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
+            <button className="classy-btn">Submit review</button>
+          </div>
         </form>
-        {this.renderErrors()}
       </div>
     );
   }

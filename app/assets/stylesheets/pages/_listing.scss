@@ -82,22 +82,17 @@
   width: 90%
 }
 
-.listing-form input {
-  // margin: 26px 12px
-}
 
-button.session-submit {
-  width: 100%;
-  background-color: #ff5a91;
-  border-radius: 8px;
-  color: $navbar-profile-color;
-  color: #DDD;
+.classy-btn {
+  color: black;
   height: 43px;
   font-size: 20px;
   font-weight: 600;
-  border: 1px #DDD solid;
   margin-top: 20px;
   cursor: pointer;
+  background-color: white;
+  border: none;
+  text-decoration: underline;
 }
 
 
@@ -273,3 +268,4 @@ div#bottom-right-photo img {
     display: flex;
     justify-content: space-between;
 }
+

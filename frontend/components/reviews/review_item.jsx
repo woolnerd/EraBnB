@@ -1,4 +1,5 @@
 import React from "react";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 
 class ReviewItem extends React.Component {
   constructor(props) {
@@ -72,7 +73,12 @@ class ReviewItem extends React.Component {
       <div className="error-container">
         <ul className="form-errors">
           {this.state.errors.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
+            <>
+            <div className="error-item">
+              <BsFillExclamationCircleFill className="exclamation"/>
+              <li key={`error-${i}`}>{error}</li>
+            </div>
+            </>
           ))}
         </ul>
       </div>
@@ -132,13 +138,13 @@ class ReviewItem extends React.Component {
               {this.renderErrors()}
               <button
                 onClick={(e) => this.handleEditSubmit(e)}
-                className="session-submit"
+                className="classy-btn"
               >
-                Save edit
+                Save
               </button>
               <button
                 onClick={(e) => this.handleDelete(e)}
-                className="session-submit"
+                className="classy-btn"
               >
                 Delete
               </button>
@@ -147,13 +153,13 @@ class ReviewItem extends React.Component {
             <>
               <button
                 onClick={(e) => this.handleEditClick(e)}
-                className="session-submit"
+                className="classy-btn"
               >
                 Edit
               </button>
               <button
                 onClick={(e) => this.handleDelete(e)}
-                className="session-submit"
+                className="classy-btn"
               >
                 Delete
               </button>
