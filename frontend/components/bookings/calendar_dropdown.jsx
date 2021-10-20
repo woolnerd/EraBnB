@@ -40,6 +40,14 @@ class CalendarDropDown extends React.Component {
     this.props.update(startDate, endDate);
   }
 
+  clearDates(){
+    const booking = {...this.state.booking}
+    booking['check_in'] = ""
+    booking['check_out'] = ""
+    this.setState({booking})
+    this.props.clearDates()
+  }
+  
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
@@ -119,7 +127,7 @@ class CalendarDropDown extends React.Component {
         </div>
         <div className="clear-exit-cont">
           <div className="clear-exit">
-            <p>Clear dates</p>
+            <p onClick={()=>this.clearDates()}>Clear dates</p>
             <button onClick={()=>this.props.toggleCalendar()}>Close</button>
           </div>
         </div>

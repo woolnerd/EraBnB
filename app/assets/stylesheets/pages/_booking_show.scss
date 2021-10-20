@@ -145,7 +145,7 @@
     width: 300px;
     border-radius: 13px;
     margin-left: 72%;
-    height: 300px;
+    // height: 300px;
 }
 
 .guests-dates-cont {
@@ -260,4 +260,21 @@ span#room-price {
 
 .hide-cal {
     display: none;
+}
+
+.reserve div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 6px;
+}
+
+.reserve {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+}
+
+.total {
+    border-top: 1px solid #c3c3c3;
 }

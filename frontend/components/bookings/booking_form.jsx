@@ -1,8 +1,9 @@
 import React from "react";
 // import { DateRange } from "react-date-range";
-import { parseISO } from "date-fns";
+import { parseISO, differenceInCalendarDays } from "date-fns";
 import 'react-date-range/dist/styles.css'; 
-import 'react-date-range/dist/theme/default.css'; 
+import 'react-date-range/dist/theme/default.css';
+import { getAvgRating } from "../listings/listing_index_item"; 
 import CalendarDropDown from './calendar_dropdown'
 
 class BookingForm extends React.Component {
@@ -59,8 +60,8 @@ class BookingForm extends React.Component {
 
   update(start, end) {
     const booking = { ...this.state.booking };
-    booking['check_in'] = start;
-    booking['check_out'] = end;
+    booking["check_in"] = start;
+    booking["check_out"] = end;
     this.setState({ booking });
   }
 
@@ -70,7 +71,58 @@ class BookingForm extends React.Component {
       : this.setState({ hideCalendar: true });
   }
 
-  componentDidUpdate() {}
+  clearDates() {
+    const booking = { ...this.state.booking };
+    booking["check_in"] = "";
+    booking["check_out"] = "";
+    this.setState({ booking });
+  }
+
+  checkAvail(){
+    if (this.state.booking.check_out !== "" && 
+        this.state.booking.check_in !== "" && 
+        this.state.hideCalendar === true 
+        ) {
+
+      const checkin = parseISO(
+        this.state.booking.check_in.toISOString().slice(0, 10)
+      );
+      const checkout = parseISO(
+        this.state.booking.check_out.toISOString().slice(0, 10)
+      );
+      const nights = differenceInCalendarDays(checkout, checkin);
+      const rate = this.props.listing.price;
+      const cleanFee = this.props.listing.clean_fee;
+      const servFee = this.props.listing.service_fee;
+      const total =
+        rate * nights +
+        cleanFee +
+        parseFloat((rate * 0.0085).toFixed(2)) +
+        servFee;
+        
+          return (
+          <div className="reserve">
+          <div>
+            <h4>${rate} x {nights} nights</h4>
+            <h4>${rate*nights}</h4>
+          </div>
+          <div>
+            <h4>Cleaning fee</h4>
+            <h4>${cleanFee}</h4>
+          </div>
+          <div>
+            <h4>Occupancy taxes and fees</h4>
+            <h4>${parseFloat((rate*.085).toFixed(2)) + servFee}</h4>
+          </div>
+          <div className="total">
+            <h3>Total</h3>
+            <h3>${total}</h3>
+          </div>
+        </div>
+          )
+        }
+    
+  }
 
   render() {
     if (!this.props.booking) {
@@ -92,6 +144,8 @@ class BookingForm extends React.Component {
       .slice(0, 2)
       .join("/");
 
+      const rate = this.props.listing.price;
+      const avgReview = getAvgRating(this.props.listing.reviews)
     return (
       <>
         <div className="booking-form-container">
@@ -99,13 +153,13 @@ class BookingForm extends React.Component {
             <div className="bk-rate-review">
               <span>
                 <p>
-                  <span id="room-price">$229</span>/ night
+                  <span id="room-price">${rate}</span>/ night
                 </p>
               </span>
               <span>
                 <p>#</p>
                 <p>
-                  5.0 <span>(22 reviews)</span>
+                  {avgReview} <span>({this.props.listing.reviews.length} reviews)</span>
                 </p>
               </span>
             </div>
@@ -161,7 +215,9 @@ class BookingForm extends React.Component {
           toggleCalendar={() => this.toggleCalendar()}
           hideCalendar={this.state.hideCalendar}
           update={(start, end) => this.update(start, end)}
+          clearDates={() => this.clearDates()}
         />
+        {this.checkAvail()}
       </>
     );
   }
