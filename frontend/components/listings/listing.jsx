@@ -5,6 +5,7 @@ import ReviewItemContainer from "../reviews/review_item_container"
 import ReviewItem from '../reviews/review_item';
 import CreateReviewFormContainer from '../reviews/create_review_form_container'
 import { getAvgRating } from './listing_index_item';
+import { AiFillStar } from 'react-icons/ai'
 
 class Listing extends React.Component {
   constructor(props) {
@@ -140,10 +141,13 @@ class Listing extends React.Component {
         <>
           <div key={listing.id} className="listing-heading">
             <h2>{listing.title}</h2>
-            <p>
-              {getAvgRating(listing.reviews)} ({listing.reviews.length} reviews)
-              - {listing.address.split(" ").slice(-3, -1).join(" ")}
-            </p>
+            <div className="review-header">
+              <AiFillStar className="review-star"/>
+              <p>
+                {getAvgRating(listing.reviews).toFixed(1)} ({listing.reviews.length} reviews)
+                - {listing.address.split(" ").slice(-3, -1).join(" ")}
+              </p>
+            </div>
           </div>
           {/* <div className="listing-item-show"> */}
           <div className="listing-container"></div>
@@ -162,6 +166,7 @@ class Listing extends React.Component {
             <h3>Era theme by {listing.host.first_name}</h3>
             <div className="room-details">
               <p>{listing.num_bedrms} beds</p>
+              <p>&middot;</p>
               <p>{listing.num_baths} baths</p>
             </div>
 

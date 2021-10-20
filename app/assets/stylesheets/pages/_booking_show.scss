@@ -133,13 +133,7 @@
     padding-right: 4px;
 }
 
-.guests-dates-cont {
-    /* border: 1px solid grey; */
-    padding: 20px;
-    /* margin: 18px; */
-    display: flex;
-    flex-direction: column;
-}
+
 .booking-container {
     border: 1px solid #b9bbb9;
     width: 300px;
@@ -148,10 +142,6 @@
     box-shadow: -6px 15px 42px -16px;
 }
 
-.guests-dates-cont {
-    display: flex;
-    flex-direction: column;
-}
 
 .check-out-cont {
     padding-left: 10px;
@@ -283,4 +273,25 @@ span#room-price {
     border: 1px solid grey;
     width: 2rem;
     height: 2rem;
+}
+
+.booking-errors {
+    color: red;
+    text-align: center;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.booking-errors p {
+    padding-left:4px;
+}
+
+.guests-dates-cont {
+    /* border: 1px solid grey; */
+    padding: 20px;
+    /* margin: 18px; */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
 }

@@ -5,6 +5,9 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { getAvgRating } from "../listings/listing_index_item"; 
 import CalendarDropDown from './calendar_dropdown'
+import { AiFillStar } from "react-icons/ai";
+import {BsFillExclamationCircleFill} from "react-icons/bs";
+
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -106,7 +109,6 @@ class BookingForm extends React.Component {
         Number((rate * 0.085).toFixed(2)) +
         servFee;
       const taxesFees = Number((rate * 0.085).toFixed(2));
-          debugger
           return (
             <div className="reserve">
               <div>
@@ -129,6 +131,8 @@ class BookingForm extends React.Component {
               </div>
             </div>
           );
+        } else {
+          this.setState({showError: true})
         }
     
   }
@@ -161,10 +165,11 @@ class BookingForm extends React.Component {
                   <span id="room-price">${rate}</span>/ night
                 </p>
               </span>
-              <span>
-                <p>#</p>
+              <span className="review-bk-span">
+                <AiFillStar className="review-star" />
                 <p>
-                  {avgReview} <span>({this.props.listing.reviews.length} reviews)</span>
+                  {avgReview.toFixed(1)}{" "}
+                  <span>({this.props.listing.reviews.length} reviews)</span>
                 </p>
               </span>
             </div>
@@ -203,14 +208,14 @@ class BookingForm extends React.Component {
               <div className="guests-dropdown">
                 <div className="guests-cont">
                   <p id="bk-form-input">GUESTS</p>
-                  <h4>{this.state.booking.guests} guest</h4>
+                  <h4>{this.state.booking.guests || 1} guest</h4>
                 </div>
                 <div className="guest-ctrls-cont">
                   <div className="guest-ctrls">
-                    <input 
-                      type="number" 
+                    <input
+                      type="number"
                       min="1"
-                      onChange={(e)=>this.updateGuests(e)}
+                      onChange={(e) => this.updateGuests(e)}
                       value={this.state.booking.guests}
                     />
                     {/* <div className="minus-guest">
@@ -225,13 +230,18 @@ class BookingForm extends React.Component {
               </div>
             </div>
           </div>
+          <div className={"booking-errors" + (this.showErrors ? "" : "hide")}>
+            <BsFillExclamationCircleFill />
+            <p>Please enter valid dates</p>
+          </div>
           <div className="btn-cont">
-            {this.state.booking.check_in !== "" && this.state.booking.check_out !== "" &&
-            this.state.booking.check_in !== this.state.booking.check_out 
-            ?
-              <button onClick={()=>this.handleSubmit()}>Reserve</button> :
-              <button>Check availability</button>
-            }
+            {this.state.booking.check_in !== "" &&
+            this.state.booking.check_out !== "" &&
+            this.state.booking.check_in !== this.state.booking.check_out ? (
+              <button onClick={() => this.handleSubmit()}>Reserve</button>
+            ) : (
+                <button>Check availability</button>
+            )}
           </div>
         </div>
         <CalendarDropDown
