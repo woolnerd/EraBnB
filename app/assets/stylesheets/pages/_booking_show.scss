@@ -138,6 +138,8 @@
     border-radius: 13px;
     box-shadow: -6px 15px 42px -16px;
     margin-right: 2%;
+    height: fit-content;
+    max-height: 450px;
 }
 
 
@@ -177,6 +179,10 @@ span#room-price {
 .booking-form-container {
     width: fit-content;
     margin: auto;
+}
+
+.cal-open {
+width:350px;
 }
 
 .btn-cont {

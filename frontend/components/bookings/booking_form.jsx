@@ -30,6 +30,7 @@ class BookingForm extends React.Component {
     );
   }
 
+ 
   handleSubmit() {
     if (this.dateCheck()) {
       this.props

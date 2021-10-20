@@ -13,6 +13,7 @@ class Listing extends React.Component {
 
     this.state = this.props.newReview;
     this.state.openReviewForm = false;
+    this.state.shrinkBookingForm = true;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -43,7 +44,11 @@ class Listing extends React.Component {
       : this.setState({ openReviewForm: true });
   }
 
-
+  enlargeBookingForm() {
+    this.state.shrinkBookingForm
+      ? this.setState({ shrinkBookingForm: false })
+      : this.setState({ shrinkBookingForm: true });
+  }
 
   render() {
     if (!this.props.listing) {
@@ -224,7 +229,7 @@ class Listing extends React.Component {
                 {!currentUser ? (
                   <h1>Please login or signup to book</h1>
                 ) : currentUser && currentUser !== listing.host_id ? (
-                  <Route props={listing} component={BookingFormContainer} />
+                  <Route props={listing}  component={BookingFormContainer} />
                 ) : (
                   bookings
                 )}
@@ -272,7 +277,7 @@ class Listing extends React.Component {
             <CreateReviewFormContainer
               forceReload={this.forceReload.bind(this)}
               openReviewForm={this.state.openReviewForm}
-              toggleReviewForm={()=>this.toggleReviewForm()}
+              toggleReviewForm={() => this.toggleReviewForm()}
             />
             {/* ) : null} */}
             <div className="past-reviews-container">{reviews}</div>
