@@ -141,32 +141,40 @@ class Listing extends React.Component {
           <div key={listing.id} className="listing-heading">
             <h2>{listing.title}</h2>
             <p>
-              {getAvgRating(listing.reviews)} ({listing.reviews.length} reviews) - {listing.address.split(" ").slice(-3,-1).join(" ")}
+              {getAvgRating(listing.reviews)} ({listing.reviews.length} reviews)
+              - {listing.address.split(" ").slice(-3, -1).join(" ")}
             </p>
           </div>
           {/* <div className="listing-item-show"> */}
           <div className="listing-container"></div>
           <div className="listing-photos">
             {photos[0]}
-            <div className="adtl-photos">
-              <div className="adtl-photos-col-1">{photos.slice(1, 3)}</div>
-              <div className="adtl-photos-col-2">{photos.slice(3, 5)}</div>
+            <div className="adtl-photos-col-1">
+              <div>{photos[1]}</div>
+              <div>{photos[2]}</div>
+            </div>
+            <div className="adtl-photo-col-2">
+              <div id="top-right-photo">{photos[3]}</div>
+              <div id="bottom-right-photo">{photos[4]}</div>
             </div>
           </div>
           <div className="listing-info-show">
             <h3>Era theme by {listing.host.first_name}</h3>
-            <p>{listing.num_bedrms} beds</p>
-            <p>{listing.num_baths} baths</p>
-            
+            <div className="room-details">
+              <p>{listing.num_bedrms} beds</p>
+              <p>{listing.num_baths} baths</p>
+            </div>
+
             {/* {showEditAndDelete}
             {backToUserListings} */}
             {/* <Link to="/listings/">
               <button className="session-submit">Back to Listings</button>
             </Link> */}
           </div>
-
+          <div className="listing-body">
             <p>{listing.description}</p>
             <p>${listing.price}/night</p>
+          </div>
           <div className="booking-container">
             {!currentUser ? (
               <h1>Please login or signup to book</h1>

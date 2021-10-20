@@ -103,29 +103,32 @@ class BookingForm extends React.Component {
       const total =
         rate * nights +
         cleanFee +
-        parseFloat((rate * 0.0085).toFixed(2)) +
+        Number((rate * 0.085).toFixed(2)) +
         servFee;
-
+      const taxesFees = Number((rate * 0.085).toFixed(2));
+          debugger
           return (
-          <div className="reserve">
-          <div>
-            <h4>${rate} x {nights} nights</h4>
-            <h4>${rate*nights}</h4>
-          </div>
-          <div>
-            <h4>Cleaning fee</h4>
-            <h4>${cleanFee}</h4>
-          </div>
-          <div>
-            <h4>Occupancy taxes and fees</h4>
-            <h4>${parseFloat((rate*.085).toFixed(2)) + servFee}</h4>
-          </div>
-          <div className="total">
-            <h3>Total</h3>
-            <h3>${total}</h3>
-          </div>
-        </div>
-          )
+            <div className="reserve">
+              <div>
+                <h4>
+                  ${rate} x {nights} nights
+                </h4>
+                <h4>${rate * nights}</h4>
+              </div>
+              <div>
+                <h4>Cleaning fee</h4>
+                <h4>${cleanFee}</h4>
+              </div>
+              <div>
+                <h4>Occupancy taxes and fees</h4>
+                <h4>${Number((servFee + taxesFees).toFixed(2))}</h4>
+              </div>
+              <div className="total">
+                <h3>Total</h3>
+                <h3>${total}</h3>
+              </div>
+            </div>
+          );
         }
     
   }
