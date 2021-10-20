@@ -85,6 +85,17 @@ class BookingForm extends React.Component {
     this.setState({ booking });
   }
 
+  handleErrors() {
+     if (this.state.booking.check_out !== "" && 
+        this.state.booking.check_in !== "" && 
+        this.state.booking.check_in !==
+        this.state.booking.check_out) {
+          this.setState({showError: false})
+        } else {
+          this.setState({showError: true})
+        }
+  }
+
   checkAvail(){
     if (this.state.booking.check_out !== "" && 
         this.state.booking.check_in !== "" && 
@@ -92,23 +103,23 @@ class BookingForm extends React.Component {
         this.state.booking.check_out &&
         this.state.hideCalendar === true 
         ) {
-
-      const checkin = parseISO(
-        this.state.booking.check_in.toISOString().slice(0, 10)
-      );
-      const checkout = parseISO(
-        this.state.booking.check_out.toISOString().slice(0, 10)
-      );
-      const nights = differenceInCalendarDays(checkout, checkin);
-      const rate = this.props.listing.price;
-      const cleanFee = this.props.listing.clean_fee;
-      const servFee = this.props.listing.service_fee;
-      const total =
-        rate * nights +
-        cleanFee +
-        Number((rate * 0.085).toFixed(2)) +
-        servFee;
-      const taxesFees = Number((rate * 0.085).toFixed(2));
+          const checkin = parseISO(
+            this.state.booking.check_in.toISOString().slice(0, 10)
+          );
+          const checkout = parseISO(
+            this.state.booking.check_out.toISOString().slice(0, 10)
+          );
+          const nights = differenceInCalendarDays(checkout, checkin);
+          const rate = this.props.listing.price;
+          const cleanFee = this.props.listing.clean_fee;
+          const servFee = this.props.listing.service_fee;
+          const total =
+            rate * nights +
+            cleanFee +
+            Number((rate * 0.085).toFixed(2)) +
+            servFee;
+          const taxesFees = Number((rate * 0.085).toFixed(2));
+          
           return (
             <div className="reserve">
               <div>
@@ -131,11 +142,11 @@ class BookingForm extends React.Component {
               </div>
             </div>
           );
-        } else {
-          this.setState({showError: true})
+          
         }
     
   }
+
 
   render() {
     if (!this.props.booking) {
@@ -230,7 +241,7 @@ class BookingForm extends React.Component {
               </div>
             </div>
           </div>
-          <div className={"booking-errors" + (this.showErrors ? "" : "hide")}>
+          <div className={"booking-errors" + (this.state.showError ? "" : " hide")}>
             <BsFillExclamationCircleFill />
             <p>Please enter valid dates</p>
           </div>
@@ -240,7 +251,7 @@ class BookingForm extends React.Component {
             this.state.booking.check_in !== this.state.booking.check_out ? (
               <button onClick={() => this.handleSubmit()}>Reserve</button>
             ) : (
-                <button>Check availability</button>
+                <button onClick={() => this.handleErrors()}>Check availability</button>
             )}
           </div>
         </div>
@@ -252,6 +263,7 @@ class BookingForm extends React.Component {
           hideCalendar={this.state.hideCalendar}
           update={(start, end) => this.update(start, end)}
           clearDates={() => this.clearDates()}
+          handleErrors={()=>this.handleErrors()}
         />
         {this.checkAvail()}
       </>

@@ -29,6 +29,11 @@ class CalendarDropDown extends React.Component {
     }
   };
 
+  handleClose(){
+    this.props.handleErrors()
+    this.props.toggleCalendar()
+  }
+
   handleDate(e) {
     let { startDate, endDate } = e.selection;
     const booking = { ...this.state.booking };
@@ -123,7 +128,7 @@ class CalendarDropDown extends React.Component {
         <div className="clear-exit-cont">
           <div className="clear-exit">
             <p onClick={()=>this.clearDates()}>Clear dates</p>
-            <button onClick={()=>this.props.toggleCalendar()}>Close</button>
+            <button onClick={()=>this.handleClose()}>Close</button>
           </div>
         </div>
       </div>

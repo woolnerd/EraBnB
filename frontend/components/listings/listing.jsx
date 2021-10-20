@@ -142,15 +142,16 @@ class Listing extends React.Component {
           <div key={listing.id} className="listing-heading">
             <h2>{listing.title}</h2>
             <div className="review-header">
-              <AiFillStar className="review-star"/>
+              <AiFillStar className="review-star" />
               <p>
-                {getAvgRating(listing.reviews).toFixed(1)} ({listing.reviews.length} reviews)
-                - {listing.address.split(" ").slice(-3, -1).join(" ")}
+                {getAvgRating(listing.reviews).toFixed(1)} (
+                {listing.reviews.length} reviews) -{" "}
+                {listing.address.split(" ").slice(-3, -1).join(" ")}
               </p>
             </div>
           </div>
           {/* <div className="listing-item-show"> */}
-          <div className="listing-container"></div>
+
           <div className="listing-photos">
             {photos[0]}
             <div className="adtl-photos-col-1">
@@ -162,34 +163,56 @@ class Listing extends React.Component {
               <div id="bottom-right-photo">{photos[4]}</div>
             </div>
           </div>
-          <div className="listing-info-show">
-            <h3>Era theme by {listing.host.first_name}</h3>
-            <div className="room-details">
-              <p>{listing.num_bedrms} beds</p>
-              <p>&middot;</p>
-              <p>{listing.num_baths} baths</p>
-            </div>
+          <div className="listing-container">
+            <div className="listing-info-show">
+              <h3>Era theme by {listing.host.first_name}</h3>
+              <div className="room-details">
+                <p>{listing.num_bedrms} beds</p>
+                <p>&middot;</p>
+                <p>{listing.num_baths} baths</p>
+              </div>
 
-            {/* {showEditAndDelete}
+              {/* {showEditAndDelete}
             {backToUserListings} */}
-            {/* <Link to="/listings/">
+              {/* <Link to="/listings/">
               <button className="session-submit">Back to Listings</button>
             </Link> */}
-          </div>
-          <div className="listing-body">
-            <p>{listing.description}</p>
-            <p>${listing.price}/night</p>
-          </div>
-          <div className="booking-container">
-            {!currentUser ? (
-              <h1>Please login or signup to book</h1>
-            ) : currentUser && currentUser !== listing.host_id ? (
-              <Route props={listing} component={BookingFormContainer} />
-            ) : (
-              bookings
-            )}
-          </div>
+            </div>
+            <div className="body-booking">
+            <div className="listing-body">
+              {/* <p>{listing.description}</p> */}
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Pellentesque massa placerat duis ultricies. Scelerisque varius
+                morbi enim nunc faucibus a. Arcu cursus euismod quis viverra
+                nibh cras pulvinar mattis nunc. Nisl vel pretium lectus quam id
+                leo. Et magnis dis parturient montes nascetur ridiculus. Leo vel
+                fringilla est ullamcorper eget. Facilisi etiam dignissim diam
+                quis enim lobortis. Sed adipiscing diam donec adipiscing
+                tristique risus nec. Donec ac odio tempor orci dapibus ultrices.
+                Non consectetur a erat nam at lectus urna. Lectus urna duis
+                convallis convallis tellus. Quis hendrerit dolor magna eget est
+                lorem. Adipiscing bibendum est ultricies integer quis auctor
+                elit sed vulputate. Eu mi bibendum neque egestas congue. Dictum
+                non consectetur a erat nam at. Nec ullamcorper sit amet risus
+                nullam. Suspendisse interdum consectetur libero id. Magna
+                fermentum iaculis eu non diam phasellus vestibulum lorem sed.
+              </p>
+            </div>
 
+            <div className="booking-container">
+              {!currentUser ? (
+                <h1>Please login or signup to book</h1>
+              ) : currentUser && currentUser !== listing.host_id ? (
+                <Route props={listing} component={BookingFormContainer} />
+              ) : (
+                bookings
+              )}
+            </div>
+
+            </div>
+          </div>
           <div className="">
             {listing.reviews.length ? (
               <h3>Here's what people are saying: </h3>

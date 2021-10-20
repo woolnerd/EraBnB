@@ -219,10 +219,7 @@ div#bottom-right-photo img {
     padding: 8px 2px;
 }
 
-.listing-body {
-    margin-left: 48px;
-    margin-top: 30px;
-}
+
 .review-header {
     width: 244px;
     display: flex;
@@ -262,4 +259,17 @@ div#bottom-right-photo img {
 .guest-ctrls input[type="number"] {
     border: 1px solid lightgray;
     border-radius: 5px;
+}
+
+.listing-body {
+    width: 50%;
+    margin-left: 48px;
+    margin-top: 30px;
+    line-height: 20px;
+    font-weight: 300;
+}
+
+.body-booking {
+    display: flex;
+    justify-content: space-between;
 }
