@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import { createBooking, fetchBooking} from "../../actions/booking_actions";
+import { clearBookingErrors, createBooking, fetchBooking} from "../../actions/booking_actions";
 import { fetchListing } from "../../actions/listing_actions";
 import BookingForm from "./booking_form";
 
 const mSTP = (state, ownProps) => {
+  debugger
   return {
     formType: "Create Booking",
     listing: state.entities.listings[ownProps.match.params.listingId],
@@ -15,7 +16,8 @@ const mSTP = (state, ownProps) => {
       guests: "",
       total_price: 0,
     },
-    errors: state.errors
+    errors: state.errors.booking,
+    currentUser: state.session.id
   };
 };
 
@@ -23,6 +25,7 @@ const mDTP = (dispatch) => ({
   createBooking: (booking) => dispatch(createBooking(booking)),
   fetchBooking: (bookingId) => dispatch(fetchBooking(bookingId)),
   fetchListing: (listingId) => dispatch(fetchListing(listingId)),
+  clearErrors: () => dispatch(clearBookingErrors())
 });
 
 export default connect(mSTP, mDTP)(BookingForm);

@@ -226,13 +226,13 @@ class Listing extends React.Component {
               </div>
 
               <div className="booking-container">
-                {!currentUser ? (
+                {/* {!currentUser ? (
                   <h1>Please login or signup to book</h1>
-                ) : currentUser && currentUser !== listing.host_id ? (
+                ) : currentUser && currentUser !== listing.host_id ? ( */}
                   <Route props={listing}  component={BookingFormContainer} />
-                ) : (
-                  bookings
-                )}
+                {/* // ) : ( */}
+                {/* //   bookings */}
+                {/* // )} */}
               </div>
             </div>
           </div>
