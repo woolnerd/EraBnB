@@ -6,6 +6,7 @@ import { fetchListing } from "../../actions/listing_actions";
 
 
 const mSTP = (state, ownProps) => {
+  
   return (
     {
       newReview: {

@@ -75,7 +75,7 @@
 }
 
 
-.listing-form div, .login-form div{
+ .login-form div{
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -269,3 +269,143 @@ div#bottom-right-photo img {
     justify-content: space-between;
 }
 
+.head-form-cont textarea {
+    border: none;
+    font-family: 'Montserrat';
+    width: 98%;
+    color: black;
+    padding-right: -7px;
+    height: 100px !important;
+    font-size: 14px;
+}
+
+.head-form-cont input {
+    border: none;
+    color: black;
+    width: 100%;
+    font-size: 14px;
+}
+
+.head-form-cont div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid lightgray;
+    padding: 8px 9px;
+    font-size: 12px;
+    color: #818181;
+}
+
+.head-form-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+// .prices div {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     font-size: 12px;
+//     align-items: stretch;
+//     border: 1px solid lightgray;
+//     padding-right: 21px;
+//     height: 100%;
+// }
+
+
+
+.prices input {
+    border: none;
+}
+
+.rooms div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.prices div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 12px;
+    align-items: stretch;
+    /* border: 1px solid lightgray; */
+    padding-right: 21px;
+    height: 100%;
+}
+
+.prices {
+    border: 1px solid lightgray;
+    display: flex;
+    /* height: 4rem; */
+    justify-content: space-around;
+    align-items: flex-start;
+    color: #818181;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.numbers-form {
+    display: flex;
+    flex-direction: column;
+    height: 6rem    ;
+}
+
+.bdrms {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-evenly;
+    border: 1px solid lightgray;
+    color: #818181;
+
+}
+
+.bdrms div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bdrms div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bdrms input {
+    border: none;
+}
+
+.listing-title {
+    border-radius: 10px 10px 0 0;
+}
+
+.listing-form-title input {
+    font-size: 14px;
+}
+
+.listing-form-theme input {
+    font-size: 14px;
+}
+
+.listing-form-addrs input {
+    font-size: 14px;
+}
+
+.listing-form-theme input {
+    font-size: 14px;
+}
+
+.prices input {
+    font-size: 14px;
+}
+
+.listing-form-photo {
+    display: flex;
+    flex-direction: column;
+}
+
+.bdrms div input {
+    font-size: 14px;
+}

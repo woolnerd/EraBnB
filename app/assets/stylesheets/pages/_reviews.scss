@@ -35,13 +35,16 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
 }
-
 .review-container {
     margin: 3rem;
     width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid lightgray;
 }
-
 .author-review {
     font-weight: 500;
     padding-bottom: 4px;
@@ -137,4 +140,28 @@ svg.close-review-form {
     top: -28px;
     left: 199px;
     color: lightgray;
+}
+
+textarea.review-body {
+    border-radius: 10px;
+    margin-top: 1rem;
+    font-family: 'Montserrat';
+    margin-bottom: 1rem;
+}
+
+.review-container h4 {
+    margin-bottom: 1rem;
+}
+
+.mt-zero {
+    margin-top: 0;
+}
+
+.update-review-inputs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
 }

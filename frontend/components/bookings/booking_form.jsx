@@ -17,9 +17,9 @@ class BookingForm extends React.Component {
       booking: this.props.booking,
       showError: false,
       hideCalendar: true,
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
+      errors: this.props.errors
     };
-    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDate = this.handleDate.bind(this);
   }
@@ -32,16 +32,18 @@ class BookingForm extends React.Component {
   }
 
   handleSubmit() {
-    debugger
-    if (this.dateCheck()) {
-      this.props
-        .createBooking(this.state.booking)
-        .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
-      this.setState({ showError: false });
-      this.props.clearErrors();
-    } else {
-      this.setState({ showError: true });
+    if (this.state.booking.guests !== "") {
+      if (this.dateCheck()) {
+        this.props
+          .createBooking(this.state.booking)
+          .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
+        this.setState({ showError: false });
+        this.props.clearErrors();
+      } else {
+        this.setState({ showError: true });
+      }
     }
+
   }
 
   calcTotal() {
@@ -94,21 +96,25 @@ class BookingForm extends React.Component {
       this.state.booking.check_in !== "" &&
       this.state.booking.check_in !== this.state.booking.check_out
     ) {
-      this.setState({ showError: false });
+      this.setState({ errors: [] });
     } else {
-      this.setState({ showError: true });
+      const errors = this.state.errors.slice()
+      if (!errors.includes("Please enter valid dates")) {
+        errors.push("Please enter valid dates");
+        this.setState({errors})
+      }
     }
   }
 
   renderErrors() {
-    return this.props.errors.length ? (
+    return this.state.errors.length ? (
       <div className="error-container">
         <ul className="form-errors">
-          {this.props.errors.map((error, i) => (
+          {this.state.errors.map((error, i) => (
             <>
               <div className="error-item">
                 <BsFillExclamationCircleFill className="exclamation" />
-                <li key={`error-${i}`}>{error}</li>
+                <li key={`booking-error-${i}`}>{error}</li>
               </div>
             </>
           ))}
@@ -163,15 +169,8 @@ class BookingForm extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // console.log(prevState)
-    // console.log(prevProps)
+  componentDidUpdate() {
     if (this.state.booking.booker_id !== this.props.currentUser) {
-      console.log("true");
-      console.log(prevState);
-      console.log(prevProps)
-      console.log(this.state)
-      console.log(this.props)
       const booking = {...this.state.booking}
       booking.booker_id = this.props.currentUser
       this.setState({booking})
@@ -183,9 +182,10 @@ class BookingForm extends React.Component {
     if (!this.props.booking) {
       return null;
     }
-    let bookedDates = this.props.listing.booked_dates.map((date) =>
-      parseISO(date)
-    );
+    let bookedDates = this.props.listing.booked_dates ?  
+      this.props.listing.booked_dates.map((date) =>
+      parseISO(date)) : [];
+    
 
     const stringCheckIn = this.state.booking.check_in
       .toLocaleString()
@@ -261,6 +261,7 @@ class BookingForm extends React.Component {
                       min="1"
                       onChange={(e) => this.updateGuests(e)}
                       value={this.state.booking.guests}
+                      placeholder="2"
                     />
                     {/* <div className="minus-guest">
                       <p>-</p>
@@ -274,17 +275,19 @@ class BookingForm extends React.Component {
               </div>
             </div>
           </div>
-          <div
+          {/* <div
             className={"booking-errors" + (this.state.showError ? "" : " hide")}
           >
             <BsFillExclamationCircleFill />
             <p>Please enter valid dates</p>
-          </div>
+          </div> */}
           {this.renderErrors()}
           <div className="btn-cont">
             {this.state.booking.check_in !== "" &&
             this.state.booking.check_out !== "" &&
-            this.state.booking.check_in !== this.state.booking.check_out ? (
+            this.state.booking.check_in !== this.state.booking.check_out &&
+            !this.props.errors.length
+            ? (
               <button onClick={() => this.handleSubmit()}>Reserve</button>
             ) : (
               <button onClick={() => this.handleErrors()}>

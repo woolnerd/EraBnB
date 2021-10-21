@@ -50,13 +50,18 @@ class Listing extends React.Component {
       : this.setState({ shrinkBookingForm: true });
   }
 
+  // enableReview() {
+  //   this.props.listing.review_authors.filter(
+  //     (author) => author.id === this.props.currentUser
+  //   ).length;
+  // }
+
   render() {
     if (!this.props.listing) {
       return null;
     }
-
     const { currentUser, listing } = this.props;
-
+    debugger
     const showEditAndDelete =
       currentUser === listing.host_id ? (
         <>
@@ -229,7 +234,7 @@ class Listing extends React.Component {
                 {/* {!currentUser ? (
                   <h1>Please login or signup to book</h1>
                 ) : currentUser && currentUser !== listing.host_id ? ( */}
-                  <Route props={listing}  component={BookingFormContainer} />
+                <Route props={listing} component={BookingFormContainer} />
                 {/* // ) : ( */}
                 {/* //   bookings */}
                 {/* // )} */}
@@ -252,34 +257,32 @@ class Listing extends React.Component {
                     </span>
                   </h3>
                 </div>
-                <div className="leave-review-link">
-                  <h4>
-                    We see you've booked this listing in the last two weeks!
-                  </h4>
-                  <h4>
-                    Click{" "}
-                    <span
-                      className="review-link"
-                      onClick={() => this.toggleReviewForm()}
-                    >
-                      here
-                    </span>{" "}
-                    to leave a review
-                  </h4>
-                </div>
               </div>
             ) : (
               <h3>No reviews just yet... </h3>
             )}
-            {/* {!hasReviewed &&
+            {!hasReviewed &&
             currentUser !== null &&
-            listing.host_id !== currentUser ? ( */}
-            <CreateReviewFormContainer
-              forceReload={this.forceReload.bind(this)}
-              openReviewForm={this.state.openReviewForm}
-              toggleReviewForm={() => this.toggleReviewForm()}
-            />
-            {/* ) : null} */}
+            listing.host_id !== currentUser ? (
+            <div className="leave-review-link">
+              <h4>We see you've booked this listing in the last two weeks!</h4>
+              <h4>
+                Click{" "}
+                <span
+                  className="review-link"
+                  onClick={() => this.toggleReviewForm()}
+                >
+                  here
+                </span>{" "}
+                to leave a review
+              </h4>
+              <CreateReviewFormContainer
+                forceReload={this.forceReload.bind(this)}
+                openReviewForm={this.state.openReviewForm}
+                toggleReviewForm={() => this.toggleReviewForm()}
+              />
+            </div>
+            ) : null} 
             <div className="past-reviews-container">{reviews}</div>
           </div>
         </>

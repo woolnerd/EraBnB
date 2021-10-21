@@ -107,127 +107,142 @@ class ListingForm extends React.Component {
     ) : null;
     return (
       <div className="listing-form-container">
-        <form onSubmit={this.handleSubmit} className="listing-form-box">
-          <h2>Welcome to erabnb!</h2>
-          <br />
-          <p>Please {this.props.formType}</p>
-          {/* {this.renderErrors()} */}
-          <div className="listing-form">
-            <div className="listing-email">
-              <label>Title</label>
-              <input
-                type="text"
-                value={this.state.title}
-                onChange={this.update("title")}
-                placeholder="Snazzy Titles Grab Attention!"
-                required
-              />
-            </div>
+        <div className="form-container">
+          <form onSubmit={this.handleSubmit} className="listing-form-box">
+            <h2>Welcome to erabnb!</h2>
+            <br />
+            <p>Please {this.props.formType}</p>
+            {/* {this.renderErrors()} */}
             <div className="listing-form">
-              <label>Description</label>
-              <textarea
-                value={this.state.description}
-                onChange={this.update("description")}
-                required
-                placeholder="Tell everyone why your place is amazing"
-              />
-            </div>
-            <div className="listing-form">
-              <label>Era Theme</label>
+              <div className="head-form-cont">
+                <div className="listing-title">
+                  <label>Title</label>
+                  <input
+                    type="text"
+                    value={this.state.title}
+                    onChange={this.update("title")}
+                    placeholder="Snazzy Titles Grab Attention!"
+                    required
+                  />
+                </div>
+                <div className="listing-form-descrp">
+                  <label>Description</label>
+                  <textarea
+                    value={this.state.description}
+                    onChange={this.update("description")}
+                    required
+                    placeholder="Tell everyone why your place is amazing"
+                  />
+                </div>
+                <div className="listing-form-theme">
+                  <label>Era Theme</label>
+                  <input
+                    type="text"
+                    value={this.state.era_theme}
+                    onChange={this.update("era_theme")}
+                    required
+                  />
+                </div>
+                <div className="listing-form-addrs">
+                  <label>Address</label>
+                  <input
+                    type="text"
+                    value={this.state.address}
+                    onChange={this.update("address")}
+                    placeholder="123 Elm St, Burbank, CA 90010"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="numbers-form">
+                <div className="bdrms">
+                  <div className="rooms">
+                    <label>Number of Bedrooms</label>
+                    <input
+                      type="text"
+                      value={this.state.num_bedrms}
+                      onChange={this.update("num_bedrms")}
+                      type="number"
+                      min="0"
+                      max="30"
+                      required
+                    />
+                  </div>
+                  <div className="baths">
+                    <label>Number of Bathrooms</label>
+                    <input
+                      value={this.state.num_baths}
+                      onChange={this.update("num_baths")}
+                      type="number"
+                      min="0"
+                      max="30"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="prices">
+                  <div className="price">
+                    <label>Price per Night</label>
+                    <input
+                      type="text"
+                      value={this.state.price}
+                      onChange={this.update("price")}
+                      type="number"
+                      min="1"
+                      max="10000"
+                      required
+                      placeholder="$"
+                    />
+                  </div>
+                  <div className="serv">
+                    <label>Service Fee</label>
+                    <input
+                      type="text"
+                      value={this.state.service_fee}
+                      onChange={this.update("service_fee")}
+                      type="number"
+                      min="0"
+                      max="500"
+                      placeholder="$"
+                      required
+                    />
+                  </div>
+                  <div className="clean">
+                    <label>Clean Fee</label>
+                    <input
+                      type="text"
+                      value={this.state.clean_fee}
+                      onChange={this.update("clean_fee")}
+                      type="number"
+                      min="0"
+                      max="250"
+                      placeholder="$"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* <img src="" height="200" alt="Image preview..." /> */}
+              <div className="listing-form-photo">
+                <label>Upload Photo</label>
+                <input
+                  type="file"
+                  onChange={(e) => this.setState({ photos: e.target.files })}
+                  multiple
+                />
+                {preview}
+              </div>
+              {this.renderErrors()}
               <input
-                type="text"
-                value={this.state.era_theme}
-                onChange={this.update("era_theme")}
-                required
+                className="session-submit"
+                type="submit"
+                value={this.props.formType}
               />
             </div>
-            <div className="listing-form">
-              <label>Address</label>
-              <input
-                type="text"
-                value={this.state.address}
-                onChange={this.update("address")}
-                placeholder="123 Elm St, Burbank, CA 90010"
-                required
-              />
-            </div>
-            <div className="listing-form">
-              <label>Number of Bedrooms</label>
-              <input
-                type="text"
-                value={this.state.num_bedrms}
-                onChange={this.update("num_bedrms")}
-                type="number"
-                min="0"
-                max="30"
-                required
-              />
-            </div>
-            <div className="listing-form">
-              <label>Number of Bathrooms</label>
-              <input
-                value={this.state.num_baths}
-                onChange={this.update("num_baths")}
-                type="number"
-                min="0"
-                max="30"
-                required
-              />
-            </div>
-            <div className="listing-form">
-              <label>Price</label>
-              <input
-                type="text"
-                value={this.state.price}
-                onChange={this.update("price")}
-                type="number"
-                min="1"
-                max="10000"
-                required
-              />
-            </div>
-            <div className="listing-form">
-              <label>Service Fee</label>
-              <input
-                type="text"
-                value={this.state.service_fee}
-                onChange={this.update("service_fee")}
-                type="number"
-                min="0"
-                max="500"
-                required
-              />
-            </div>
-            <div className="listing-form">
-              <label>Clean Fee</label>
-              <input
-                type="text"
-                value={this.state.clean_fee}
-                onChange={this.update("clean_fee")}
-                type="number"
-                min="0"
-                max="250"
-                required
-              />
-            </div>
-            {/* <img src="" height="200" alt="Image preview..." /> */}
-            <div className="listing-form">
-              <label>Upload Photo</label>
-              <input
-                type="file"
-                onChange={(e) => this.setState({ photos: e.target.files })}
-                multiple
-              />
-              {preview}
-            </div>
-            {this.renderErrors()}
-            <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
-            />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

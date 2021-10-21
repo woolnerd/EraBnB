@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
-    validates :listing_id, :booker_id, :check_in, :check_out, 
-                :guests, :total_price, presence: true
+    validates :listing_id, :booker_id, :check_in, :check_out, :total_price, presence: true
+    validates :guests, inclusion: { in: 1..10, message: 'must be between 1 and 10' }, presence: true
 
     belongs_to :listing,
         foreign_key: :listing_id,

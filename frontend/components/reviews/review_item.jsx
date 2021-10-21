@@ -91,7 +91,7 @@ class ReviewItem extends React.Component {
     reviewDate = reviewDate.toDateString().split(" ")
     reviewDate = reviewDate[1] + " " + reviewDate[3]
     return (
-        <>
+      <>
         {/* <h2>{review.rating}/5 stars</h2> */}
         {/* <h4>{review.body}</h4> */}
         <p className="author-review">
@@ -102,19 +102,12 @@ class ReviewItem extends React.Component {
           }
         </p>
         <p className="review-date">{reviewDate}</p>
-        <h4>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Pellentesque massa placerat duis ultricies. Scelerisque varius morbi
-          enim nunc faucibus a. Arcu cursus euismod quis viverra nibh cras
-          pulvinar mattis nunc. Nisl vel pretium lectus quam id leo.{" "}
-        </h4>
+        <h4>{this.props.review.body}</h4>
 
         {this.props.currentUser === review.author_id ? (
-          // this.state.toggleEdit 
-          true
-          ? (
-            <>
+          this.state.toggleEdit ? (
+            // true
+            <div className="update-review-inputs">
               <textarea
                 placeholder="What did you think?"
                 className="review-body"
@@ -136,37 +129,39 @@ class ReviewItem extends React.Component {
                 <option value="5">5</option>
               </select>
               {this.renderErrors()}
-              <button
-                onClick={(e) => this.handleEditSubmit(e)}
-                className="classy-btn"
-              >
-                Save
-              </button>
-              <button
-                onClick={(e) => this.handleDelete(e)}
-                className="classy-btn"
-              >
-                Delete
-              </button>
-            </>
+              <div className="review-update-buttons">
+                <button
+                  onClick={(e) => this.handleEditSubmit(e)}
+                  className="classy-btn mt-zero"
+                >
+                  Save
+                </button>
+                <button
+                  onClick={(e) => this.handleDelete(e)}
+                  className="classy-btn mt-zero"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           ) : (
-            <>
+            <div className="review-update-buttons">
               <button
                 onClick={(e) => this.handleEditClick(e)}
-                className="classy-btn"
+                className="classy-btn mt-zero"
               >
                 Edit
               </button>
               <button
                 onClick={(e) => this.handleDelete(e)}
-                className="classy-btn"
+                className="classy-btn mt-zero"
               >
                 Delete
               </button>
-            </>
+            </div>
           )
         ) : null}
-        </>
+      </>
     );
   }
 }

@@ -8,6 +8,7 @@ class Api::ListingsController < ApplicationController
 
     def create 
         @listing = Listing.new(listing_params)
+        @host = @listing.host
         if @listing.save 
             render :show
         else  
@@ -29,6 +30,7 @@ class Api::ListingsController < ApplicationController
 
     def update 
         @listing = Listing.find(params[:id])
+        @host = @listing.host
         if @listing && @listing.update(listing_params)
             render :show
         else 

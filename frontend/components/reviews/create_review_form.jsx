@@ -51,6 +51,12 @@ class CreateReviewForm extends React.Component {
     ) : null;
   }
 
+  componentDidUpdate(){
+    if (this.state.author_id !== this.props.newReview.author_id) {
+      this.setState({author_id: this.props.newReview.author_id})
+    }
+  }
+
   render() {
     return (
       <div className={`review-form-container ${this.props.openReviewForm ? "" : " hide"}` }>
