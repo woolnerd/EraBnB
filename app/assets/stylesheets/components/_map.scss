@@ -29,3 +29,21 @@
     position: relative;
     top: -69px;
 }
+
+.listing-map-flex #mapContainer {
+    position: sticky;
+    top: 10px;
+    /* right: 74px; */
+    width: 600px;
+    height: 100vh;
+}
+
+.listing-map-flex {
+    min-width: 1517px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 0;
+}
