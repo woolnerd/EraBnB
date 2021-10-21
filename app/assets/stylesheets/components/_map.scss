@@ -47,3 +47,28 @@
     width: 600px;
     margin: 0;
 }
+
+
+.mapboxgl-popup-content {
+    border-radius: 13px !important;
+
+}
+
+.mapboxgl-popup-content div {
+    flex-direction: column;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: black;
+}
+
+.mapboxgl-popup-content a {
+    color: none;
+    border:none;
+}
+
+img#map-photo {
+    width: -webkit-fill-available;
+    border: 1px solid lightgrey;
+}

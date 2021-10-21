@@ -39,7 +39,7 @@ class Menu extends React.Component {
       <div onClick={this.handleButtonClick} className="menu" ref={this.menu}>
         <div className="menu-container">
           {/* <img className="hamburger-btn" src={menu} /> */}
-          <GiHamburgerMenu class="hamburger-btn" />
+          <GiHamburgerMenu className="hamburger-btn" />
           <FaUserCircle className="profile-icon" />
           {/* <img className="profile-icon" src={userCircle} /> */}
         </div>
