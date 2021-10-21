@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-
+import {GiHamburgerMenu} from 'react-icons/gi'
+import {FaUserCircle} from 'react-icons/fa';
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -38,8 +38,10 @@ class Menu extends React.Component {
     return (
       <div onClick={this.handleButtonClick} className="menu" ref={this.menu}>
         <div className="menu-container">
-          <img className="hamburger-btn" src={menu} />
-          <img className="profile-icon" src={userCircle} />
+          {/* <img className="hamburger-btn" src={menu} /> */}
+          <GiHamburgerMenu className="hamburger-btn" />
+          <FaUserCircle className="profile-icon" />
+          {/* <img className="profile-icon" src={userCircle} /> */}
         </div>
         {this.state.revealDropdown && (
           <>

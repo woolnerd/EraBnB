@@ -1,39 +1,45 @@
 
 
 //before scroll
-.search-btn-start  {
-    position: absolute;
-    left: 18rem;
-    top: 6.15rem;
-    height: 77%;
-    border-radius: 34px;
-    border: 1px solid #dcd9d9;
-    cursor: pointer;
-    padding: 0 25%;
-    background-color: white;
-    font-size: 1.5rem;
-    color: #9d549f;
-}
+// .search-btn-start  {
+//     position: absolute;
+//     left: 18rem;
+//     top: 6.15rem;
+//     height: 77%;
+//     border-radius: 34px;
+//     border: 1px solid #dcd9d9;
+//     cursor: pointer;
+//     padding: 0 25%;
+//     background-color: white;
+//     font-size: 1.5rem;
+//     color: #9d549f;
+// }
 
-.search-btn{
-    background: white;
-    width: 25%;
-    border-radius: 30px;
-    border: 1px solid #dcd9d9;
-    cursor: pointer;
-}
+// .search-btn{
+//     background: white;
+//     width: 25%;
+//     border-radius: 30px;
+//     border: 1px solid #dcd9d9;
+//     cursor: pointer;
+// }
 
 .menu-container {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 52px;
+    color: #6c6c6c;
 }
-
-.hamburger-btn {
-        width: 25px;
+svg.hamburger-btn {
+    width: 18px;
+    height: 16px;
 }
-
-.profile-icon {
-    width:31px;  
+svg.profile-icon {
+    width: 28px;
+    height: 30px;
 }
 
 .menu {
@@ -55,6 +61,10 @@
     transition-duration: .25s;
     margin-right: 60px;
     cursor: pointer;
+    // display: flex;
+    // align-content: center;
+    // align-items: center;
+    // justify-content: center;
 }
 
 .menu:hover {
@@ -133,4 +143,5 @@
     div > a > li:hover, .menu-content > li:hover {
             background-color: rgb(245, 243, 243);
             transition-duration: .10s;
+            border-radius: 8px;
     }

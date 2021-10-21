@@ -1,5 +1,6 @@
 import React from "react";
 import mapboxgl from "!mapbox-gl";
+import { HiOutlineLocationMarker} from "react-icons/hi"
 
 class Map extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Map extends React.Component {
         ${listing.title}
       </h4>
       <p>
-      ${listing.price} price/night
+      $${listing.price} price/night
       </p>
       </div>
       </a> `;
@@ -39,17 +40,25 @@ class Map extends React.Component {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-73.982, 40.769],
       zoom: 12,
-    });
+    }).addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true,
+        },
+        trackUserLocation: true,
+        showUserHeading: true,
+      })
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // console.log("prevProps:", prevProps)
-    // console.log("props:", this.props)
     this.props.listings.forEach((listing) =>
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ color: "#ff385c" })
         .setLngLat([listing.longitude, listing.latitude])
         .addTo(this.map)
-        .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)))
+        .setPopup(
+          new mapboxgl.Popup({ closeOnMove : true, focusAferOpen: false}).setHTML(this.marker(listing))
+        )
     );
 
   }

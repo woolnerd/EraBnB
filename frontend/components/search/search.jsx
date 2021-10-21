@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSearchListings } from '../../actions/listing_actions';
 import { withRouter } from 'react-router-dom';
+import {BiSearch} from 'react-icons/bi'
 const qs = require("query-string");
 
 
@@ -35,37 +36,52 @@ class Search extends React.Component {
   render() {
     return (
       <>
-        <form
-          onSubmit={(e) => this.handleSubmit(e)}
-          action="/search"
-          method="GET"
-        >
-          <input
-            type="text"
-            onChange={this.update("address")}
-            value={this.state.address}
-            placeholder="Where are you going?"
-          />
-          <input
-            type="date"
-            name="check_in"
-            id=""
-            // value={this.state.check_in}
-            defaultValue={new Date().toISOString().slice(0, 10)}
-            min={new Date().toISOString().slice(0, 10)}
-            onChange={this.update("check_in")}
-          />
-          <input
-            type="date"
-            name="check_out"
-            id=""
-            // value={this.state.check_out}
-            defaultValue={new Date().toISOString().slice(0, 10)}
-            min={new Date().toISOString().slice(0, 10)}
-            onChange={this.update("check_out")}
-          />
-          <button className="search-btn">Start your search</button>
-        </form>
+        <div className="search-container">
+          <form
+            onSubmit={(e) => this.handleSubmit(e)}
+            action="/search"
+            method="GET"
+          >
+            <div className="location-search">
+              <h4>Location</h4>
+              <input
+                type="text"
+                onChange={this.update("address")}
+                value={this.state.address}
+                placeholder="Where are you going?"
+              />
+            </div>
+            <div className="check-in-search">
+              <h4>Check in</h4>
+              <input
+                type="date"
+                name="check_in"
+                id=""
+                // value={this.state.check_in}
+                defaultValue={new Date().toISOString().slice(0, 10)}
+                min={new Date().toISOString().slice(0, 10)}
+                onChange={this.update("check_in")}
+              />
+            </div>
+            <div className="check-out-search">
+              <h4>Check out</h4>
+              <input
+                type="date"
+                name="check_out"
+                id=""
+                // value={this.state.check_out}
+                defaultValue={new Date().toISOString().slice(0, 10)}
+                min={new Date().toISOString().slice(0, 10)}
+                onChange={this.update("check_out")}
+              />
+            </div>
+            <div className="search-btn-cont">
+              <button className="search-btn">
+                <BiSearch />
+              </button>
+            </div>
+          </form>
+        </div>
       </>
     );
   }
