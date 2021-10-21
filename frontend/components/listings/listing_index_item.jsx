@@ -1,7 +1,7 @@
 import React from "react";  
 import { Link } from 'react-router-dom';
 
-export const ListingIndexItem = ({ listing }) => (
+export const ListingIndexItem = ({ listing}) => (
   <div className="listing-item">
     <Link to={`/listings/${listing.id}`}>
       <img src={listing.photoUrl[0]} alt="" />
@@ -22,7 +22,7 @@ export const ListingIndexItem = ({ listing }) => (
           <p className="special">${listing.price}/night</p>
         </span>
         <span className="avg-rating">
-          {listing.reviews.length ? (
+          {listing.reviews.length && listing.reviews.rating ? (
             <p className="special">
               star {getAvgRating(listing.reviews)} ({listing.reviews.length})
             </p>
@@ -37,9 +37,17 @@ export const ListingIndexItem = ({ listing }) => (
   </div>
 );
 
-const getAvgRating = (reviews) => (
-  reviews.map((review) => review.rating)
-         .reduce((acc, curVal) => acc + curVal) 
-         / reviews.length 
-)
+export const getAvgRating = (reviews) => {
+
+  if (reviews.length){
+
+    return (
+  
+      reviews.map((review) => review.rating)
+             .reduce((acc, curVal) => acc + curVal) 
+             / reviews.length 
+      )
+  }
+  }
+
 

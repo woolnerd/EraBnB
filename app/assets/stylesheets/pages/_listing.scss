@@ -1,8 +1,22 @@
 .listing-photos img{
-    width: 45rem;
-    border-radius: 20px;
-    box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
-    margin: 20px;
+    width: 200px;
+    margin: 6px;
+}
+
+#main-photo {
+    width: 600px;
+    height: 400px;
+}
+
+.listing-photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    align-items: flex-start;
+    // border: 1px solid black;
+    width: fit-content;
+    margin: 20px 40px;
 }
 
 .listing-item-show {
@@ -28,14 +42,11 @@
 
 
 .listing-info-show {
-    border-radius: 20px;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     width: 50%;
-    padding:2%;
-    box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
-    background-color: whitesmoke;
+    margin: 50px;
     h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         padding: 8px 2px;
     }
 }
@@ -71,22 +82,17 @@
   width: 90%
 }
 
-.listing-form input {
-  // margin: 26px 12px
-}
 
-button.session-submit {
-  width: 100%;
-  background-color: #ff5a91;
-  border-radius: 8px;
-  color: $navbar-profile-color;
-  color: #DDD;
+.classy-btn {
+  color: black;
   height: 43px;
   font-size: 20px;
   font-weight: 600;
-  border: 1px #DDD solid;
   margin-top: 20px;
   cursor: pointer;
+  background-color: white;
+  border: none;
+  text-decoration: underline;
 }
 
 
@@ -118,16 +124,16 @@ button.session-submit {
 }
 
 
-.listing-info-show {
-    border-radius: 20px;
-    border: 1px solid black;
-    width: 50%;
-    padding: 2%;
-    box-shadow: 11px 9px 22px -8px rgba(0, 0, 0, 0.85);
-    background-color: whitesmoke;
-    margin: 2% 0;
+// .listing-info-show {
+//     // border-radius: 20px;
+//     border: 1px solid black;
+//     width: 50%;
+//     padding: 2%;
+//     box-shadow: 11px 9px 22px -8px rgba(0, 0, 0, 0.85);
+//     background-color: whitesmoke;
+//     margin: 2% 0;
 
-}
+// }
 p {
     padding-bottom: 4px
 }
@@ -135,3 +141,131 @@ p {
 button.session-submit.sml-btn {
     width: 50%;
 }
+
+.listing-photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    align-items: stretch;
+    width: fit-content;
+    margin: 20px 40px;
+    justify-content: space-evenly;
+    border-radius: 14px;
+}
+
+#main-photo {
+    width: 600px;
+    height: auto; 
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+    margin-right: 3px;
+}
+
+.adtl-photos-col-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.adtl-photo-col-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.adtl-photo-col-2 img, .adtl-photos-col-1 img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.adtl-photo-col-2:nth-child(1){
+    border-radius: 0 15px 0 0;
+}
+
+#top-right-photo img {
+    border-radius: 0 15px 0 0;
+}
+
+div#bottom-right-photo img {
+    border-radius: 0 0 15px 0;
+}
+
+.listing-heading {
+    margin-left: 26px;
+}
+
+.room-details {
+    display: flex;
+    width: 120px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 4px;
+}
+
+.listing-info-show h3 {
+    font-size: 1.5rem;
+    padding: 8px 2px;
+}
+
+
+.review-header {
+    width: 244px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 1rem;
+}
+
+.review-star {
+    color: #ff392a;
+}
+
+.bk-rate-review span {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.bk-rate-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding: 0 21px;
+    align-items: baseline;
+}
+
+.bk-rate-review span p {
+    display: flex;
+    align-items: baseline;
+    font-size: 13px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.guest-ctrls input[type="number"] {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.listing-body {
+    width: 50%;
+    margin-left: 48px;
+    margin-top: 30px;
+    line-height: 20px;
+    font-weight: 300;
+}
+
+.body-booking {
+    display: flex;
+    justify-content: space-between;
+}
+

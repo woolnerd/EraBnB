@@ -6,3 +6,135 @@
 .author-review {
     font-style:italic ;
 }
+
+.reviews-index-container {
+    width: 90%;
+    border-top: 1px solid gray;
+    margin-left: 3rem;
+    margin-top: 5%;
+}
+.review-form-container {
+    width: 300px;
+    height: fit-content;
+    border: 1px solid lightgray;
+    padding: 2rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 13px;
+    position: relative;
+    top: 0px;
+    width: 400px;
+    left: 46px;
+    flex-direction: column;
+    box-shadow: -6px 15px 42px -16px;
+
+}
+.past-reviews-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.review-container {
+    margin: 3rem;
+    width: 60rem;
+}
+
+.author-review {
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.review-date {
+    color: #9e9a9a;
+    font-size: .85rem;
+    padding-bottom: 4px;
+}
+
+.review-header-ratings {
+    // display: flex;
+    align-items: baseline;
+    font-size: 1.5rem;
+
+    // span {
+    //     margin-left: 1rem;
+    // }
+}
+
+.reviews-index-container span, .listing-heading span {
+    margin: 0 5px;
+}
+
+span.review-link {
+    text-decoration: underline;
+}
+
+.review-and-star-cont {
+    display: flex;
+    align-items: flex-end;
+}
+
+.leave-review-link {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.review-form-container form textarea {
+    width: 400px;
+    height: 200px;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+}
+
+.review-form-container form textarea:focus {
+    color: lightgray;
+}
+
+.btn-selector-errors-review select {
+    height: 2rem;
+    border-radius: 5px;
+    background: #ff2e1f;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.form-errors {
+color: red;
+}
+
+.btn-selector-errors-review {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+h4#your-stay {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.empty-errors-cont {
+    height: 2.5rem;
+}
+.error-item {
+    display: flex;
+    width: 15rem;
+    justify-content: flex-start;
+}
+.error-item li{
+    padding-left:5px;
+    padding-bottom:3px;
+}
+
+svg.close-review-form {
+    font-size: 48px;
+    position: relative;
+    top: -28px;
+    left: 199px;
+    color: lightgray;
+}

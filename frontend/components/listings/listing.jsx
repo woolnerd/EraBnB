@@ -4,13 +4,16 @@ import BookingFormContainer from "../bookings/booking_form_container";
 import ReviewItemContainer from "../reviews/review_item_container"
 import ReviewItem from '../reviews/review_item';
 import CreateReviewFormContainer from '../reviews/create_review_form_container'
+import { getAvgRating } from './listing_index_item';
+import { AiFillStar } from 'react-icons/ai'
 
 class Listing extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = this.props.newReview;
-
+    this.state.openReviewForm = false;
+    this.state.shrinkBookingForm = true;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -35,6 +38,18 @@ class Listing extends React.Component {
     };
   }
 
+  toggleReviewForm() {
+    this.state.openReviewForm
+      ? this.setState({ openReviewForm: false })
+      : this.setState({ openReviewForm: true });
+  }
+
+  enlargeBookingForm() {
+    this.state.shrinkBookingForm
+      ? this.setState({ shrinkBookingForm: false })
+      : this.setState({ shrinkBookingForm: true });
+  }
+
   render() {
     if (!this.props.listing) {
       return null;
@@ -46,28 +61,30 @@ class Listing extends React.Component {
       currentUser === listing.host_id ? (
         <>
           <button
-          className="session-submit sml-btn"
-          onClick={() => this.props.history.push(`/listings/${listing.id}/edit`)}
-        >
-          Update
-        </button>
-        <button
-          className="session-submit sml-btn"
-          onClick={() =>
-            this.props
-              .deleteListing(listing.id)
-              .then(() => this.props.history.push(`/users/${currentUser}`))
-          }
-        >
-          Delete
-        </button>
-      </>
+            className="classy-btn"
+            onClick={() =>
+              this.props.history.push(`/listings/${listing.id}/edit`)
+            }
+          >
+            Update
+          </button>
+          <button
+            className="classy-btn"
+            onClick={() =>
+              this.props
+                .deleteListing(listing.id)
+                .then(() => this.props.history.push(`/users/${currentUser}`))
+            }
+          >
+            Delete
+          </button>
+        </>
       ) : null;
 
     const backToUserListings =
       currentUser === listing.host_id ? (
         <button
-          className="session-submit sml-btn"
+          className="classy-btn"
           onClick={() => this.props.history.push(`/users/${currentUser}`)}
         >
           Your listings
@@ -81,6 +98,7 @@ class Listing extends React.Component {
           src={photo}
           alt="listing-photo"
           className="listing-img"
+          id={idx === 0 ? "main-photo" : ""}
         />
       ))
     ) : (
@@ -108,10 +126,11 @@ class Listing extends React.Component {
 
     let reviews = listing.reviews.sort((a, b) => b.id - a.id);
 
-    const hasReviewed = 
-          reviews.length && reviews.filter(review => review.author_id === currentUser).length 
-          ?
-          true : false;
+    const hasReviewed =
+      reviews.length &&
+      reviews.filter((review) => review.author_id === currentUser).length
+        ? true
+        : false;
     reviews = reviews.length
       ? reviews.map((review) => (
           <div key={review.id} className="review-container">
@@ -133,56 +152,135 @@ class Listing extends React.Component {
         ))
       : null;
 
+    if (!listing.host) {
+      return null;
+    }
     return (
       { listing } && (
         <>
-          <div key={listing.id} className="today-banner"></div>
-          <div className="listing-item-show">
-            <div className="listing-container"></div>
-            <div className="listing-photos">{photos}</div>
-            <div className="listing-info-show">
-              <h3>{listing.title}</h3>
-              <p>{listing.description}</p>
-              <p>${listing.price}/night</p>
+          <div key={listing.id} className="listing-heading">
+            <h2>{listing.title}</h2>
+            <div className="review-header">
+              <AiFillStar className="review-star" />
               <p>
-                Bedrooms {listing.num_bedrms}{" "}
-                <span> Bathrooms {listing.num_baths}</span>
+                {!!listing.reviews.length
+                  ? getAvgRating(listing.reviews).toFixed(1)
+                  : ""}
+                ({listing.reviews.length}{" "}
+                {listing.reviews.length === 1 ? "review" : "reviews"})
+                <span>&middot;</span>
+                {listing.address.split(" ").slice(-3, -1).join(" ")}
               </p>
+            </div>
+          </div>
+          {/* <div className="listing-item-show"> */}
+
+          <div className="listing-photos">
+            {photos[0]}
+            <div className="adtl-photos-col-1">
+              <div>{photos[1]}</div>
+              <div>{photos[2]}</div>
+            </div>
+            <div className="adtl-photo-col-2">
+              <div id="top-right-photo">{photos[3]}</div>
+              <div id="bottom-right-photo">{photos[4]}</div>
+            </div>
+          </div>
+          <div className="listing-container">
+            <div className="listing-info-show">
+              <h3>Era theme by {listing.host.first_name}</h3>
+              <div className="room-details">
+                <p>{listing.num_bedrms} beds</p>
+                <p>&middot;</p>
+                <p>{listing.num_baths} baths</p>
+              </div>
+
               {showEditAndDelete}
               {backToUserListings}
               <Link to="/listings/">
-                <button className="session-submit">Back to Listings</button>
+                <button className="classy-btn">Back to Listings</button>
               </Link>
             </div>
+            <div className="body-booking">
+              <div className="listing-body">
+                <p>{listing.description}</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Pellentesque massa placerat duis ultricies. Scelerisque varius
+                  morbi enim nunc faucibus a. Arcu cursus euismod quis viverra
+                  nibh cras pulvinar mattis nunc. Nisl vel pretium lectus quam
+                  id leo. Et magnis dis parturient montes nascetur ridiculus.
+                  Leo vel fringilla est ullamcorper eget. Facilisi etiam
+                  dignissim diam quis enim lobortis. Sed adipiscing diam donec
+                  adipiscing tristique risus nec. Donec ac odio tempor orci
+                  dapibus ultrices. Non consectetur a erat nam at lectus urna.
+                  Lectus urna duis convallis convallis tellus. Quis hendrerit
+                  dolor magna eget est lorem. Adipiscing bibendum est ultricies
+                  integer quis auctor elit sed vulputate. Eu mi bibendum neque
+                  egestas congue. Dictum non consectetur a erat nam at. Nec
+                  ullamcorper sit amet risus nullam. Suspendisse interdum
+                  consectetur libero id. Magna fermentum iaculis eu non diam
+                  phasellus vestibulum lorem sed.
+                </p>
+              </div>
 
-            <div className="listing-info-show">
-              {!currentUser ? (
-                <h1>Please login or signup to book</h1>
-              ) : currentUser && currentUser !== listing.host_id ? (
-                <Route props={listing} component={BookingFormContainer} />
-              ) : (
-                bookings
-              )}
-            </div>
-
-            <div className="listing-info-show">
-              {listing.reviews.length ? (
-                <h3>Here's what people are saying: </h3>
-              ) : (
-                <h3>No Reviews Just Yet...  </h3>
-              )}
-
-              <div>
-                {!hasReviewed &&
-                currentUser !== null &&
-                listing.host_id !== currentUser ? (
-                  <CreateReviewFormContainer
-                    forceReload={this.forceReload.bind(this)}
-                  />
-                ) : null}
-                {reviews}
+              <div className="booking-container">
+                {!currentUser ? (
+                  <h1>Please login or signup to book</h1>
+                ) : currentUser && currentUser !== listing.host_id ? (
+                  <Route props={listing}  component={BookingFormContainer} />
+                ) : (
+                  bookings
+                )}
               </div>
             </div>
+          </div>
+          <div className="reviews-index-container">
+            {listing.reviews.length ? (
+              <div className="review-header-ratings">
+                <div className="review-and-star-cont">
+                  <AiFillStar className="review-star" />
+                  <h3>
+                    {!!listing.reviews.length
+                      ? getAvgRating(listing.reviews).toFixed(1)
+                      : null}
+                    <span>&middot;</span>
+                    <span>
+                      {listing.reviews.length}{" "}
+                      {listing.reviews.length === 1 ? "review" : "reviews"}
+                    </span>
+                  </h3>
+                </div>
+                <div className="leave-review-link">
+                  <h4>
+                    We see you've booked this listing in the last two weeks!
+                  </h4>
+                  <h4>
+                    Click{" "}
+                    <span
+                      className="review-link"
+                      onClick={() => this.toggleReviewForm()}
+                    >
+                      here
+                    </span>{" "}
+                    to leave a review
+                  </h4>
+                </div>
+              </div>
+            ) : (
+              <h3>No reviews just yet... </h3>
+            )}
+            {/* {!hasReviewed &&
+            currentUser !== null &&
+            listing.host_id !== currentUser ? ( */}
+            <CreateReviewFormContainer
+              forceReload={this.forceReload.bind(this)}
+              openReviewForm={this.state.openReviewForm}
+              toggleReviewForm={() => this.toggleReviewForm()}
+            />
+            {/* ) : null} */}
+            <div className="past-reviews-container">{reviews}</div>
           </div>
         </>
       )
