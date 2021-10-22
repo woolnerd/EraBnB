@@ -28,12 +28,13 @@ class Users extends React.Component {
     let { currentUser } = this.props;
     let listings;
     let bookings;
-
+    // debugger
    listings = this.state.listings.map((listing) => {
-    debugger
+    const descrip = listing.listing.description.split(" ").length > 20 ? listing.listing.description.split(" ").slice(0,20).join(" ")+"..." :
+                    listing.listing.description;
     return (
-     <Link to={`/listings/${listing.listing.id}`}>
-       <div key={listing.id} className="user-listing-container">
+     <Link key={`${listing.listing.address} + ${listing.listing.id}`} to={`/listings/${listing.listing.id}`}>
+       <div className="user-listing-container">
          <img src={`${listing.photoUrl[0]}`} alt="Listing Picture" />
          <div className="listing-date-location">
            <h5>Era theme: {listing.listing.era_theme}</h5>
@@ -41,7 +42,7 @@ class Users extends React.Component {
          </div>
          <div className="listing-descrp-pic">
            <img src={`${listing.photoUrl[0]}`}alt="Listing Thumbnail" className="thumbnail-trip" />
-           <h5>{listing.listing.description}</h5>
+           <h5>{descrip}</h5>
          </div>
        </div>
      </Link>
@@ -50,12 +51,27 @@ class Users extends React.Component {
   //  ));
 
    bookings =  this.state.bookings.map((booking) => {
+      let checkIn = booking.booking.check_in.split("-")
+      let checkOut = booking.booking.check_out.split("-")
+      const descrip = booking.listing.description.split(" ").length > 20 ? booking.listing.description.split(" ").slice(0,20).join(" ")+"..." :
+                      booking.listing.description;
       return (
-      <Link to={`/bookings/${booking.booking.id}`}>
-        <div key={booking.listing.id}>
-          <h3 >{booking.listing.title}</h3>
-        </div>
-      </Link>
+     <Link key={`${booking.listing.address} + ${booking.listing.id}`} to={`/listings/${booking.listing.id}`}>
+       <div className="user-listing-container">
+         <img src={`${booking.photoUrl[0]}`} alt="Listing Picture" />
+         <div className="listing-date-location">
+           <h5>Era theme: {booking.listing.era_theme}</h5>
+           <h4>Booked {[checkIn[1],checkIn[2]].join("/")} - {[checkOut[1],checkOut[2],checkOut[0]].join("/")}</h4>
+           <h3 className="listing-address-profile">{booking.listing.address}</h3>
+         </div>
+         <div className="listing-descrp-pic">
+           <img src={`${booking.photoUrl[0]}`}alt="Listing Thumbnail" className="thumbnail-trip" />
+           <h5>{descrip}</h5>
+           <h5>Total ${booking.booking.total_price}</h5>
+         </div>
+       </div>
+     </Link>
+
       )
     }
 
@@ -93,18 +109,22 @@ class Users extends React.Component {
               {listings}
               <br />
           </div>
-          <h2>Your Trips: </h2>
-          <div className="user-trips">
+          <div className="listings-create">
+            <h2>Your Trips </h2>
+            <Link to="/listings">
+              <h3 className="classy-btn">Find your next adventure</h3>
+            </Link>
+          </div>
+          <div className="user-listings mg-btm-4">
             {bookings}
             <br />
-            <Link to="/listings">
-              <h3 className="user-btn">Find your next adventure</h3>
-            </Link>
           </div>
         </div>
       </>
     );
   }
 }
+
+
 
 export default Users;
