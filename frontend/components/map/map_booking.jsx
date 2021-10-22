@@ -8,8 +8,10 @@ class Map extends React.Component {
     this.map;
   }
 
+  
   marker(listing) {
-    return `<div>
+    return `<a href="/#/listings/${listing.id}">
+    <div>
      <img id="map-photo"src=${this.props.listings[0].photoUrl[0]}/> 
       <h4>
         ${listing.address}
@@ -18,7 +20,9 @@ class Map extends React.Component {
       <p>
       ${listing.price} price/night
       </p>
-      </div>`;
+      </div>
+      </a>
+      `;
   }
   componentDidMount() {
     mapboxgl.accessToken =
@@ -32,10 +36,10 @@ class Map extends React.Component {
       container: "mapContainer-booking",
       style: "mapbox://styles/mapbox/streets-v11",
       center: [listing.longitude, listing.latitude],
-      zoom: 15,
+      zoom: 17,
     });
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ color: "#ff385c" })
         .setLngLat([listing.longitude, listing.latitude])
         .addTo(this.map)
         .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)))

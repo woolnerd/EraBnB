@@ -260,7 +260,7 @@ class Listing extends React.Component {
             ) : (
               <h3>No reviews just yet... </h3>
             )}
-            {!hasReviewed &&
+            {!hasReviewed &
             currentUser !== null &&
             listing.host_id !== currentUser ? (
             <div className="leave-review-link">

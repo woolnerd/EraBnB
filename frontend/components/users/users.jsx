@@ -56,7 +56,7 @@ class Users extends React.Component {
       const descrip = booking.listing.description.split(" ").length > 20 ? booking.listing.description.split(" ").slice(0,20).join(" ")+"..." :
                       booking.listing.description;
       return (
-     <Link key={`${booking.listing.address} + ${booking.listing.id}`} to={`/listings/${booking.listing.id}`}>
+     <Link key={`${booking.listing.address} + ${booking.listing.id}`} to={`/bookings/${booking.booking.id}`}>
        <div className="user-listing-container">
          <img src={`${booking.photoUrl[0]}`} alt="Listing Picture" />
          <div className="listing-date-location">

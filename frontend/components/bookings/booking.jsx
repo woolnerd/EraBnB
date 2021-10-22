@@ -37,19 +37,29 @@ class Booking extends React.Component {
                 <h1>{this.props.booking.listing.title}</h1>
 
                 <div className="booking-info-book-show">
-                  <h4>Guests: {this.props.booking.guests}</h4>
-                  <h4>Total Price:{this.props.booking.total_price}</h4>
+                  <h4>Guests {this.props.booking.guests}</h4>
+                  <p>&middot;</p>
+                  <h4>Total Price ${this.props.booking.total_price}</h4>
                 </div>
 
                 <div className="listing-info-book-show">
                   <div className="booking-dates">
-                    <h4>Check-in {this.props.booking.check_in}</h4>
-                    <h4>Check-out {this.props.booking.check_out}</h4>
+                    <div className="booking-range">
+                      <div>
+                        <h4 className="book-dates">Check-in</h4> 
+                        <h4 >{new Date(this.props.booking.check_in).toDateString()}</h4>
+                      </div>
+                      <div>
+                        <h4 className="book-dates">Check-out</h4>
+                        <h4>{new Date(this.props.booking.check_out).toDateString()}</h4>
+                      </div>
+                    </div>
                   </div>
-                  <h4>Description: {this.props.booking.listing.description}</h4>
-                  <h4>Theme: {this.props.booking.listing.era_theme}</h4>
+                  <h4>Era Theme: {this.props.booking.listing.era_theme}</h4>
+                  <h4>Description:</h4> 
+                  <h4>{this.props.booking.listing.description}</h4>
                   <h4>
-                    Listing updated at: {this.props.booking.listing.updated_at}
+                    Listing updated at: {new Date(this.props.booking.listing.updated_at).toDateString()}
                   </h4>
 
                   <div className="host-details">
@@ -66,7 +76,7 @@ class Booking extends React.Component {
                         .cancelBooking(this.props.booking.id)
                         .then(this.props.history.push(`/listings`))
                     }
-                    className="session-submit"
+                    className="classy-btn"
                   >
                     Cancel booking
                   </button>
