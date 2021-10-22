@@ -20,6 +20,7 @@ class Booking extends React.Component {
         if (!this.props.booking) {
             return null
         }
+        debugger
         return (
             <div className="wrap-all">
               <div className="booking-info-container">
@@ -37,6 +38,8 @@ class Booking extends React.Component {
                 <h1>{this.props.booking.listing.title}</h1>
 
                 <div className="booking-info-book-show">
+                  <h4>Era Theme {this.props.booking.listing.era_theme}</h4>
+                  <p>&middot;</p>
                   <h4>Guests {this.props.booking.guests}</h4>
                   <p>&middot;</p>
                   <h4>Total Price ${this.props.booking.total_price}</h4>
@@ -55,31 +58,40 @@ class Booking extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <h4>Era Theme: {this.props.booking.listing.era_theme}</h4>
-                  <h4>Description:</h4> 
+                  
+                  <h4>What you can expect:</h4> 
                   <h4>{this.props.booking.listing.description}</h4>
-                  <h4>
-                    Listing updated at: {new Date(this.props.booking.listing.updated_at).toDateString()}
-                  </h4>
-
+          
                   <div className="host-details">
                     <h4>
                       Host name: {this.props.booking.host.first_name}
                        {this.props.booking.host.last_name}
                     </h4>
                     <h4>Email: { this.props.booking.host.email }</h4>
+                    <h4>
+                    Listing updated at: {new Date(this.props.booking.listing.updated_at).toDateString()}
+                    </h4>
                   </div>
-
-                  <button
-                    onClick={() =>
-                      this.props
-                        .cancelBooking(this.props.booking.id)
-                        .then(this.props.history.push(`/listings`))
-                    }
-                    className="classy-btn"
-                  >
-                    Cancel booking
-                  </button>
+                  <div className="booking-btns">
+                    <button
+                      onClick={() =>
+                        this.props
+                          .cancelBooking(this.props.booking.id)
+                          .then(this.props.history.push(`/listings`))
+                      }
+                      className="classy-btn"
+                    >
+                      Cancel booking
+                    </button>
+                    <button
+                      onClick={() =>
+                    this.props.history.push(`/users/${this.props.booking.booker.id}`)
+                      }
+                      className="classy-btn"
+                    >
+                      Your Profile
+                    </button>
+                  </div>
                 </div>
               </div>
 

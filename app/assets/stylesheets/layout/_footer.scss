@@ -12,8 +12,10 @@
 
     li {
       padding: 20px;
-
+      color: black;
+    //   text-decoration: underline;
     }
+
 
     li.top-col {
         font-weight: 600;
@@ -24,4 +26,8 @@ ul {
     display: flex;
     flex-direction: column;
     padding: 20px;
+}
+
+.footer-container a {
+    color: black;
 }
