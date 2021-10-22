@@ -100,7 +100,7 @@
    padding-top: 20px;
     margin-top: 50px;
     width: 28rem;
-    /* height: 25rem; */
+    height: 38rem;
     background-color: #fff;
     padding: 10px;
     border-radius: 20px;
@@ -121,19 +121,10 @@
     background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     // background-color: lightcoral;
     padding: 20px 0;
+    height: 700px;
 }
 
 
-// .listing-info-show {
-//     // border-radius: 20px;
-//     border: 1px solid black;
-//     width: 50%;
-//     padding: 2%;
-//     box-shadow: 11px 9px 22px -8px rgba(0, 0, 0, 0.85);
-//     background-color: whitesmoke;
-//     margin: 2% 0;
-
-// }
 p {
     padding-bottom: 4px
 }
@@ -290,7 +281,7 @@ div#bottom-right-photo img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border: 1px solid lightgray;
+  
     padding: 8px 9px;
     font-size: 12px;
     color: #818181;
@@ -299,19 +290,8 @@ div#bottom-right-photo img {
 .head-form-cont {
     display: flex;
     flex-direction: column;
+  
 }
-
-// .prices div {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-around;
-//     font-size: 12px;
-//     align-items: stretch;
-//     border: 1px solid lightgray;
-//     padding-right: 21px;
-//     height: 100%;
-// }
-
 
 
 .prices input {
@@ -338,14 +318,15 @@ div#bottom-right-photo img {
 }
 
 .prices {
-    border: 1px solid lightgray;
+    border: 2px solid lightgray;
+
     display: flex;
     /* height: 4rem; */
     justify-content: space-around;
     align-items: flex-start;
     color: #818181;
     border-radius: 0 0 10px 10px;
-
+    padding-top: 5px;
 }
 
 .numbers-form {
@@ -358,9 +339,11 @@ div#bottom-right-photo img {
     display: flex;
     font-size: 12px;
     justify-content: space-evenly;
-    border: 1px solid lightgray;
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    border-top: 2px solid lightgray;
+    padding: 5px 0;
     color: #818181;
-
 }
 
 .bdrms div {
@@ -377,8 +360,13 @@ div#bottom-right-photo img {
     border: none;
 }
 
+
+
 .listing-title {
     border-radius: 10px 10px 0 0;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+
 }
 
 .listing-form-title input {
@@ -393,9 +381,6 @@ div#bottom-right-photo img {
     font-size: 14px;
 }
 
-.listing-form-theme input {
-    font-size: 14px;
-}
 
 .prices input {
     font-size: 14px;
@@ -409,3 +394,54 @@ div#bottom-right-photo img {
 .bdrms div input {
     font-size: 14px;
 }
+
+// .listing-title:hover,
+// // .numbers-form:hover,
+// .listing-form-addrs:hover,
+
+// .listing-form-theme:hover,
+// .bdrms:hover,
+// .prices:hover {
+//     border: 2px solid black;
+//     border-radius: 8px;
+// }
+
+// .listing-form-descrp:hover {
+//     border: 2px solid black;
+//     border-radius: 8px; 
+// }
+
+
+.listing-form-theme{
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+}
+
+.listing-form-theme select {
+    height: 1rem;
+    border-radius: 5px;
+    background: #f5366b;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+.listing-title {
+      border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+
+}
+
+.listing-form-descrp {
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;  
+    border-bottom: 2px solid lightgray; 
+}
+
+.listing-form-addrs {
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray; 
+}
+

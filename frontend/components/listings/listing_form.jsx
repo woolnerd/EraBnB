@@ -49,7 +49,7 @@ class ListingForm extends React.Component {
         this.setState({
           longitude: res.body.features[0].center[0],
           latitude: res.body.features[0].center[1],
-        });
+        })
 
         const formData = new FormData();
         formData.append("listing[title]", this.state.title);
@@ -74,7 +74,7 @@ class ListingForm extends React.Component {
           .then((res) =>
             this.props.history.push(`/listings/${res.listing.id}`)
           );
-      });
+      }).catch(err=>console.log("Please double check you have entered a valid address"))
   }
 
   onPhotoInput(e) {
@@ -136,12 +136,17 @@ class ListingForm extends React.Component {
                 </div>
                 <div className="listing-form-theme">
                   <label>Era Theme</label>
-                  <input
-                    type="text"
+                  <select
                     value={this.state.era_theme}
                     onChange={this.update("era_theme")}
-                    required
-                  />
+                  >
+                    <option>--Please choose an Era--</option>
+                    <option value="50s">50s</option>
+                    <option value="60s">60s</option>
+                    <option value="70s">70s</option>
+                    <option value="80s">80s</option>
+                    <option value="90s">90s</option>
+                  </select>
                 </div>
                 <div className="listing-form-addrs">
                   <label>Address</label>
