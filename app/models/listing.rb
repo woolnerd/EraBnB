@@ -1,7 +1,9 @@
 class Listing < ApplicationRecord
     validates :title, uniqueness: true, presence: true
-    validates :description, :era_theme, :address, 
-              :num_bedrms, :num_baths, :price, :clean_fee, :service_fee, presence: true
+    validates :description, :era_theme, :address, presence: true
+    validates :num_bedrms, :num_baths, numericality: {greater_than_or_equal_to: 1}, presence: true 
+    validates :price, :clean_fee, :service_fee,  numericality: {greater_than_or_equal_to: 0}, presence: true
+    
 
 
     belongs_to :host,

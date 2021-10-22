@@ -61,7 +61,6 @@ class Listing extends React.Component {
       return null;
     }
     const { currentUser, listing } = this.props;
-    debugger
     const showEditAndDelete =
       currentUser === listing.host_id ? (
         <>

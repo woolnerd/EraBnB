@@ -33,6 +33,10 @@ class ListingForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    if (this.state.photos.length < 5) {
+       
+    }
+
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
     const geocoder = mbxGeocoding({
@@ -140,7 +144,7 @@ class ListingForm extends React.Component {
                     value={this.state.era_theme}
                     onChange={this.update("era_theme")}
                   >
-                    <option>--Please choose an Era--</option>
+                    <option disabled>--Please choose an Era--</option>
                     <option value="50s">50s</option>
                     <option value="60s">60s</option>
                     <option value="70s">70s</option>
@@ -169,7 +173,7 @@ class ListingForm extends React.Component {
                       value={this.state.num_bedrms}
                       onChange={this.update("num_bedrms")}
                       type="number"
-                      min="0"
+                      min="1"
                       max="30"
                       required
                     />
@@ -180,7 +184,7 @@ class ListingForm extends React.Component {
                       value={this.state.num_baths}
                       onChange={this.update("num_baths")}
                       type="number"
-                      min="0"
+                      min="1"
                       max="30"
                       required
                     />
@@ -231,9 +235,10 @@ class ListingForm extends React.Component {
               </div>
               {/* <img src="" height="200" alt="Image preview..." /> */}
               <div className="listing-form-photo">
-                <label>Upload Photo</label>
+                <label>Upload Photos (5 photos minimum)</label>
                 <input
                   type="file"
+                  accept=".png, .jpg, .jpeg"
                   onChange={(e) => this.setState({ photos: e.target.files })}
                   multiple
                 />

@@ -326,7 +326,7 @@ div#bottom-right-photo img {
     align-items: flex-start;
     color: #818181;
     border-radius: 0 0 10px 10px;
-    padding-top: 5px;
+    padding: 5px 0;
 }
 
 .numbers-form {
@@ -445,3 +445,6 @@ div#bottom-right-photo img {
     border-right: 2px solid lightgray; 
 }
 
+.form-photo-preview {
+    width: 100px;
+}

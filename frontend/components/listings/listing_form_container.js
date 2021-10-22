@@ -29,7 +29,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => ({
     action: (formData) => dispatch(createListing(formData)),
-    fetchListing: () => dispatch(fetchListing())
+    fetchListing: () => dispatch(fetchListing()),
+    throwError: () => dispatch()
 });
 
 
