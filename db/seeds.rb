@@ -27,7 +27,7 @@ user1 = User.create({
             password:"password", 
             first_name: Faker::Name.first_name  , 
             last_name: Faker::Name.last_name,
-            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            birthdate:Faker::Date.between(from: '1955-09-23', to: '2003-09-01'), 
             bio: Faker::TvShows::Seinfeld.quote})
 
 user2 = User.create({
@@ -35,7 +35,7 @@ user2 = User.create({
             password:"password", 
             first_name: Faker::Name.first_name  , 
             last_name: Faker::Name.last_name,
-            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            birthdate:Faker::Date.between(from: '1955-09-23', to: '2003-09-01'), 
             bio: Faker::TvShows::Seinfeld.quote})
 
 
@@ -44,7 +44,7 @@ user3 = User.create({
             password:"password", 
             first_name: Faker::Name.first_name  , 
             last_name: Faker::Name.last_name,
-            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            birthdate:Faker::Date.between(from: '1955-09-23', to: '2003-09-01'), 
             bio: Faker::TvShows::Seinfeld.quote})
 
 
@@ -53,7 +53,7 @@ user4 = User.create({
             password:"password", 
             first_name: Faker::Name.first_name  , 
             last_name: Faker::Name.last_name,
-            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            birthdate:Faker::Date.between(from: '1955-09-23', to: '2003-09-01'), 
             bio: Faker::TvShows::Seinfeld.quote})
 
 
@@ -62,7 +62,7 @@ user5 = User.create({
             password:"password", 
             first_name: Faker::Name.first_name  , 
             last_name: Faker::Name.last_name,
-            birthdate:Faker::Date.between(from: '195-09-23', to: '2003-09-01'), 
+            birthdate:Faker::Date.between(from: '1955-09-23', to: '2003-09-01'), 
             bio: Faker::TvShows::Seinfeld.quote})
 
 
@@ -70,7 +70,7 @@ user5 = User.create({
 listing1 = Listing.create({
 title: "What Are You Doing? This is the PLACE!",    
 description: Faker::TvShows::Seinfeld.quote,
-era_theme: "80's Night!", 
+era_theme: "80's", 
 address: "405 Lexington Ave, New York, NY 10174", 
 longitude: -73.947301,
 latitude: 40.715485, 
@@ -83,12 +83,21 @@ host_id: user4.id
 }) 
 file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/Midtown_6.jpeg')
 listing1.photos.attach(io: file1, filename: 'Midtown_6.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
+listing1.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/morgante-wilson-1486154143.jpeg')
+listing1.photos.attach(io: file3, filename: 'morgante-wilson-1486154143.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/rent_to_own.jpeg')
+listing1.photos.attach(io: file4, filename: 'rent_to_own.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/285_5thAve2R_Kitchen_straight_on.jpg')
+listing1.photos.attach(io: file5, filename: '285_5thAve2R_Kitchen_straight_on.jpg')
+
 
 
 listing2 = Listing.create({
 title: "Pricey, but WORTH IT",    
 description: Faker::TvShows::Seinfeld.quote,
-era_theme: "Roaring 20s", 
+era_theme: "60's", 
 address: "1 Columbus Circle,
 Manhattan, New York City", 
 longitude: -73.956932,
@@ -100,14 +109,20 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
 }) 
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
-listing2.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
+# file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
+# listing2.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
+# listing2.photos.attach(io: file1, filename: 'Midtown_6.jpeg')
+# listing2.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
+# listing2.photos.attach(io: file3, filename: 'morgante-wilson-1486154143.jpeg')
+# listing2.photos.attach(io: file4, filename: 'rent_to_own.jpeg')
+# listing2.photos.attach(io: file5, filename: '285_5thAve2R_Kitchen_straight_on.jpg')
+
 
 
 listing3 = Listing.create({
 title: "Celebrate the Fourth of July in STYLE",    
 description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "50s Chic", 
+era_theme: "50's", 
 address: "73 Bushwick Ave, Brooklyn, NY 11211", 
 longitude: -73.98144,
 latitude: 40.785042,
@@ -125,7 +140,7 @@ listing3.photos.attach(io: file3, filename: 'morgante-wilson-1486154143.jpeg')
 listing4 = Listing.create({
 title: "The Greatest Views On Planet Earth",    
 description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "Goth Vibes", 
+era_theme: "70's", 
 address: "90 5th Ave, New York, NY 10011", 
 longitude: -73.971718,
 latitude: 40.787105, 
@@ -144,7 +159,7 @@ listing4.photos.attach(io: file4, filename: 'rent_to_own.jpeg')
 listing6 = Listing.create({
 title: "Frank Llyod Wright Would Kill for This Place",    
 description: Faker::TvShows::Seinfeld.quote,
-era_theme: "80's Night!", 
+era_theme: "80's", 
 address: "405 Lexington Ave, New York, NY 10174", 
 longitude: -73.971718,
 latitude: 40.789105, 
@@ -162,7 +177,7 @@ listing6.photos.attach(io: file1, filename: '285_5thAve2R_Kitchen_straight_on.jp
 listing7 = Listing.create({
 title: "A Reader's Heaven",    
 description: Faker::TvShows::Seinfeld.quote,
-era_theme: "Roaring 20s", 
+era_theme: "90's", 
 address: "1 Columbus Circle,
 Manhattan, New York City", 
 longitude: -73.99824,
@@ -181,7 +196,7 @@ listing7.photos.attach(io: file2, filename: '45-sutton-place-south-interiors.jpe
 listing8 = Listing.create({
 title: "Finally a Place That is Perfect",    
 description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "50s Chic", 
+era_theme: "50's", 
 address: "73 Bushwick Ave, Brooklyn, NY 11211", 
 longitude: -74.005333,
 latitude: 40.735421,
@@ -199,7 +214,7 @@ listing8.photos.attach(io: file3, filename: 'b92f00c5f959c25884c53efbc072e894.jp
 listing9 = Listing.create({
 title: "In the Heart of the Bar Scene",    
 description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "Goth Vibes", 
+era_theme: "80's", 
 address: "90 5th Ave, New York, NY 10011", 
 longitude: -74.003149,
 latitude: 40.731491, 
@@ -217,7 +232,7 @@ listing9.photos.attach(io: file4, filename: 'colorbld.jpeg')
 listing10 = Listing.create({
     title: "You're Gonna DIE for These Views",    
     description: Faker::TvShows::Seinfeld.quote  ,
-    era_theme: "Gordon Gecko", 
+    era_theme: "90's", 
     address: "55 Broad St, New York, NY 10004", 
     longitude: -74.000532,
     latitude: 40.731503,
@@ -235,7 +250,7 @@ listing10.photos.attach(io: file5, filename: 'ELI040119_RENTALS_Guide_001.jpeg')
 listing11 = Listing.create({
 title: "Minutes from Transit and Nightlife",    
 description: Faker::TvShows::Seinfeld.quote,
-era_theme: "80's Night!", 
+era_theme: "80's", 
 address: "405 Lexington Ave, New York, NY 10174", 
 longitude: -73.979953,
 latitude: 40.73496, 
@@ -253,7 +268,7 @@ listing11.photos.attach(io: file1, filename: 'feature.jpeg')
 listing12 = Listing.create({
 title: "You Should Stop Looking and Book This",    
 description: Faker::TvShows::Seinfeld.quote,
-era_theme: "Roaring 20s", 
+era_theme: "60's", 
 address: "1 Columbus Circle,
 Manhattan, New York City", 
 longitude: -73.988714,
@@ -272,7 +287,7 @@ listing12.photos.attach(io: file2, filename: 'gray-house-with-green-lawn-e147872
 listing13 = Listing.create({
 title: "Modern Modern TRES MODERN!",    
 description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "50s Chic", 
+era_theme: "50's", 
 address: "73 Bushwick Ave, Brooklyn, NY 11211", 
 longitude: -73.952487,
 latitude: 40.729698,
@@ -290,7 +305,7 @@ listing13.photos.attach(io: file3, filename: 'houseonrockserbia.png')
 listing14 = Listing.create({
 title: "Gothic Vampire Velour Hedonistic Thrill Nest",    
 description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "Goth Vibes", 
+era_theme: "70's", 
 address: "90 5th Ave, New York, NY 10011", 
 longitude: -73.941039,
 latitude: 40.72437, 
@@ -323,206 +338,206 @@ listing14.photos.attach(io: file4, filename: 'images.jpeg')
 # file6 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/The-Highlands_Pierce-Balcony-Rendering.jpeg')
 # listing6.photos.attach(io: file6, filename: 'The-Highlands_Pierce-Balcony-Rendering.jpeg')
 
-listing20 = Listing.create({
-    title: "Outdoor Paradise!",    
-    description: Faker::TvShows::Seinfeld.quote  ,
-    era_theme: "Gordon Gecko", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -73.966311,
-    latitude: 40.789948,
-    num_bedrms: Faker::Number.within(range: 1..5), 
-    num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
-    clean_fee: Faker::Number.within(range: 1..40), 
-    service_fee: Faker::Number.within(range: 1..30),
-    host_id: user1.id
-}) 
+# listing20 = Listing.create({
+#     title: "Outdoor Paradise!",    
+#     description: Faker::TvShows::Seinfeld.quote  ,
+#     era_theme: "90's", 
+#     address: "55 Broad St, New York, NY 10004", 
+#     longitude: -73.966311,
+#     latitude: 40.789948,
+#     num_bedrms: Faker::Number.within(range: 1..5), 
+#     num_baths: Faker::Number.within(range: 1..5), 
+#     price: Faker::Number.within(range: 100..600), 
+#     clean_fee: Faker::Number.within(range: 1..40), 
+#     service_fee: Faker::Number.within(range: 1..30),
+#     host_id: user1.id
+# }) 
 
-file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/SO1633-01.jpg-nggid041647-ngg0dyn-360x0-00f0w010c010r110f110r010t010.jpg')
-listing20.photos.attach(io: file5, filename: 'SO1633-01.jpg-nggid041647-ngg0dyn-360x0-00f0w010c010r110f110r010t010.jpg')
+# file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/SO1633-01.jpg-nggid041647-ngg0dyn-360x0-00f0w010c010r110f110r010t010.jpg')
+# listing20.photos.attach(io: file5, filename: 'SO1633-01.jpg-nggid041647-ngg0dyn-360x0-00f0w010c010r110f110r010t010.jpg')
 
-listing21 = Listing.create({
-title: "Urban Enchantment",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "80's Night!", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -73.950343,
-latitude: 40.78661, 
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user4.id
-}) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/the-olivia-new-york-ny-building-photo.jpeg')
-listing21.photos.attach(io: file1, filename: 'the-olivia-new-york-ny-building-photo.jpeg')
-
-
-listing22 = Listing.create({
-title: "Wine and Dine on the Patio",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "Roaring 20s", 
-address: "1 Columbus Circle,
-Manhattan, New York City", 
-longitude: -73.94436,
-latitude: 40.787983,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user5.id
-}) 
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/waterfallhome.jpeg')
-listing22.photos.attach(io: file2, filename: 'waterfallhome.jpeg')
+# listing21 = Listing.create({
+# title: "Urban Enchantment",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "80's Night!", 
+# address: "405 Lexington Ave, New York, NY 10174", 
+# longitude: -73.950343,
+# latitude: 40.78661, 
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user4.id
+# }) 
+# file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/the-olivia-new-york-ny-building-photo.jpeg')
+# listing21.photos.attach(io: file1, filename: 'the-olivia-new-york-ny-building-photo.jpeg')
 
 
-listing23 = Listing.create({
-title: "A Perfect Place for the Whole Family",    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "50s Chic", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -73.940004,
-latitude: 40.789575,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user5.id
-}) 
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/07SUBCOLIVE2-jumbo.jpeg')
-listing23.photos.attach(io: file3, filename: '07SUBCOLIVE2-jumbo.jpeg')
+# listing22 = Listing.create({
+# title: "Wine and Dine on the Patio",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "60's", 
+# address: "1 Columbus Circle,
+# Manhattan, New York City", 
+# longitude: -73.94436,
+# latitude: 40.787983,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user5.id
+# }) 
+# file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/waterfallhome.jpeg')
+# listing22.photos.attach(io: file2, filename: 'waterfallhome.jpeg')
 
 
-listing24 = Listing.create({
-title: "You'll Die Someday so Live It Up Now",    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "Goth Vibes", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -73.989815,
-latitude: 40.750226, 
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user2.id
-}) 
-file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/12highend-greenpoint2-jumbo.jpeg')
-listing24.photos.attach(io: file4, filename: '12highend-greenpoint2-jumbo.jpeg')
+# listing23 = Listing.create({
+# title: "A Perfect Place for the Whole Family",    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: "50's", 
+# address: "73 Bushwick Ave, Brooklyn, NY 11211", 
+# longitude: -73.940004,
+# latitude: 40.789575,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user5.id
+# }) 
+# file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/07SUBCOLIVE2-jumbo.jpeg')
+# listing23.photos.attach(io: file3, filename: '07SUBCOLIVE2-jumbo.jpeg')
 
 
-listing25 = Listing.create({
-    title: "Nothing Can Beat This Apartment",    
-    description: Faker::TvShows::Seinfeld.quote  ,
-    era_theme: "Gordon Gecko", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -74.00013,
-    latitude: 40.746152,
-    num_bedrms: Faker::Number.within(range: 1..5), 
-    num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
-    clean_fee: Faker::Number.within(range: 1..40), 
-    service_fee: Faker::Number.within(range: 1..30),
-    host_id: user1.id
-}) 
-
-file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/greenpoint-market-brooklyn-ny-primary-photo.jpeg')
-listing25.photos.attach(io: file5, filename: 'greenpoint-market-brooklyn-ny-primary-photo.jpeg')
-
-
-listing26 = Listing.create({
-title: "A Designer's dream!",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "80's Night!", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -74.0113,
-latitude: 40.71152, 
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user4.id
-}) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/poolhousemodern.jpg')
-listing26.photos.attach(io: file1, filename: 'poolhousemodern.jpg')
+# listing24 = Listing.create({
+# title: "You'll Die Someday so Live It Up Now",    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: "Goth Vibes", 
+# address: "90 5th Ave, New York, NY 10011", 
+# longitude: -73.989815,
+# latitude: 40.750226, 
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user2.id
+# }) 
+# file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/12highend-greenpoint2-jumbo.jpeg')
+# listing24.photos.attach(io: file4, filename: '12highend-greenpoint2-jumbo.jpeg')
 
 
-listing27 = Listing.create({
-title: "Great Views and Huge Closets!",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "Roaring 20s", 
-address: "1 Columbus Circle,
-Manhattan, New York City", 
-longitude: -73.97586,
-latitude: 40.785997,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user5.id
-}) 
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/modern-city-architecture.jpg')
-listing27.photos.attach(io: file2, filename: 'modern-city-architeture.jpg')
+# listing25 = Listing.create({
+#     title: "Nothing Can Beat This Apartment",    
+#     description: Faker::TvShows::Seinfeld.quote  ,
+#     era_theme: "Gordon Gecko", 
+#     address: "55 Broad St, New York, NY 10004", 
+#     longitude: -74.00013,
+#     latitude: 40.746152,
+#     num_bedrms: Faker::Number.within(range: 1..5), 
+#     num_baths: Faker::Number.within(range: 1..5), 
+#     price: Faker::Number.within(range: 100..600), 
+#     clean_fee: Faker::Number.within(range: 1..40), 
+#     service_fee: Faker::Number.within(range: 1..30),
+#     host_id: user1.id
+# }) 
+
+# file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/greenpoint-market-brooklyn-ny-primary-photo.jpeg')
+# listing25.photos.attach(io: file5, filename: 'greenpoint-market-brooklyn-ny-primary-photo.jpeg')
 
 
-listing28 = Listing.create({
-title: "Best Place to Enjoy All NYC has to Offer!",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "50s Chic", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -73.9430,
-latitude: 40.7128,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user5.id
-}) 
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/winterdusk.jpg')
-listing28.photos.attach(io: file3, filename: 'winterdusk.jpeg')
+# listing26 = Listing.create({
+# title: "A Designer's dream!",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "80's Night!", 
+# address: "405 Lexington Ave, New York, NY 10174", 
+# longitude: -74.0113,
+# latitude: 40.71152, 
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user4.id
+# }) 
+# file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/poolhousemodern.jpg')
+# listing26.photos.attach(io: file1, filename: 'poolhousemodern.jpg')
 
 
-listing29 = Listing.create({
-title: "We Got Luxury Coming Out of Our You-Know-Whats!",    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "Goth Vibes", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -73.966003,
-latitude: 40.773998, 
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user2.id
-}) 
-file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/this-view-is-so-relaxing.jpg')
-listing29.photos.attach(io: file4, filename: 'this-view-is-so-relaxing.jpg')
+# listing27 = Listing.create({
+# title: "Great Views and Huge Closets!",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "Roaring 20s", 
+# address: "1 Columbus Circle,
+# Manhattan, New York City", 
+# longitude: -73.97586,
+# latitude: 40.785997,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user5.id
+# }) 
+# file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/modern-city-architecture.jpg')
+# listing27.photos.attach(io: file2, filename: 'modern-city-architeture.jpg')
 
 
-listing30 = Listing.create({
-    title: "Contemporay Love Nest",    
-    description: Faker::TvShows::Seinfeld.quote  ,
-    era_theme: "Gordon Gecko", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -74.0114,
-    latitude: 40.7053,
-    num_bedrms: Faker::Number.within(range: 1..5), 
-    num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
-    clean_fee: Faker::Number.within(range: 1..40), 
-    service_fee: Faker::Number.within(range: 1..30),
-    host_id: user1.id
-}) 
+# listing28 = Listing.create({
+# title: "Best Place to Enjoy All NYC has to Offer!",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "50s Chic", 
+# address: "73 Bushwick Ave, Brooklyn, NY 11211", 
+# longitude: -73.9430,
+# latitude: 40.7128,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user5.id
+# }) 
+# file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/winterdusk.jpg')
+# listing28.photos.attach(io: file3, filename: 'winterdusk.jpeg')
 
-file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/colorbld.jpeg')
-listing30.photos.attach(io: file5, filename: 'colorbld.jpeg')
+
+# listing29 = Listing.create({
+# title: "We Got Luxury Coming Out of Our You-Know-Whats!",    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: "Goth Vibes", 
+# address: "90 5th Ave, New York, NY 10011", 
+# longitude: -73.966003,
+# latitude: 40.773998, 
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user2.id
+# }) 
+# file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/this-view-is-so-relaxing.jpg')
+# listing29.photos.attach(io: file4, filename: 'this-view-is-so-relaxing.jpg')
+
+
+# listing30 = Listing.create({
+#     title: "Contemporay Love Nest",    
+#     description: Faker::TvShows::Seinfeld.quote  ,
+#     era_theme: "Gordon Gecko", 
+#     address: "55 Broad St, New York, NY 10004", 
+#     longitude: -74.0114,
+#     latitude: 40.7053,
+#     num_bedrms: Faker::Number.within(range: 1..5), 
+#     num_baths: Faker::Number.within(range: 1..5), 
+#     price: Faker::Number.within(range: 100..600), 
+#     clean_fee: Faker::Number.within(range: 1..40), 
+#     service_fee: Faker::Number.within(range: 1..30),
+#     host_id: user1.id
+# }) 
+
+# file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/colorbld.jpeg')
+# listing30.photos.attach(io: file5, filename: 'colorbld.jpeg')
 
 booking1 = 
   Booking.create(

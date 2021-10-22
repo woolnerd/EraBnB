@@ -29,14 +29,25 @@ class Users extends React.Component {
     let listings;
     let bookings;
 
-
-   listings = this.state.listings.map((listing) => (
+   listings = this.state.listings.map((listing) => {
+    debugger
+    return (
      <Link to={`/listings/${listing.listing.id}`}>
-       <div key={listing.id}>
-         <h3>{listing.listing.title}</h3>
+       <div key={listing.id} className="user-listing-container">
+         <img src={`${listing.photoUrl[0]}`} alt="Listing Picture" />
+         <div className="listing-date-location">
+           <h5>Era theme: {listing.listing.era_theme}</h5>
+           <h3 className="listing-address-profile">{listing.listing.address}</h3>
+         </div>
+         <div className="listing-descrp-pic">
+           <img src={`${listing.photoUrl[0]}`}alt="Listing Thumbnail" className="thumbnail-trip" />
+           <h5>{listing.listing.description}</h5>
+         </div>
        </div>
      </Link>
-   ));
+    )
+   })
+  //  ));
 
    bookings =  this.state.bookings.map((booking) => {
       return (
@@ -72,16 +83,18 @@ class Users extends React.Component {
           </div>
         </div>
         <div className="user-host-guest-container">
-          <div className="user-listings">
-            <h2>Your listings: </h2>
-            {listings}
-            <br />
+          <div className="listings-create">
+            <h2>Your listings </h2>
             <Link to="/new/listing">
-              <h3 className="user-btn">Create a New Listing</h3>
+              <h3 className="classy-btn">Create a New Listing</h3>
             </Link>
           </div>
+          <div className="user-listings">
+              {listings}
+              <br />
+          </div>
+          <h2>Your Trips: </h2>
           <div className="user-trips">
-            <h2>Your Trips: </h2>
             {bookings}
             <br />
             <Link to="/listings">

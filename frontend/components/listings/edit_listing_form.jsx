@@ -149,11 +149,11 @@ class EditListingForm extends React.Component {
                     onChange={this.update("era_theme")}
                   >
                     <option disabled>--Please choose an Era--</option>
-                    <option value="50s">50s</option>
-                    <option value="60s">60s</option>
-                    <option value="70s">70s</option>
-                    <option value="80s">80s</option>
-                    <option value="90s">90s</option>
+                    <option value="50's">50's</option>
+                    <option value="60's">60's</option>
+                    <option value="70's">70's</option>
+                    <option value="80's">80's</option>
+                    <option value="90's">90's</option>
                   </select>
                 </div>
                 <div className="listing-form-addrs">

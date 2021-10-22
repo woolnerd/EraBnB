@@ -40,24 +40,24 @@
     height:80px;
     // background-color: red;
 }
-.user-listings, .user-trips {
-    height: 150px;
-    width: 600px;
-    height: fit-content;
-    padding-left: 19rem;
-    margin: 0 auto;
-    /* flex-wrap: nowrap; */
-    margin: 30px;
-    padding: 30px;
-    border: 1px solid black;
-    border-radius: 20px;
-    box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
-    h3 {
-        text-decoration: none;
-            text-align: center;
+// .user-listings, .user-trips {
+//     height: 150px;
+//     width: 600px;
+//     height: fit-content;
+//     padding-left: 19rem;
+//     margin: 0 auto;
+//     /* flex-wrap: nowrap; */
+//     margin: 30px;
+//     padding: 30px;
+//     border: 1px solid black;
+//     border-radius: 20px;
+//     box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
+//     h3 {
+//         text-decoration: none;
+//             text-align: center;
 
-    }
-}
+//     }
+// }
 
 .today-banner {
     height: 150px;
@@ -125,4 +125,117 @@ width: 100%;
     text-decoration: none !important;
     padding-top: 9px;
     cursor: pointer;
+}
+
+
+.listing-date-location h5 {
+    font-size: 12px;
+    color: lightgrey;
+    padding-bottom: 5px;
+}
+
+.user-host-guest-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.user-listing-container  > img {
+    width: 100%;
+    object-fit: cover;
+    height: 50%;
+    border-radius: 19px 19px 0 0;
+    // margin: 1rem;
+}
+
+.user-listings, .user-trips {
+    height: 150px;
+    width: 600px;
+    height: fit-content;
+    /* padding-left: 19rem; */
+    /* margin: 0 auto; */
+    /* flex-wrap: nowrap; */
+    /* margin: 30px; */
+    /* padding: 30px; */
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    /* box-shadow: 11px 9px 22px -8px rgba(0, 0, 0, 0.85); */
+}
+
+.user-listing-container {
+    width: 450px;
+    border-radius: 19px;
+    height: 400px;
+    box-shadow: 1px -4px 49px -22px;
+    color: gray;
+}
+
+
+.user-listings h3, .user-trips h3 {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+.listing-descrp-pic {
+    display: flex;
+    /* margin: 0 auto; */
+    align-items: center;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+.listing-descrp-pic img {
+    border-radius: 10px;
+    // padding-right: 12px;
+}
+
+.listing-descrp-pic h5 {
+    color: black;
+}
+
+.thumbnail-trip {
+    width: 4rem;
+}
+
+.listing-date-location {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-between;
+    margin-left: 48px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+h3.listing-address-profile {
+    padding: 5px 0 0 0px;
+}
+
+.user-listings {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1rem;
+    width: 91rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.user-listings a {
+    margin: 1rem;
+}
+
+.thumbnail-trip {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right:10px;
+}
+.listings-create {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 2rem;
+    border-bottom: 1px solid lightgray;
 }
