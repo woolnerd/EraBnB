@@ -1,6 +1,7 @@
 import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 
 class ListingForm extends React.Component {
   constructor(props) {
@@ -33,9 +34,8 @@ class ListingForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    if (this.state.photos.length < 5) {
-       
-    }
+    this.props.clearListingErrors();
+    this.props.clearSessionErrors();
 
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
@@ -69,11 +69,7 @@ class ListingForm extends React.Component {
         formData.append("listing[service_fee]", this.state.service_fee);
         formData.append("listing[host_id]", this.state.host_id);
 
-        // if (this.state.photos.length < 5) {
-        //   this.props.photosLengthError();
-        //   return
-        // }
-
+   
         for (let i = 0; i < this.state.photos.length; i++) {
           formData.append("listing[photos][]", this.state.photos[i]);
         }
@@ -83,7 +79,7 @@ class ListingForm extends React.Component {
           .then((res) =>
             this.props.history.push(`/listings/${res.listing.id}`)
           );
-      }).catch((err)=>this.props.invalidAddress())
+      }).catch((err)=> this.props.invalidAddress())
   }
 
   onPhotoInput(e) {
@@ -101,9 +97,12 @@ class ListingForm extends React.Component {
   renderErrors() {
     return this.props.errors.length ? (
       <div className="error-container">
-        <ul className="form-errors">
+        <ul className="form-errors" id="create-form-errors">
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
+            <>
+              <BsFillExclamationCircleFill />
+              <li key={`error-${i}`}>{error}</li>
+            </>
           ))}
         </ul>
       </div>
@@ -238,6 +237,7 @@ class ListingForm extends React.Component {
                   </div>
                 </div>
               </div>
+              {this.renderErrors()}
               {/* <img src="" height="200" alt="Image preview..." /> */}
               <div className="listing-form-photo">
                 <label>Upload Photos (5 photos minimum)</label>
@@ -246,10 +246,12 @@ class ListingForm extends React.Component {
                   accept=".png, .jpg, .jpeg"
                   onChange={(e) => this.setState({ photos: e.target.files })}
                   multiple
+                  min="5"
+                  required
                 />
                 {preview}
               </div>
-              {this.renderErrors()}
+              
               <input
                 className="session-submit"
                 type="submit"

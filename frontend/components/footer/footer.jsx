@@ -4,7 +4,7 @@ import React from 'react';
 export const Footer = () => (
   <div id="footer">
     <div className="footer-container">
-      <ul>
+      <ul className="footer-ul">
         <li className="top-col">About me</li>
         <li>
           {" "}

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { createListing, invalidAddress } from "../../actions/listing_actions";
+import { createListing, invalidAddress, clearListingErrors } from "../../actions/listing_actions";
+import { clearSessionErrors } from "../../actions/session_actions";
 import ListingForm from "./listing_form";
 
 
@@ -30,6 +31,8 @@ const mDTP = (dispatch) => ({
     action: (formData, photosLength) => dispatch(createListing(formData, photosLength)),
     fetchListing: () => dispatch(fetchListing()),
     invalidAddress: () => dispatch(invalidAddress()),
+    clearListingErrors: () => dispatch(clearListingErrors()),
+    clearSessionErrors: () => dispatch(clearSessionErrors())
 });
 
 

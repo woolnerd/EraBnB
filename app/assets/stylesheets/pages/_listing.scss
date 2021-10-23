@@ -100,7 +100,7 @@
    padding-top: 20px;
     margin-top: 50px;
     width: 28rem;
-    height: 38rem;
+    // height: 38rem;
     background-color: #fff;
     padding: 10px;
     border-radius: 20px;
@@ -108,6 +108,7 @@
     flex-direction: column;
     // box-shadow: 12px 12px 8px rgb(0 0 0 / 9%);
     box-sizing: border-box;
+    min-height: fit-content;
 }
 
 // .signup-form-box {
@@ -151,6 +152,7 @@ button.session-submit.sml-btn {
     object-fit: cover;
     border-radius: 15px 0 0 15px;
     margin-right: 3px;
+    max-height: 600px;
 }
 
 .adtl-photos-col-1 {
@@ -463,3 +465,13 @@ div#bottom-right-photo img {
 .form-photo-preview {
     width: 100px;
 }
+
+.listing-form-box .listing-form .error-container #create-form-errors {
+    display: flex;
+    display: row !important;
+    font-size: 12px; 
+    padding-right: 4px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+

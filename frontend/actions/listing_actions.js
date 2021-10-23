@@ -6,6 +6,7 @@ export const RECEIVE_LISTING = `RECEIVE_LISTING`;
 export const REMOVE_LISTING = `REMOVE_LISTING`;
 export const PHOTOS_LENGTH_ERROR = `PHOTOS_LENGTH_ERROR`;
 export const INVALID_ADDRESS = `INVALID_ADDRESS`;
+export const CLEAR_LISTING_ERRORS = `CLEAR_LISTING_ERRORS`
 
 
 const receiveAllListings = listings => ({
@@ -33,6 +34,11 @@ export const invalidAddress = () => ({
   error: "Please double check your address"
 });
 
+export const clearListingErrors = () => ({
+  type: CLEAR_LISTING_ERRORS
+})
+
+
 export const fetchListings = (query) => dispatch => (
     APIListingUtil.fetchListings(query)
     .then( listings => dispatch(receiveAllListings(listings)))
@@ -50,17 +56,13 @@ export const fetchListing = (listingId) => (dispatch) =>
     (error) => dispatch(receiveErrors(error.responseJSON))
   );
 
-export const createListing = (formData, photosLength) => dispatch => {
-  if (photosLength < 5) {
-    dispatch(photosLengthError())
-  } else {
+export const createListing = (formData) => dispatch => {
     return (
       APIListingUtil.createListing(formData)
       .then( listing => dispatch(receiveListing(listing)),
       (error) => dispatch(receiveErrors(error.responseJSON))
       )
     )
-  }
 }
 
 

@@ -1,6 +1,8 @@
 import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
+
 
 class EditListingForm extends React.Component {
   constructor(props) {
@@ -38,6 +40,9 @@ class EditListingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
+    this.props.clearListingErrors();
+    this.props.clearSessionErrors();
 
     mapboxgl.accessToken =
       "pk.eyJ1IjoiZGF2aWR3b29sbmVyIiwiYSI6ImNrdGFlbmh1bzFsNDUyd3BsYzI1ZGp3ZnUifQ.TTV5klimEC0SfR3MZDEauA";
@@ -79,7 +84,7 @@ class EditListingForm extends React.Component {
           .then((res) =>
             this.props.history.push(`/listings/${res.listing.id}`)
           );
-      });
+      }).catch((err)=> this.props.invalidAddress())
   }
 
   onPhotoInput(e) {
@@ -97,9 +102,12 @@ class EditListingForm extends React.Component {
   renderErrors() {
     return this.props.errors.length ? (
       <div className="error-container">
-        <ul className="form-errors">
+        <ul className="form-errors" id="create-form-errors" >
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
+            <>
+              <BsFillExclamationCircleFill />
+              <li key={`error-${i}`}>{error}</li>
+            </>
           ))}
         </ul>
       </div>
@@ -119,8 +127,7 @@ class EditListingForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="listing-form-box">
             <h2>Welcome to erabnb!</h2>
             <br />
-            <p>Please {this.props.formType}</p>
-            {/* {this.renderErrors()} */}
+            <p>Please update your listing</p>
             <div className="listing-form">
               <div className="head-form-cont">
                 <div className="listing-title">
@@ -237,6 +244,7 @@ class EditListingForm extends React.Component {
                   </div>
                 </div>
               </div>
+                {this.renderErrors()}
               {/* <img src="" height="200" alt="Image preview..." /> */}
               <div className="listing-form-photo">
                 <label>Upload Photos (5 photos minimum)</label>
@@ -248,11 +256,10 @@ class EditListingForm extends React.Component {
                 />
                 {/* {preview} */}
               </div>
-              {this.renderErrors()}
               <input
                 className="session-submit"
                 type="submit"
-                value={this.props.formType}
+                value="Update listing"
               />
             </div>
           </form>
