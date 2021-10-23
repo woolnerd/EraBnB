@@ -39,6 +39,7 @@ class Listing extends React.Component {
   }
 
   toggleReviewForm() {
+    this.props.clearReviewErrors();
     this.state.openReviewForm
       ? this.setState({ openReviewForm: false })
       : this.setState({ openReviewForm: true });
@@ -104,6 +105,21 @@ class Listing extends React.Component {
       <h1>Sorry No Photos</h1>
     );
 
+    
+    // for (let i = 0; i <= 5 - listing.photoUrl.length;i++){
+    //        <img
+    //       key={i}
+    //       src={listing.photoUrl[i]}
+    //       alt="listing-photo"
+    //       className="listing-img"
+    //       id={idx === 0 ? "main-photo" : ""}
+    //     />
+    // }
+      
+
+    
+
+
     const bookings = listing.bookings.length ? (
       listing.bookings.map((booking, idx) => {
         return (
@@ -154,6 +170,8 @@ class Listing extends React.Component {
     if (!listing.host) {
       return null;
     }
+
+
     return (
       { listing } && (
         <>
@@ -168,7 +186,7 @@ class Listing extends React.Component {
                 ({listing.reviews.length}{" "}
                 {listing.reviews.length === 1 ? "review" : "reviews"})
                 <span>&middot;</span>
-                {listing.address.split(" ").slice(-3, -1).join(" ")}
+                {formatAddress(listing.address)}
               </p>
             </div>
           </div>
@@ -279,5 +297,12 @@ class Listing extends React.Component {
     );
   }
 }
+
+  const formatAddress = (address) => {
+    let city = address.split(",").slice(-2)[0].trim()
+    let state = address.split(",").slice(-2)[1].trim().split(" ")[0]
+    return [city, state].join(", ");
+  }
+
 
 export default Listing;
