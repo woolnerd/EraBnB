@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import { createListing } from "../../actions/listing_actions";
+import { createListing, invalidAddress } from "../../actions/listing_actions";
 import ListingForm from "./listing_form";
-
 
 
 
@@ -23,14 +22,14 @@ const mSTP = (state) => {
         photoUrl: null,
         photos: []
       },
-      errors: state.errors.session
+      errors: state.errors.session.concat(state.errors.listing)
     };
 };
 
 const mDTP = (dispatch) => ({
-    action: (formData) => dispatch(createListing(formData)),
+    action: (formData, photosLength) => dispatch(createListing(formData, photosLength)),
     fetchListing: () => dispatch(fetchListing()),
-    throwError: () => dispatch()
+    invalidAddress: () => dispatch(invalidAddress()),
 });
 
 

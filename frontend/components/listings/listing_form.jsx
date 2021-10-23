@@ -69,16 +69,21 @@ class ListingForm extends React.Component {
         formData.append("listing[service_fee]", this.state.service_fee);
         formData.append("listing[host_id]", this.state.host_id);
 
+        // if (this.state.photos.length < 5) {
+        //   this.props.photosLengthError();
+        //   return
+        // }
+
         for (let i = 0; i < this.state.photos.length; i++) {
           formData.append("listing[photos][]", this.state.photos[i]);
         }
 
         this.props
-          .action(formData)
+          .action(formData, this.state.photos.length)
           .then((res) =>
             this.props.history.push(`/listings/${res.listing.id}`)
           );
-      }).catch(err=>console.log("Please double check you have entered a valid address"))
+      }).catch((err)=>this.props.invalidAddress())
   }
 
   onPhotoInput(e) {
@@ -144,7 +149,7 @@ class ListingForm extends React.Component {
                     value={this.state.era_theme}
                     onChange={this.update("era_theme")}
                   >
-                    <option disabled>--Please choose an Era--</option>
+                    <option value="">--Please choose an Era--</option>
                     <option value="50's">50's</option>
                     <option value="60's">60's</option>
                     <option value="70's">70's</option>

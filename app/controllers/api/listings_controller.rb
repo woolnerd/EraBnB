@@ -68,8 +68,12 @@ class Api::ListingsController < ApplicationController
                 end 
                  booked_ranges.all? {|range| !range.include?(desired_check_in)} &&
                  booked_ranges.all? {|range| !range.include?(desired_check_out)}
-            end 
+            end
 
+        if params.values[0]["era_theme"]
+            @listings = @listings.select { |listing| listing.era_theme == params.values[0]["era_theme"]}
+        end 
+        
         render "api/listings/index"
     end
 
