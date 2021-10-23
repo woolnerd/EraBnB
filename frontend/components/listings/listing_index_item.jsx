@@ -1,14 +1,19 @@
 import React from "react";  
 import { Link } from 'react-router-dom';
+import { AiFillStar } from 'react-icons/ai'
 
-export const ListingIndexItem = ({ listing}) => (
+
+export const ListingIndexItem = ({ listing}) => {
+  // debugger
+  return (
+
   <div className="listing-item">
     <Link to={`/listings/${listing.id}`}>
       <img src={listing.photoUrl[0]} alt="" />
     </Link>
     <div className="listing-info">
       <span>
-        <p>Entire unit in Brooklyn</p>
+        {/* <p>Entire unit in Brooklyn</p> */}
         <h3>{listing.title}</h3>
       </span>
       <p>{listing.description}</p>
@@ -18,24 +23,27 @@ export const ListingIndexItem = ({ listing}) => (
         <span> Bathrooms {listing.num_baths}</span>
       </p>
       <div className="rating-price-cont">
-        <span className="item-price">
-          <p className="special">${listing.price}/night</p>
-        </span>
-        <span className="avg-rating">
-          {listing.reviews.length && listing.reviews.rating ? (
+        {/* <span className="item-price"> */}
+          <p className="special item-price">${listing.price}/night</p>
+        {/* </span> */}
+        {/* <span className="avg-rating"> */}
+          {listing.reviews.length ? (
             <p className="special">
-              star {getAvgRating(listing.reviews)} ({listing.reviews.length})
+              <AiFillStar className="star"/> 
+              <h4>{getAvgRating(listing.reviews)} ({listing.reviews.length} {listing.reviews.length > 1 ? "reviews" : "review"})</h4>
             </p>
           ) : (
-            <p className="special">
-              No reviews yet!
-            </p>
+            // <p className="special">
+            //   No reviews yet
+            // </p>
+            null
           )}
-        </span>
+        {/* </span> */}
       </div>
     </div>
   </div>
-);
+  )
+}
 
 export const getAvgRating = (reviews) => {
 
@@ -45,8 +53,8 @@ export const getAvgRating = (reviews) => {
   
       reviews.map((review) => review.rating)
              .reduce((acc, curVal) => acc + curVal) 
-             / reviews.length 
-      )
+             / reviews.length).toFixed(1)
+      
   }
   }
 

@@ -208,7 +208,7 @@ class Listing extends React.Component {
             <div className="body-booking">
               <div className="listing-body">
                 <p>{listing.description}</p>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Pellentesque massa placerat duis ultricies. Scelerisque varius
@@ -226,7 +226,7 @@ class Listing extends React.Component {
                   ullamcorper sit amet risus nullam. Suspendisse interdum
                   consectetur libero id. Magna fermentum iaculis eu non diam
                   phasellus vestibulum lorem sed.
-                </p>
+                </p> */}
               </div>
 
               <div className="booking-container">

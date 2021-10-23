@@ -18,6 +18,7 @@
     width: 18.75rem;
     height: 12.5rem;
     border-radius: 15px;
+    object-fit: cover;
 
 }
 
@@ -94,7 +95,7 @@
     font-size: 20px;
     font-weight: 500;
     padding-top: 15%;   
-    margin-left: 23rem;
+    // margin-left: 23rem;
 }
 
 .listing-form-box {
@@ -108,6 +109,7 @@
     font-size: 20px !important;
     color: black !important;
     font-weight: 500;
+    display: flex;
 }
 
 
@@ -139,3 +141,46 @@
 }
 }
 
+.star {
+    color:#e9284c;
+}
+
+.rating-price-cont {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    width: 100%;
+}
+.listing-info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: .5rem;
+    margin: .5rem;
+    width: 100%;
+}
+
+p.special {
+    display: flex;
+    align-items: center;
+}
+
+.listing-info h3 {
+    font-size: 1.25rem;
+    /* padding: 10px; */
+    padding-bottom: 5px;
+    padding-left: 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.rating-price-cont .special p {
+    font-size: 14px;
+}
+.listing-info p {
+    font-size: .75rem;
+    color: #828282;
+    padding: 2px 0;
+    padding-left: 8px;
+}
