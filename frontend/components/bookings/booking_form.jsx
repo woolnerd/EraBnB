@@ -32,17 +32,18 @@ class BookingForm extends React.Component {
   }
 
   handleSubmit() {
-    if (this.state.booking.guests !== "") {
-      if (this.dateCheck()) {
+    // debugger
+    // if (this.state.booking.guests !== "") {
+      // if (this.dateCheck()) {
         this.props
           .createBooking(this.state.booking)
           .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
-        this.setState({ showError: false });
+        // this.setState({ showError: false });
         this.props.clearErrors();
-      } else {
-        this.setState({ showError: true });
-      }
-    }
+      // } else {
+        // this.setState({ showError: true });
+      // }
+    // }
 
   }
 
@@ -108,13 +109,13 @@ class BookingForm extends React.Component {
 
   renderErrors() {
     return this.state.errors.length ? (
-      <div className="error-container">
-        <ul className="form-errors">
+      <div key={`booking-error-${Math.random()}`}className="error-container">
+        <ul key={`booking-error-${Math.random()}`}className="form-errors">
           {this.state.errors.map((error, i) => (
             <>
-              <div className="error-item">
+              <div key={`booking-error-${i * Math.random()}`} className="error-item">
                 <BsFillExclamationCircleFill className="exclamation" />
-                <li key={`booking-error-${i}`}>{error}</li>
+                <li key={`booking-error-${i * Math.random() * 2}`}>{error}</li>
               </div>
             </>
           ))}
@@ -176,6 +177,11 @@ class BookingForm extends React.Component {
       this.setState({booking})
       this.props.clearErrors();
     }
+
+    if (this.state.errors !== this.props.errors) {
+      this.setState({errors: this.props.errors})
+    }
+
   }
 
   render() {
@@ -275,12 +281,12 @@ class BookingForm extends React.Component {
               </div>
             </div>
           </div>
-          {/* <div
+          <div
             className={"booking-errors" + (this.state.showError ? "" : " hide")}
           >
             <BsFillExclamationCircleFill />
             <p>Please enter valid dates</p>
-          </div> */}
+          </div>
           {this.renderErrors()}
           <div className="btn-cont">
             {this.state.booking.check_in !== "" &&
@@ -290,7 +296,7 @@ class BookingForm extends React.Component {
             ? (
               <button onClick={() => this.handleSubmit()}>Reserve</button>
             ) : (
-              <button onClick={() => this.handleErrors()}>
+              <button onClick={() => this.handleSubmit()}>
                 Check availability
               </button>
             )}

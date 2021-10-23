@@ -192,7 +192,7 @@ class Listing extends React.Component {
           </div>
           <div className="listing-container">
             <div className="listing-info-show">
-              <h3>Era theme by {listing.host.first_name}</h3>
+              <h3>{listing.era_theme} Era theme by {listing.host.first_name}</h3>
               <div className="room-details">
                 <p>{listing.num_bedrms} beds</p>
                 <p>&middot;</p>

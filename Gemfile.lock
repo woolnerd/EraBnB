@@ -105,6 +105,9 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    date_validator (0.12.0)
+      activemodel (>= 3)
+      activesupport (>= 3)
     debug_inspector (1.1.0)
     erubi (1.10.0)
     faker (2.19.0)
@@ -238,6 +241,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  date_validator
   faker
   jbuilder (~> 2.7)
   jquery-rails
