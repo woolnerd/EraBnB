@@ -16,7 +16,7 @@ export const ListingIndexItem = ({ listing}) => {
         {/* <p>Entire unit in Brooklyn</p> */}
         <h3>{listing.title}</h3>
       </span>
-      <p>{listing.description}</p>
+      <p>{listing.description.split(" ").slice(0, 30).join(" ")+"..."}</p>
       <p>{listing.address}</p>
       <p>
         Bedrooms {listing.num_bedrms}{" "}
@@ -53,7 +53,7 @@ export const getAvgRating = (reviews) => {
   
       reviews.map((review) => review.rating)
              .reduce((acc, curVal) => acc + curVal) 
-             / reviews.length).toFixed(1)
+             / reviews.length)
       
   }
   }

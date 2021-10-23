@@ -247,7 +247,7 @@ class Listing extends React.Component {
                   <AiFillStar className="review-star" />
                   <h3>
                     {!!listing.reviews.length
-                      ? getAvgRating(listing.reviews).toFixed(1)
+                      ? getAvgRating(listing.reviews)
                       : null}
                     <span>&middot;</span>
                     <span>
