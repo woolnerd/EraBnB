@@ -40,7 +40,7 @@ class EditListingForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
+    
     this.props.clearListingErrors();
     this.props.clearSessionErrors();
 
