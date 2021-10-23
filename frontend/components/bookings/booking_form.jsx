@@ -32,8 +32,10 @@ class BookingForm extends React.Component {
   }
 
   handleSubmit() {
-    // debugger
-    // if (this.state.booking.guests !== "") {
+    debugger
+    if (!this.props.currentUser) {
+      this.props.login();
+    }
       // if (this.dateCheck()) {
         this.props
           .createBooking(this.state.booking)
@@ -53,7 +55,7 @@ class BookingForm extends React.Component {
     const diff = (check_out.getTime() - check_in.getTime()) / (24000 * 3600);
     const total = diff * price + (clean_fee + service_fee);
     const booking = { ...this.state.booking };
-    booking["total_price"] = (total * 0.039 + total).toFixed(2);
+    booking["total_price"] = ((total * 0.039 + total)* 0.1 * 10).toFixed(2) ;
     this.setState({ booking });
   }
 
@@ -80,8 +82,8 @@ class BookingForm extends React.Component {
 
   toggleCalendar() {
     this.state.hideCalendar
-      ? this.setState({ hideCalendar: false })
-      : this.setState({ hideCalendar: true });
+      ? this.setState({ hideCalendar: false }, this.props.enlargeBookingForm())
+      : this.setState({ hideCalendar: true }, this.props.enlargeBookingForm());
   }
 
   clearDates() {
@@ -141,8 +143,9 @@ class BookingForm extends React.Component {
       const rate = this.props.listing.price;
       const cleanFee = this.props.listing.clean_fee;
       const servFee = this.props.listing.service_fee;
+      const guestCharge = 50 * this.state.booking.guests;
       const total =
-        rate * nights + cleanFee + Number((rate * 0.085).toFixed(2)) + servFee;
+        guestCharge + rate * nights + cleanFee + Number((rate * 0.085).toFixed(2)) + servFee;
       const taxesFees = Number((rate * 0.085).toFixed(2));
 
       return (
@@ -182,6 +185,7 @@ class BookingForm extends React.Component {
       this.setState({errors: this.props.errors})
     }
 
+
   }
 
   render() {
@@ -205,9 +209,10 @@ class BookingForm extends React.Component {
     const avgReview = this.props.listing.reviews.length
       ? getAvgRating(this.props.listing.reviews)
       : 0;
+      
     return (
       <>
-        <div className="booking-form-container">
+        <div className="booking-form-container" >
           <div className="bk-rate-review-cont">
             <div className="bk-rate-review">
               <span>
@@ -258,15 +263,16 @@ class BookingForm extends React.Component {
               <div className="guests-dropdown">
                 <div className="guests-cont">
                   <p id="bk-form-input">GUESTS</p>
-                  <h4>{this.state.booking.guests || 1} guest</h4>
+                  <h4>{this.state.booking.guests || 2} {this.state.booking.guests === 1 ? "guests" : "guest"}</h4>
                 </div>
                 <div className="guest-ctrls-cont">
                   <div className="guest-ctrls">
                     <input
                       type="number"
+                      max="10"
                       min="1"
                       onChange={(e) => this.updateGuests(e)}
-                      value={this.state.booking.guests}
+                      value={this.state.booking.guests === "" ? 2 : this.state.booking.guests}
                       placeholder="2"
                     />
                     {/* <div className="minus-guest">
@@ -280,12 +286,6 @@ class BookingForm extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            className={"booking-errors" + (this.state.showError ? "" : " hide")}
-          >
-            <BsFillExclamationCircleFill />
-            <p>Please enter valid dates</p>
           </div>
           {this.renderErrors()}
           <div className="btn-cont">

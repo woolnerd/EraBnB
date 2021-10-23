@@ -50,11 +50,6 @@ class Listing extends React.Component {
       : this.setState({ shrinkBookingForm: true });
   }
 
-  // enableReview() {
-  //   this.props.listing.review_authors.filter(
-  //     (author) => author.id === this.props.currentUser
-  //   ).length;
-  // }
 
   render() {
     if (!this.props.listing) {
@@ -177,7 +172,6 @@ class Listing extends React.Component {
               </p>
             </div>
           </div>
-          {/* <div className="listing-item-show"> */}
 
           <div className="listing-photos">
             {photos[0]}
@@ -229,14 +223,10 @@ class Listing extends React.Component {
                 </p> */}
               </div>
 
-              <div className="booking-container">
-                {/* {!currentUser ? (
-                  <h1>Please login or signup to book</h1>
-                ) : currentUser && currentUser !== listing.host_id ? ( */}
-                <Route props={listing} component={BookingFormContainer} />
-                {/* // ) : ( */}
-                {/* //   bookings */}
-                {/* // )} */}
+              <div className={"booking-container" + (!this.state.shrinkBookingForm ? "" : " expand")}>
+
+                {/* <Route props={listing} component={BookingFormContainer} /> */}
+                <BookingFormContainer listing={listing} enlargeBookingForm={()=>this.enlargeBookingForm()}/>
               </div>
             </div>
           </div>

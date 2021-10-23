@@ -393,3 +393,14 @@ display: flex;
     justify-content: space-evenly;
     align-items: baseline;
 }
+
+.booking-form-container .error-container ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    font-size: 12px;
+}
+
+.expand {
+    max-height: fit-content;
+}

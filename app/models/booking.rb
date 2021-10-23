@@ -1,14 +1,14 @@
 class Booking < ApplicationRecord
     validates :listing_id, :booker_id, :check_in, :check_out, :total_price, presence: true
-    validates :guests, inclusion: { in: 1..10, message: 'must be between 1 and 10' }, presence: true
-    validates :check_in, date: {after: Proc.new {Time.now}, before: Proc.new {Time.now + 3.year}}, date: true
-    validates :check_out, date: { after: :check_in}, date: true
+    validates :guests, inclusion: { in: 1..10, message: '# must be between 1 and 10' }, presence: true
+    validates :check_in, date: {before: Proc.new {Time.now + 3.year}}
+    validates :check_out, date: { after: :check_in}
+    validates :check_in, :check_out, date: true
 
     belongs_to :listing,
         foreign_key: :listing_id,
-        class_name: :Listing,
-        dependent: :destroy
-
+        class_name: :Listing
+        
     belongs_to :booker,
         foreign_key: :booker_id,
         class_name: :User
