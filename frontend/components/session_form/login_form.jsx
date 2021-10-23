@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 
 
 class LoginForm extends React.Component {
@@ -36,9 +35,12 @@ class LoginForm extends React.Component {
   renderErrors() {
     return this.props.errors.session.length ? (
       <div className="error-container">
-        <ul className="form-errors">
+        <ul className="login-form-errors-ul">
           {this.props.errors.session.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
+            <div className="login-form-errors">
+              <BsFillExclamationCircleFill/>
+              <li key={`error-${i}`}>{error}</li>
+            </div>
           ))}
         </ul>
       </div>
@@ -52,8 +54,6 @@ class LoginForm extends React.Component {
           <h2>Welcome to erabnb!</h2>
           <br />
           <p>Please {this.props.formType}</p>
-          {/* <FontAwesomeIcon icon="fa-solid fa-check-square" />{" "} */}
-          {/* <div className="login-form"> */}
           <div className="login-email">
             <label>Email</label>
             <input
@@ -78,7 +78,6 @@ class LoginForm extends React.Component {
             type="submit"
             value={this.props.formType}
           />
-          {/* </div> */}
           <input
             className="session-submit"
             id="login-demouser"

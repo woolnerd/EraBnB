@@ -1,5 +1,7 @@
 import React from "react";
 import { closeModal } from "../../actions/modal_actions";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -40,7 +42,10 @@ class SignupForm extends React.Component {
       <div className="error-container">
         <ul className="form-errors">
           {this.props.errors.session.map((error, i) => (
-            <li key={`error-${i}`}>{error}</li>
+            <div>
+              <BsFillExclamationCircleFill/>
+              <li key={`error-${i}`}>{error}</li>
+            </div>
           ))}
         </ul>
       </div> : null 
@@ -57,13 +62,13 @@ class SignupForm extends React.Component {
 
           {/* <div className="signup-form"> */}
           <div className="signup-email">
-            {/* <label>Email</label> */}
+            <label>Email</label>
             <input
               type="email"
               value={this.state.email}
               onChange={this.update("email")}
               className="signup-input"
-              placeholder="Email"
+              // placeholder="Email"
               valid="email"
               required
             />
