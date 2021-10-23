@@ -48,12 +48,12 @@ export const ListingIndexItem = ({ listing}) => {
 export const getAvgRating = (reviews) => {
 
   if (reviews.length){
-
+    
     return (
   
-      reviews.map((review) => review.rating)
+      (reviews.map((review) => review.rating)
              .reduce((acc, curVal) => acc + curVal) 
-             / reviews.length)
+             / reviews.length) * 0.1 * 10).toFixed(1) 
       
   }
   }

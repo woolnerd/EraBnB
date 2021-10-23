@@ -168,7 +168,7 @@ class Listing extends React.Component {
               <AiFillStar className="review-star" />
               <p>
                 {!!listing.reviews.length
-                  ? getAvgRating(listing.reviews).toFixed(1)
+                  ? getAvgRating(listing.reviews)
                   : ""}
                 ({listing.reviews.length}{" "}
                 {listing.reviews.length === 1 ? "review" : "reviews"})

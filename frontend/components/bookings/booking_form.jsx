@@ -212,7 +212,7 @@ class BookingForm extends React.Component {
               <span className="review-bk-span">
                 <AiFillStar className="review-star" />
                 <p>
-                  {avgReview.toFixed(1)}{" "}
+                  {avgReview}{" "}
                   <span>({this.props.listing.reviews.length} reviews)</span>
                 </p>
               </span>
