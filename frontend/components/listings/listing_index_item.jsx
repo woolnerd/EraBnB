@@ -13,7 +13,7 @@ export const ListingIndexItem = ({ listing}) => {
     </Link>
     <div className="listing-info">
       <span>
-        {/* <p>Entire unit in Brooklyn</p> */}
+        <p>{listing.era_theme} theme experience</p>
         <h3>{listing.title}</h3>
       </span>
       <p>{listing.description.split(" ").slice(0, 30).join(" ")+"..."}</p>

@@ -4,10 +4,11 @@ import { withRouter } from "react-router-dom";
 import Map from './map';
 
 // const mSTP = ({ entities }, ownProps) => ({
-//   listings: entities.listings,
+//   listings: Object.values(entities.listings),
 // });
 
 const mSTP = ({ entities }, ownProps) => {
+    debugger
     return (
 
         {

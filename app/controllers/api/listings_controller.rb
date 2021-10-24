@@ -49,14 +49,19 @@ class Api::ListingsController < ApplicationController
     end
 
     def search
-        address = params.values[0]["address"]
-        desired_check_in = Date.parse(params.values[0]["check_in"])
-        desired_check_out = Date.parse(params.values[0]["check_out"])
-        @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
-                            .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase+"%"))
-                            .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.upcase+"%"))
-                            .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
- 
+        @listings = Listing.all
+        address = params[:query][:address]
+        desired_check_in = Date.parse(params[:query][:check_in])
+        desired_check_out = Date.parse(params[:query][:check_out])
+
+        if address != ""
+            @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
+                                .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase+"%"))
+                                .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.upcase+"%"))
+                                .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
+        end
+
+
         @listings = 
             @listings.select do |listing|
                 booked_ranges = []
@@ -70,10 +75,10 @@ class Api::ListingsController < ApplicationController
                  booked_ranges.all? {|range| !range.include?(desired_check_out)}
             end
 
-        if params.values[0]["era_theme"]
-            @listings = @listings.select { |listing| listing.era_theme == params.values[0]["era_theme"]}
-        end 
-        
+  
+        if params[:query][:era_theme] != ""
+            @listings = @listings.select {|listing| listing.era_theme == params[:query][:era_theme] }
+        end
         render "api/listings/index"
     end
 

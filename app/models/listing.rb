@@ -18,6 +18,12 @@ class Listing < ApplicationRecord
     has_many :review_authors,
         through: :reviews,
         source: :author
+
+
+    # def self.search_era(era)
+    #     listings = Listing.all
+    #     listings.select { |listing| listing.era_theme == era }
+    # end
     
 end
 
