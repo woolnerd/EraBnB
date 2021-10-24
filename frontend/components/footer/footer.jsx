@@ -24,7 +24,11 @@ export const Footer = () => (
             AngelList
           </a>
         </li>
-        <li>Portfolio site</li>
+        <li>
+          <a href="https://github.com/DavidWoolner" target="_blank">
+          Portfolio site
+          </a>
+        </li>
       </ul>
       <ul>
         <li className="top-col">Contact</li>

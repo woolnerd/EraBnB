@@ -55,10 +55,15 @@ class Api::ListingsController < ApplicationController
         desired_check_out = Date.parse(params[:query][:check_out])
 
         if address != ""
-            @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
-                                .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase+"%"))
-                                .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.upcase+"%"))
-                                .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
+            # @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
+            #                     .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase+"%"))
+            #                     .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.upcase+"%"))
+            #                     .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
+            @listings = @listings.where("address LIKE :query", query: "%"+address+"%")
+                                .or(@listings.where("address LIKE :query", query: "%"+address.downcase+"%"))
+                                .or(@listings.where("address LIKE :query", query: "%"+address.upcase+"%"))
+                                .or(@listings.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
+        
         end
 
 
@@ -76,8 +81,10 @@ class Api::ListingsController < ApplicationController
             end
 
   
+        # debugger
         if params[:query][:era_theme] != ""
             @listings = @listings.select {|listing| listing.era_theme == params[:query][:era_theme] }
+            # @listings
         end
         render "api/listings/index"
     end

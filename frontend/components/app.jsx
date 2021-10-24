@@ -36,7 +36,7 @@ const App = () => (
       <MenuContainer />
     </header>
     <div className="cushion"> </div>
-    <Route exact path="/" component={SplashContainer} />
+    <Route exact path="/" flexible={Window.flexible} component={SplashContainer} />
     <Route exact path={`/search`} component={ListingsIndexContainer} />
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />

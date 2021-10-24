@@ -22,7 +22,6 @@ export const fetchListing = listingId => (
     })
 )
 
-
 export const createListing = (formData) => (
   $.ajax({
     method: "POST",

@@ -25,6 +25,10 @@ class Listing < ApplicationRecord
     #     listings.select { |listing| listing.era_theme == era }
     # end
     
+    # def self.flexible
+    #     Listing.all.map {|listing| listing.id}.sample
+    # end
+
 end
 
 

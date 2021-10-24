@@ -40,7 +40,8 @@ class Map extends React.Component {
           )
         markers.push(newMarker)
     })
-    // this.setState({markers})
+    // this.setState({markers: markers})
+    // debugger
   }
 
   removeMarkers(){
@@ -68,6 +69,7 @@ class Map extends React.Component {
     );
   }
 
+  
   componentDidUpdate(prevProps, prevState) {
 
     if (this.props.listings != this.state.listings) {
@@ -88,6 +90,7 @@ class Map extends React.Component {
   }
 
   render() {
+    // this.createMarkers(this.state.listings);
 
     return <div id="mapContainer"></div>;
   }
