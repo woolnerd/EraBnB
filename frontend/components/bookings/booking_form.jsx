@@ -32,7 +32,6 @@ class BookingForm extends React.Component {
   }
 
   handleSubmit() {
-    debugger
     if (!this.props.currentUser) {
       this.props.login();
     }

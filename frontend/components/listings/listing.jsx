@@ -299,9 +299,13 @@ class Listing extends React.Component {
 }
 
   const formatAddress = (address) => {
-    let city = address.split(",").slice(-2)[0].trim()
-    let state = address.split(",").slice(-2)[1].trim().split(" ")[0]
-    return [city, state].join(", ");
+    if (address.split(" ").length > 3) {
+      let city = address.split(",").slice(-2)[0].trim()
+      let state = address.split(",").slice(-2)[1].trim().split(" ")[0]
+      return [city, state].join(", ");
+    } else {
+      return address
+    }
   }
 
 

@@ -81,16 +81,16 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user4.id
 }) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/Midtown_6.jpeg')
-listing1.photos.attach(io: file1, filename: 'Midtown_6.jpeg')
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
-listing1.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/morgante-wilson-1486154143.jpeg')
-listing1.photos.attach(io: file3, filename: 'morgante-wilson-1486154143.jpeg')
-file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/rent_to_own.jpeg')
-listing1.photos.attach(io: file4, filename: 'rent_to_own.jpeg')
-file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/285_5thAve2R_Kitchen_straight_on.jpg')
-listing1.photos.attach(io: file5, filename: '285_5thAve2R_Kitchen_straight_on.jpg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_1-xavier-antoine-france-04.jpeg')
+listing1.photos.attach(io: file1, filename: '80_1-xavier-antoine-france-04.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_2-xavier-antoine-france-05.jpeg')
+listing1.photos.attach(io: file2, filename: '80_2-xavier-antoine-france-05.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_6-xavier-antoine-france.jpeg')
+listing1.photos.attach(io: file3, filename: '80_6-xavier-antoine-france.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_4-xavier-antoine-france.jpeg')
+listing1.photos.attach(io: file4, filename: '80_4-xavier-antoine-france.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_5-xavier-antoine-france.jpeg')
+listing1.photos.attach(io: file5, filename: '80_5-xavier-antoine-france.jpeg')
 
 
 
@@ -109,14 +109,16 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
 }) 
-# file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
-# listing2.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
-# listing2.photos.attach(io: file1, filename: 'Midtown_6.jpeg')
-# listing2.photos.attach(io: file2, filename: 'modern-prefab-homes-cool-stuff-interesting-news-1315792.jpeg')
-# listing2.photos.attach(io: file3, filename: 'morgante-wilson-1486154143.jpeg')
-# listing2.photos.attach(io: file4, filename: 'rent_to_own.jpeg')
-# listing2.photos.attach(io: file5, filename: '285_5thAve2R_Kitchen_straight_on.jpg')
-
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60_1-Child-Studio-Maido-Japanese-Rrestaurant-London-Hospitality-Interiors-Yellowtrace-09-1536x1124.jpeg')
+listing2.photos.attach(io: file1, filename: '60_1-Child-Studio-Maido-Japanese-Rrestaurant-London-Hospitality-Interiors-Yellowtrace-09-1536x1124.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60_1-home-showcase-mid-century-modern-foyer-royalty-free-image-915093588-1543960407.jpeg')
+listing2.photos.attach(io: file2, filename: '60_1-home-showcase-mid-century-modern-foyer-royalty-free-image-915093588-1543960407.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60_2-9fa3f29d794e58413ef72efd99787d4c6c-H13A5048-.rhorizontal.w700.jpg')
+listing2.photos.attach(io: file3, filename: '60_2-9fa3f29d794e58413ef72efd99787d4c6c-H13A5048-.rhorizontal.w700.jpg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60_2-post-wwii-mid-century-modern-architecture-by-real-estate-news-photo-465925305-1543960711.jpeg')
+listing2.photos.attach(io: file4, filename: '60_2-post-wwii-mid-century-modern-architecture-by-real-estate-news-photo-465925305-1543960711.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60_3-Child-Studio-Maido-Japanese-Rrestaurant-London-Hospitality-Interiors-Yellowtrace-11.jpeg')
+listing2.photos.attach(io: file5, filename: '60_3-Child-Studio-Maido-Japanese-Rrestaurant-London-Hospitality-Interiors-Yellowtrace-11.jpeg')
 
 
 listing3 = Listing.create({
@@ -133,8 +135,18 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
 }) 
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/morgante-wilson-1486154143.jpeg')
-listing3.photos.attach(io: file3, filename: 'morgante-wilson-1486154143.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50_10-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-09.jpeg')
+listing3.photos.attach(io: file1, filename: '50_10-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-09.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50_11-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-11.jpeg')
+listing3.photos.attach(io: file2, filename: '50_11-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-11.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50_13-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-08.jpeg')
+listing3.photos.attach(io: file3, filename: '50_13-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-08.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50_9-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-01.jpeg')
+listing3.photos.attach(io: file4, filename: '50_9-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-01.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50_8-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-15.jpeg')
+listing3.photos.attach(io: file5, filename: '50_8-Remodel-of-1950s-House-Jessica-Helgerson-Interior-Design-Yellowtrace-15.jpeg')
+
+
 
 
 listing4 = Listing.create({
@@ -151,8 +163,17 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user2.id
 }) 
-file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/rent_to_own.jpeg')
-listing4.photos.attach(io: file4, filename: 'rent_to_own.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-67767695_478378826058056_970185206101180416_n.jpeg')
+listing4.photos.attach(io: file1, filename: '70s-67767695_478378826058056_970185206101180416_n.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-67826689_478378689391403_2244174275344859136_n.jpeg')
+listing4.photos.attach(io: file2, filename: '70s-67826689_478378689391403_2244174275344859136_n.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-67833593_478378876058051_8974425317082923008_n.jpeg')
+listing4.photos.attach(io: file3, filename: '70s-67833593_478378876058051_8974425317082923008_n.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-68402634_478378932724712_2490227179296653312_n.jpeg')
+listing4.photos.attach(io: file4, filename: '70s-68402634_478378932724712_2490227179296653312_n.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-69022894_478378582724747_4471843876134453248_n.jpeg')
+listing4.photos.attach(io: file5, filename: '70s-69022894_478378582724747_4471843876134453248_n.jpeg')
+
 
 
 
@@ -170,8 +191,16 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user4.id
 }) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/285_5thAve2R_Kitchen_straight_on.jpg')
-listing6.photos.attach(io: file1, filename: '285_5thAve2R_Kitchen_straight_on.jpg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_11-5ee852f1e7610.jpeg')
+listing6.photos.attach(io: file1, filename: '80_11-5ee852f1e7610.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_12-5ee85849ec43d.jpeg')
+listing6.photos.attach(io: file2, filename: '80_12-5ee85849ec43d.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_13-5ee85a473b72f.jpeg')
+listing6.photos.attach(io: file3, filename: '80_13-5ee85a473b72f.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_14-5ee85912af798.jpeg')
+listing6.photos.attach(io: file4, filename: '80_14-5ee85912af798.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80_15-5ee85ad45c8ae.jpeg')
+listing6.photos.attach(io: file5, filename: '80_15-5ee85ad45c8ae.jpeg')
 
 
 listing7 = Listing.create({
@@ -189,8 +218,16 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
 }) 
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/45-sutton-place-south-interiors.jpeg')
-listing7.photos.attach(io: file2, filename: '45-sutton-place-south-interiors.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_1-1THXssdwvTwx.jpeg')
+listing7.photos.attach(io: file1, filename: '90_1-1THXssdwvTwx.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_2-5ee820f3147d2.jpeg')
+listing7.photos.attach(io: file2, filename: '90_2-5ee820f3147d2.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_3-5ee821004886f.jpeg')
+listing7.photos.attach(io: file3, filename: '90_3-5ee821004886f.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_4-5ee8211a5f568.jpeg')
+listing7.photos.attach(io: file4, filename: '90_4-5ee8211a5f568.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_5-5ee8219414be7.jpeg')
+listing7.photos.attach(io: file5, filename: '90_5-5ee8219414be7.jpeg')
 
 
 listing8 = Listing.create({
@@ -207,8 +244,18 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
 }) 
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/b92f00c5f959c25884c53efbc072e894.jpeg')
-listing8.photos.attach(io: file3, filename: 'b92f00c5f959c25884c53efbc072e894.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50s-1550257548-ch-ed-x-sothebys-palm-springs-221-1550257505.jpeg')
+listing8.photos.attach(io: file1, filename: '50s-1550257548-ch-ed-x-sothebys-palm-springs-221-1550257505.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50s-ch-ed-x-sothebys-palm-springs-092-1550256530.jpeg')
+listing8.photos.attach(io: file2, filename: '50s-ch-ed-x-sothebys-palm-springs-092-1550256530.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50s-ch-ed-x-sothebys-palm-springs-185a-1550256871.jpeg')
+listing8.photos.attach(io: file3, filename: '50s-ch-ed-x-sothebys-palm-springs-185a-1550256871.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50s-ch-ed-x-sothebys-palm-springs-230-1551709501.jpeg')
+listing8.photos.attach(io: file4, filename: '50s-ch-ed-x-sothebys-palm-springs-230-1551709501.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50s-ch-ed-x-sothebys-palm-springs-336-1550257252.jpeg')
+listing8.photos.attach(io: file5, filename: '50s-ch-ed-x-sothebys-palm-springs-336-1550257252.jpeg')
+
+
 
 
 listing9 = Listing.create({
@@ -225,99 +272,117 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user2.id
 }) 
-file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/colorbld.jpeg')
-listing9.photos.attach(io: file4, filename: 'colorbld.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-10.jpeg')
+listing9.photos.attach(io: file1, filename: '80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-10.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-12.jpeg')
+listing9.photos.attach(io: file2, filename: '80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-12.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-13.jpeg')
+listing9.photos.attach(io: file3, filename: '80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-13.jpeg')
+file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-14.jpeg')
+listing9.photos.attach(io: file4, filename: '80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-14.jpeg')
+file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-16.jpeg')
+listing9.photos.attach(io: file5, filename: '80s-at_house+tours_2021-03_Meg+G_Meg-Gustafson-House-Tour-16.jpeg')
 
 
-listing10 = Listing.create({
-    title: "You're Gonna DIE for These Views",    
-    description: Faker::TvShows::Seinfeld.quote  ,
-    era_theme: "90's", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -74.000532,
-    latitude: 40.731503,
-    num_bedrms: Faker::Number.within(range: 1..5), 
-    num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
-    clean_fee: Faker::Number.within(range: 1..40), 
-    service_fee: Faker::Number.within(range: 1..30),
-    host_id: user1.id
-}) 
 
-file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/ELI040119_RENTALS_Guide_001.jpeg')
-listing10.photos.attach(io: file5, filename: 'ELI040119_RENTALS_Guide_001.jpeg')
+# listing10 = Listing.create({
+#     title: "You're Gonna DIE for These Views",    
+#     description: Faker::TvShows::Seinfeld.quote  ,
+#     era_theme: "90's", 
+#     address: "55 Broad St, New York, NY 10004", 
+#     longitude: -74.000532,
+#     latitude: 40.731503,
+#     num_bedrms: Faker::Number.within(range: 1..5), 
+#     num_baths: Faker::Number.within(range: 1..5), 
+#     price: Faker::Number.within(range: 100..600), 
+#     clean_fee: Faker::Number.within(range: 1..40), 
+#     service_fee: Faker::Number.within(range: 1..30),
+#     host_id: user1.id
+# }) 
 
-listing11 = Listing.create({
-title: "Minutes from Transit and Nightlife",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "80's", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -73.979953,
-latitude: 40.73496, 
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user4.id
-}) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/feature.jpeg')
-listing11.photos.attach(io: file1, filename: 'feature.jpeg')
+# file1 = URI.open('')
+# listing6.photos.attach(io: file1, filename: '')
+# file2 = URI.open('')
+# listing6.photos.attach(io: file2, filename: '')
+# file3 = URI.open('')
+# listing6.photos.attach(io: file3, filename: '')
+# file4 = URI.open('')
+# listing6.photos.attach(io: file4, filename: '')
+# file5 = URI.open('')
+# listing6.photos.attach(io: file5, filename: '')
 
 
-listing12 = Listing.create({
-title: "You Should Stop Looking and Book This",    
-description: Faker::TvShows::Seinfeld.quote,
-era_theme: "60's", 
-address: "1 Columbus Circle,
-Manhattan, New York City", 
-longitude: -73.988714,
-latitude: 40.739584,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user5.id
-}) 
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/gray-house-with-green-lawn-e1478724365131.jpeg')
-listing12.photos.attach(io: file2, filename: 'gray-house-with-green-lawn-e1478724365131.jpeg')
+# listing11 = Listing.create({
+# title: "Minutes from Transit and Nightlife",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "80's", 
+# address: "405 Lexington Ave, New York, NY 10174", 
+# longitude: -73.979953,
+# latitude: 40.73496, 
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user4.id
+# }) 
+# file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/feature.jpeg')
+# listing11.photos.attach(io: file1, filename: 'feature.jpeg')
 
 
-listing13 = Listing.create({
-title: "Modern Modern TRES MODERN!",    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "50's", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -73.952487,
-latitude: 40.729698,
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user5.id
-}) 
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/houseonrockserbia.png')
-listing13.photos.attach(io: file3, filename: 'houseonrockserbia.png')
+# listing12 = Listing.create({
+# title: "You Should Stop Looking and Book This",    
+# description: Faker::TvShows::Seinfeld.quote,
+# era_theme: "60's", 
+# address: "1 Columbus Circle,
+# Manhattan, New York City", 
+# longitude: -73.988714,
+# latitude: 40.739584,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user5.id
+# }) 
+# file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/gray-house-with-green-lawn-e1478724365131.jpeg')
+# listing12.photos.attach(io: file2, filename: 'gray-house-with-green-lawn-e1478724365131.jpeg')
 
 
-listing14 = Listing.create({
-title: "Gothic Vampire Velour Hedonistic Thrill Nest",    
-description: Faker::TvShows::Seinfeld.quote  ,
-era_theme: "70's", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -73.941039,
-latitude: 40.72437, 
-num_bedrms: Faker::Number.within(range: 1..5), 
-num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
-clean_fee: Faker::Number.within(range: 1..40), 
-service_fee: Faker::Number.within(range: 1..30),
-host_id: user2.id
-}) 
-file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/images.jpeg')
-listing14.photos.attach(io: file4, filename: 'images.jpeg')
+# listing13 = Listing.create({
+# title: "Modern Modern TRES MODERN!",    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: "50's", 
+# address: "73 Bushwick Ave, Brooklyn, NY 11211", 
+# longitude: -73.952487,
+# latitude: 40.729698,
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user5.id
+# }) 
+# file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/houseonrockserbia.png')
+# listing13.photos.attach(io: file3, filename: 'houseonrockserbia.png')
+
+
+# listing14 = Listing.create({
+# title: "Gothic Vampire Velour Hedonistic Thrill Nest",    
+# description: Faker::TvShows::Seinfeld.quote  ,
+# era_theme: "70's", 
+# address: "90 5th Ave, New York, NY 10011", 
+# longitude: -73.941039,
+# latitude: 40.72437, 
+# num_bedrms: Faker::Number.within(range: 1..5), 
+# num_baths: Faker::Number.within(range: 1..5), 
+# price: Faker::Number.within(range: 100..600), 
+# clean_fee: Faker::Number.within(range: 1..40), 
+# service_fee: Faker::Number.within(range: 1..30),
+# host_id: user2.id
+# }) 
+# file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/presentation_day_imgs/images.jpeg')
+# listing14.photos.attach(io: file4, filename: 'images.jpeg')
 
 
 # listing15 = Listing.create({

@@ -77,7 +77,7 @@ class Booking extends React.Component {
                       onClick={() =>
                         this.props
                           .cancelBooking(this.props.booking.id)
-                          .then(this.props.history.push(`/listings`))
+                          .then(this.props.history.push(`/listings/${this.props.booking.listing.id}`))
                       }
                       className="classy-btn"
                     >
@@ -96,7 +96,10 @@ class Booking extends React.Component {
               </div>
 
               <div id="booking-map-container">
-                <MapBookingContainer listing={this.props.booking.listing} />
+                <MapBookingContainer 
+                listing={this.props.booking.listing} 
+                mapPhoto={this.props.booking.photoUrl[0]}
+                />
               </div>
             </div>
         );

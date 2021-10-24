@@ -12,7 +12,7 @@ class Map extends React.Component {
   marker(listing) {
     return `<a href="/#/listings/${listing.id}">
     <div>
-     <img id="map-photo"src=${this.props.listings[0].photoUrl[0]}/> 
+     <img id="map-photo"src=${this.props.mapPhoto}/> 
       <h4>
         ${listing.address}
         <br/>
@@ -30,14 +30,13 @@ class Map extends React.Component {
   }
 
   componentDidUpdate() {
-    let { listing } = this.props;
-
-    this.map = new mapboxgl.Map({
-      container: "mapContainer-booking",
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [listing.longitude, listing.latitude],
-      zoom: 17,
-    });
+      let { listing } = this.props;
+      this.map = new mapboxgl.Map({
+        container: "mapContainer-booking",
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [listing.longitude, listing.latitude],
+        zoom: 17,
+      });
 
       new mapboxgl.Marker({ color: "#ff385c" })
         .setLngLat([listing.longitude, listing.latitude])
