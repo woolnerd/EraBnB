@@ -11,6 +11,8 @@ import EditListingFormContainer from './listings/edit_form_container'
 import BookingContainer from './bookings/booking_container';
 import { Footer } from './footer/footer';
 import SearchContainer from './search/search';
+import {FaSuitcaseRolling} from 'react-icons/fa';
+import {AiOutlineFieldTime} from 'react-icons/ai';
 import {
   Route,
   Redirect,
@@ -30,7 +32,16 @@ const App = () => (
     <Modal />
     <header className="header-container">
       <Link to="/">
-        <img className="airbnb-icon" src={redAirbnbLogo} />
+        <div className="logo">
+          <h3>Era bnb</h3>
+          <div className="logos">
+            <AiOutlineFieldTime className="time-icon"/>
+            <FaSuitcaseRolling className="luggage-icon"/>
+          </div>
+        </div>
+        {/* <img className="airbnb-icon" src={redAirbnbLogo} /> */}
+        {/* <div className="cover-logo"></div> */}
+        {/* <div className="logo-cushion"></div> */}
       </Link>
       <SearchContainer />
       <MenuContainer />

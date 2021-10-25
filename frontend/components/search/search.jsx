@@ -75,13 +75,13 @@ class Search extends React.Component {
                 onChange={this.update("check_out")}
               />
             </div>
-            <div className="listing-form-theme">
-                  <label>Era Theme</label>
+            <div className="era-search">
+                  <label className="era-label-search">Era Theme</label>
                   <select
                     value={this.state.era_theme}
                     onChange={this.update("era_theme")}
                   >
-                    <option value="">--Please choose an Era--</option>
+                    <option value="">-- Era --</option>
                     <option value="50's">50's</option>
                     <option value="60's">60's</option>
                     <option value="70's">70's</option>

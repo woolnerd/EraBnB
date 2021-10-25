@@ -21,7 +21,10 @@ class Listings extends React.Component {
             <ListingIndexItem key={listing.id} listing={listing} fetchListing={this.props.fetchListing} /> 
             : null
           ) 
-        ) : <h3>That search did not return any results</h3>
+        ) : 
+        <div className="no-results">
+            <h3>That search did not return any results</h3>
+        </div>
         return (
             <div id="listing-container-wrap">
                 <div className="listing-map-flex">

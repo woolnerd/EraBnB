@@ -67,7 +67,7 @@ class Users extends React.Component {
          <div className="listing-descrp-pic">
            <img src={`${booking.photoUrl[0]}`}alt="Listing Thumbnail" className="thumbnail-trip" />
            <h5>{descrip}</h5>
-           <h5>Total ${booking.booking.total_price}</h5>
+           <h5 className="booking-total">Total ${booking.booking.total_price}</h5>
          </div>
        </div>
      </Link>

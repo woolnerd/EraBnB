@@ -72,7 +72,6 @@ h2 {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    /* min-width: 1650px; */
     /* max-width: 1650px; */
     /* overflow-x: scroll; */
     margin: 0 auto;
@@ -157,7 +156,7 @@ h2 {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    min-width: 1250px;
+    min-width: 1100px;
     max-width: 1250px;
     /* overflow-x: scroll; */
     margin: 0 auto;
@@ -166,3 +165,16 @@ h2 {
 }
 }
 
+@media only screen and (min-width: 1500px) {
+.large-thumbs-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    min-width: 1618px;
+    /* overflow-x: scroll; */
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* height: 34rem; */
+}
+
+}

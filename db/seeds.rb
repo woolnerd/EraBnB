@@ -212,7 +212,7 @@ listing6.photos.attach(io: file5, filename: '80_15-5ee85ad45c8ae.jpeg')
 
 
 listing7 = Listing.create({
-title: "A Reader's Heaven",    
+title: "Gorgeous 90's Extravagance!",    
 description: "Centrally located in Midtown Manhattan on Fifth Avenue, this apartment is across from the Grand Army Plaza and Central Park's main entrance. It features on-site dining and free Wi-Fi.
 
 A flat-screen TV and iPod docking station are included in each room at the apartment. The rooms boast high ceilings and marble bathrooms. Belgian chocolates and a bouquet of flowers are provided upon arrival. All rooms offer complimentary soft drinks and water, as well as Keurig coffee machines.",
@@ -228,8 +228,8 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
 }) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_1-1THXssdwvTwx.jpeg')
-listing7.photos.attach(io: file1, filename: '90_1-1THXssdwvTwx.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_2-5ee820f3147d2.jpeg')
+listing7.photos.attach(io: file1, filename: '90_2-5ee820f3147d2.jpeg')
 file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_2-5ee820f3147d2.jpeg')
 listing7.photos.attach(io: file2, filename: '90_2-5ee820f3147d2.jpeg')
 file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_3-5ee821004886f.jpeg')
@@ -462,12 +462,12 @@ The luxurious space offers a separate bedroom with queen size bed and a very" ,
     service_fee: Faker::Number.within(range: 1..30),
     host_id: user1.id
 }) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_7-sfMLuqJKTFlx.jpeg')
-listing15.photos.attach(io: file1, filename: '90_7-sfMLuqJKTFlx.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/poolhousemodern.jpg')
+listing15.photos.attach(io: file1, filename: 'poolhousemodern.jpg')
 file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90s-Asian-Zen-Interior-Design-living-room-1536x1024.jpeg')
 listing15.photos.attach(io: file2, filename: '90s-Asian-Zen-Interior-Design-living-room-1536x1024.jpeg')
-file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_6-5EBAmUr1uhex.jpeg')
-listing15.photos.attach(io: file3, filename: '90_6-5EBAmUr1uhex.jpeg')
+file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/winterdusk.jpg')
+listing15.photos.attach(io: file3, filename: 'winterdusk.jpg')
 file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_4-5ee8211a5f568.jpeg')
 listing15.photos.attach(io: file4, filename: '90_4-5ee8211a5f568.jpeg')
 file5 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/90_6-5EBAmUr1uhex.jpeg')
@@ -515,8 +515,8 @@ clean_fee: Faker::Number.within(range: 1..40),
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user4.id
 }) 
-file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-67767695_478378826058056_970185206101180416_n.jpeg')
-listing21.photos.attach(io: file1, filename: '70s-67767695_478378826058056_970185206101180416_n.jpeg')
+file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/relaxing-place-near-exit-to-terrace.jpg')
+listing21.photos.attach(io: file1, filename: 'relaxing-place-near-exit-to-terrace.jpg')
 file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-67826689_478378689391403_2244174275344859136_n.jpeg')
 listing21.photos.attach(io: file2, filename: '70s-67826689_478378689391403_2244174275344859136_n.jpeg')
 file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/70s-67833593_478378876058051_8974425317082923008_n.jpeg')
@@ -547,8 +547,8 @@ host_id: user5.id
 }) 
 file1 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60s-rustic-chic-interior-design-styles-meaning-1536x1021.jpeg')
 listing22.photos.attach(io: file1, filename: '60s-rustic-chic-interior-design-styles-meaning-1536x1021.jpeg')
-file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60s-rustic-chic-interior-design-styles-meaning-1536x1021.jpeg')
-listing22.photos.attach(io: file2, filename: '60s-rustic-chic-interior-design-styles-meaning-1536x1021.jpeg')
+file2 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/snowy-country-house.jpg')
+listing22.photos.attach(io: file2, filename: 'snowy-country-house.jpg')
 file3 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60s-shabby-chic-luxury-classic-country-interior-design-styles-1536x960.png')
 listing22.photos.attach(io: file3, filename: '60s-shabby-chic-luxury-classic-country-interior-design-styles-1536x960.png')
 file4 = URI.open('https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/60s-traditional-interior-design-styles-definition.jpeg')
