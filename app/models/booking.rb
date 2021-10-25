@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
     validates :check_out, date: { after: :check_in}
     validates :check_in, :check_out, date: true
 
+
     belongs_to :listing,
         foreign_key: :listing_id,
         class_name: :Listing
@@ -20,5 +21,6 @@ class Booking < ApplicationRecord
     # has_many :reviews,
     #     foreign_key: :listing_id,
     #     class_name: :Review 
+    
 
 end

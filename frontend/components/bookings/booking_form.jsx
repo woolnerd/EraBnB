@@ -271,7 +271,7 @@ class BookingForm extends React.Component {
                       max="10"
                       min="1"
                       onChange={(e) => this.updateGuests(e)}
-                      value={this.state.booking.guests === "" ? 2 : this.state.booking.guests}
+                      value={this.state.booking.guests}
                       placeholder="2"
                     />
                     {/* <div className="minus-guest">
@@ -287,6 +287,10 @@ class BookingForm extends React.Component {
             </div>
           </div>
           {this.renderErrors()}
+          {this.props.currentUser === this.props.listing.host_id ? 
+          <div className="btn-cont">
+           <button id="unavailable">Cannot book own listing</button>
+          </div> :
           <div className="btn-cont">
             {this.state.booking.check_in !== "" &&
             this.state.booking.check_out !== "" &&
@@ -300,6 +304,7 @@ class BookingForm extends React.Component {
               </button>
             )}
           </div>
+        }
         </div>
         <CalendarDropDown
           bookedDates={bookedDates}

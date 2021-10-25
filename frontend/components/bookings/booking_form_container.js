@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
       booker_id: state.session.id,
       check_in: "",
       check_out: "",
-      guests: "",
+      guests: 2,
       total_price: 0,
     },
     errors: state.errors.booking,

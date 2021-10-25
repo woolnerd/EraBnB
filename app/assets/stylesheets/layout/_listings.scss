@@ -28,7 +28,7 @@
     width: 100%;
     height: 15rem;
     margin-left: 2rem;
-    border-top: 1px solid #ddd8d8;
+    border-bottom: 1px solid #ddd8d8;
     padding-top: 21px;
 
 }   
@@ -166,4 +166,19 @@ p.special {
     flex-wrap: wrap;
     margin-top: 4rem;
     width: 100%;
+}
+
+.listing-descrip {
+    padding-top: 6px;
+    line-height: initial;
+    margin-bottom: 9px;
+}
+
+p#rating {
+    font-size: 14px !important;
+}
+
+p.listing-item-address- {
+    font-weight: 500;
+    color: black;
 }

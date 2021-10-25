@@ -16,11 +16,11 @@ export const ListingIndexItem = ({ listing}) => {
         <p>{listing.era_theme} theme experience</p>
         <h3>{listing.title}</h3>
       </span>
-      <p>{listing.description.split(" ").slice(0, 30).join(" ")+"..."}</p>
-      <p>{listing.address}</p>
+      <p className="listing-descrip">{listing.description.split(" ").slice(0, 30).join(" ")+"..."}</p>
+      <p className="listing-item-address-">{listing.address}</p>
       <p>
-        Bedrooms {listing.num_bedrms}{" "}
-        <span> Bathrooms {listing.num_baths}</span>
+        Beds {listing.num_bedrms}{" "},
+        <span> Baths {listing.num_baths}</span>
       </p>
       <div className="rating-price-cont">
         {/* <span className="item-price"> */}
@@ -28,7 +28,7 @@ export const ListingIndexItem = ({ listing}) => {
         {/* </span> */}
         {/* <span className="avg-rating"> */}
           {listing.reviews.length ? (
-            <p className="special">
+            <p className="special" id="rating">
               <AiFillStar className="star"/> 
               <h4>{getAvgRating(listing.reviews)} ({listing.reviews.length} {listing.reviews.length > 1 ? "reviews" : "review"})</h4>
             </p>

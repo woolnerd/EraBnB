@@ -220,30 +220,8 @@ class Listing extends React.Component {
             <div className="body-booking">
               <div className="listing-body">
                 <p>{listing.description}</p>
-                {/* <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Pellentesque massa placerat duis ultricies. Scelerisque varius
-                  morbi enim nunc faucibus a. Arcu cursus euismod quis viverra
-                  nibh cras pulvinar mattis nunc. Nisl vel pretium lectus quam
-                  id leo. Et magnis dis parturient montes nascetur ridiculus.
-                  Leo vel fringilla est ullamcorper eget. Facilisi etiam
-                  dignissim diam quis enim lobortis. Sed adipiscing diam donec
-                  adipiscing tristique risus nec. Donec ac odio tempor orci
-                  dapibus ultrices. Non consectetur a erat nam at lectus urna.
-                  Lectus urna duis convallis convallis tellus. Quis hendrerit
-                  dolor magna eget est lorem. Adipiscing bibendum est ultricies
-                  integer quis auctor elit sed vulputate. Eu mi bibendum neque
-                  egestas congue. Dictum non consectetur a erat nam at. Nec
-                  ullamcorper sit amet risus nullam. Suspendisse interdum
-                  consectetur libero id. Magna fermentum iaculis eu non diam
-                  phasellus vestibulum lorem sed.
-                </p> */}
               </div>
-
               <div className={"booking-container" + (!this.state.shrinkBookingForm ? "" : " expand")}>
-
-                {/* <Route props={listing} component={BookingFormContainer} /> */}
                 <BookingFormContainer listing={listing} enlargeBookingForm={()=>this.enlargeBookingForm()}/>
               </div>
             </div>

@@ -8,7 +8,6 @@ import Map from './map';
 // });
 
 const mSTP = ({ entities }, ownProps) => {
-    debugger
     return (
 
         {
