@@ -8,7 +8,8 @@ const mSTP = (state, ownProps) => {
   return {
     formType: "Edit Listing",
     listing: state.entities.listings[ownProps.match.params.listingId],
-    errors: state.errors.session.concat(state.errors.listing)
+    errors: state.errors.session.concat(state.errors.listing),
+    currentUser: state.session.id
   };
 };
 

@@ -9,9 +9,7 @@ import { AiFillStar } from 'react-icons/ai';
 import {BiHomeAlt} from 'react-icons/bi';
 import {FaUmbrellaBeach} from 'react-icons/fa'; 
 import {FaHandSparkles} from 'react-icons/fa';
-// import {IoSparklesOutline} from 'react-icons/io';
 import { MdOutlineHealthAndSafety } from 'react-icons/md';
-import {FaHandHoldingHeart} from 'react-icons/fa';
 
 class Listing extends React.Component {
   constructor(props) {

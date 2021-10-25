@@ -2,6 +2,7 @@ import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
+// import { Redirect } from 'react-router-dom';
 
 class ListingForm extends React.Component {
   constructor(props) {
@@ -94,6 +95,12 @@ class ListingForm extends React.Component {
     }
   }
 
+  handleCancel(){
+    this.props.history.push(`/users/${this.props.currentUser}`)
+    this.props.clearListingErrors();
+    this.props.clearSessionErrors();
+  }
+
   renderErrors() {
     return this.props.errors.length ? (
       <div  className="error-container">
@@ -110,6 +117,7 @@ class ListingForm extends React.Component {
   }
 
   render() {
+    // debugger
     const preview = this.state.photoUrl ? (
       <img className="form-photo-preview" src={this.state.photoUrl} />
     ) : null;
@@ -118,8 +126,8 @@ class ListingForm extends React.Component {
         <div className="form-container">
           <form onSubmit={this.handleSubmit} className="listing-form-box">
             <h2>Welcome to erabnb!</h2>
-            <br />
-            <p>Please {this.props.formType}</p>
+            <p>Please create a new listing</p>
+              <p className="cancel-btn" onClick={()=>this.handleCancel()}>cancel</p>
             <div className="listing-form">
               <div className="head-form-cont">
                 <div className="listing-title">

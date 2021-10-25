@@ -99,6 +99,12 @@ class EditListingForm extends React.Component {
     }
   }
 
+handleCancel(){
+  this.props.history.goBack();
+  this.props.clearListingErrors();
+  this.props.clearSessionErrors();
+ }
+
   renderErrors() {
     return this.props.errors.length ? (
       <div className="error-container">
@@ -126,8 +132,8 @@ class EditListingForm extends React.Component {
         <div className="form-container">
           <form onSubmit={this.handleSubmit} className="listing-form-box">
             <h2>Welcome to erabnb!</h2>
-            <br />
             <p>Please update your listing</p>
+              <p className="cancel-btn" onClick={()=>this.handleCancel()}>cancel</p>
             <div className="listing-form">
               <div className="head-form-cont">
                 <div className="listing-title">

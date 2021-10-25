@@ -23,7 +23,8 @@ const mSTP = (state) => {
         photoUrl: null,
         photos: []
       },
-      errors: state.errors.session.concat(state.errors.listing)
+      errors: state.errors.session.concat(state.errors.listing),
+      currentUser: state.session.id
     };
 };
 
