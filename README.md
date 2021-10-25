@@ -5,6 +5,8 @@
 Hello and Welcome to Erabnb! Erabnb is a clone of the website Airbnb, that provides
 user many of the features they know and love from the original: book/cancel a stay at a hosted home, create your own listing with multiple photos uploaded, create, edit and delete reviews on listings!
 
+Our twist is that our listings are grouped by decades from the 50's to the 90's. For all those design and architecture afficionados, here is your chance to time-travel through incredible homes with stunning, period-specific decor. 
+
 Check it out here --> (https://erabnb.herokuapp.com/#/)
 
 ## Splash Page

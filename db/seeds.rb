@@ -72,12 +72,12 @@ listing1 = Listing.create({
 title: "What Are You Doing? This is the PLACE!",    
 description: "This private penthouse is a slice of heaven! You'll be surrounded by luxurious 16-foot ceiling and stunning staircases. The bedroom has comfortable queen sized bed designed for better sleep, with a walk-in shower for two and jacuzzi tub. The living room has a large open space crafted with elegant furniture and flat screen smart TV. The kitchen is equipped with all necessary appliances, it has a dining table that fits up to 6 people and an extra half bath for your guests.",
 era_theme: "80's", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -73.947301,
-latitude: 40.715485, 
+address: "123 California Ave, Santa Monica, CA 90403", 
+longitude: -118.502750,
+latitude: 34.019650, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: DemoUser.id
@@ -97,15 +97,14 @@ listing1.photos.attach(io: file5, filename: '80_5-xavier-antoine-france.jpeg')
 
 listing2 = Listing.create({
 title: "Pricey, but WORTH IT",    
-description: "Comfortable, 2-bedroom, 1.5 bathroom, apartment in great location on Upper West Side. Perfect for families. Landmarked building. Washer/Dryer in unit. Walking distance to Central Park, Museum of Natural History and Lincoln Center. King-sized bed in main bedroom, full-sized trundle bed downstairs. Subway station two blocks away.",
+description: "Comfortable, 2-bedroom, 1.5 bathroom, apartment in great location on Upper West Side. Perfect for families. Landmarked building. Washer/Dryer in unit. Walking distance to the beach and all the surfin you could ever dream of. King-sized bed in main bedroom, full-sized trundle bed downstairs. Subway station two blocks away.",
 era_theme: "60's", 
-address: "1 Columbus Circle,
-Manhattan, New York City", 
-longitude: -73.956932,
-latitude: 40.768956,
+address: "1033 3rd St, Santa Monica, CA 90403", 
+longitude: -118.50135,
+latitude: 34.02067,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: DemoUser.id
@@ -124,14 +123,14 @@ listing2.photos.attach(io: file5, filename: '60_3-Child-Studio-Maido-Japanese-Rr
 
 listing3 = Listing.create({
 title: "Celebrate the Fourth of July in STYLE",    
-description: "You can pack a lot into a New York minute, especially when you’re staying at One Platt. Catch some rays from the rooftop with iconic city views. Send a few emails then shoot a round of billiards on the second-floor lounge, where work hard, play hard is a state of mind. Or embark on the best adventure of all and explore the Financial District. Sleek high-rises surround you while enticing aromas beckon your taste buds. A non-traditional waterfront dish, the wood",
+description: "The quintessential Santa Monica experience is here. Catch some rays from the rooftop with iconic city views. Send a few emails then shoot a round of billiards on the second-floor lounge, where work hard, play hard is a state of mind. Or embark on the best adventure of all and explore the beach. Sleek high-rises surround you while enticing aromas beckon your taste buds. A non-traditional waterfront dish, the wood",
 era_theme: "50's", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -73.98144,
-latitude: 40.785042,
+address: "1248 5th St, Santa Monica, CA 90406", 
+longitude: -118.496492,
+latitude: 34.018537,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: DemoUser.id
@@ -161,12 +160,12 @@ Cozy studio that has been newly renovated and smartly furnished including a quee
 Studio is equipped with all necessary amenities needed, shampoo/soap, conditioner, towels, linens, basic tableware, coffee, AC, heat, Bluetooth speaker, Smart TV for Android devices.
 " ,
 era_theme: "70's", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -73.971718,
-latitude: 40.787105, 
+address: "625 Washington Ave, Santa Monica, CA 90403", 
+longitude: -118.49905,
+latitude: 34.02427, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: DemoUser.id
@@ -187,14 +186,14 @@ listing4.photos.attach(io: file5, filename: '70s-69022894_478378582724747_447184
 
 listing6 = Listing.create({
 title: "Frank Llyod Wright Would Kill for This Place",    
-description: "I am offering my Noho loft, one block from SOHO. My apartment measures approximately 450 square feet and has 12' ceilings, new paint throughout, black hardwood floors and a washer/dryer. The bathroom is marble with clean white linens. There is a King-size Tempurpedic bed, a couch, wi-fi internet, A/C, stove, oven, microwave and everything you may need for a comfortable stay in the city.",
+description: "I am offering my Noho loft, one block from the Santa Monica pier. My apartment measures approximately 450 square feet and has 12' ceilings, new paint throughout, black hardwood floors and a washer/dryer. The bathroom is marble with clean white linens. There is a King-size Tempurpedic bed, a couch, wi-fi internet, A/C, stove, oven, microwave and everything you may need for a comfortable stay in the city.",
 era_theme: "80's", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -73.971718,
-latitude: 40.789105, 
+address: "402 Marguerita Ave, Santa Monica, CA 90402", 
+longitude: -118.506846,
+latitude: 34.026870, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user4.id
@@ -213,17 +212,16 @@ listing6.photos.attach(io: file5, filename: '80_15-5ee85ad45c8ae.jpeg')
 
 listing7 = Listing.create({
 title: "Gorgeous 90's Extravagance!",    
-description: "Centrally located in Midtown Manhattan on Fifth Avenue, this apartment is across from the Grand Army Plaza and Central Park's main entrance. It features on-site dining and free Wi-Fi.
+description: "Centrally located near Ocean ave and the beach, this apartment is across from the pier. It features on-site dining and free Wi-Fi.
 
 A flat-screen TV and iPod docking station are included in each room at the apartment. The rooms boast high ceilings and marble bathrooms. Belgian chocolates and a bouquet of flowers are provided upon arrival. All rooms offer complimentary soft drinks and water, as well as Keurig coffee machines.",
 era_theme: "90's", 
-address: "1 Columbus Circle,
-Manhattan, New York City", 
-longitude: -73.99824,
-latitude: 40.737974,
+address: "511 16th St, Santa Monica, CA 90402",
+longitude: -118.496163,
+latitude: 34.036341,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
@@ -243,16 +241,14 @@ listing7.photos.attach(io: file5, filename: '90_5-5ee8219414be7.jpeg')
 listing8 = Listing.create({
 title: "Finally a Place That is Perfect",    
 description: "50's DECOR GARDEN APARTMENT IN TOWNHOUSE with PRIVATE ENTRANCE.
-WE ARE SUPERHOSTS! Read our reviews for unbiased opinions!
-
-Entire tranquil Private Studio with separate entrance and a PRIVATE GARDEN in a beautiful townhouse on the Upper West Side of Manhattan, very close to Central Park. Complete with a queen-sized bed, flat-screen TV, plus a..." ,
+WE ARE SUPERHOSTS! Complete with a queen-sized bed, flat-screen TV, plus a..." ,
 era_theme: "50's", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -74.005333,
-latitude: 40.735421,
+address: "820 Broadway, Santa Monica, CA 90401", 
+longitude: -118.488682,
+latitude: 34.018240,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
@@ -275,12 +271,12 @@ listing9 = Listing.create({
 title: "In the Heart of the Bar Scene",    
 description: "Welcome to our gorgeous Malibu getaway with spectacular ocean views. Nestled in the peaceful Santa Monica Mountains just a few minutes drive to California's most famous beaches. Amazing hiking trails, world-class restaurants, and shopping close by." ,
 era_theme: "80's", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -74.003149,
-latitude: 40.731491, 
+address: "1252 10th Ct, Santa Monica, CA 90401", 
+longitude: -118.490479,
+latitude: 34.023770, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user2.id
@@ -302,12 +298,12 @@ listing10 = Listing.create({
     title: "You're Gonna DIE for These Views",    
     description: "Come stay 'On Top of the World' in this awe inspiring 2BD/2BA Panoramic Retreat - 250º City-to-Ocean Views - Open Floor Plan - Last house on the Cul-de-sac - Located in an All-Star Celebrity Neighborhood!"  ,
     era_theme: "90's", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -74.000532,
-    latitude: 40.731503,
+    address: "942 9th Ct, Santa Monica, CA 90403", 
+    longitude:  -118.496833,
+    latitude: 34.026771,
     num_bedrms: Faker::Number.within(range: 1..5), 
     num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
+    price: Faker::Number.within(range: 300..600), 
     clean_fee: Faker::Number.within(range: 1..40), 
     service_fee: Faker::Number.within(range: 1..30),
     host_id: user1.id
@@ -341,12 +337,12 @@ title: "Minutes from Transit and Nightlife",
 description: "This chic downtown penthouse has breathtaking city views, right in the middle of the action. Walking distance from Starbucks Whole Foods, Metro, Disney Hall, Fashion and Jewelry district. Clifton's is around the corner The Staples Center, LA Live, galleries, restaurants, and bars -walk to all of them!
 15 minutes driving from Santa Monica, Hollywood, Universal Studios, and Beverly Hills.",
 era_theme: "80's", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -73.979953,
-latitude: 40.73496, 
+address: "1221 Ocean Ave, Santa Monica, CA 90401", 
+longitude: -118.49976,
+latitude: 34.01679,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user4.id
@@ -373,7 +369,7 @@ listing11.photos.attach(io: file5, filename: '80_3-xavier-antoine-france-05.jpeg
 # latitude: 40.739584,
 # num_bedrms: Faker::Number.within(range: 1..5), 
 # num_baths: Faker::Number.within(range: 1..5), 
-# price: Faker::Number.within(range: 100..600), 
+# price: Faker::Number.within(range: 300..600), 
 # clean_fee: Faker::Number.within(range: 1..40), 
 # service_fee: Faker::Number.within(range: 1..30),
 # host_id: user5.id
@@ -392,17 +388,17 @@ listing11.photos.attach(io: file5, filename: '80_3-xavier-antoine-france-05.jpeg
 
 listing13 = Listing.create({
 title: "Modern Modern TRES MODERN!",    
-description: "Gorgeous and spacious apartment located in the heart of Downtown Los Angeles!
+description: "Gorgeous and spacious apartment located in the heart of Downtown Santa Monica!
 
 Over 1400 sq. ft. of luxury. Sleeps 4 guests. Two king size beds. One bed is located in a private bedroom. Second bed is located in open space separated with dividers.
 " ,
 era_theme: "50's", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -73.952487,
-latitude: 40.729698,
+address: "205 Alta Ave, Santa Monica, CA 90402", 
+longitude: -118.508278,
+latitude: 34.025423,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
@@ -423,12 +419,12 @@ listing14 = Listing.create({
 title: "Gothic Vampire Velour Hedonistic Thrill Nest",    
 description: "Midcentury modern 2bed/2bath stilt home with spectacular views above Sunset Strip (2 blocks up from Hollywood + Fairfax). Very central, only blocks from the action, but very private and quiet. Recent renovations from roof to foundation, heat/AC system, high speed wifi, wired in + out with speakers, including 5.2 surround + movie projector in living room, 2-car car park with electric car charger." ,
 era_theme: "70's", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -73.941039,
-latitude: 40.72437, 
+address: "120 Ocean Way, Santa Monica, CA 90402", 
+longitude: -118.516864,
+latitude: 34.027363, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user2.id
@@ -452,12 +448,12 @@ Located Between Beachwood and Griffith Park.
 Perfect for a couple traveling with a family member, and/or friends.
 The luxurious space offers a separate bedroom with queen size bed and a very" ,
     era_theme: "90's", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -73.942236,
-    latitude: 40.718867,
+    address: "1351 The Promenade, Santa Monica, CA 90401", 
+    longitude: -118.494919,
+    latitude: 34.015809,
     num_bedrms: Faker::Number.within(range: 1..5), 
     num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
+    price: Faker::Number.within(range: 300..600), 
     clean_fee: Faker::Number.within(range: 1..40), 
     service_fee: Faker::Number.within(range: 1..30),
     host_id: user1.id
@@ -478,12 +474,12 @@ listing20 = Listing.create({
     title: "Outdoor Paradise!",    
     description: "Entirely Private and detached Hollywood studio with amazing private indoor and shared outdoor space in campus style complex for open minded travelers. Perfect for photo shoots and video production. We allow all content creators. 420 friendly. This property is 3 miles from the general map area shown here, a 10 minute drive to most everything off Sunset Blvd. in the Heart of West Hollywood. You will need a car at this location. The Hollywood Hills are" ,
     era_theme: "80's", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -73.966311,
-    latitude: 40.789948,
+    address: "801 Montana Ave, Santa Monica, CA 90403", 
+    longitude: -118.502285,
+    latitude: 34.028344,
     num_bedrms: Faker::Number.within(range: 1..5), 
     num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
+    price: Faker::Number.within(range: 300..600), 
     clean_fee: Faker::Number.within(range: 1..40), 
     service_fee: Faker::Number.within(range: 1..30),
     host_id: user1.id
@@ -502,15 +498,15 @@ listing20.photos.attach(io: file5, filename: '80s-at_house+tours_2021-03_Meg+G_M
 
 listing21 = Listing.create({
 title: "Urban Enchantment",    
-description: "During your stay in Downtown Chicago and enjoying the comfort of our sophisticated apartment we will be doing our best to serve You in the best traditions. Every apartment by us is an Experience of Modern, Design and Beauty.
+description: "During your stay in Downtown Santa Monica and enjoying the comfort of our sophisticated apartment we will be doing our best to serve You in the best traditions. Every apartment by us is an Experience of Modern, Design and Beauty.
 ",
 era_theme: "70's", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -73.950343,
-latitude: 40.78661, 
+address: "400 Palisades Ave, Santa Monica, CA 90402", 
+longitude: -118.50505,
+latitude: 34.02534,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user4.id
@@ -529,18 +525,15 @@ listing21.photos.attach(io: file5, filename: '70s-69022894_478378582724747_44718
 
 
 listing22 = Listing.create({
-title: "Wine and Dine on the Patio",    
-description: "Located at the epicenter of Chicago's cultural, historical, and business attractions, this luxurious 2 bedroom apartment offers guests all the comforts of home, whether on the road for work or play.
-
-Within walking distance are world famous attractions including: Millennium Park, the Bean, Navy Pier, Riverwalk, and museum campus. Additionally, guests",
+title: "Wine and Dine in This Cozy Cabin Vibe",    
+description: "The Muscle Beach outdoor gym area is considered to be the original Muscle Beach in California, featuring ropes, parallel bars, swings and more where families, fitness freaks and tourists enjoy free entry and laid-back fun; Other gyms closed by include Burn Fitness (let them know “Cozy” referred you), Equinox, The famous Golds Gym Venice, Orangetheory Fitness and there are also many other cross fitness gyms and circuit training gyms.",
 era_theme: "60's", 
-address: "1 Columbus Circle,
-Manhattan, New York City", 
-longitude: -73.94436,
-latitude: 40.787983,
+address: "1015 Georgina Ave, Santa Monica, CA 90402", 
+longitude: -118.505461,
+latitude: 34.034995,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
@@ -560,18 +553,18 @@ listing22.photos.attach(io: file5, filename: '60s-transitional-interior-design-s
 
 listing23 = Listing.create({
 title: "A Perfect Place for the Whole Family",    
-description: "New Remodeled! Amazing views. Full-Amenity building with 24hr doorman, pool, newly remodeled sundeck with grills & firepits, pool, PreCor fitness center & business center. Cable, WiFi & internet included. Perfect for vacation, short-term housing or corporate rental. Corner condo in the FANTASTIC South Loop with outstanding views of the City & Lake Michigan. Steps to many Chicago attractions including the beach, shopping on Michigan Ave., restaurants & nightlife!
+description: "New Remodeled! Amazing views. Full-Amenity building with 24hr doorman, pool, newly remodeled sundeck with grills & firepits, pool, PreCor fitness center & business center. Cable, WiFi & internet included. Perfect for vacation, short-term housing or corporate rental. Corner condo in the FANTASTIC South Loop with outstanding views of the City & Lake Michigan. Steps to many Santa Monica's attractions including the beach, shopping on Michigan Ave., restaurants & nightlife!
 
 Guest access
 The gym is open for use
 " ,
 era_theme: "50's", 
-address: "73 Bushwick Ave, Brooklyn, NY 11211", 
-longitude: -73.940004,
-latitude: 40.789575,
+address: "2120 4th St, Santa Monica, CA 90405", 
+longitude: -118.486020,
+latitude: 34.007322,
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user5.id
@@ -590,16 +583,16 @@ listing23.photos.attach(io: file5, filename: '50s-style_at_home-_-dfe49594-e544-
 
 listing24 = Listing.create({
 title: "You'll Die Someday so Live It Up Now",    
-description: "Located at the epicenter of Chicago's cultural, historical, and business attractions, this luxurious 2 bedroom apartment offers guests all the comforts of home, whether on the road for work or play.
+description: "Located at the epicenter of Santa Monica's cultural, historical, and business attractions, this luxurious 2 bedroom apartment offers guests all the comforts of home, whether on the road for work or play.
 
 Within walking distance are world famous attractions including: Millennium Park, Navy Pier, Riverwalk, Soldier Field, The Field Museum, Oak Street Beach,"  ,
 era_theme: "60's", 
-address: "90 5th Ave, New York, NY 10011", 
-longitude: -73.989815,
-latitude: 40.750226, 
+address: "353 12th St, Santa Monica, CA 90402", 
+longitude: -118.502611,
+latitude: 34.035716, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
-price: Faker::Number.within(range: 100..600), 
+price: Faker::Number.within(range: 300..600), 
 clean_fee: Faker::Number.within(range: 1..40), 
 service_fee: Faker::Number.within(range: 1..30),
 host_id: user2.id
@@ -619,14 +612,14 @@ listing24.photos.attach(io: file5, filename: '60s-eclectic-interior-design-style
 
 listing25 = Listing.create({
     title: "Nothing Can Beat This Apartment",    
-    description: "Stay in the heart of one of Chicago's most popular neighborhoods! Relax and unwind in a historic gray stone apartment. We have a spacious kitchen, dining room with period built-ins and modern art pieces, two smart and minimalist bedrooms, and a sunny backyard and patio. Located just three short blocks from the blue line subway, which runs between O'Hare airport and downtown Chicago, this centrally-located apartment i… read more"  ,
+    description: "Located right on Ocean Front Walk and exactly in front of the original Muscle Beach in Santa Monica California (not to be confused with Muscle Beach in Venice Beach), this property faces the ocean and it’s situated just within a few minutes walk of the famous Santa Monica Pier, Starbucks, Big Deans Ocean Front Café (let them know Cozy referred you) and many many many other attractions that Santa Monica has to offer; enjoy staying in this area without having to pay hotel prices… close by hotels include, the Lowes Hotel, Shutters Hotel, the JW Marriot and Casa Del Mar Hotel."  ,
     era_theme: "70's", 
-    address: "55 Broad St, New York, NY 10004", 
-    longitude: -74.00013,
-    latitude: 40.746152,
+    address: "557 11th St, Santa Monica, CA 90402", 
+    longitude: -118.49997,
+    latitude: 34.03214,
     num_bedrms: Faker::Number.within(range: 1..5), 
     num_baths: Faker::Number.within(range: 1..5), 
-    price: Faker::Number.within(range: 100..600), 
+    price: Faker::Number.within(range: 300..600), 
     clean_fee: Faker::Number.within(range: 1..40), 
     service_fee: Faker::Number.within(range: 1..30),
     host_id: user1.id
@@ -649,9 +642,9 @@ description: "Built in 1895 and updated in 2019, the condo provides historic cha
 
 The unit has a private balcony deck and a landscaped common patio. The unit includes 2 free off-street parking spots. Amenities include 75 4K Smart TV,",
 era_theme: "80's", 
-address: "405 Lexington Ave, New York, NY 10174", 
-longitude: -74.0113,
-latitude: 40.71152, 
+address: "123 Georgina Ave, Santa Monica, CA 90402", 
+longitude: -118.512224,
+latitude: 34.026478, 
 num_bedrms: Faker::Number.within(range: 1..5), 
 num_baths: Faker::Number.within(range: 1..5), 
 price: Faker::Number.within(range: 100..600), 

@@ -56,8 +56,8 @@ class Map extends React.Component {
     this.map = new mapboxgl.Map({
       container: "mapContainer",
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [-73.982, 40.769],
-      zoom: 12,
+      center: [-118.49905, 34.02427],
+      zoom: 13,
     }).addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
