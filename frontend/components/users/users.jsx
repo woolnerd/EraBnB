@@ -28,7 +28,6 @@ class Users extends React.Component {
     let { currentUser } = this.props;
     let listings;
     let bookings;
-    // debugger
    listings = this.state.listings.map((listing) => {
     const descrip = listing.listing.description.split(" ").length > 20 ? listing.listing.description.split(" ").slice(0,20).join(" ")+"..." :
                     listing.listing.description;

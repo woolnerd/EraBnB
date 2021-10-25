@@ -7,11 +7,12 @@ import Map from './map';
 //   listings: Object.values(entities.listings),
 // });
 
-const mSTP = ({ entities }, ownProps) => {
+const mSTP = ({ entities, session }, ownProps) => {
     return (
 
         {
             listings: Object.values(entities.listings),
+            currentUser: session.id
         }
     )
 

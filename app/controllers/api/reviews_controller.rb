@@ -22,12 +22,10 @@
 
     def update 
         @review = Review.find(params[:id])
-        # debugger
         if @review && @review.update(review_params)
             # render "api/reviews/show"
         else 
             render json: @review.errors.full_messages, status: 422
-            # debugger
         end
     end
 

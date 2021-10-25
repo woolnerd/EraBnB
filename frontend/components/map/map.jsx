@@ -29,19 +29,18 @@ class Map extends React.Component {
   }
 
  createMarkers(listings){
-    const markers = [];
     listings.forEach((listing) => {
-      let newMarker =
-        new mapboxgl.Marker({ color: "#ff385c" })
-          .setLngLat([listing.longitude, listing.latitude])
-          .addTo(this.map)
-          .setPopup(
-            new mapboxgl.Popup({ closeOnMove : true, focusAferOpen: false}).setHTML(this.marker(listing))
-          )
-        markers.push(newMarker)
+      if (this.props.currentUser !== listing.host_id) {
+        let newMarker =
+          new mapboxgl.Marker({ color: "#ff385c" })
+            .setLngLat([listing.longitude, listing.latitude])
+            .addTo(this.map)
+            .setPopup(
+              new mapboxgl.Popup({ closeOnMove : true, focusAferOpen: false}).setHTML(this.marker(listing))
+            )
+          this.state.markers.push(newMarker)
+      }
     })
-    // this.setState({markers: markers})
-    // debugger
   }
 
   removeMarkers(){
@@ -71,26 +70,15 @@ class Map extends React.Component {
 
   
   componentDidUpdate(prevProps, prevState) {
-
     if (this.props.listings != this.state.listings) {
       this.setState({listings: this.props.listings})
-      this.removeMarkers();
     }
+    this.removeMarkers();
     this.createMarkers(this.state.listings);
-      // this.state.listings.forEach((listing) =>
-      //   new mapboxgl.Marker({ color: "#ff385c" })
-      //     .setLngLat([listing.longitude, listing.latitude])
-      //     .addTo(this.map)
-      //     .setPopup(
-      //       new mapboxgl.Popup({ closeOnMove : true, focusAferOpen: false}).setHTML(this.marker(listing))
-      //     )
-      // );
-    
 
   }
 
   render() {
-    // this.createMarkers(this.state.listings);
 
     return <div id="mapContainer"></div>;
   }

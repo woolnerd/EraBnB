@@ -8,7 +8,6 @@
 
     def create
         @booking = Booking.new(booking_params)
-        # debugger
         if @booking.save
             render :show
         else  

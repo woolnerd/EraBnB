@@ -4,7 +4,6 @@ import { AiFillStar } from 'react-icons/ai'
 
 
 export const ListingIndexItem = ({ listing}) => {
-  // debugger
   return (
 
   <div className="listing-item">
