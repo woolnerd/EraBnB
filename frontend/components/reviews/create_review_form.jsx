@@ -39,12 +39,10 @@ class CreateReviewForm extends React.Component {
       <div className="error-container">
         <ul className="form-errors">
           {this.props.errors.map((error, i) => (
-            <>
-            <div className="error-item">
+            <div key={`error-${i}`}className="error-item">
               <BsFillExclamationCircleFill className="exclamation"/>
-              <li key={`error-${i}`}>{error}</li>
+              <li>{error}</li>
             </div>
-            </>
           ))}
         </ul>
       </div>

@@ -19,11 +19,24 @@ class Splash extends React.Component {
       .then(this.props.history.push('/search'))    
   }
 
+  handleHost(){
+    if (this.props.currentUser) {
+      this.props.history.push(`/users/${this.props.currentUser}`)
+    } else {
+      this.props.login()
+    }
+  }
+
+  // handleFlexible(){
+  //   props.fetchListing(globalThis.flexible).then(
+  //   props.history.push(`/listings/${globalThis.flexible}`))
+  // }
+
 
 render(){
   return (
     <>
-    <Link to="/listings" onClick={(e)=> e.stopPropagation}>
+    <Link to="/listings">
       <main
         id="splash1"
         // style={{ backgroundImage: "url(" + modernSunsetPic + ")" }}
@@ -33,9 +46,7 @@ render(){
             <h2>Not sure where to go? Perfect.</h2>
             <span>
               <button className="flexible-btn" 
-              // onClick={(e)=> props.fetchListing(globalThis.flexible).then(
-              //   props.history.push(`/listings/${globalThis.flexible}`)
-              // )}
+             
               >I'm flexible
               </button>
             </span>
@@ -96,7 +107,7 @@ render(){
           </p>
         </span>
         <span>
-          <button onClick={()=>props.login()}>Learn more</button>
+          <button onClick={()=>this.handleHost()}>Learn more</button>
         </span>
       </div>
     </div>
@@ -108,11 +119,6 @@ render(){
   
 
 }
-// const tryHosting = () => (
-//   this.state.currentUser ?
-//     props.history.push(`/users/${currentUser}`) :
-//     ()=>props.login()
-// )
 
 
 const mSTP = (state) => ({

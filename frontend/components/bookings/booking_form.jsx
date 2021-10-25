@@ -35,16 +35,10 @@ class BookingForm extends React.Component {
     if (!this.props.currentUser) {
       this.props.login();
     }
-      // if (this.dateCheck()) {
         this.props
           .createBooking(this.state.booking)
           .then((res) => this.props.history.push(`/bookings/${res.booking.id}`));
-        // this.setState({ showError: false });
         this.props.clearErrors();
-      // } else {
-        // this.setState({ showError: true });
-      // }
-    // }
 
   }
 
@@ -113,12 +107,10 @@ class BookingForm extends React.Component {
       <div key={`booking-error-${Math.random()}`}className="error-container">
         <ul key={`booking-error-${Math.random()}`}className="form-errors">
           {this.state.errors.map((error, i) => (
-            <>
-              <div key={`booking-error-${i * Math.random()}`} className="error-item">
+              <div key={`booking-error-${i}`} className="error-item">
                 <BsFillExclamationCircleFill className="exclamation" />
-                <li key={`booking-error-${i * Math.random() * 2}`}>{error}</li>
+                <li>{error}</li>
               </div>
-            </>
           ))}
         </ul>
       </div>

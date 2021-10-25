@@ -96,13 +96,13 @@ class ListingForm extends React.Component {
 
   renderErrors() {
     return this.props.errors.length ? (
-      <div className="error-container">
+      <div  className="error-container">
         <ul className="form-errors" id="create-form-errors">
           {this.props.errors.map((error, i) => (
-            <>
+            <div className="div-error-key" key={`create-listing-error${error+i}`}>
               <BsFillExclamationCircleFill />
-              <li key={`error-${i}`}>{error}</li>
-            </>
+              <li>{error}</li>
+            </div>
           ))}
         </ul>
       </div>
@@ -120,7 +120,6 @@ class ListingForm extends React.Component {
             <h2>Welcome to erabnb!</h2>
             <br />
             <p>Please {this.props.formType}</p>
-            {/* {this.renderErrors()} */}
             <div className="listing-form">
               <div className="head-form-cont">
                 <div className="listing-title">

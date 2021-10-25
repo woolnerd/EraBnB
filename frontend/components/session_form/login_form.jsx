@@ -37,9 +37,9 @@ class LoginForm extends React.Component {
       <div className="error-container">
         <ul className="login-form-errors-ul">
           {this.props.errors.session.map((error, i) => (
-            <div className="login-form-errors">
+            <div key={`error-${i}`} className="login-form-errors">
               <BsFillExclamationCircleFill/>
-              <li key={`error-${i}`}>{error}</li>
+              <li >{error}</li>
             </div>
           ))}
         </ul>

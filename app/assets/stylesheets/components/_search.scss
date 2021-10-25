@@ -127,8 +127,14 @@
 .no-results {
     height: 1200px;
     width: 100%;
+    margin-top: 50px;
+    text-align: center;
 }
 
+.no-results-btn {
+    font-size: 18px !important;
+    color: black;
+}
 
 .era-search {
     border: none;
@@ -171,6 +177,8 @@
     margin-top:0;
     transition: all 0.5s;
 }
+
+
 
 // .search-container form input[type="date"]::-webkit-inner-spin-button,
 // .serach-container input[type="date"]::-webkit-calendar-picker-indicator {

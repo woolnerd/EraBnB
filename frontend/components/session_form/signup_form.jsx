@@ -42,9 +42,9 @@ class SignupForm extends React.Component {
       <div className="error-container">
         <ul className="form-errors">
           {this.props.errors.session.map((error, i) => (
-            <div>
+            <div key={`error-${i}`}>
               <BsFillExclamationCircleFill/>
-              <li key={`error-${i}`}>{error}</li>
+              <li>{error}</li>
             </div>
           ))}
         </ul>

@@ -104,10 +104,10 @@ class EditListingForm extends React.Component {
       <div className="error-container">
         <ul className="form-errors" id="create-form-errors" >
           {this.props.errors.map((error, i) => (
-            <>
+            <div  className="div-key-error" key={`error-${i}`}>
               <BsFillExclamationCircleFill />
-              <li key={`error-${i}`}>{error}</li>
-            </>
+              <li>{error}</li>
+            </div>
           ))}
         </ul>
       </div>

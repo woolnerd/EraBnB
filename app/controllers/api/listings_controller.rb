@@ -42,6 +42,7 @@ class Api::ListingsController < ApplicationController
         @listing = Listing.find(params[:id])
         if @listing 
             @listing.destroy
+            @listings = Listing.with_attached_photos.all
            render :index
         else  
             render json: @listing.errors.full_messages, status: 404
@@ -66,7 +67,6 @@ class Api::ListingsController < ApplicationController
         
         end
 
-
         @listings = 
             @listings.select do |listing|
                 booked_ranges = []
@@ -80,12 +80,11 @@ class Api::ListingsController < ApplicationController
                  booked_ranges.all? {|range| !range.include?(desired_check_out)}
             end
 
-  
-        # debugger
+            
         if params[:query][:era_theme] != ""
             @listings = @listings.select {|listing| listing.era_theme == params[:query][:era_theme] }
-            # @listings
         end
+
         render "api/listings/index"
     end
 
