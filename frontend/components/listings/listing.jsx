@@ -3,9 +3,15 @@ import { Route, Link } from "react-router-dom";
 import BookingFormContainer from "../bookings/booking_form_container";
 import ReviewItemContainer from "../reviews/review_item_container"
 import ReviewItem from '../reviews/review_item';
-import CreateReviewFormContainer from '../reviews/create_review_form_container'
+import CreateReviewFormContainer from '../reviews/create_review_form_container';
 import { getAvgRating } from './listing_index_item';
-import { AiFillStar } from 'react-icons/ai'
+import { AiFillStar } from 'react-icons/ai';
+import {BiHomeAlt} from 'react-icons/bi';
+import {FaUmbrellaBeach} from 'react-icons/fa'; 
+import {FaHandSparkles} from 'react-icons/fa';
+// import {IoSparklesOutline} from 'react-icons/io';
+import { MdOutlineHealthAndSafety } from 'react-icons/md';
+import {FaHandHoldingHeart} from 'react-icons/fa';
 
 class Listing extends React.Component {
   constructor(props) {
@@ -206,9 +212,9 @@ class Listing extends React.Component {
             <div className="listing-info-show">
               <h3>{listing.era_theme} Era theme by {listing.host.first_name}</h3>
               <div className="room-details">
-                <p>{listing.num_bedrms} beds</p>
+                <p>{listing.num_bedrms} {listing.num_bedrms === 1 ? "bed" : "beds"}</p>
                 <p>&middot;</p>
-                <p>{listing.num_baths} baths</p>
+                <p>{listing.num_baths} {listing.num_baths === 1 ? "bath" : "baths"}</p>
               </div>
 
               {showEditAndDelete}
@@ -219,6 +225,38 @@ class Listing extends React.Component {
             </div>
             <div className="body-booking">
               <div className="listing-body">
+              <div className="icons-blurbs">
+                  <div>
+                    <BiHomeAlt/>
+                    <div>
+                      <h3>Entire home</h3>
+                      <p>You’ll have the apartment to yourself.</p>
+                    </div>
+                  </div>
+                  <div className="beach">
+                    <FaUmbrellaBeach/>
+                    <div>
+                      <h3>Great location</h3>
+                      <p>Within minutes to the beach.</p>
+                    </div>
+                  </div>
+                  <div className="great-care">
+                    <FaHandSparkles/>
+                    <div>
+                      <h3>Experienced host</h3>
+                      <p>This host has proven their attention to detail.</p>
+                    </div>
+                  </div>
+                  <div className="clean">
+                    <MdOutlineHealthAndSafety/>
+                    <div>
+                    <h3>Enhanced Clean</h3>
+                    <p>This Host committed to Erabnb's 5-step enhanced cleaning process.</p>
+                  </div>
+                  </div>
+
+              </div>
+              
                 <p>{listing.description}</p>
               </div>
               <div className={"booking-container" + (!this.state.shrinkBookingForm ? "" : " expand")}>

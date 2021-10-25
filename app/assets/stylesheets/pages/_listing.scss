@@ -45,6 +45,7 @@
     border-bottom: 1px solid black;
     width: 50%;
     margin: 50px;
+    margin-bottom:2px;
     h3 {
         font-size: 1.5rem;
         padding: 8px 2px;
@@ -271,6 +272,9 @@ div#bottom-right-photo img {
     margin-top: 30px;
     line-height: 20px;
     font-weight: 300;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
 }
 
 .body-booking {
@@ -476,3 +480,37 @@ div#bottom-right-photo img {
     padding-bottom: 4px;
 }
 
+.icons-blurbs div {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.icons-blurbs div div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.icons-blurbs div svg {
+    font-size: 2rem;
+}
+
+.icons-blurbs p {
+    font-size: 14px;
+    font-weight: 100;
+    color: gray;
+}
+
+.icons-blurbs h3 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.icons-blurbs {
+    border-bottom: 1px solid lightgray;
+}
+
+.listing-body > p {
+    margin-top: 1rem;
+    line-height: 1.5rem;
+}

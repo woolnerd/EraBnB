@@ -32,3 +32,11 @@
 .footer-container a {
     color: black;
 }
+
+.footer-container li:hover {
+    text-decoration: underline;
+}
+
+.top-col:hover {
+    text-decoration: none !important;
+}

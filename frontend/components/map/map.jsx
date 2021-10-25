@@ -69,7 +69,7 @@ class Map extends React.Component {
   }
 
   
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if (this.props.listings != this.state.listings) {
       this.setState({listings: this.props.listings})
     }
