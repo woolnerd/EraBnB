@@ -117,7 +117,6 @@ class ListingForm extends React.Component {
   }
 
   render() {
-    // debugger
     const preview = this.state.photoUrl ? (
       <img className="form-photo-preview" src={this.state.photoUrl} />
     ) : null;

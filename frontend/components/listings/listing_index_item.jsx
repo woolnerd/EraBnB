@@ -23,22 +23,16 @@ export const ListingIndexItem = ({ listing}) => {
         <span> Baths {listing.num_baths}</span>
       </p>
       <div className="rating-price-cont">
-        {/* <span className="item-price"> */}
           <p className="special item-price">${listing.price}/night</p>
-        {/* </span> */}
-        {/* <span className="avg-rating"> */}
           {listing.reviews.length ? (
             <div className="special" id="rating">
               <AiFillStar className="star"/> 
               <h4>{getAvgRating(listing.reviews)} ({listing.reviews.length} {listing.reviews.length > 1 ? "reviews" : "review"})</h4>
             </div>
           ) : (
-            // <p className="special">
-            //   No reviews yet
-            // </p>
+
             null
           )}
-        {/* </span> */}
       </div>
     </div>
   </div>
