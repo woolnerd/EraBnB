@@ -10,8 +10,7 @@
     height: fit-content;
     flex-wrap: wrap;
     margin-bottom: 5rem;
-    // position: relative;
-
+    margin-right: 4rem;
 }
 
 .listing-item img {
@@ -30,7 +29,7 @@
     margin-left: 2rem;
     border-bottom: 1px solid #ddd8d8;
     padding-top: 21px;
-
+    cursor: pointer;
 }   
 
 
@@ -45,6 +44,7 @@
     h3 {
         font-size: 1.25rem;
         padding: 10px;
+        color: black;
     }
 
     p {
@@ -182,3 +182,4 @@ p.listing-item-address- {
     font-weight: 500;
     color: black;
 }
+

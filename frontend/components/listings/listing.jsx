@@ -235,7 +235,7 @@ class Listing extends React.Component {
                     <FaUmbrellaBeach/>
                     <div>
                       <h3>Great location</h3>
-                      <p>Within minutes to the beach.</p>
+                      <p>Within minutes of the beach.</p>
                     </div>
                   </div>
                   <div className="great-care">

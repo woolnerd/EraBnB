@@ -57,15 +57,17 @@ class Map extends React.Component {
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-118.49905, 34.02427],
       zoom: 13,
-    }).addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-        },
-        trackUserLocation: true,
-        showUserHeading: true,
-      })
-    );
+    })
+    // .addControl(
+    //   new mapboxgl.GeolocateControl({
+    //     positionOptions: {
+    //       enableHighAccuracy: true,
+    //     },
+    //     trackUserLocation: true,
+    //     showUserHeading: true,
+    //   })
+    // );
+      this.map.addControl(new mapboxgl.NavigationControl());
   }
 
   

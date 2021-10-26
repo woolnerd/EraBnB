@@ -6,10 +6,11 @@ import { AiFillStar } from 'react-icons/ai'
 export const ListingIndexItem = ({ listing}) => {
   return (
 
+  <Link to={`/listings/${listing.id}`}>
   <div className="listing-item">
-    <Link to={`/listings/${listing.id}`}>
-      <img src={listing.photoUrl[0]} alt="" />
-    </Link>
+      <div>
+        <img src={listing.photoUrl[0]} alt="" />
+      </div>
     <div className="listing-info">
       <span>
         <p>{listing.era_theme} theme experience</p>
@@ -41,8 +42,11 @@ export const ListingIndexItem = ({ listing}) => {
       </div>
     </div>
   </div>
+   </Link>
+
   )
 }
+
 
 export const getAvgRating = (reviews) => {
 
