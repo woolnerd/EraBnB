@@ -111,4 +111,15 @@ One of the problems with using search that I ran into, was that the map markers 
 
 ```
 
+## Future Implementations
 
+* More cities will be added to the database
+
+* More robust map point markers
+
+* Search bar animation
+
+* Avatars for users
+
+
+## Thank you for looking!
