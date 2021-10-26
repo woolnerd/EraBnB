@@ -11,7 +11,7 @@
 .search-container form {
     display: flex;
     justify-content: space-between;
-    align-items: baselcenterine;
+    align-items: center;
     align-content: center;
     flex-wrap: wrap;
     height: 100%;
@@ -29,7 +29,7 @@
 .location-search, .check-in-search, .check-out-search {
     display: flex;
     flex-direction: column;
-    // border: 1px solid #c7c7c7;
+    border: none;
     font-size: .65rem;
     font-weight: 600;
     font-family: 'Montserrat';
@@ -50,7 +50,7 @@
 .location-search ,
 .check-in-search ,
 .check-out-search  {
-    border-right: 1px solid lightgray;
+    // border-right: 1px solid lightgray;
     height: 50%;
 }
 
@@ -185,3 +185,9 @@
 //     display: none;
 //     -webkit-appearance: none;
 // }
+
+.divider {
+    width: 1px;
+    height: 33px !important;
+    border-right: 1px solid lightgray;
+}

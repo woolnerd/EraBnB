@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchSearchListings } from '../../actions/listing_actions';
 import { withRouter } from 'react-router-dom';
 import {BiSearch} from 'react-icons/bi'
+import { addDays} from "date-fns";
+
 const qs = require("query-string");
 
 
@@ -51,6 +53,7 @@ class Search extends React.Component {
                 placeholder="Where are you going?"
               />
             </div>
+            <div className="divider"></div>
             <div className="check-in-search">
               <h4>Check in</h4>
               <input
@@ -63,6 +66,7 @@ class Search extends React.Component {
                 onChange={this.update("check_in")}
               />
             </div>
+            <div className="divider"></div>
             <div className="check-out-search">
               <h4>Check out</h4>
               <input
@@ -70,11 +74,13 @@ class Search extends React.Component {
                 name="check_out"
                 id=""
                 // value={this.state.check_out}
-                defaultValue={new Date().toISOString().slice(0, 10)}
-                min={new Date().toISOString().slice(0, 10)}
+                // defaultValue={new Date().toISOString().slice(0, 10)}
+                defaultValue={tmrw()}
+                min={tmrw()}
                 onChange={this.update("check_out")}
               />
             </div>
+            <div className="divider"></div>
             <div className="era-search">
                   <label className="era-label-search">Era Theme</label>
                   <select
@@ -99,6 +105,15 @@ class Search extends React.Component {
       </>
     );
   }
+}
+
+const tmrw = () => {
+  const date = new Date();
+  const year = date.getUTCFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+  const result = addDays(new Date(year, month, day), 7);
+  return result.toISOString().slice(0, 10);
 }
 
 const mSTP = (state) => ({
