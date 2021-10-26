@@ -25,7 +25,7 @@ export const Footer = () => (
           </a>
         </li>
         <li>
-          <a href="https://github.com/DavidWoolner" target="_blank">
+          <a href="https://davidwoolner.github.io" target="_blank">
           Portfolio site
           </a>
         </li>
