@@ -87,7 +87,7 @@ class CalendarDropDown extends React.Component {
                 <div className="check-in-cont-border modal">
                   <div className="checkin-checkout-cont modal">
                     <div className="check-in-cont modal">
-                      <p id="bk-form-input modal">CHECK-IN</p>
+                      <p className="bk-form-input modal">CHECK-IN</p>
                       <h4>
                         {this.state.booking.check_in === ""
                           ? "Add date"
@@ -98,7 +98,7 @@ class CalendarDropDown extends React.Component {
                 </div>
                 <div className="check-out-cont-border modal">
                   <div className="check-out-cont modal">
-                    <p id="bk-form-input modal">CHECK-OUT</p>
+                    <p className="bk-form-input modal">CHECK-OUT</p>
                     <h4>
                       {this.state.booking.check_out === "" ||
                       this.state.booking.check_out ===

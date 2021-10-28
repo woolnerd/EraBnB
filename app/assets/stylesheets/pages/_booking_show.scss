@@ -77,7 +77,8 @@
     justify-content: space-between;
     margin-top: 24px;
     padding: 0 21px;
-    align-items: baseline;
+    align-content: center;
+    align-items: center;
 }
 
 .bk-rate-review span {
@@ -107,7 +108,7 @@
     display: flex;
     justify-content: flex-start;
     padding-bottom: 14px;
-    padding-left: 14px;
+    padding-left: 35px;
     padding-top: 15px;
 }
 
@@ -118,10 +119,11 @@
 .guests-dropdown {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 13px;
+    align-content: center;
+    align-items: center;
 }
-
 
 .bk-rate-review span p {
     display: flex;
@@ -137,11 +139,37 @@
     padding-left: 10px;
 }
 
-#bk-form-input {
+#bk-form-input-check-in {
     font-weight: 600;
     font-size: 0.6rem;
     padding-bottom: 7px;
 }
+
+.bk-form-input-check-in {
+    font-weight: 600;
+    font-size: 0.6rem;
+    padding-bottom: 7px;
+}
+
+
+#bk-form-input-check-out {
+    font-weight: 600;
+    font-size: 0.6rem;
+    padding-bottom: 7px;
+}
+
+.bk-form-input-check-out {
+    font-weight: 600;
+    font-size: 0.6rem;
+    padding-bottom: 7px;
+}
+
+#bk-form-input-guests {
+    font-weight: 600;
+    font-size: 0.6rem;
+    padding-bottom: 7px;
+}
+
 
 .bk-rate-review span p span {
     font-size: 12px;
@@ -161,11 +189,15 @@ span#room-price {
     display: flex;
 }
 
+
 .check-out-cont-border {
-    border-left: 1px solid #c3c3c3;;
+    border-left: 1px solid #c3c3c3;
     display: flex;
     align-items: center;
+    margin-left: -10px;
+    padding-left: 16px;
 }
+
 .booking-form-container {
     width: fit-content;
     margin: auto;

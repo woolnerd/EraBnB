@@ -229,7 +229,7 @@ class BookingForm extends React.Component {
                 <div className="check-in-cont-border">
                   <div className="checkin-checkout-cont">
                     <div className="check-in-cont">
-                      <p id="bk-form-input">CHECK-IN</p>
+                      <p id="bk-form-input-check-in">CHECK-IN</p>
                       <h4>
                         {this.state.booking.check_in === ""
                           ? "Add date"
@@ -240,7 +240,7 @@ class BookingForm extends React.Component {
                 </div>
                 <div className="check-out-cont-border">
                   <div className="check-out-cont">
-                    <p id="bk-form-input">CHECK-OUT</p>
+                    <p id="bk-form-input-check-out">CHECK-OUT</p>
                     <h4>
                       {this.state.booking.check_out === "" ||
                       this.state.booking.check_out ===
@@ -253,7 +253,7 @@ class BookingForm extends React.Component {
               </div>
               <div className="guests-dropdown">
                 <div className="guests-cont">
-                  <p id="bk-form-input">GUESTS</p>
+                  <p id="bk-form-input-guests">GUESTS</p>
                   <h4>{this.state.booking.guests || 2} {this.state.booking.guests === 1 ? "guests" : "guest"}</h4>
                 </div>
                 <div className="guest-ctrls-cont">
