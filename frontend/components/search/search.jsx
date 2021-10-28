@@ -59,7 +59,6 @@ class Search extends React.Component {
               <input
                 type="date"
                 name="check_in"
-                id=""
                 // value={this.state.check_in}
                 defaultValue={new Date().toISOString().slice(0, 10)}
                 min={new Date().toISOString().slice(0, 10)}
@@ -72,7 +71,6 @@ class Search extends React.Component {
               <input
                 type="date"
                 name="check_out"
-                id=""
                 // value={this.state.check_out}
                 // defaultValue={new Date().toISOString().slice(0, 10)}
                 defaultValue={tmrw()}

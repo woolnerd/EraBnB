@@ -185,7 +185,7 @@ listing4.photos.attach(io: file5, filename: '70s-69022894_478378582724747_447184
 
 
 listing6 = Listing.create({
-title: "Frank Llyod Wright Would Kill for This Place",    
+title: "Frank Lloyd Wright Would Kill for This Place",    
 description: "I am offering my Noho loft, one block from the Santa Monica pier. My apartment measures approximately 450 square feet and has 12' ceilings, new paint throughout, black hardwood floors and a washer/dryer. The bathroom is marble with clean white linens. There is a King-size Tempurpedic bed, a couch, wi-fi internet, A/C, stove, oven, microwave and everything you may need for a comfortable stay in the city.",
 era_theme: "80's", 
 address: "402 Marguerita Ave, Santa Monica, CA 90402", 
