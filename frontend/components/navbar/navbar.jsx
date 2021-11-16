@@ -1,23 +1,27 @@
 import React from 'react';
+import SearchContainer from './search/search';
+import MenuContainer from './menu/menu_container';
+import {FaSuitcaseRolling} from 'react-icons/fa';
+import {AiOutlineFieldTime} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ currentUser, logout}) => {
-
-    const sessionLinks = () => (
-        <nav className="login-signup">
-            <Link to="/login">Login</Link>
-            <br />
-            <Link to="/signup">Sign up</Link>
-        </nav>
-    );
-
-    const welcomeUser = () => (
-        <section className="header-section">
-            <h2 className="header-name">Welcome back, {currentUser.first_name}!</h2>
-            <button className="header-btn" onClick={logout}>Log Out</button>
-        </section> 
-    );
-    return !currentUser ? sessionLinks() : welcomeUser();
+const NavBar = () => {
+    <>
+        <header className="header-container">
+        <Link to="/">
+            <div className="logo">
+            <h3>Era bnb</h3>
+            <div className="logos">
+                <AiOutlineFieldTime className="time-icon"/>
+                <FaSuitcaseRolling className="luggage-icon"/>
+            </div>
+            </div>
+        </Link>
+        <SearchContainer />
+        <MenuContainer />
+        </header>
+        <div className="cushion"> </div>
+    </>
 };
 
 

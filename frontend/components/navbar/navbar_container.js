@@ -3,7 +3,6 @@ import { logout } from '../../actions/session_actions';
 import NavBar from './navbar';
 
 const mSTP = ({entities, session}) => ({
-    // currentUser: users[session.id]
     currentUser: entities.users[session.id]
 });
 
