@@ -110,19 +110,6 @@ class Listing extends React.Component {
     );
 
     
-    // for (let i = 0; i <= 5 - listing.photoUrl.length;i++){
-    //        <img
-    //       key={i}
-    //       src={listing.photoUrl[i]}
-    //       alt="listing-photo"
-    //       className="listing-img"
-    //       id={idx === 0 ? "main-photo" : ""}
-    //     />
-    // }
-      
-
-    
-
 
     const bookings = listing.bookings.length ? (
       listing.bookings.map((booking, idx) => {

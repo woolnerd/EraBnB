@@ -15,7 +15,6 @@ const mSTP = ({entities, session, errors}, ownProps) => {
         listing_id: parseInt(ownProps.match.params.listingId),
       },
       errors: errors,
-      // userBookings: entities.users[session.id].user_bookings,
     };
 };
 

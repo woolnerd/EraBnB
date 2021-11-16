@@ -25,19 +25,6 @@ class EditListingForm extends React.Component {
     };
   }
 
-  //for file preview of selected photos
-  // handleFile(e) {
-  //   e.preventDefault()
-  //   const file = e.currentTarget.files[0];
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({ photoFile: file, photoUrl: fileReader.result });
-  //   };
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //       }
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     
@@ -251,7 +238,6 @@ handleCancel(){
                 </div>
               </div>
                 {this.renderErrors()}
-              {/* <img src="" height="200" alt="Image preview..." /> */}
               <div className="listing-form-photo">
                 <label>Upload Photos (5 photos minimum)</label>
                 <input
@@ -260,7 +246,6 @@ handleCancel(){
                   onChange={(e) => this.setState({ photos: e.target.files })}
                   multiple
                 />
-                {/* {preview} */}
               </div>
               <input
                 className="session-submit"

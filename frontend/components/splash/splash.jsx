@@ -27,11 +27,6 @@ class Splash extends React.Component {
     }
   }
 
-  // handleFlexible(){
-  //   props.fetchListing(globalThis.flexible).then(
-  //   props.history.push(`/listings/${globalThis.flexible}`))
-  // }
-
 
 render(){
   return (
@@ -39,7 +34,6 @@ render(){
     <Link to="/listings">
       <main
         id="splash1"
-        // style={{ backgroundImage: "url(" + modernSunsetPic + ")" }}
       >
         <div className="flexible-banner">
           <div className="banner-container">

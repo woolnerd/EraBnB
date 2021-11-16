@@ -2,7 +2,6 @@ import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
-// import { Redirect } from 'react-router-dom';
 
 class ListingForm extends React.Component {
   constructor(props) {
@@ -19,18 +18,6 @@ class ListingForm extends React.Component {
     };
   }
 
-  //for file preview of selected photos
-  // handleFile(e) {
-  //   e.preventDefault()
-  //   const file = e.currentTarget.files[0];
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({ photoFile: file, photoUrl: fileReader.result });
-  //   };
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //       }
-  // }
 
   handleSubmit(e) {
     e.preventDefault();

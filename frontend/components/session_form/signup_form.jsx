@@ -60,7 +60,6 @@ class SignupForm extends React.Component {
           <br />
           <p>Please {this.props.formType}</p>
 
-          {/* <div className="signup-form"> */}
           <div className="signup-email">
             <label>Email</label>
             <input
@@ -68,7 +67,6 @@ class SignupForm extends React.Component {
               value={this.state.email}
               onChange={this.update("email")}
               className="signup-input"
-              // placeholder="Email"
               valid="email"
               required
             />
@@ -80,7 +78,6 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.update("password")}
               className="signup-input"
-              // placeholder="Password"
               min="6"
               required
             />
@@ -93,7 +90,6 @@ class SignupForm extends React.Component {
               onChange={this.update("first_name")}
               className="signup-input"
               required
-              // placeholder="First Name"
             />
           </div>
           <div className="signup-last-name">
@@ -104,7 +100,6 @@ class SignupForm extends React.Component {
               onChange={this.update("last_name")}
               className="signup-input"
               required
-              // placeholder="Last Name"
             />
           </div>
           <div className="signup-form-dob">
@@ -133,7 +128,6 @@ class SignupForm extends React.Component {
             type="submit"
             value={this.props.formType}
           />
-          {/* </div> */}
           <input
             className="session-submit"
             id="signup-demouser"

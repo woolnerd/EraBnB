@@ -7,10 +7,8 @@ import LoginForm from './login_form';
 
 
 const mSTP = ({ errors }) => ({
-    //maybe add session to error? 
     errors,
     formType: 'login',
-    // navLink: <Link to="/">sign up</Link>,
 });
 
 

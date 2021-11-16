@@ -17,17 +17,6 @@ class Listings extends React.Component {
 
     }
 
-    // noResults(){
-    //     if (this.noResults) {
-
-    //         return (
-    //         <div className="no-results">
-    //             <h3>That search did not return any results</h3>
-    //             <Link className="no-results-btn" to="/listings">Click <span className="classy-btn">here</span> for all listings</Link>
-    //         </div>
-    //         )
-    //     }
-    // }
 
     componentDidUpdate(){
         if (!this.props.listings.length && this.noResults === false) {
@@ -51,13 +40,6 @@ class Listings extends React.Component {
                 <div className="listing-map-flex">
                     <div className="listings-container">
                         {listings} 
-                        {/* {this.state.noResults ? 
-                        <div className="no-results">
-                            <h3>That search did not return any results</h3>
-                            <Link className="no-results-btn" to="/listings">Click <span className="classy-btn">here</span> for all listings</Link>
-                        </div>
-                        : null        
-                    } */}
                     </div>
                     <MapContainer />
                 </div>
