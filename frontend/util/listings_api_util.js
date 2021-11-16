@@ -14,7 +14,6 @@ export const fetchSearchListings = (query) => (
   })
 )
 
-
 export const fetchListing = listingId => (
     $.ajax({
         method: 'GET',
@@ -41,7 +40,6 @@ export const updateListing = (formData, listingId) => (
     processData: false,
   })
 )
-
 
 export const deleteListing = listingId => (
     $.ajax({
