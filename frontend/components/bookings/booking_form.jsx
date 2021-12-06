@@ -1,5 +1,4 @@
 import React from "react";
-// import { DateRange } from "react-date-range";
 import { parseISO, differenceInCalendarDays } from "date-fns";
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
@@ -138,14 +137,14 @@ class BookingForm extends React.Component {
       const total =
         guestCharge + rate * nights + cleanFee + Number((rate * 0.085).toFixed(2)) + servFee;
       const taxesFees = Number((rate * 0.085).toFixed(2));
-
+        //Dollar signs are not for string interpolation, but to be rendered as prices
       return (
         <div className="reserve">
           <div>
             <h4>
               ${rate} x {nights} nights
             </h4>
-            <h4>${rate * nights}</h4>
+            <h4>{rate * nights}</h4>
           </div>
           <div>
             <h4>Cleaning fee</h4>
@@ -160,7 +159,7 @@ class BookingForm extends React.Component {
             <h3>${total}</h3>
           </div>
         </div>
-      );
+      )
     }
   }
 
