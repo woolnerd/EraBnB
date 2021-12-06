@@ -8,6 +8,7 @@ import SplashContainer from './splash/splash';
 import ListingFormContainer from './listings/listing_form_container';
 import EditListingFormContainer from './listings/edit_form_container'
 import BookingContainer from './bookings/booking_container';
+import NavBar from '../components/navbar/navbar'
 import { Footer } from './footer/footer';
 import { Route } from 'react-router-dom';
 
