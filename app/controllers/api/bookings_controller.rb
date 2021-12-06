@@ -17,8 +17,6 @@
 
     def show 
         @booking = Booking.find(params[:id])
-        # @booking = Booking.with_attached_photos.find(params[:id])
-
         render :show
     end
 

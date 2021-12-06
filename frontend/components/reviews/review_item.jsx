@@ -47,18 +47,6 @@ class ReviewItem extends React.Component {
       this.props.updateReview(this.state.review)
     }
 
-      // this.props.updateReview(this.state.review)
-      //   .then(
-      //     setTimeout(() => this.props.fetchListing(this.props.listingId), 50)
-      //   )
-      //   .then(
-      //     this.state.errors.length > 0
-      //       ? this.setState({ toggleEdit: true }, () =>
-      //           this.props.clearReviewErrors()
-      //         )
-      //       : this.setState({ toggleEdit: false })
-      //   );
-    
   }
 
 
@@ -92,8 +80,6 @@ class ReviewItem extends React.Component {
     reviewDate = reviewDate[1] + " " + reviewDate[3]
     return (
       <>
-        {/* <h2>{review.rating}/5 stars</h2> */}
-        {/* <h4>{review.body}</h4> */}
         <p className="author-review">
           {
             Object.values(review_authors).filter(
@@ -106,7 +92,6 @@ class ReviewItem extends React.Component {
 
         {this.props.currentUser === review.author_id ? (
           this.state.toggleEdit ? (
-            // true
             <div className="update-review-inputs">
               <textarea
                 placeholder="What did you think?"

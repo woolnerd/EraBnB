@@ -8,7 +8,6 @@ class CreateReviewForm extends React.Component {
     super(props);
 
     this.state = this.props.newReview;
-    // this.state.openReviewForm = this.props.openReviewForm;
   }
 
   componentDidMount() {
@@ -61,7 +60,6 @@ class CreateReviewForm extends React.Component {
         <AiOutlineCloseCircle className="close-review-form" onClick={()=>this.props.toggleReviewForm()}/>
         <div>
           <h4 id="your-stay">How was your stay?</h4>
-          {/* <h4>{this.state.rating}</h4> */}
         </div>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <textarea onChange={this.update("body")} placeholder="It was the best of times..."/>

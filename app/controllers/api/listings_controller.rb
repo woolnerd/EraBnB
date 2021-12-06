@@ -56,10 +56,6 @@ class Api::ListingsController < ApplicationController
         desired_check_out = Date.parse(params[:query][:check_out])
 
         if address != ""
-            # @listings = Listing.with_attached_photos.where("address LIKE :query", query: "%"+address+"%")
-            #                     .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase+"%"))
-            #                     .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.upcase+"%"))
-            #                     .or(Listing.with_attached_photos.where("address LIKE :query", query: "%"+address.downcase.titleize+"%"))
             @listings = @listings.where("address LIKE :query", query: "%"+address+"%")
                                 .or(@listings.where("address LIKE :query", query: "%"+address.downcase+"%"))
                                 .or(@listings.where("address LIKE :query", query: "%"+address.upcase+"%"))
@@ -106,21 +102,5 @@ class Api::ListingsController < ApplicationController
                                         photos: [] 
                                         )
     end
-
-    def available?(check_in, check_out, occupied_start, occupied_end)
-        check_in, check_out = Date.parse(check_in), Date.parse(check_out)
-        occupied = occupied_start..occupied_end
-        return false if occupied.include?(check_in)
-        return false if occupied.include?(check_out)
-        true
-    end
-
-   
-    def address_search(address)
-
-    end
-
-
-
 
 end
