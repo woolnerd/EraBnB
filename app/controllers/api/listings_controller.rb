@@ -5,7 +5,7 @@ class Api::ListingsController < ApplicationController
         @listings = Listing.with_attached_photos.all
         render "api/listings/index"
     end
-
+ 
     def create 
         @listing = Listing.new(listing_params)
         @host = @listing.host

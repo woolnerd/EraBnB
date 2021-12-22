@@ -265,13 +265,6 @@ class BookingForm extends React.Component {
                       value={this.state.booking.guests}
                       placeholder="2"
                     />
-                    {/* <div className="minus-guest">
-                      <p>-</p>
-                    </div>
-                    <div className="guest-count">4</div>
-                    <div className="add-guest">
-                      <p>+</p> */}
-                    {/* </div> */}
                   </div>
                 </div>
               </div>
