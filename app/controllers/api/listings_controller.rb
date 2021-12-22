@@ -31,7 +31,9 @@ class Api::ListingsController < ApplicationController
     def update 
         @listing = Listing.find(params[:id])
         @host = @listing.host
-        if @listing && @listing.update(listing_params)
+        if cannot_edit(@listing)
+            render json: @listing.errors.full_messages, status: 401
+        elsif @listing && @listing.update(listing_params)
             render :show
         else 
             render json: @listing.errors.full_messages, status: 404
@@ -40,7 +42,9 @@ class Api::ListingsController < ApplicationController
 
     def destroy
         @listing = Listing.find(params[:id])
-        if @listing 
+        if cannot_edit(@listing)
+            render json: @listing.errors.full_messages, status: 401
+        elsif @listing 
             @listing.destroy
             @listings = Listing.with_attached_photos.all
            render :index
@@ -85,6 +89,10 @@ class Api::ListingsController < ApplicationController
     end
 
     private 
+
+    def cannot_edit(listing)
+        listing.host_id != current_user.id
+    end
 
     def listing_params
         params.require(:listing).permit(:title,
