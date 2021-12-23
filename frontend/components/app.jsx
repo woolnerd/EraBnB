@@ -18,7 +18,7 @@ const App = () => (
     <Modal />
     <NavBar />
     <Route exact path="/" flexible={Window.flexible} component={SplashContainer} />
-    <Route exact path={`/search`} component={ListingsIndexContainer} />
+    <Route exact path={`/flexible`} component={ListingContainer} />
     <Route exact path={`/listings/:listingId`} component={ListingContainer} />
     <Route exact path="/listings" component={ListingsIndexContainer} />
     <ProtectedRoute exact path="/new/listing" component={ListingFormContainer} />

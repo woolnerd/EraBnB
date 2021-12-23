@@ -14,6 +14,13 @@ export const fetchSearchListings = (query) => (
   })
 )
 
+export const fetchFlexListing = () => (
+  $.ajax({
+    method: "GET",
+    url: "/api/flexible",
+  })
+)
+
 export const fetchListing = listingId => (
     $.ajax({
         method: 'GET',

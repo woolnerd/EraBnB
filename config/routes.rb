@@ -8,11 +8,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :update, :destroy, :show, :index]
     
     get 'flexible' => 'listings#flexible'
-    # get 'search' => 'listings#search'
-    # get 'search' => 'listings#index'
-    # post 'search_index' => 'listings#search_index'
+    # get 'flexible', to: 'listings#flexible'
+    
   end
-
+  
 
   root "static_pages#root"
 end

@@ -8,14 +8,13 @@ class Api::ListingsController < ApplicationController
             search()
         end 
 
-
         render "api/listings/index"
     end
  
     def flexible
         debugger
         listing_id = Listing.flexible()
-        redirect_to `api/listings/#{listing_id}`
+        redirect_to api_listing_url(listing_id)
     end
 
     def create 

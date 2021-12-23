@@ -2,14 +2,13 @@ import React from "react";
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
-import { fetchListing, fetchSearchListings } from "../../actions/listing_actions";
+import { fetchListing, fetchSearchListings, fetchFlexListing } from "../../actions/listing_actions";
 const qs = require("query-string");
 
 
 class Splash extends React.Component {
   constructor(props){
     super(props);
-
   }
 
   handleSubmit(era_theme){
@@ -29,7 +28,8 @@ class Splash extends React.Component {
 
   handleFlexible(e){
     e.preventDefault();
-    this.props.history.push(`/users/${this.props.currentUser}`);
+    console.log("test");
+    this.props.history.push(`/listings/${flexible[Math.floor(Math.random() * flexible.length)]}`)
   }
 
 render(){
