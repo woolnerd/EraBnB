@@ -10,7 +10,6 @@ import {BiHomeAlt} from 'react-icons/bi';
 import {FaUmbrellaBeach} from 'react-icons/fa'; 
 import {FaHandSparkles} from 'react-icons/fa';
 import { MdOutlineHealthAndSafety } from 'react-icons/md';
-import { differenceInCalendarDays, parseISO } from 'date-fns'
 
 class Listing extends React.Component {
   constructor(props) {
@@ -54,13 +53,6 @@ class Listing extends React.Component {
     this.state.shrinkBookingForm
       ? this.setState({ shrinkBookingForm: false })
       : this.setState({ shrinkBookingForm: true });
-  }
-
-  bookedWithin14Days(){
-    let lastBooking = this.props.listing.bookings.map(el => el.check_out).sort()
-    lastBooking = lastBooking[lastBooking.length-1]
-    differenceInCalendarDays(parseISO(lastBooking), parseISO(Date.now))
-    
   }
 
 
@@ -281,17 +273,17 @@ class Listing extends React.Component {
             currentUser !== null &&
             listing.host_id !== currentUser ? (
             <div className="leave-review-link">
-                {/* <h4>We see you've booked this listing in the last two weeks!</h4>  */}
-                <h4>
-                  Click{" "}
-                  <span
-                    className="review-link"
-                    onClick={() => this.toggleReviewForm()}
-                  >
-                    here
-                  </span>{" "}
-                  to leave a review
-                </h4> 
+              <h4>We see you've booked this listing in the last two weeks!</h4>
+              <h4>
+                Click{" "}
+                <span
+                  className="review-link"
+                  onClick={() => this.toggleReviewForm()}
+                >
+                  here
+                </span>{" "}
+                to leave a review
+              </h4>
               <CreateReviewFormContainer
                 forceReload={this.forceReload.bind(this)}
                 openReviewForm={this.state.openReviewForm}

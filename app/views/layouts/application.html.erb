@@ -32,7 +32,7 @@
       window.userCircle = '<%= image_url('user-male-circle.png') %>'
       window.menu = '<%= image_url('icons8-menu-50.png') %>'
       window.mountains ='<%= image_url('clip-983.png') %>'
-      window.flexible = <%= Listing.all.map {|listing| listing.id} %>
+      window.flexible = '<%= Listing.all.map {|listing| listing.id}.sample %>'
     </script>
   
   </head>
