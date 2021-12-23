@@ -9,15 +9,8 @@ export const fetchListings = (query) => (
 export const fetchSearchListings = (query) => (
   $.ajax({
     method: "GET",
-    url: "/api/listings",
+    url: "/api/search",
     data: { query },
-  })
-)
-
-export const fetchFlexListing = () => (
-  $.ajax({
-    method: "GET",
-    url: "/api/flexible",
   })
 )
 

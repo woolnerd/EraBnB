@@ -3,18 +3,7 @@ class Api::ListingsController < ApplicationController
 
     def index 
         @listings = Listing.with_attached_photos.all
-
-        if params[:query]
-            search()
-        end 
-
         render "api/listings/index"
-    end
- 
-    def flexible
-        debugger
-        listing_id = Listing.flexible()
-        redirect_to api_listing_url(listing_id)
     end
 
     def create 
@@ -42,9 +31,7 @@ class Api::ListingsController < ApplicationController
     def update 
         @listing = Listing.find(params[:id])
         @host = @listing.host
-        if cannot_edit(@listing)
-            render json: @listing.errors.full_messages, status: 401
-        elsif @listing && @listing.update(listing_params)
+        if @listing && @listing.update(listing_params)
             render :show
         else 
             render json: @listing.errors.full_messages, status: 404
@@ -53,9 +40,7 @@ class Api::ListingsController < ApplicationController
 
     def destroy
         @listing = Listing.find(params[:id])
-        if cannot_edit(@listing)
-            render json: @listing.errors.full_messages, status: 401
-        elsif @listing 
+        if @listing 
             @listing.destroy
             @listings = Listing.with_attached_photos.all
            render :index
@@ -64,13 +49,8 @@ class Api::ListingsController < ApplicationController
         end 
     end
 
-    private 
-
-    def cannot_edit(listing)
-        listing.host_id != current_user.id
-    end
-
     def search
+        @listings = Listing.all
         address = params[:query][:address]
         desired_check_in = Date.parse(params[:query][:check_in])
         desired_check_out = Date.parse(params[:query][:check_out])
@@ -100,7 +80,11 @@ class Api::ListingsController < ApplicationController
         if params[:query][:era_theme] != ""
             @listings = @listings.select {|listing| listing.era_theme == params[:query][:era_theme] }
         end
+
+        render "api/listings/index"
     end
+
+    private 
 
     def listing_params
         params.require(:listing).permit(:title,

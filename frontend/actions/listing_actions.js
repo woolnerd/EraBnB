@@ -56,12 +56,6 @@ export const fetchListing = (listingId) => (dispatch) =>
     (error) => dispatch(receiveErrors(error.responseJSON))
   );
 
-export const fetchFlexListing = () => (dispatch) =>
-  APIListingUtil.fetchFlexListing().then(
-    (listing) => dispatch(receiveListing(listing)),
-    (error) => dispatch(receiveErrors(error.responseJSON))
-);
-
 export const createListing = (formData) => dispatch => {
     return (
       APIListingUtil.createListing(formData)
