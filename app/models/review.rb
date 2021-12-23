@@ -11,9 +11,15 @@ class Review < ApplicationRecord
         class_name: :User
 
     def author_must_have_booked
-        if listing.bookings.none? {|booking| booking.booker_id == author_id}
+        authors_bookings = listing.bookings.select {|booking| booking.booker_id == author_id}
+        most_recent_day = authors_bookings.map {|booking| booking.check_out}.sort()[-1] 
+        
+        if authors_bookings.empty?
             errors.add(:base, "Sorry, you cannot leave a review without booking")
-        end 
+        elsif Date.today - most_recent_day > 14 
+            errors.add(:base, "Sorry, you cannot leave a review after 14 days")
+        end
+        
     end
 
 end
