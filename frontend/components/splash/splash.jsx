@@ -27,6 +27,10 @@ class Splash extends React.Component {
     }
   }
 
+  handleFlexible(e){
+    e.preventDefault();
+    this.props.history.push(`/users/${this.props.currentUser}`);
+  }
 
 render(){
   return (
@@ -40,8 +44,8 @@ render(){
             <h2>Not sure where to go? Perfect.</h2>
             <span>
               <button className="flexible-btn" 
-             
-              >I'm flexible
+                onClick={(e)=>this.handleFlexible(e)}
+                >I'm flexible
               </button>
             </span>
           </div>

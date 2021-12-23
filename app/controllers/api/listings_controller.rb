@@ -3,9 +3,21 @@ class Api::ListingsController < ApplicationController
 
     def index 
         @listings = Listing.with_attached_photos.all
+
+        if params[:query]
+            search()
+        end 
+
+
         render "api/listings/index"
     end
  
+    def flexible
+        debugger
+        listing_id = Listing.flexible()
+        redirect_to `api/listings/#{listing_id}`
+    end
+
     def create 
         @listing = Listing.new(listing_params)
         @host = @listing.host
@@ -53,8 +65,13 @@ class Api::ListingsController < ApplicationController
         end 
     end
 
+    private 
+
+    def cannot_edit(listing)
+        listing.host_id != current_user.id
+    end
+
     def search
-        @listings = Listing.all
         address = params[:query][:address]
         desired_check_in = Date.parse(params[:query][:check_in])
         desired_check_out = Date.parse(params[:query][:check_out])
@@ -84,14 +101,6 @@ class Api::ListingsController < ApplicationController
         if params[:query][:era_theme] != ""
             @listings = @listings.select {|listing| listing.era_theme == params[:query][:era_theme] }
         end
-
-        render "api/listings/index"
-    end
-
-    private 
-
-    def cannot_edit(listing)
-        listing.host_id != current_user.id
     end
 
     def listing_params

@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     resources :listings, only: [:create, :update, :destroy, :show, :index]
     resources :bookings, only: [:create, :update, :destroy, :show, :index]
     resources :reviews, only: [:create, :update, :destroy, :show, :index]
-
-    get 'search' => 'listings#search'
-    post 'search_index' => 'listings#search_index'
+    
+    get 'flexible' => 'listings#flexible'
+    # get 'search' => 'listings#search'
+    # get 'search' => 'listings#index'
+    # post 'search_index' => 'listings#search_index'
   end
 
 
