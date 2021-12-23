@@ -3,7 +3,7 @@ class Listing < ApplicationRecord
     validates :description, :era_theme, :address, presence: true
     validates :num_bedrms, :num_baths, numericality: {greater_than_or_equal_to: 1}, presence: true 
     validates :price, :clean_fee, :service_fee,  numericality: {greater_than_or_equal_to: 0}, presence: true
-    
+
 
 
     belongs_to :host,
@@ -25,9 +25,9 @@ class Listing < ApplicationRecord
     #     listings.select { |listing| listing.era_theme == era }
     # end
     
-    # def self.flexible
-    #     Listing.all.map {|listing| listing.id}.sample
-    # end
+    def self.flexible
+        Listing.all.map {|listing| listing.id}.sample
+    end
 
 end
 
