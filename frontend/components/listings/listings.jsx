@@ -1,7 +1,6 @@
 import React  from "react";
 import {ListingIndexItem} from './listing_index_item';
 import  MapContainer from '../map/map_container';
-import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
     constructor(props){
@@ -11,10 +10,7 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-            if (this.props.location.pathname !== "/search") {
-                this.props.fetchListings();
-            }
-
+        this.props.fetchListings();
     }
 
 

@@ -16,7 +16,8 @@ class Search extends React.Component {
       address: "",
       check_in: new Date().toISOString().slice(0, 10),
       check_out: new Date().toISOString().slice(0, 10),
-      era_theme: ""    };
+      era_theme: ""
+    };
   }
 
   update(field) {
@@ -31,7 +32,7 @@ class Search extends React.Component {
       this.props.location.search = (`address=${this.state.address}&check_in=${this.state.check_in}&check_out=${this.state.check_out}&era_theme=${this.state.era_theme}`);
       const query = qs.parse(this.props.location.search)
       this.props.searchListings(query)
-      .then(this.props.history.push('/search'))    
+      .then(this.props.history.push('/listings'))    
       this.setState({address: ""})
   }
 
