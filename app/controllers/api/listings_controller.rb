@@ -12,7 +12,6 @@ class Api::ListingsController < ApplicationController
     end
  
     def flexible
-        debugger
         listing_id = Listing.flexible()
         redirect_to api_listing_url(listing_id)
     end
