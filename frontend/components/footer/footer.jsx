@@ -42,7 +42,7 @@ export const Footer = () => (
         <li className="top-col">Past Projects</li>
         <li>
           {" "}
-          <a href="https://nyc-cinemap.herokuapp.com/" target="_blank">
+          <a href="https://nyc-cinemap.cyclic.app/" target="_blank">
             NYC Cinemap
           </a>
         </li>
@@ -56,5 +56,3 @@ export const Footer = () => (
     </div>
   </div>
 );
-
-
