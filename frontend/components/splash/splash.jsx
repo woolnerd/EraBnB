@@ -15,7 +15,7 @@ class Splash extends React.Component {
       this.props.location.search = (`address=${""}&check_in=${new Date()}&check_out=${new Date()}&era_theme=${era_theme}`);
       const query = qs.parse(this.props.location.search)
       this.props.fetchEraListings(query)
-      .then(this.props.history.push('/search'))    
+      .then(this.props.history.push('/search'))
   }
 
   handleHost(){
@@ -43,7 +43,7 @@ render(){
           <div className="banner-container">
             <h2>Not sure where to go? Perfect.</h2>
             <span>
-              <button className="flexible-btn" 
+              <button className="flexible-btn"
                 onClick={(e)=>this.handleFlexible(e)}
                 >I'm flexible
               </button>
@@ -114,7 +114,7 @@ render(){
     )
   }
 
-  
+
 
 }
 

@@ -1,5 +1,5 @@
 FROM ruby:2.7.3
-RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client
+RUN apt-get update -qq && apt-get install -y npm nodejs postgresql-client
 WORKDIR /erabnb
 COPY Gemfile /erabnb/Gemfile
 COPY Gemfile.lock /erabnb/Gemfile.lock
