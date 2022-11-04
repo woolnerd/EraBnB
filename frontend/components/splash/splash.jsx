@@ -28,7 +28,6 @@ class Splash extends React.Component {
 
   handleFlexible(e){
     e.preventDefault();
-    console.log("test");
     this.props.history.push(`/listings/${flexible[Math.floor(Math.random() * flexible.length)]}`)
   }
 

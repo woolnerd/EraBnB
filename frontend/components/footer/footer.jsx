@@ -15,7 +15,7 @@ export const Footer = () => (
         <li>
           {" "}
           <a href="https://www.linkedin.com/in/david-woolner/" target="_blank">
-            LinkdIn
+            LinkedIn
           </a>
         </li>
         <li>
