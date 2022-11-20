@@ -2,9 +2,8 @@ import React from "react";
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
-import { fetchListing, fetchSearchListings, fetchFlexListing } from "../../actions/listing_actions";
+import { fetchListing, fetchSearchListings } from "../../actions/listing_actions";
 const qs = require("query-string");
-
 
 class Splash extends React.Component {
   constructor(props){
@@ -13,9 +12,8 @@ class Splash extends React.Component {
 
   handleSubmit(era_theme){
       this.props.location.search = (`address=${""}&check_in=${new Date()}&check_out=${new Date()}&era_theme=${era_theme}`);
-      const query = qs.parse(this.props.location.search)
-      this.props.fetchEraListings(query)
-      .then(this.props.history.push('/search'))    
+      const query = qs.parse(this.props.location.search);
+      this.props.fetchEraListings(query).then(this.props.history.push('/era-search'));
   }
 
   handleHost(){
@@ -28,7 +26,6 @@ class Splash extends React.Component {
 
   handleFlexible(e){
     e.preventDefault();
-    console.log("test");
     this.props.history.push(`/listings/${flexible[Math.floor(Math.random() * flexible.length)]}`)
   }
 
@@ -43,7 +40,7 @@ render(){
           <div className="banner-container">
             <h2>Not sure where to go? Perfect.</h2>
             <span>
-              <button className="flexible-btn" 
+              <button className="flexible-btn"
                 onClick={(e)=>this.handleFlexible(e)}
                 >I'm flexible
               </button>
@@ -114,7 +111,7 @@ render(){
     )
   }
 
-  
+
 
 }
 

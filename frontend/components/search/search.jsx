@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSearchListings } from '../../actions/listing_actions';
 import { withRouter } from 'react-router-dom';
-import {BiSearch} from 'react-icons/bi'
+import { BiSearch } from 'react-icons/bi'
 import { addDays} from "date-fns";
 
 const qs = require("query-string");
@@ -32,7 +32,7 @@ class Search extends React.Component {
       this.props.location.search = (`address=${this.state.address}&check_in=${this.state.check_in}&check_out=${this.state.check_out}&era_theme=${this.state.era_theme}`);
       const query = qs.parse(this.props.location.search)
       this.props.searchListings(query)
-      .then(this.props.history.push('/listings'))    
+      .then(this.props.history.push('/search'))
       this.setState({address: ""})
   }
 
