@@ -17,12 +17,15 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  # host: db
   # username: Era_bnb
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  username: postgres
-  password: password
+  # username: postgres
+  # password: password
+  Hostname:    lively-meadow-9486-db.internal
+  Username:    postgres
+  Password:    zRhX9Gu1a4gE366
 
 
 development:
