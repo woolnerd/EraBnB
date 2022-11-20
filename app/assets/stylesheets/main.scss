@@ -1,30 +1,21 @@
-
-
 @import './utilities/variables';
 @import './utilities/functions';
 @import './utilities/mixins';
-
 @import 'vendors/default';
-
 @import './base/reset';
 @import './base/typography';
-
 @import './layout/footer';
 @import './layout/splash';
 @import './layout/listings';
 @import './layout/root';
 @import './layout/main_content';
 @import './layout/grid';
-
 @import './components/menu';
 @import './components/header';
 @import './components/modal';
 @import './components/map';
 @import './components/search';
-
 @import 'pages/user_profile';
 @import 'pages/listing';
 @import 'pages/booking_show';
 @import 'pages/reviews';
-
-
