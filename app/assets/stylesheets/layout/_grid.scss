@@ -2,16 +2,13 @@
 .grid-thumbs {
     display: flex;
     box-sizing: border-box;
-    // border: 1px red solid;
-    // background-color: yellow;
-    width: 284px; 
+    width: 284px;
     height: 72px;
     margin: 5%;
 
     div {
         height:72px;
         width: 72px;
-        // background-color: blue;
         background-image: url("https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=320");
         background-position: center;
         background-size: cover;
@@ -22,13 +19,10 @@
         justify-content: center;
         flex-direction: column;
         padding-left: 18px;
+
         h3 {
             padding-bottom: 5px;
             font-weight: 600;
-        }
-    
-        h4 {
-    
         }
     }
 }
@@ -39,14 +33,6 @@ h2 {
     padding: 20px;
     font-size: 30px;
 }
-// .grid-container {
-//     margin-left: 2%;
-//     /* width: 100%; */
-//     /* gap: 8px; */
-//     /* height: 300px; */
-//     display: grid;
-//     grid-template-columns: repeat(4, 1fr);
-// }
 
 .grid-container {
     margin-left: 2%;
@@ -59,59 +45,35 @@ h2 {
     height: 150px;
     align-items: center;
 }
-// .large-thumbs-container {
-//     display: flex;
-//     width: 100%;
-//     justify-content: space-around;
-//     min-width: 1250px;
-//     max-width: 1350px;
-//     margin: 0 auto;
-// }
 
 .large-thumbs-container {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    /* max-width: 1650px; */
-    /* overflow-x: scroll; */
     margin: 0 auto;
     flex-wrap: wrap;
 }
 
 .large-thumbs {
-    // border: 1px blue solid;
     height: 300px;
     width: 300px;
     border-radius: 5px;
-    // background-color: greenyellow;
     margin-left: 2%;
     margin-right: 2%;
-    // background-image: url("https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=320");
     background-position: center;
     background-size: cover;
     box-shadow: 11px 9px 22px -8px rgba(0,0,0,0.85);
 }
 
-// div>h3 {
-//     padding-top: 15px;
-//     padding-left: 15px;
-//     font-weight: 500;
-// }
-
 .lower-third {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // border: 1px green solid;
     margin: 50px auto;
     width: 80%;
     height: 300px;
-    // background-color: fuchsia;
-    // background-image: url("https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=320");
-    // background-repeat: repeat-x;
     background-size: cover;
     background-position-y: -200px ;
-    // background-position-x: 200px;
     border-radius: 20px;
     min-width: 964px;
     margin: 4rem auto;
@@ -121,14 +83,12 @@ h2 {
         padding-top: 3%;
         font-size: 27px;
         font-weight: 500;
-        // color:antiquewhite;
         box-sizing: 11px 9px 22px -8px rgba(0,0,0,0.85);
     }
     span {
         padding-left: 4%;
         padding-top: 10px;
         padding-bottom: 10px;
-        // margin-bottom: 50px;
     }
 
     button {
@@ -147,36 +107,31 @@ h2 {
 }
 
 @media only screen and (max-width: 1500px) {
-.large-thumbs-container div {
-    width: 200px;
-    height: 200px;
-}
+    .large-thumbs-container div {
+        width: 200px;
+        height: 200px;
+    }
 
-.large-thumbs-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    min-width: 1100px;
-    max-width: 1250px;
-    /* overflow-x: scroll; */
-    margin: 0 auto;
-    flex-wrap: wrap;
-    /* height: 34rem; */
-}
+    .large-thumbs-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        min-width: 1100px;
+        max-width: 1250px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
 }
 
 @media only screen and (min-width: 1500px) {
-.large-thumbs-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    min-width: 1618px;
-    /* overflow-x: scroll; */
-    margin: 0 auto;
-    flex-wrap: wrap;
-    /* height: 34rem; */
-}
-
+    .large-thumbs-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        min-width: 1618px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
 }
 
 .large-thumbs-container div {

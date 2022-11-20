@@ -48,10 +48,6 @@
   width: 90%
 }
 
-.signup-form input {
-  // margin: 26px 12px
-}
-
 .session-submit {
   width: 100%;
   background-color:  #e01760;
@@ -75,15 +71,6 @@ input[value="Demo User"] {
   font-size: 20px;
   font-weight: 600;
   border: 1px #DDD solid;
-}
-
-.error-container{
-  // width: 400px;
-  // height: fit-content;
-  // border-radius: 20px;
-  // background-color: white;
-  // box-shadow: 12px 12px 8px rgba(0,0,0,.09);
-
 }
 
 .login-form-container .form-errors li {
@@ -162,27 +149,19 @@ input[value="Demo User"] {
 
 
 .login-email input[type="email"]:focus {
-    background-color: white !important;  
+    background-color: white !important;
     border:white;
 }
 
 .login-password input[type="password"]:focus {
-    background-color: white !important;  
+    background-color: white !important;
     border:white;
 }
-
-// .login-email:hover {
-//     border: 2px solid black;
-// }
-
-// .login-password:hover {
-//     border: 2px solid black;
-// }
 
 .signup-form-bio {
     border: 2px solid lightgray;
     border-radius: 0 0 15px 15px;
-    padding-bottom: 7px; 
+    padding-bottom: 7px;
 }
 
 .signup-form-dob, .signup-last-name, .signup-first-name, .signup-password {
@@ -190,13 +169,6 @@ input[value="Demo User"] {
     border-right: 2px solid lightgray;
     border-top: 2px solid lightgray;
 }
-
-// .signup-email  {
-//     border-left: 2px solid lightgray;
-//     border-right: 2px solid lightgray;
-//     border-top: 2px solid lightgray;
-//     border-radius: 15px 15px 0 0;
-// }
 
 .signup-email {
     border-top: 2px solid lightgray;
@@ -211,8 +183,6 @@ form.signup-form-box label {
     color: gray;
     padding-left: 3px;
 }
-
-
 
 form.signup-form-box input[type="email"] {
   font-size: 14px;

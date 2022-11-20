@@ -1,7 +1,6 @@
 #splash1 {
     height: 500px;
     background-image: url("https://erabnb-seed-data.s3.amazonaws.com/Era-theme-photos/50_4-233642-2000x1332-red-checked-kitchen.jpeg");
-    // background-image: {modernSunsetPic};
     background-size: cover;
     background-position: center;
     margin: 0 auto;
@@ -13,9 +12,6 @@
   display: grid;
   grid-column-start: 1;
   width: 100%;
-    // background-image: url("https://wallpapershome.com/images/pages/pic_h/4407.jpg");
-  // background-size: cover;
-  // background-position: center;
   margin: 0 auto;
 }
 
@@ -23,8 +19,6 @@
 
 div.flexible-banner {
   position: relative;
-//   display: flex;
-// flex-direction: column ;
 }
 
 .flexible-btn {
@@ -46,11 +40,8 @@ div.flexible-banner {
     font-size: 30px;
     padding-top: 13rem;
     padding-left: 32%;
-    // display: flex;
     flex-direction: column;
     color: whitesmoke;
-
- 
 }
 
 
@@ -59,8 +50,8 @@ div.flexible-banner {
     top: 0rem;
     right: 2rem;
 
-    h2 {
-          font-weight: 600;
+  h2 {
+    font-weight: 600;
     display: inline-block;
     padding: 20px;
     font-size: 30px;

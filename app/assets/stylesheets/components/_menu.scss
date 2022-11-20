@@ -1,28 +1,3 @@
-
-
-//before scroll
-// .search-btn-start  {
-//     position: absolute;
-//     left: 18rem;
-//     top: 6.15rem;
-//     height: 77%;
-//     border-radius: 34px;
-//     border: 1px solid #dcd9d9;
-//     cursor: pointer;
-//     padding: 0 25%;
-//     background-color: white;
-//     font-size: 1.5rem;
-//     color: #9d549f;
-// }
-
-// .search-btn{
-//     background: white;
-//     width: 25%;
-//     border-radius: 30px;
-//     border: 1px solid #dcd9d9;
-//     cursor: pointer;
-// }
-
 .menu-container {
     display: flex;
     justify-content: space-between;
@@ -33,10 +8,12 @@
     width: 52px;
     color: #6c6c6c;
 }
+
 svg.hamburger-btn {
     width: 18px;
     height: 16px;
 }
+
 svg.profile-icon {
     width: 28px;
     height: 30px;
@@ -61,10 +38,6 @@ svg.profile-icon {
     transition-duration: .25s;
     margin-right: 60px;
     cursor: pointer;
-    // display: flex;
-    // align-content: center;
-    // align-items: center;
-    // justify-content: center;
 }
 
 .menu:hover {
@@ -94,54 +67,35 @@ svg.profile-icon {
     box-shadow: 4px 4px 7px rgba(0, 0, 0, .13);
     transition-property: background-color;
 
-
-
-
     li {
-    padding: 10px;
-    /* margin-left: 8px; */
-    color: $navbar-profile-color;
-    width: 198px;
-    /* padding: 10px; */
-    box-sizing: border-box;
-    border-radius: inherit;
-    text-align: left;
+        padding: 10px;
+        color: $navbar-profile-color;
+        width: 198px;
+        box-sizing: border-box;
+        border-radius: inherit;
+        text-align: left;
     }
-
 
     a > li {
-    padding: 10px;
-    /* margin-left: 8px; */
-    color: $navbar-profile-color;
-    width: 198px;
-    /* padding: 10px; */
-    box-sizing: border-box;
-    border-radius: inherit;
-    text-align: left;
+        padding: 10px;
+        color: $navbar-profile-color;
+        width: 198px;
+        box-sizing: border-box;
+        border-radius: inherit;
+        text-align: left;
     }
-
-
-    
 }
-
-
-// .profile-link:hover {
-//            background-color: rgb(245, 243, 243);
-//             transition-duration: .10s;
-// }
-
 
 .click-bg {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    top: 0; 
-    
+    top: 0;
 }
 
-    div > a > li:hover, .menu-content > li:hover {
-            background-color: rgb(245, 243, 243);
-            transition-duration: .10s;
-            border-radius: 8px;
-    }
+div > a > li:hover, .menu-content > li:hover {
+    background-color: rgb(245, 243, 243);
+    transition-duration: .10s;
+    border-radius: 8px;
+}

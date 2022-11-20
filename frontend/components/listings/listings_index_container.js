@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchListings, fetchListing } from '../../actions/listing_actions';
+import { fetchListings, fetchListing, fetchSearchListings } from '../../actions/listing_actions';
 import Listings from './listings';
 
 const mSTP = ({ entities, session }) => ({

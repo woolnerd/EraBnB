@@ -58,13 +58,8 @@
 }
 
 .review-header-ratings {
-    // display: flex;
     align-items: baseline;
     font-size: 1.5rem;
-
-    // span {
-    //     margin-left: 1rem;
-    // }
 }
 
 .reviews-index-container span, .listing-heading span {
@@ -73,6 +68,7 @@
 
 span.review-link {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .review-and-star-cont {

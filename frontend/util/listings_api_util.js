@@ -1,9 +1,9 @@
 export const fetchListings = (query) => (
-    $.ajax({
-        method: 'GET',
-        url: '/api/listings',
-        data: { query }
-    })
+  $.ajax({
+      method: 'GET',
+      url: '/api/listings',
+      data: { query }
+  })
 );
 
 export const fetchSearchListings = (query) => (
@@ -33,7 +33,7 @@ export const createListing = (formData) => (
     method: "POST",
     url: `/api/listings/`,
     data: formData,
-    contentType: false, 
+    contentType: false,
     processData: false
   })
 )
@@ -54,4 +54,3 @@ export const deleteListing = listingId => (
         url: `/api/listings/${listingId}`,
     })
 )
-
